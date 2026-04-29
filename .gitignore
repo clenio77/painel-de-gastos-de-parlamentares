@@ -1,0 +1,7 @@
+.env
+candidatos.db
+__pycache__/
+*.pyc
+data_tse/
+scratch/
+.gemini/

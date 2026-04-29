@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVP-IA Dashboard — Monitoramento Parlamentar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--bg:#0a0e1a;--bg2:#111827;--card:#1a2035;--card-h:#1f2847;--brd:#2a3555;--t1:#e8eaf0;--t2:#8b95b0;--t3:#5a6580;--blue:#3b82f6;--purple:#8b5cf6;--cyan:#06b6d4;--green:#10b981;--yellow:#f59e0b;--red:#ef4444;--pink:#ec4899;--r:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow:hidden}
+body::before{content:'';position:fixed;inset:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(59,130,246,.04) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(139,92,246,.04) 0%,transparent 50%);z-index:0;animation:d 20s ease-in-out infinite alternate}
+@keyframes d{to{transform:translate(-2%,-1%) rotate(1deg)}}
+.c{position:relative;z-index:1;max-width:1440px;margin:0 auto;height:100vh;display:flex;flex-direction:column}
+
+/* Topo Fixo */
+.fixed-header{padding:20px 20px 0;background:rgba(10,14,26,0.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--brd)}
+.header-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+.header-info h1{font-size:28px;font-weight:800;background:linear-gradient(135deg,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:2px}
+.header-info p{color:var(--t2);font-size:12px;font-weight:500;letter-spacing:0.5px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);border-radius:100px;font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1px}
+.badge::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:p 2s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+
+.tabs{display:flex;gap:4px;background:var(--bg2);border-radius:12px;padding:4px;margin-bottom:20px;border:1px solid var(--brd)}
+.tab{flex:1;padding:8px;text-align:center;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:.2s;color:var(--t3);border:none;background:none}
+.tab:hover{color:var(--t1)}
+.tab.active{background:var(--card);color:var(--blue);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+
+/* Área de Conteúdo Rola */
+.main-content{flex:1;overflow-y:auto;padding:20px;scrollbar-width:thin;scrollbar-color:var(--brd) transparent}
+.main-content::-webkit-scrollbar{width:6px}
+.main-content::-webkit-scrollbar-thumb{background:var(--brd);border-radius:10px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:28px}
+.stat{background:var(--card);border:1px solid var(--brd);border-radius:var(--r);padding:20px;text-align:center;transition:.3s}
+.stat:hover{border-color:rgba(59,130,246,.3);transform:translateY(-2px)}
+.stat b{display:block;font-size:28px;font-weight:800;margin-bottom:2px}
+.stat small{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--t3)}
+.panel{display:none}.panel.active{display:block}
+.stitle{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--brd)}
+.stitle span:first-child{font-size:22px}
+.tag{margin-left:auto;font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(59,130,246,.1);color:var(--blue);border:1px solid rgba(59,130,246,.2)}
+
+/* Resto dos estilos mantidos... */
+.rk{display:grid;gap:10px;margin-bottom:36px}
+.pk{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:16px;background:var(--card);border:1px solid var(--brd);border-radius:var(--r);padding:16px 20px;transition:.3s;cursor:pointer}
+.pk:hover{background:var(--card-h);border-color:rgba(59,130,246,.3);transform:translateX(3px)}
+.pk__r{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;border-radius:10px;background:rgba(59,130,246,.1);color:var(--blue)}
+.pk:nth-child(1) .pk__r{background:linear-gradient(135deg,rgba(245,158,11,.2),rgba(245,158,11,.05));color:var(--yellow)}
+.pk:nth-child(2) .pk__r{background:rgba(156,163,175,.1);color:#9ca3af}
+.pk:nth-child(3) .pk__r{background:rgba(180,83,9,.1);color:#b45309}
+.pk__n{font-size:15px;font-weight:700}
+.pk__m{display:flex;gap:10px;font-size:11px;color:var(--t2);margin-top:4px;flex-wrap:wrap}
+.pk__m .tg{padding:1px 8px;border-radius:100px;font-size:10px;font-weight:600}
+.tg-c{background:rgba(6,182,212,.1);color:var(--cyan);border:1px solid rgba(6,182,212,.2)}
+.tg-s{background:rgba(139,92,246,.1);color:var(--purple);border:1px solid rgba(139,92,246,.2)}
+.pk__sc{display:flex;gap:16px;align-items:center}
+.sp{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:55px}
+.sp b{font-size:18px;font-weight:800}
+.sp small{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--t3)}
+.sh{color:var(--green)}.sm{color:var(--yellow)}.sl{color:var(--red)}
+.bar{width:100px;height:6px;background:rgba(255,255,255,.05);border-radius:100px;overflow:hidden;margin-top:2px}
+.bar div{height:100%;border-radius:100px;transition:width 1.2s ease}
+/* Expense detail */
+.detail{display:none;grid-column:1/-1;background:var(--bg2);border-radius:12px;padding:16px;margin-top:8px;border:1px solid var(--brd)}
+.detail.open{display:block}
+.detail h3{font-size:14px;font-weight:700;margin-bottom:12px;color:var(--cyan)}
+.exp-grid{display:grid;gap:6px;max-height:400px;overflow-y:auto}
+.exp-row{display:grid;grid-template-columns:1fr 2fr 1fr 100px;gap:8px;padding:8px 12px;background:var(--card);border-radius:8px;font-size:12px;align-items:center}
+.exp-row:hover{background:var(--card-h)}
+.exp-row .tipo{color:var(--cyan);font-weight:500}
+.exp-row .forn{color:var(--t2)}
+.exp-row .data{color:var(--t3);font-size:11px}
+.exp-row .val{text-align:right;font-weight:700;color:var(--yellow)}
+.exp-head{font-weight:700;color:var(--t3);text-transform:uppercase;font-size:10px;letter-spacing:.5px;background:transparent !important}
+.exp-head:hover{background:transparent !important}
+/* Gastos tab */
+.filt{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.filt select,.filt input{background:var(--card);border:1px solid var(--brd);color:var(--t1);padding:8px 12px;border-radius:8px;font-size:12px;font-family:inherit}
+.filt select:focus,.filt input:focus{outline:none;border-color:var(--blue)}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border-radius:var(--r);overflow:hidden;border:1px solid var(--brd)}
+.tbl th{background:var(--bg2);padding:12px 16px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);font-weight:600;cursor:pointer;user-select:none;border-bottom:1px solid var(--brd)}
+.tbl th:hover{color:var(--blue)}
+.tbl td{padding:10px 16px;font-size:12px;border-bottom:1px solid rgba(42,53,85,.5)}
+.tbl tr:hover td{background:var(--card-h)}
+.tbl .val{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.tbl .hi{color:var(--red)}.tbl .md{color:var(--yellow)}.tbl .lo{color:var(--green)}
+.tbl tr.suspeito td{background:rgba(239,68,68,.05)}
+.tbl tr.suspeito td:first-child{border-left:3px solid var(--red)}
+.cnpj{font-family:monospace;font-size:11px;color:var(--t3)}
+.srch{position:relative}.srch input{width:100%;padding-left:32px}
+.srch::before{content:'🔍';position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:12px}
+/* Fornecedores */
+.forn-card{background:var(--card);border:1px solid var(--brd);border-radius:var(--r);padding:16px;display:grid;grid-template-columns:1fr auto;gap:8px;margin-bottom:8px;transition:.3s}
+.forn-card:hover{border-color:rgba(245,158,11,.3)}
+.forn-card .nm{font-weight:600;font-size:13px}.forn-card .cn{font-size:11px;color:var(--t3);font-family:monospace}
+.forn-card .parls{font-size:11px;color:var(--t2);margin-top:4px}
+.forn-card .vl{font-size:20px;font-weight:800;color:var(--yellow);text-align:right}
+.forn-card .qt{font-size:11px;color:var(--t3);text-align:right}
+.footer{text-align:center;padding:28px 0;border-top:1px solid var(--brd);color:var(--t3);font-size:12px;margin-top:32px}
+.footer a{color:var(--blue);text-decoration:none}
+@keyframes su{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.pk,.stat,.forn-card{animation:su .4s ease-out both}
+@media(max-width:768px){.header h1{font-size:24px}.pk{grid-template-columns:36px 1fr}.pk__sc{grid-column:1/-1;justify-content:space-around}.bar{display:none}.exp-row{grid-template-columns:1fr 1fr}.tbl{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="fixed-header">
+    <div class="header-top">
+      <div class="header-info">
+        <h1>Dashboard Parlamentar</h1>
+        <p>AUDITORIA E TRANSPARÊNCIA — CÂMARA E SENADO</p>
+      </div>
+      <div class="badge">CVP-IA • MONITORAMENTO REALTIME</div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('ranking')">🏆 Ranking</button>
+      <button class="tab" onclick="showTab('gastos')">💰 Gastos</button>
+      <button class="tab" onclick="showTab('fornecedores')">🏢 Fornecedores</button>
+      <button class="tab" onclick="showTab('transparencia')">🔍 Transparência</button>
+      <button class="tab" onclick="showTab('votacoes')">🗳️ Votações</button>
+      <button class="tab" onclick="showTab('auditoria')" style="color:var(--red)">🚨 Auditoria</button>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <section class="stats" id="stats"></section>
+
+  <div id="panel-ranking" class="panel active">
+    <h2 class="stitle"><span>🏆</span>Ranking por Score Geral<span class="tag" id="total-tag"></span></h2>
+    <div class="rk" id="ranking"></div>
+  </div>
+
+  <div id="panel-gastos" class="panel">
+    <h2 class="stitle"><span>💰</span>Todas as Despesas<span class="tag" id="desp-tag"></span></h2>
+    <div class="filt" id="filters">
+      <select id="filt-parl"><option value="">Todos os parlamentares</option></select>
+      <select id="filt-partido"><option value="">Todos os partidos</option></select>
+      <select id="filt-tipo"><option value="">Todos os tipos</option></select>
+      <div class="srch"><input id="filt-forn" type="text" placeholder="Buscar fornecedor..."></div>
+      <select id="filt-sort">
+        <option value="valor-desc">Maior valor</option>
+        <option value="valor-asc">Menor valor</option>
+        <option value="data-desc">Mais recente</option>
+        <option value="nome-asc">Nome A-Z</option>
+      </select>
+    </div>
+    <table class="tbl" id="tbl-gastos">
+      <thead><tr>
+        <th>Parlamentar</th><th>Tipo</th><th>Fornecedor</th><th>CNPJ/CPF</th><th>Data/Comprovante</th><th style="text-align:right">Valor</th>
+      </tr></thead>
+      <tbody id="tbl-body"></tbody>
+    </table>
+  </div>
+
+  <div id="panel-fornecedores" class="panel">
+    <h2 class="stitle"><span>🏢</span>Top Fornecedores<span class="tag" id="forn-tag"></span></h2>
+    <div id="forn-list"></div>
+  </div>
+
+  <div id="panel-transparencia" class="panel">
+    <h2 class="stitle"><span>🔍</span>Transparência TSE<span class="tag">Eleição 2022</span></h2>
+    <div id="transp-list"></div>
+  </div>
+
+  <div id="panel-votacoes" class="panel">
+    <h2 class="stitle"><span>🗳️</span>Como Eles Votaram<span class="tag" id="vot-tag"></span></h2>
+    <p style="font-size:13px;color:var(--t2);margin-bottom:16px">Verifique o posicionamento individual dos parlamentares em pautas votadas na Câmara e Senado.</p>
+    <div class="filt" id="filters-votacoes">
+      <select id="filt-vot-parl"><option value="">Todos os parlamentares</option></select>
+      <select id="filt-vot-part"><option value="">Todos os partidos</option></select>
+      <select id="filt-vot-voto"><option value="">Qualquer Voto</option><option value="Sim">Sim</option><option value="Não">Não</option><option value="Abstenção">Abstenção</option><option value="Ausente">Ausente</option></select>
+      <div class="srch" style="flex:2"><input id="filt-vot-desc" type="text" placeholder="Buscar por assunto ou ementa (ex: PEC, Imposto)..."></div>
+    </div>
+    <table class="tbl" id="tbl-votacoes">
+      <thead><tr>
+        <th>Parlamentar</th><th>Casa</th><th>Projeto / Assunto</th><th>Data</th><th>Posicionamento</th>
+      </tr></thead>
+      <tbody id="tbl-body-votacoes"></tbody>
+    </table>
+  </div>
+
+  <div id="panel-auditoria" class="panel">
+    <h2 class="stitle"><span>🚨</span>Análise de Gastos Duvidosos<span class="tag" id="auditoria-tag" style="background:rgba(239,68,68,.1);color:var(--red);border-color:rgba(239,68,68,.2)"></span></h2>
+    <p style="font-size:13px;color:var(--t2);margin-bottom:16px">Verificação automática de anomalias: notas frias, fracionamento de despesas, finais de semana e refeições exorbitantes.</p>
+    <div id="auditoria-list"></div>
+  </div>
+
+  </main>
+
+  <footer class="footer">
+    Dados via <a href="https://dadosabertos.camara.leg.br/">API Câmara</a>,
+    <a href="https://legis.senado.leg.br/dadosabertos/">API Senado</a> e
+    <a href="https://dadosabertos.tse.jus.br/">TSE</a> •
+    Metodologia CVP-IA • Atualizado em <span id="updated"></span>
+  </footer>
+</div>
+
+<script>
+let DATA = {};
+let allDespesas = [];
+
+function fmt(v){return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v)}
+function sc(s){return s>=70?'sh':s>=40?'sm':'sl'}
+function scC(s){return s>=70?'#10b981':s>=40?'#f59e0b':'#ef4444'}
+function valClass(v){return v>=5000?'hi':v>=1000?'md':'lo'}
+
+function showTab(id){
+  document.querySelectorAll('.tab').forEach((t,i)=>{
+    const n = t.textContent.toLowerCase();
+    t.classList.toggle('active', n.includes(id));
+  });
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+}
+
+function renderStats(){
+  const r=DATA.parlamentares||[];const d=DATA.despesas||[];
+  const tg=DATA.total_gasto||0;const avg=r.reduce((s,x)=>s+(x.score_geral||0),0)/Math.max(r.length,1);
+  document.getElementById('stats').innerHTML=`
+    <div class="stat"><b style="color:var(--blue)">${r.length}</b><small>Parlamentares</small></div>
+    <div class="stat"><b style="color:var(--yellow)">${fmt(tg)}</b><small>Total Gastos</small></div>
+    <div class="stat"><b style="color:var(--purple)">${d.length}</b><small>Despesas</small></div>
+    <div class="stat"><b style="color:var(--cyan)">${avg.toFixed(1)}</b><small>Score Médio</small></div>`;
+}
+
+function renderRanking(){
+  const r=(DATA.parlamentares||[]).filter(p=>p.score_geral!=null).sort((a,b)=>(b.score_geral||0)-(a.score_geral||0));
+  const depCount=r.filter(x=>x.casa==='camara').length;
+  const senCount=r.filter(x=>x.casa==='senado').length;
+  document.getElementById('total-tag').textContent=`${depCount} dep. • ${senCount} sen.`;
+
+  // Pre-group expenses by parlamentar
+  const despByParl={};
+  (DATA.despesas||[]).forEach(d=>{if(!despByParl[d.parlamentar_id])despByParl[d.parlamentar_id]=[];despByParl[d.parlamentar_id].push(d)});
+
+  document.getElementById('ranking').innerHTML=r.map((p,i)=>{
+    const s=p.score_geral||0;const sa=p.score_atividade||0;const sg=p.score_gasto||0;const st=p.score_transparencia;
+    const casa=p.casa==='camara'?'<span class="tg tg-c">Câmara</span>':'<span class="tg tg-s">Senado</span>';
+    const desps=despByParl[p.id]||[];
+    const totalG=desps.reduce((s,d)=>s+d.valor,0);
+    const transpHtml=st!=null?`<div class="sp" title="Score de Transparência do TSE (Bens e Fontes de Receita)"><b class="${sc(st)}">${st.toFixed(0)}</b><small>Transparência</small></div>`:'';
+
+    let detailHtml='';
+    if(desps.length>0){
+      const rows=desps.sort((a,b)=>b.valor-a.valor).map(d=>{
+        const isSusp = d.suspeita ? ' <span title="Despesa Suspeita (Regra TCU)">🚨</span>' : '';
+        const docLink = d.url_documento ? `<a href="${d.url_documento}" target="_blank" title="Ver Nota Fiscal/Recibo Original" style="color:var(--brand);text-decoration:none">🔗 Nota</a>` : '<span style="color:var(--t3);font-size:11px" title="Sem comprovante digital">📄 S/N</span>';
+        const docDate = d.data_documento ? d.data_documento.split('T')[0] : 'S/ Data';
+        const cpfCnpj = d.cnpj_fornecedor ? `<br><small style="color:var(--t3);font-family:monospace;font-size:11px">CNPJ/CPF: ${d.cnpj_fornecedor}</small>` : '';
+
+        return `
+        <div class="exp-row" ${d.suspeita ? 'style="background:rgba(239,68,68,.1)"':''}>
+          <div class="tipo" title="${d.tipo_despesa||''}">${(d.tipo_despesa||'').substring(0,35)}...${isSusp}</div>
+          <div class="forn">${d.fornecedor||'N/A'}${cpfCnpj}</div>
+          <div class="data" style="font-size:12px;color:var(--t2)">${docDate}<br>${docLink}</div>
+          <div class="val" style="font-weight:600">${fmt(d.valor)}</div>
+        </div>`
+      }).join('');
+      detailHtml=`<div class="detail" id="det-${i}">
+        <h3 style="margin-bottom: 12px; border-bottom: 1px solid var(--b2); padding-bottom: 8px;">
+           📄 ${desps.length} notas processadas — Total Reembolsado: <span style="color:var(--brand)">${fmt(totalG)}</span>
+        </h3>
+        <div class="exp-grid">
+          <div class="exp-row exp-head"><div>Categoria / Tipo</div><div>Fornecedor</div><div>Data/Comprovante</div><div style="text-align:right">Valor (R$)</div></div>
+          ${rows}
+        </div></div>`;
+    } else {
+      detailHtml=`<div class="detail" id="det-${i}">
+        <p style="text-align:center;color:var(--t3);padding:20px;font-size:13px">✅ Nenhuma nota/despesa registrada ou processada neste período.</p>
+      </div>`;
+    }
+
+    return`<div>
+      <div class="pk" onclick="toggleDet(${i})">
+        <div class="pk__r">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</div>
+        <div>
+          <div class="pk__n">${p.nome_parlamentar}</div>
+          <div class="pk__m">${casa}<span>${p.partido||''} • ${p.uf||''}</span><span title="Total reembolsado da cota">💰 ${fmt(totalG)} (${desps.length} notas de despesa)</span></div>
+        </div>
+        <div class="pk__sc">
+          <div class="sp" title="Índice de Presença em Votações Nominais"><b class="${sc(sa)}">${sa.toFixed(0)}</b><small>Presença</small></div>
+          <div class="sp" title="Grau de Economia da Cota Parlamentar (CEAP)"><b class="${sc(sg)}">${sg.toFixed(0)}</b><small>Economia</small></div>
+          ${transpHtml}
+          <div class="sp" title="Score Final do CVP-IA (Média ponderada dos fatores acima)"><b class="${sc(s)}">${s.toFixed(1)}</b><small>Nota CVP-IA</small>
+            <div class="bar"><div style="width:${s}%;background:${scC(s)}"></div></div>
+          </div>
+        </div>
+      </div>${detailHtml}</div>`;
+  }).join('');
+}
+
+function toggleDet(i){const el=document.getElementById('det-'+i);if(el)el.classList.toggle('open')}
+
+function renderGastos(){
+  const desps=DATA.despesas||[];allDespesas=desps;
+  // Populate filters
+  const parls=[...new Set(desps.map(d=>d.nome_parlamentar))].sort();
+  const partidos=[...new Set(desps.map(d=>d.partido).filter(Boolean))].sort();
+  const tipos=[...new Set(desps.map(d=>d.tipo_despesa))].sort();
+  document.getElementById('filt-parl').innerHTML='<option value="">Todos os parlamentares</option>'+parls.map(p=>`<option>${p}</option>`).join('');
+  document.getElementById('filt-partido').innerHTML='<option value="">Todos os partidos</option>'+partidos.map(p=>`<option>${p}</option>`).join('');
+  document.getElementById('filt-tipo').innerHTML='<option value="">Todos os tipos</option>'+tipos.map(t=>`<option>${t}</option>`).join('');
+  document.getElementById('desp-tag').textContent=`${desps.length} registros`;
+  filterGastos();
+}
+
+function filterGastos(){
+  const fp=document.getElementById('filt-parl').value;
+  const fpartido=document.getElementById('filt-partido').value;
+  const ft=document.getElementById('filt-tipo').value;
+  const ff=document.getElementById('filt-forn').value.toLowerCase();
+  const fs=document.getElementById('filt-sort').value;
+
+  let filtered=allDespesas.filter(d=>{
+    if(fp&&d.nome_parlamentar!==fp)return false;
+    if(fpartido&&d.partido!==fpartido)return false;
+    if(ft&&d.tipo_despesa!==ft)return false;
+    if(ff&&!(d.fornecedor||'').toLowerCase().includes(ff))return false;
+    return true;
+  });
+
+  if(fs==='valor-desc')filtered.sort((a,b)=>b.valor-a.valor);
+  else if(fs==='valor-asc')filtered.sort((a,b)=>a.valor-b.valor);
+  else if(fs==='data-desc')filtered.sort((a,b)=>(b.data_documento||'').localeCompare(a.data_documento||''));
+  else filtered.sort((a,b)=>(a.nome_parlamentar||'').localeCompare(b.nome_parlamentar||''));
+
+  const total=filtered.reduce((s,d)=>s+d.valor,0);
+  document.getElementById('desp-tag').textContent=`${filtered.length} de ${allDespesas.length} • ${fmt(total)}`;
+
+  document.getElementById('tbl-body').innerHTML=filtered.slice(0,200).map(d=>{
+    const alertsStr = d.alertas && d.alertas.length > 0 ? `<br><span style="color:var(--red);font-size:10px">🚨 ${d.alertas.map(a=>a.tipo).join(', ')}</span>` : '';
+    const docLink = d.url_documento ? `<br><a href="${d.url_documento}" target="_blank" title="Ver Nota Fiscal/Recibo Original" style="color:var(--brand);text-decoration:none;font-weight:600">🔗 Nota</a>` : '<br><span style="color:var(--t3);font-size:10px" title="Sem comprovante digital">📄 S/N</span>';
+    const docDate = d.data_documento ? d.data_documento.split('T')[0] : 'S/ Data';
+    return `<tr class="${d.suspeita?'suspeito':''}">
+    <td><b>${d.nome_parlamentar}</b><br><span style="font-size:10px;color:var(--t3)">${d.partido}/${d.uf} • ${d.casa==='camara'?'Câmara':'Senado'}</span></td>
+    <td style="color:var(--cyan);font-size:11px">${d.tipo_despesa||''}${alertsStr}</td>
+    <td>${d.fornecedor||'N/A'}</td>
+    <td class="cnpj" style="font-family:monospace;font-size:11px;color:var(--t2)">${d.cnpj_fornecedor||'N/A'}</td>
+    <td style="font-size:11px;color:var(--t2)">${docDate}${docLink}</td>
+    <td class="val ${valClass(d.valor)}">${fmt(d.valor)}</td>
+  </tr>`}).join('');
+}
+
+function renderFornecedores(){
+  const f=(DATA.top_fornecedores||[]).sort((a,b)=>b.total-a.total);
+  document.getElementById('forn-tag').textContent=`${f.length} fornecedores`;
+  document.getElementById('forn-list').innerHTML=f.map((x,i)=>`
+    <div class="forn-card" style="animation-delay:${i*0.03}s">
+      <div>
+        <div class="nm">${i+1}. ${x.fornecedor}</div>
+        <div class="cn">${x.cnpj_fornecedor||''}</div>
+        <div class="parls">👤 ${x.parlamentares}</div>
+      </div>
+      <div>
+        <div class="vl">${fmt(x.total)}</div>
+        <div class="qt">${x.qtd} nota(s)</div>
+      </div>
+    </div>`).join('');
+}
+
+function renderTransparencia(){
+  const ct=DATA.candidaturas_tse||[];
+  if(!ct.length){document.getElementById('transp-list').innerHTML='<p style="color:var(--t3);padding:40px;text-align:center">Dados do TSE não disponíveis. Execute o pipeline com dados TSE.</p>';return}
+
+  // Parse detalhes from scores for transparency breakdown
+  const parlMap={};
+  (DATA.parlamentares||[]).forEach(p=>{
+    if(p.detalhes){
+      try{const d=JSON.parse(p.detalhes);if(d.score_transparencia)parlMap[p.nome_parlamentar]=d.score_transparencia}catch(e){}
+    }
+  });
+
+  document.getElementById('transp-list').innerHTML=ct.sort((a,b)=>(b.total_bens||0)-(a.total_bens||0)).map((c,i)=>{
+    const t=parlMap[c.nome_parlamentar]||{};
+    const sc_d=t.score_declaracao||0;const sc_p=t.score_patrimonio||0;const sc_r=t.score_receitas||0;const sc_t=t.score||0;
+    return`<div class="forn-card" style="animation-delay:${i*0.04}s">
+      <div>
+        <div class="nm">${c.nome_parlamentar} <span style="font-size:11px;color:var(--t3)">${c.cargo||''} • ${c.ano_eleicao}</span></div>
+        <div style="display:flex;gap:16px;margin-top:8px">
+          <div class="sp"><b class="${sc_d>=70?'sh':'sm'}" style="font-size:14px">${sc_d.toFixed(0)}</b><small>Declaração</small></div>
+          <div class="sp"><b class="${sc_p>=70?'sh':'sm'}" style="font-size:14px">${sc_p.toFixed(0)}</b><small>Patrimônio</small></div>
+          <div class="sp"><b class="${sc_r>=70?'sh':'sm'}" style="font-size:14px">${sc_r.toFixed(0)}</b><small>Receitas</small></div>
+          <div class="sp"><b class="${sc_t>=70?'sh':sc_t>=40?'sm':'sl'}" style="font-size:16px">${sc_t.toFixed(1)}</b><small>Score Total</small></div>
+        </div>
+      </div>
+      <div>
+        <div class="vl" style="color:var(--cyan)">${fmt(c.total_bens||0)}</div>
+        <div class="qt">Patrimônio declarado</div>
+        ${c.total_receitas?`<div class="qt" style="margin-top:4px">${fmt(c.total_receitas)} receitas</div>`:''}
+      </div>
+    </div>`}).join('');
+}
+
+function renderAuditoria(){
+  const alertas = DATA.alertas_auditoria || [];
+  document.getElementById('auditoria-tag').textContent = `${alertas.length} alertas`;
+  
+  if(alertas.length === 0){
+    document.getElementById('auditoria-list').innerHTML = '<p style="color:var(--green);padding:20px;text-align:center">Nenhum gasto duvidoso detectado neste período. ✅</p>';
+    return;
+  }
+  
+  // Ordenar por valor (maior primeiro) e agrupar
+  const sorted = [...alertas].sort((a,b)=>b.valor - a.valor);
+  
+  document.getElementById('auditoria-list').innerHTML = sorted.map((a, i) => {
+    const docLink = a.url_documento ? `<a href="${a.url_documento}" target="_blank" title="Ver Nota Fiscal/Recibo Original" style="color:var(--brand);text-decoration:none;margin-left:8px;font-weight:600;background:rgba(59,130,246,0.1);padding:2px 8px;border-radius:4px">🔗 Ver Comprovante Oficial</a>` : '<span style="color:var(--t3);font-size:11px;margin-left:8px" title="Sem comprovante digital">📄 S/N</span>';
+    return `
+    <div class="forn-card" style="border-left:3px solid var(--red);animation-delay:${i*0.04}s">
+      <div>
+        <div class="nm">${a.nome_parlamentar} <span style="font-size:11px;color:var(--t3)">• ${a.tipo_despesa}</span></div>
+        <div style="font-size:12px;color:var(--red);margin-top:6px;font-weight:600">🚨 ${a.tipo}</div>
+        <div class="parls" style="color:var(--t1)">${a.descricao}</div>
+        <div class="parls" style="margin-top:8px; line-height: 1.6;">
+          <strong>Fornecedor:</strong> ${a.fornecedor||'N/A'} <br>
+          <small style="color:var(--t3);font-family:monospace;font-size:11px">CNPJ/CPF: ${a.cnpj_fornecedor||'N/A'}</small> <br>
+          <strong>Data:</strong> ${a.data_documento ? a.data_documento.split('T')[0] : 'N/A'} ${docLink}
+        </div>
+      </div>
+      <div>
+        <div class="vl" style="color:var(--red)">${fmt(a.valor)}</div>
+      </div>
+    </div>
+  `}).join('');
+}
+
+function renderVotacoes(){
+  const votos = DATA.votos || [];
+  const parls = [...new Set(votos.map(v => v.nome_parlamentar))].sort();
+  const partidos = [...new Set(votos.map(v => v.partido).filter(Boolean))].sort();
+  document.getElementById('filt-vot-parl').innerHTML = '<option value="">Todos os parlamentares</option>' + parls.map(p => `<option>${p}</option>`).join('');
+  document.getElementById('filt-vot-part').innerHTML = '<option value="">Todos os partidos</option>' + partidos.map(p => `<option>${p}</option>`).join('');
+  document.getElementById('vot-tag').textContent = `${votos.length} votos registrados`;
+  filterVotacoes();
+}
+
+function filterVotacoes(){
+  const fp = document.getElementById('filt-vot-parl').value;
+  const fpartido = document.getElementById('filt-vot-part').value;
+  const fv = document.getElementById('filt-vot-voto').value;
+  const fd = document.getElementById('filt-vot-desc').value.toLowerCase();
+
+  let filtered = (DATA.votos || []).filter(v => {
+    if(fp && v.nome_parlamentar !== fp) return false;
+    if(fpartido && v.partido !== fpartido) return false;
+    if(fv && v.voto !== fv) return false;
+    if(fd && !(v.projeto_assunto||'').toLowerCase().includes(fd)) return false;
+    return true;
+  });
+
+  document.getElementById('vot-tag').textContent = `${filtered.length} votos exibidos`;
+
+  document.getElementById('tbl-body-votacoes').innerHTML = filtered.slice(0, 300).map(v => {
+    let color = 'var(--t3)';
+    let bg = 'transparent';
+    if(v.voto === 'Sim') { color = '#10b981'; bg = 'rgba(16,185,129,0.1)'; }
+    if(v.voto === 'Não') { color = '#ef4444'; bg = 'rgba(239,68,68,0.1)'; }
+    
+    return `<tr>
+      <td><b>${v.nome_parlamentar}</b><br><span style="font-size:10px;color:var(--t3)">${v.partido}/${v.uf}</span></td>
+      <td style="font-size:11px;color:var(--cyan)">${v.casa === 'camara' ? 'Câmara' : 'Senado'}</td>
+      <td style="font-size:12px;color:var(--t1)">${v.projeto_assunto}</td>
+      <td style="font-size:11px;color:var(--t2)">${v.data ? v.data.split('T')[0] : ''}</td>
+      <td style="font-weight:bold;color:${color}"><span style="background:${bg};padding:4px 8px;border-radius:4px">${v.voto}</span>${v.descricao_ausencia ? `<br><small style="font-size:9px;color:var(--t3)">${v.descricao_ausencia}</small>` : ''}</td>
+    </tr>`;
+  }).join('');
+}
+
+function render(){
+  renderStats();renderRanking();renderGastos();renderFornecedores();renderTransparencia();renderAuditoria();renderVotacoes();
+  document.getElementById('updated').textContent=new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  // Bind filters
+  ['filt-parl','filt-partido','filt-tipo','filt-sort'].forEach(id=>document.getElementById(id).addEventListener('change',filterGastos));
+  document.getElementById('filt-forn').addEventListener('input',filterGastos);
+  
+  ['filt-vot-parl', 'filt-vot-part', 'filt-vot-voto'].forEach(id=>document.getElementById(id).addEventListener('change',filterVotacoes));
+  document.getElementById('filt-vot-desc').addEventListener('input',filterVotacoes);
+}
+
+// Conexão com Supabase usando a chave anônima
+const supaUrl = "https://kwuxwwmbmfllpzpdlmih.supabase.co";
+const supaKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3dXh3d21ibWZsbHB6cGRsbWloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MDE1NDYsImV4cCI6MjA5Mjk3NzU0Nn0.OhsWUbLV0S0o-cW7LoRiPpueuHxi9qLS6iFN7AquP_U";
+
+async function loadFromSupabase() {
+  try {
+    document.getElementById('ranking').innerHTML = '<p style="text-align:center;padding:40px">Carregando dados da nuvem (Supabase)... ☁️</p>';
+    
+    if (!window.supabase) {
+        throw new Error("SDK do Supabase não foi carregado. Verifique sua conexão com a internet ou bloqueadores de anúncios.");
+    }
+    const supabase = window.supabase.createClient(supaUrl, supaKey);
+    
+    // Buscar todos os scores e parlamentares relacionados
+    const { data: scoresData, error: err1 } = await supabase.from('scores').select('*, parlamentares(nome_parlamentar, partido, uf, casa, id)');
+    if (err1) throw err1;
+    
+    // Transformar os dados relacionais para o formato que a UI espera
+    const parlamentares = scoresData.map(s => {
+      let p = s.parlamentares || {};
+      p.id = s.parlamentar_id;
+      p.score_geral = s.score_geral;
+      p.score_atividade = s.score_atividade;
+      p.score_gasto = s.score_gasto;
+      p.score_transparencia = s.score_transparencia;
+      p.score_coerencia = s.score_coerencia;
+      p.detalhes = JSON.stringify(s.detalhes || {});
+      return p;
+    });
+
+    // Buscar despesas
+    const { data: despData, error: err2 } = await supabase.from('despesas').select('*, parlamentares(nome_parlamentar, partido, uf, casa)');
+    if (err2) throw err2;
+    
+    // Ajustar despesas e Executar Auditoria
+    let allAlerts = [];
+    let gastosDiarios = {};
+    const despesas = despData.map(d => {
+      if (d.parlamentares) {
+        d.nome_parlamentar = d.parlamentares.nome_parlamentar;
+        d.partido = d.parlamentares.partido;
+        d.uf = d.parlamentares.uf;
+        d.casa = d.parlamentares.casa;
+      }
+      
+      d.alertas = [];
+      d.suspeita = false;
+
+      // Auditoria 1: Valores redondos altos
+      if (d.valor >= 5000 && d.valor % 1000 === 0) {
+        let alerta = {tipo: "Valor Redondo", gravidade: "media", descricao: `Valor exato e muito alto pode indicar nota fria ou superfaturamento.`};
+        d.alertas.push(alerta);
+        allAlerts.push({...d, ...alerta});
+        d.suspeita = true;
+      }
+      
+      // Auditoria 2: Refeições excessivas
+      let tipoUpper = (d.tipo_despesa || "").toUpperCase();
+      if (tipoUpper.includes("ALIMENTAÇÃO") || tipoUpper.includes("REFEIÇÃO") || tipoUpper.includes("ALIMENTACAO")) {
+        if (d.valor > 200) {
+          let alerta = {tipo: "Refeição Excessiva", gravidade: "alta", descricao: `Refeição muito acima do limite razoável individual.`};
+          d.alertas.push(alerta);
+          allAlerts.push({...d, ...alerta});
+          d.suspeita = true;
+        }
+      }
+      
+      // Auditoria 3: Gastos em fins de semana
+      if (d.data_documento) {
+        let dt = new Date(d.data_documento);
+        let day = dt.getUTCDay(); // 0 = Domingo, 6 = Sábado
+        if (day === 0 || day === 6) {
+          if (!tipoUpper.includes("HOSPEDAGEM") && !tipoUpper.includes("PASSAGEM") && !tipoUpper.includes("COMBUSTÍVEL") && !tipoUpper.includes("LOCAÇÃO")) {
+            let alerta = {tipo: "Gasto em Fim de Semana", gravidade: "media", descricao: `Despesa em dia não-útil (${day===6?'Sábado':'Domingo'}) sem justificativa clara de plantão/deslocamento.`};
+            d.alertas.push(alerta);
+            allAlerts.push({...d, ...alerta});
+            d.suspeita = true;
+          }
+        }
+      }
+
+      // Agrupamento para Fracionamento
+      if (d.data_documento && d.cnpj_fornecedor) {
+        let key = `${d.parlamentar_id}_${d.data_documento}_${d.cnpj_fornecedor}`;
+        if (!gastosDiarios[key]) gastosDiarios[key] = [];
+        gastosDiarios[key].push(d);
+      }
+
+      return d;
+    });
+
+    // Auditoria 4: Fracionamento
+    for (let key in gastosDiarios) {
+      let notas = gastosDiarios[key];
+      if (notas.length >= 3) {
+        let totalDia = notas.reduce((acc, n) => acc + n.valor, 0);
+        notas.forEach(n => {
+          let alerta = {tipo: "Fracionamento", gravidade: "alta", descricao: `${notas.length} notas emitidas no mesmo dia para o mesmo fornecedor.`};
+          n.alertas.push(alerta);
+          allAlerts.push({...n, ...alerta});
+          n.suspeita = true;
+        });
+      }
+    }
+    
+    const totalGasto = despesas.reduce((acc, d) => acc + (d.valor || 0), 0);
+    
+    // Fornecedores Agrupados
+    let fMap = {};
+    despesas.forEach(d => {
+      if(!d.fornecedor) return;
+      let k = d.fornecedor;
+      if(!fMap[k]) fMap[k] = {fornecedor: k, cnpj_fornecedor: d.cnpj_fornecedor, total: 0, qtd: 0, parls: new Set()};
+      fMap[k].total += d.valor;
+      fMap[k].qtd += 1;
+      fMap[k].parls.add(d.nome_parlamentar);
+    });
+    const topFornecedores = Object.values(fMap)
+      .sort((a,b)=>b.total - a.total)
+      .slice(0, 50)
+      .map(x => ({...x, parlamentares: Array.from(x.parls).join(', ')}));
+      
+    // Candidaturas TSE
+    const { data: tseData } = await supabase.from('candidaturas_tse').select('*, parlamentares(nome_parlamentar)');
+    const candTse = (tseData||[]).map(c => {
+        if(c.parlamentares) c.nome_parlamentar = c.parlamentares.nome_parlamentar;
+        return c;
+    });
+
+    // Votos e Votações
+    const { data: votosRaw } = await supabase
+      .from('votos')
+      .select(`
+        voto, 
+        descricao_ausencia,
+        votacoes(descricao, data, casa),
+        parlamentares(nome_parlamentar, partido, uf)
+      `)
+      .limit(3000); // Trazendo os últimos 3000 votos da base local para renderização rápida
+
+    const votos = (votosRaw||[]).map(v => ({
+      voto: v.voto,
+      descricao_ausencia: v.descricao_ausencia,
+      projeto_assunto: v.votacoes ? v.votacoes.descricao : 'S/N',
+      data: v.votacoes ? v.votacoes.data : '',
+      casa: v.votacoes ? v.votacoes.casa : '',
+      nome_parlamentar: v.parlamentares ? v.parlamentares.nome_parlamentar : 'S/N',
+      partido: v.parlamentares ? v.parlamentares.partido : '',
+      uf: v.parlamentares ? v.parlamentares.uf : ''
+    }));
+
+    DATA = { 
+      parlamentares: parlamentares, 
+      despesas: despesas,
+      total_gasto: totalGasto,
+      top_fornecedores: topFornecedores,
+      candidaturas_tse: candTse,
+      alertas_auditoria: allAlerts,
+      votos: votos
+    };
+    render();
+  } catch (e) {
+    console.error(e);
+    const errBox = document.getElementById('ranking');
+    if(errBox) errBox.innerHTML=`<h3 style='color:red;padding:20px'>Erro ao carregar do Supabase: ${e.message||e}</h3>`;
+  }
+}
+
+// Iniciar apenas quando a página carregar
+window.addEventListener('DOMContentLoaded', () => {
+  // Dá um pequeno atraso caso o script do CDN ainda esteja sendo avaliado
+  setTimeout(loadFromSupabase, 100);
+});
+</script>
+</body>
+</html>
