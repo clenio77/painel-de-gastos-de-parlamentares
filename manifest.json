@@ -1,0 +1,17 @@
+{
+  "name": "CVP-IA Auditoria",
+  "short_name": "CVP-IA",
+  "description": "Monitoramento e Auditoria de Gastos Parlamentares",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
