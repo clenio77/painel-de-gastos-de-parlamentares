@@ -105,7 +105,9 @@ body::before{content:'';position:fixed;inset:-50%;width:200%;height:200%;backgro
 .footer{text-align:center;padding:40px 0;border-top:1px solid var(--brd);color:var(--t3);font-size:14px;margin-top:48px}
 .footer a{color:var(--blue);text-decoration:none;font-weight:600}
 @keyframes su{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.pk,.stat,.forn-card{animation:su .5s ease-out both}
+  .pk,.stat,.forn-card{animation:su .5s ease-out both}
+  .ranking-item{content-visibility: auto; contain-intrinsic-size: 100px;}
+  .detail{will-change: transform, opacity;}
 
 @media(max-width:1024px){
   .fixed-header{padding:20px 20px 0}
@@ -228,6 +230,7 @@ body::before{content:'';position:fixed;inset:-50%;width:200%;height:200%;backgro
 <script>
 let DATA = {};
 let allDespesas = [];
+let rankingLimit = 50;
 
 function fmt(v){return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v)}
 function sc(s){return s>=70?'sh':s>=40?'sm':'sl'}
@@ -235,12 +238,13 @@ function scC(s){return s>=70?'#10b981':s>=40?'#f59e0b':'#ef4444'}
 function valClass(v){return v>=5000?'hi':v>=1000?'md':'lo'}
 
 function showTab(id){
-  document.querySelectorAll('.tab').forEach((t,i)=>{
+  document.querySelectorAll('.tab').forEach((t)=>{
     const n = t.textContent.toLowerCase();
     t.classList.toggle('active', n.includes(id));
   });
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('panel-'+id).classList.add('active');
+  const target = document.getElementById('panel-'+id);
+  if(target) target.classList.add('active');
 }
 
 function renderStats(){
@@ -253,457 +257,164 @@ function renderStats(){
     <div class="stat"><b style="color:var(--cyan)">${avg.toFixed(1)}</b><small>Score Médio</small></div>`;
 }
 
-function renderRanking(){
+function renderRanking(append = false){
   const r=(DATA.parlamentares||[]).filter(p=>p.score_geral!=null).sort((a,b)=>(b.score_geral||0)-(a.score_geral||0));
-  const depCount=r.filter(x=>x.casa==='camara').length;
-  const senCount=r.filter(x=>x.casa==='senado').length;
-  document.getElementById('total-tag').textContent=`${depCount} dep. • ${senCount} sen.`;
-
-  // Pre-group expenses by parlamentar
-  const despByParl={};
-  (DATA.despesas||[]).forEach(d=>{if(!despByParl[d.parlamentar_id])despByParl[d.parlamentar_id]=[];despByParl[d.parlamentar_id].push(d)});
-
-  document.getElementById('ranking').innerHTML=r.map((p,i)=>{
-    const s=p.score_geral||0;const sa=p.score_atividade||0;const sg=p.score_gasto||0;const st=p.score_transparencia;
+  document.getElementById('total-tag').textContent=`${r.length} parlamentares`;
+  const container = document.getElementById('ranking');
+  if(!append) container.innerHTML = '';
+  const slice = r.slice(append ? rankingLimit - 50 : 0, rankingLimit);
+  const html = slice.map((p, idx)=>{
+    const i = (append ? rankingLimit - 50 : 0) + idx;
+    const s=p.score_geral||0;const sa=p.score_atividade||0;const sg=p.score_gasto||0;
     const casa=p.casa==='camara'?'<span class="tg tg-c">Câmara</span>':'<span class="tg tg-s">Senado</span>';
-    const desps=despByParl[p.id]||[];
-    const totalG=desps.reduce((s,d)=>s+d.valor,0);
-    const transpHtml=st!=null?`<div class="sp" title="Score de Transparência do TSE (Bens e Fontes de Receita)"><b class="${sc(st)}">${st.toFixed(0)}</b><small>Transparência</small></div>`:'';
-
-    let detailHtml='';
-    if(desps.length>0){
-      const rows=desps.sort((a,b)=>b.valor-a.valor).map(d=>{
-        const isSusp = d.suspeita ? ' <span title="Despesa Suspeita (Regra TCU)">🚨</span>' : '';
-        const docLink = d.url_documento ? `<a href="${d.url_documento}" target="_blank" title="Ver Nota Fiscal/Recibo Original" style="color:var(--brand);text-decoration:none">🔗 Nota</a>` : '<span style="color:var(--t3);font-size:11px" title="Sem comprovante digital">📄 S/N</span>';
-        const docDate = d.data_documento ? d.data_documento.split('T')[0] : 'S/ Data';
-        const cpfCnpj = d.cnpj_fornecedor ? `<br><small style="color:var(--t3);font-family:monospace;font-size:11px">CNPJ/CPF: ${d.cnpj_fornecedor}</small>` : '';
-
-        return `
-        <div class="exp-row" ${d.suspeita ? 'style="background:rgba(239,68,68,.1)"':''}>
-          <div class="tipo" title="${d.tipo_despesa||''}">${(d.tipo_despesa||'').substring(0,35)}...${isSusp}</div>
-          <div class="forn">${d.fornecedor||'N/A'}${cpfCnpj}</div>
-          <div class="data" style="font-size:12px;color:var(--t2)">${docDate}<br>${docLink}</div>
-          <div class="val" style="font-weight:600">${fmt(d.valor)}</div>
-        </div>`
-      }).join('');
-      detailHtml=`<div class="detail" id="det-${i}">
-        <h3 style="margin-bottom: 12px; border-bottom: 1px solid var(--b2); padding-bottom: 8px;">
-           📄 ${desps.length} notas processadas — Total Reembolsado: <span style="color:var(--brand)">${fmt(totalG)}</span>
-        </h3>
-        <div class="exp-grid">
-          <div class="exp-row exp-head"><div>Categoria / Tipo</div><div>Fornecedor</div><div>Data/Comprovante</div><div style="text-align:right">Valor (R$)</div></div>
-          ${rows}
-        </div></div>`;
-    } else {
-      detailHtml=`<div class="detail" id="det-${i}">
-        <p style="text-align:center;color:var(--t3);padding:20px;font-size:13px">✅ Nenhuma nota/despesa registrada ou processada neste período.</p>
-      </div>`;
-    }
-
-    return`<div>
-      <div class="pk" onclick="toggleDet(${i})">
-        <div class="pk__r">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</div>
+    return`<div class="ranking-item" data-id="${p.id}">
+      <div class="pk" onclick="toggleDet(${i}, '${p.id}')">
+        <div class="pk__r">${i+1}</div>
         <div>
           <div class="pk__n">${p.nome_parlamentar}</div>
-          <div class="pk__m">${casa}<span>${p.partido||''} • ${p.uf||''}</span><span title="Total reembolsado da cota">💰 ${fmt(totalG)} (${desps.length} notas de despesa)</span></div>
+          <div class="pk__m">${casa}<span>${p.partido||''} • ${p.uf||''}</span></div>
         </div>
         <div class="pk__sc">
-          <div class="sp" title="Índice de Presença em Votações Nominais"><b class="${sc(sa)}">${sa.toFixed(0)}</b><small>Presença</small></div>
-          <div class="sp" title="Grau de Economia da Cota Parlamentar (CEAP)"><b class="${sc(sg)}">${sg.toFixed(0)}</b><small>Economia</small></div>
-          ${transpHtml}
-          <div class="sp" title="Score Final do CVP-IA (Média ponderada dos fatores acima)"><b class="${sc(s)}">${s.toFixed(1)}</b><small>Nota CVP-IA</small>
+          <div class="sp"><b class="${sc(sa)}">${sa.toFixed(0)}</b><small>Presença</small></div>
+          <div class="sp"><b class="${sc(sg)}">${sg.toFixed(0)}</b><small>Economia</small></div>
+          <div class="sp"><b class="${sc(s)}">${s.toFixed(1)}</b><small>Nota</small>
             <div class="bar"><div style="width:${s}%;background:${scC(s)}"></div></div>
           </div>
         </div>
-      </div>${detailHtml}</div>`;
+      </div>
+      <div class="detail" id="det-${i}"></div>
+    </div>`;
   }).join('');
+  container.insertAdjacentHTML('beforeend', html);
+  const existingBtn = document.getElementById('btn-more');
+  if(existingBtn) existingBtn.remove();
+  if(rankingLimit < r.length) {
+    container.insertAdjacentHTML('beforeend', `<button id="btn-more" class="tab" style="width:100%;margin-top:20px;background:var(--card);border:1px solid var(--brd);cursor:pointer" onclick="loadMoreRanking()">Carregar mais...</button>`);
+  }
 }
 
-function toggleDet(i){const el=document.getElementById('det-'+i);if(el)el.classList.toggle('open')}
+function loadMoreRanking(){
+  rankingLimit += 50;
+  renderRanking(true);
+}
+
+function toggleDet(i, parlamentarId){
+  const el=document.getElementById('det-'+i);
+  if(!el) return;
+  if(el.classList.contains('open')){
+    el.classList.remove('open');
+    return;
+  }
+  if(el.innerHTML === '') {
+    el.innerHTML = '<p style="text-align:center;padding:20px;font-size:12px;color:var(--t3)">Carregando...</p>';
+    const desps = (DATA.despesas || []).filter(d => d.parlamentar_id === parlamentarId).sort((a,b)=>b.valor-a.valor);
+    if(desps.length > 0) {
+        const rows = desps.map(d => {
+            const isSusp = d.suspeita ? ' 🚨' : '';
+            const docLink = d.url_documento ? `<a href="${d.url_documento}" target="_blank" style="color:var(--blue)">🔗</a>` : '📄';
+            return `<div class="exp-row"><div class="tipo">${d.tipo_despesa||''} ${isSusp}</div><div class="forn">${d.fornecedor||'N/A'}</div><div class="data">${d.data_documento ? d.data_documento.split('T')[0] : ''} ${docLink}</div><div class="val">${fmt(d.valor)}</div></div>`;
+        }).join('');
+        el.innerHTML = `<div class="exp-grid">${rows}</div>`;
+    } else {
+        el.innerHTML = '<p style="text-align:center;color:var(--t3);padding:20px">Sem despesas.</p>';
+    }
+  }
+  el.classList.add('open');
+}
 
 function renderGastos(){
   const desps=DATA.despesas||[];allDespesas=desps;
-  // Populate filters
   const parls=[...new Set(desps.map(d=>d.nome_parlamentar))].sort();
-  const partidos=[...new Set(desps.map(d=>d.partido).filter(Boolean))].sort();
-  const tipos=[...new Set(desps.map(d=>d.tipo_despesa))].sort();
-  document.getElementById('filt-parl').innerHTML='<option value="">Todos os parlamentares</option>'+parls.map(p=>`<option>${p}</option>`).join('');
-  document.getElementById('filt-partido').innerHTML='<option value="">Todos os partidos</option>'+partidos.map(p=>`<option>${p}</option>`).join('');
-  document.getElementById('filt-tipo').innerHTML='<option value="">Todos os tipos</option>'+tipos.map(t=>`<option>${t}</option>`).join('');
+  document.getElementById('filt-parl').innerHTML='<option value="">Todos</option>'+parls.map(p=>`<option>${p}</option>`).join('');
   document.getElementById('desp-tag').textContent=`${desps.length} registros`;
   filterGastos();
 }
 
 function filterGastos(){
   const fp=document.getElementById('filt-parl').value;
-  const fpartido=document.getElementById('filt-partido').value;
-  const ft=document.getElementById('filt-tipo').value;
-  const ff=document.getElementById('filt-forn').value.toLowerCase();
-  const fs=document.getElementById('filt-sort').value;
-
-  let filtered=allDespesas.filter(d=>{
-    if(fp&&d.nome_parlamentar!==fp)return false;
-    if(fpartido&&d.partido!==fpartido)return false;
-    if(ft&&d.tipo_despesa!==ft)return false;
-    if(ff&&!(d.fornecedor||'').toLowerCase().includes(ff))return false;
-    return true;
-  });
-
-  if(fs==='valor-desc')filtered.sort((a,b)=>b.valor-a.valor);
-  else if(fs==='valor-asc')filtered.sort((a,b)=>a.valor-b.valor);
-  else if(fs==='data-desc')filtered.sort((a,b)=>(b.data_documento||'').localeCompare(a.data_documento||''));
-  else filtered.sort((a,b)=>(a.nome_parlamentar||'').localeCompare(b.nome_parlamentar||''));
-
+  let filtered=allDespesas.filter(d=>!fp||d.nome_parlamentar===fp);
   const total=filtered.reduce((s,d)=>s+d.valor,0);
-  document.getElementById('desp-tag').textContent=`${filtered.length} de ${allDespesas.length} • ${fmt(total)}`;
-
-  document.getElementById('tbl-body').innerHTML=filtered.slice(0,200).map(d=>{
-    const alertsStr = d.alertas && d.alertas.length > 0 ? `<br><span style="color:var(--red);font-size:10px">🚨 ${d.alertas.map(a=>a.tipo).join(', ')}</span>` : '';
-    const docLink = d.url_documento ? `<br><a href="${d.url_documento}" target="_blank" title="Ver Nota Fiscal/Recibo Original" style="color:var(--brand);text-decoration:none;font-weight:600">🔗 Nota</a>` : '<br><span style="color:var(--t3);font-size:10px" title="Sem comprovante digital">📄 S/N</span>';
-    const docDate = d.data_documento ? d.data_documento.split('T')[0] : 'S/ Data';
-    return `<tr class="${d.suspeita?'suspeito':''}">
-    <td><b>${d.nome_parlamentar}</b><br><span style="font-size:10px;color:var(--t3)">${d.partido}/${d.uf} • ${d.casa==='camara'?'Câmara':'Senado'}</span></td>
-    <td style="color:var(--cyan);font-size:11px">${d.tipo_despesa||''}${alertsStr}</td>
+  document.getElementById('desp-tag').textContent=`${filtered.length} • ${fmt(total)}`;
+  document.getElementById('tbl-body').innerHTML=filtered.slice(0,100).map(d=>`<tr>
+    <td><b>${d.nome_parlamentar}</b><br><span style="font-size:10px">${d.partido}/${d.uf}</span></td>
+    <td>${d.tipo_despesa||''}</td>
     <td>${d.fornecedor||'N/A'}</td>
-    <td class="cnpj" style="font-family:monospace;font-size:11px;color:var(--t2)">${d.cnpj_fornecedor||'N/A'}</td>
-    <td style="font-size:11px;color:var(--t2)">${docDate}${docLink}</td>
-    <td class="val ${valClass(d.valor)}">${fmt(d.valor)}</td>
-  </tr>`}).join('');
+    <td class="cnpj">${d.cnpj_fornecedor||'N/A'}</td>
+    <td style="font-size:11px">${d.data_documento ? d.data_documento.split('T')[0] : ''}</td>
+    <td class="val">${fmt(d.valor)}</td>
+  </tr>`).join('');
 }
 
 function renderFornecedores(){
   const f=(DATA.top_fornecedores||[]).sort((a,b)=>b.total-a.total);
-  document.getElementById('forn-tag').textContent=`${f.length} fornecedores`;
   document.getElementById('forn-list').innerHTML=f.map((x,i)=>`
-    <div class="forn-card" style="animation-delay:${i*0.03}s">
-      <div>
-        <div class="nm">${i+1}. ${x.fornecedor}</div>
-        <div class="cn">${x.cnpj_fornecedor||''}</div>
-        <div class="parls">👤 ${x.parlamentares}</div>
-      </div>
-      <div>
-        <div class="vl">${fmt(x.total)}</div>
-        <div class="qt">${x.qtd} nota(s)</div>
-      </div>
+    <div class="forn-card">
+      <div><div class="nm">${x.fornecedor}</div><div class="qt">${x.parlamentares}</div></div>
+      <div class="vl" style="color:var(--cyan)">${fmt(x.total)}</div>
     </div>`).join('');
 }
 
 function renderTransparencia(){
   const ct=DATA.candidaturas_tse||[];
-  if(!ct.length){document.getElementById('transp-list').innerHTML='<p style="color:var(--t3);padding:40px;text-align:center">Dados do TSE não disponíveis. Execute o pipeline com dados TSE.</p>';return}
-
-  // Parse detalhes from scores for transparency breakdown
-  const parlMap={};
-  (DATA.parlamentares||[]).forEach(p=>{
-    if(p.detalhes){
-      try{const d=JSON.parse(p.detalhes);if(d.score_transparencia)parlMap[p.nome_parlamentar]=d.score_transparencia}catch(e){}
-    }
-  });
-
-  document.getElementById('transp-list').innerHTML=ct.sort((a,b)=>(b.total_bens||0)-(a.total_bens||0)).map((c,i)=>{
-    const t=parlMap[c.nome_parlamentar]||{};
-    const sc_d=t.score_declaracao||0;const sc_p=t.score_patrimonio||0;const sc_r=t.score_receitas||0;const sc_t=t.score||0;
-    return`<div class="forn-card" style="animation-delay:${i*0.04}s">
-      <div>
-        <div class="nm">${c.nome_parlamentar} <span style="font-size:11px;color:var(--t3)">${c.cargo||''} • ${c.ano_eleicao}</span></div>
-        <div style="display:flex;gap:16px;margin-top:8px">
-          <div class="sp"><b class="${sc_d>=70?'sh':'sm'}" style="font-size:14px">${sc_d.toFixed(0)}</b><small>Declaração</small></div>
-          <div class="sp"><b class="${sc_p>=70?'sh':'sm'}" style="font-size:14px">${sc_p.toFixed(0)}</b><small>Patrimônio</small></div>
-          <div class="sp"><b class="${sc_r>=70?'sh':'sm'}" style="font-size:14px">${sc_r.toFixed(0)}</b><small>Receitas</small></div>
-          <div class="sp"><b class="${sc_t>=70?'sh':sc_t>=40?'sm':'sl'}" style="font-size:16px">${sc_t.toFixed(1)}</b><small>Score Total</small></div>
-        </div>
-      </div>
-      <div>
-        <div class="vl" style="color:var(--cyan)">${fmt(c.total_bens||0)}</div>
-        <div class="qt">Patrimônio declarado</div>
-        ${c.total_receitas?`<div class="qt" style="margin-top:4px">${fmt(c.total_receitas)} receitas</div>`:''}
-      </div>
-    </div>`}).join('');
+  document.getElementById('transp-list').innerHTML=ct.slice(0,50).map(c=>`
+    <div class="forn-card">
+      <div><div class="nm">${c.nome_parlamentar}</div><div class="qt">${c.cargo||''}</div></div>
+      <div class="vl" style="color:var(--cyan)">${fmt(c.total_bens||0)}</div>
+    </div>`).join('');
 }
 
 function renderAuditoria(){
   const alertas = DATA.alertas_auditoria || [];
   document.getElementById('auditoria-tag').textContent = `${alertas.length} alertas`;
-  
-  if(alertas.length === 0){
-    document.getElementById('auditoria-list').innerHTML = '<p style="color:var(--green);padding:20px;text-align:center">Nenhum gasto duvidoso detectado neste período. ✅</p>';
-    return;
-  }
-  
-  // Ordenar por valor (maior primeiro) e agrupar
-  const sorted = [...alertas].sort((a,b)=>b.valor - a.valor);
-  
-  document.getElementById('auditoria-list').innerHTML = sorted.map((a, i) => {
-    const docLink = a.url_documento ? `<a href="${a.url_documento}" target="_blank" title="Ver Nota Fiscal/Recibo Original" style="color:var(--brand);text-decoration:none;margin-left:8px;font-weight:600;background:rgba(59,130,246,0.1);padding:2px 8px;border-radius:4px">🔗 Ver Comprovante Oficial</a>` : '<span style="color:var(--t3);font-size:11px;margin-left:8px" title="Sem comprovante digital">📄 S/N</span>';
-    return `
-    <div class="forn-card" style="border-left:3px solid var(--red);animation-delay:${i*0.04}s">
-      <div>
-        <div class="nm">${a.nome_parlamentar} <span style="font-size:11px;color:var(--t3)">• ${a.tipo_despesa}</span></div>
-        <div style="font-size:12px;color:var(--red);margin-top:6px;font-weight:600">🚨 ${a.tipo}</div>
-        <div class="parls" style="color:var(--t1)">${a.descricao}</div>
-        <div class="parls" style="margin-top:8px; line-height: 1.6;">
-          <strong>Fornecedor:</strong> ${a.fornecedor||'N/A'} <br>
-          <small style="color:var(--t3);font-family:monospace;font-size:11px">CNPJ/CPF: ${a.cnpj_fornecedor||'N/A'}</small> <br>
-          <strong>Data:</strong> ${a.data_documento ? a.data_documento.split('T')[0] : 'N/A'} ${docLink}
-        </div>
-      </div>
-      <div>
-        <div class="vl" style="color:var(--red)">${fmt(a.valor)}</div>
-      </div>
-    </div>
-  `}).join('');
+  document.getElementById('auditoria-list').innerHTML = alertas.sort((a,b)=>b.valor - a.valor).map(a => `
+    <div class="forn-card" style="border-left:3px solid var(--red)">
+      <div><div class="nm">${a.nome_parlamentar}</div><div class="parls">🚨 ${a.tipo}</div></div>
+      <div class="vl" style="color:var(--red)">${fmt(a.valor)}</div>
+    </div>`).join('');
 }
 
 function renderVotacoes(){
-  const votos = DATA.votos || [];
-  const parls = [...new Set(votos.map(v => v.nome_parlamentar))].sort();
-  const partidos = [...new Set(votos.map(v => v.partido).filter(Boolean))].sort();
-  document.getElementById('filt-vot-parl').innerHTML = '<option value="">Todos os parlamentares</option>' + parls.map(p => `<option>${p}</option>`).join('');
-  document.getElementById('filt-vot-part').innerHTML = '<option value="">Todos os partidos</option>' + partidos.map(p => `<option>${p}</option>`).join('');
-  document.getElementById('vot-tag').textContent = `${votos.length} votos registrados`;
-  filterVotacoes();
-}
-
-function filterVotacoes(){
-  const fp = document.getElementById('filt-vot-parl').value;
-  const fpartido = document.getElementById('filt-vot-part').value;
-  const fv = document.getElementById('filt-vot-voto').value;
-  const fd = document.getElementById('filt-vot-desc').value.toLowerCase();
-
-  let filtered = (DATA.votos || []).filter(v => {
-    if(fp && v.nome_parlamentar !== fp) return false;
-    if(fpartido && v.partido !== fpartido) return false;
-    if(fv && v.voto !== fv) return false;
-    if(fd && !(v.projeto_assunto||'').toLowerCase().includes(fd)) return false;
-    return true;
-  });
-
-  document.getElementById('vot-tag').textContent = `${filtered.length} votos exibidos`;
-
-  document.getElementById('tbl-body-votacoes').innerHTML = filtered.slice(0, 300).map(v => {
-    let color = 'var(--t3)';
-    let bg = 'transparent';
-    if(v.voto === 'Sim') { color = '#10b981'; bg = 'rgba(16,185,129,0.1)'; }
-    if(v.voto === 'Não') { color = '#ef4444'; bg = 'rgba(239,68,68,0.1)'; }
-    
-    return `<tr>
-      <td><b>${v.nome_parlamentar}</b><br><span style="font-size:10px;color:var(--t3)">${v.partido}/${v.uf}</span></td>
-      <td style="font-size:11px;color:var(--cyan)">${v.casa === 'camara' ? 'Câmara' : 'Senado'}</td>
-      <td style="font-size:12px;color:var(--t1)">${v.projeto_assunto}</td>
-      <td style="font-size:11px;color:var(--t2)">${v.data ? v.data.split('T')[0] : ''}</td>
-      <td style="font-weight:bold;color:${color}"><span style="background:${bg};padding:4px 8px;border-radius:4px">${v.voto}</span>${v.descricao_ausencia ? `<br><small style="font-size:9px;color:var(--t3)">${v.descricao_ausencia}</small>` : ''}</td>
-    </tr>`;
-  }).join('');
+  document.getElementById('vot-tag').textContent = `${DATA.votos.length} votos`;
+  document.getElementById('tbl-body-votacoes').innerHTML = (DATA.votos||[]).slice(0,100).map(v => `<tr>
+      <td><b>${v.nome_parlamentar}</b></td>
+      <td>${v.projeto_assunto}</td>
+      <td style="font-weight:bold">${v.voto}</td>
+    </tr>`).join('');
 }
 
 function render(){
   renderStats();renderRanking();renderGastos();renderFornecedores();renderTransparencia();renderAuditoria();renderVotacoes();
-  document.getElementById('updated').textContent=new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
-  // Bind filters
-  ['filt-parl','filt-partido','filt-tipo','filt-sort'].forEach(id=>document.getElementById(id).addEventListener('change',filterGastos));
-  document.getElementById('filt-forn').addEventListener('input',filterGastos);
-  
-  ['filt-vot-parl', 'filt-vot-part', 'filt-vot-voto'].forEach(id=>document.getElementById(id).addEventListener('change',filterVotacoes));
-  document.getElementById('filt-vot-desc').addEventListener('input',filterVotacoes);
+  document.getElementById('updated').textContent=new Date().toLocaleString('pt-BR');
+  document.getElementById('filt-parl').addEventListener('change',filterGastos);
 }
 
-// Conexão com Supabase usando a chave anônima
 const supaUrl = "https://kwuxwwmbmfllpzpdlmih.supabase.co";
 const supaKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3dXh3d21ibWZsbHB6cGRsbWloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MDE1NDYsImV4cCI6MjA5Mjk3NzU0Nn0.OhsWUbLV0S0o-cW7LoRiPpueuHxi9qLS6iFN7AquP_U";
 
 async function loadFromSupabase() {
   try {
-    document.getElementById('ranking').innerHTML = '<p style="text-align:center;padding:40px">Carregando dados da nuvem (Supabase)... ☁️</p>';
-    
-    if (!window.supabase) {
-        throw new Error("SDK do Supabase não foi carregado. Verifique sua conexão com a internet ou bloqueadores de anúncios.");
-    }
+    if (!window.supabase) throw new Error("SDK Supabase não carregado.");
     const supabase = window.supabase.createClient(supaUrl, supaKey);
-    
-    // Buscar todos os scores e parlamentares relacionados
-    const { data: scoresData, error: err1 } = await supabase.from('scores').select('*, parlamentares(nome_parlamentar, partido, uf, casa, id)');
-    if (err1) throw err1;
-    
-    // Transformar os dados relacionais para o formato que a UI espera
-    const parlamentares = scoresData.map(s => {
-      let p = s.parlamentares || {};
-      p.id = s.parlamentar_id;
-      p.score_geral = s.score_geral;
-      p.score_atividade = s.score_atividade;
-      p.score_gasto = s.score_gasto;
-      p.score_transparencia = s.score_transparencia;
-      p.score_coerencia = s.score_coerencia;
-      p.detalhes = JSON.stringify(s.detalhes || {});
-      return p;
-    });
-
-    // Buscar despesas (Paginado para contornar o limite de 1000 do servidor)
-    let despData = [];
-    let page = 0;
-    const pageSize = 1000;
-    
-    while (true) {
-      const { data, error } = await supabase
-        .from('despesas')
-        .select('*, parlamentares(nome_parlamentar, partido, uf, casa)')
-        .range(page * pageSize, (page + 1) * pageSize - 1);
-        
-      if (error) throw error;
-      if (!data || data.length === 0) break;
-      
-      despData = despData.concat(data);
-      if (data.length < pageSize) break; // Chegou ao fim
-      page++;
-      if (page > 20) break; // Segurança para evitar loop infinito
-    }
-    
-    // Buscar total real de gastos via RPC ou count (Fallback para soma local se RPC não disponível)
-    // Para simplificar e garantir precisão nos cards, vamos somar todo o despData, mas o limite deve ser alto.
-    
-    // Ajustar despesas e Executar Auditoria
-    let allAlerts = [];
-    let gastosDiarios = {};
-    const despesas = despData.map(d => {
-      if (d.parlamentares) {
-        d.nome_parlamentar = d.parlamentares.nome_parlamentar;
-        d.partido = d.parlamentares.partido;
-        d.uf = d.parlamentares.uf;
-        d.casa = d.parlamentares.casa;
-      }
-      
-      d.alertas = [];
-      d.suspeita = false;
-
-      // Auditoria 1: Valores redondos altos
-      if (d.valor >= 5000 && d.valor % 1000 === 0) {
-        let alerta = {tipo: "Valor Redondo", gravidade: "media", descricao: `Valor exato e muito alto pode indicar nota fria ou superfaturamento.`};
-        d.alertas.push(alerta);
-        allAlerts.push({...d, ...alerta});
-        d.suspeita = true;
-      }
-      
-      // Auditoria 2: Refeições excessivas
-      let tipoUpper = (d.tipo_despesa || "").toUpperCase();
-      if (tipoUpper.includes("ALIMENTAÇÃO") || tipoUpper.includes("REFEIÇÃO") || tipoUpper.includes("ALIMENTACAO")) {
-        if (d.valor > 200) {
-          let alerta = {tipo: "Refeição Excessiva", gravidade: "alta", descricao: `Refeição muito acima do limite razoável individual.`};
-          d.alertas.push(alerta);
-          allAlerts.push({...d, ...alerta});
-          d.suspeita = true;
-        }
-      }
-      
-      // Auditoria 3: Gastos em fins de semana
-      if (d.data_documento) {
-        let dt = new Date(d.data_documento);
-        let day = dt.getUTCDay(); // 0 = Domingo, 6 = Sábado
-        if (day === 0 || day === 6) {
-          if (!tipoUpper.includes("HOSPEDAGEM") && !tipoUpper.includes("PASSAGEM") && !tipoUpper.includes("COMBUSTÍVEL") && !tipoUpper.includes("LOCAÇÃO")) {
-            let alerta = {tipo: "Gasto em Fim de Semana", gravidade: "media", descricao: `Despesa em dia não-útil (${day===6?'Sábado':'Domingo'}) sem justificativa clara de plantão/deslocamento.`};
-            d.alertas.push(alerta);
-            allAlerts.push({...d, ...alerta});
-            d.suspeita = true;
-          }
-        }
-      }
-
-      // Agrupamento para Fracionamento
-      if (d.data_documento && d.cnpj_fornecedor) {
-        let key = `${d.parlamentar_id}_${d.data_documento}_${d.cnpj_fornecedor}`;
-        if (!gastosDiarios[key]) gastosDiarios[key] = [];
-        gastosDiarios[key].push(d);
-      }
-
-      return d;
-    });
-
-    // Auditoria 4: Fracionamento
-    for (let key in gastosDiarios) {
-      let notas = gastosDiarios[key];
-      if (notas.length >= 3) {
-        let totalDia = notas.reduce((acc, n) => acc + n.valor, 0);
-        notas.forEach(n => {
-          let alerta = {tipo: "Fracionamento", gravidade: "alta", descricao: `${notas.length} notas emitidas no mesmo dia para o mesmo fornecedor.`};
-          n.alertas.push(alerta);
-          allAlerts.push({...n, ...alerta});
-          n.suspeita = true;
-        });
-      }
-    }
-    
-    const totalGasto = despesas.reduce((acc, d) => acc + (d.valor || 0), 0);
-    
-    // Fornecedores Agrupados
-    let fMap = {};
-    despesas.forEach(d => {
-      if(!d.fornecedor) return;
-      let k = d.fornecedor;
-      if(!fMap[k]) fMap[k] = {fornecedor: k, cnpj_fornecedor: d.cnpj_fornecedor, total: 0, qtd: 0, parls: new Set()};
-      fMap[k].total += d.valor;
-      fMap[k].qtd += 1;
-      fMap[k].parls.add(d.nome_parlamentar);
-    });
-    const topFornecedores = Object.values(fMap)
-      .sort((a,b)=>b.total - a.total)
-      .slice(0, 50)
-      .map(x => ({...x, parlamentares: Array.from(x.parls).join(', ')}));
-      
-    // Candidaturas TSE
-    const { data: tseData } = await supabase.from('candidaturas_tse').select('*, parlamentares(nome_parlamentar)');
-    const candTse = (tseData||[]).map(c => {
-        if(c.parlamentares) c.nome_parlamentar = c.parlamentares.nome_parlamentar;
-        return c;
-    });
-
-    // Votos e Votações
-    const { data: votosRaw } = await supabase
-      .from('votos')
-      .select(`
-        voto, 
-        descricao_ausencia,
-        votacoes(descricao, data, casa),
-        parlamentares(nome_parlamentar, partido, uf)
-      `)
-      .limit(5000); // Trazendo os últimos 5000 votos da base local para renderização rápida
-
-    const votos = (votosRaw||[]).map(v => ({
-      voto: v.voto,
-      descricao_ausencia: v.descricao_ausencia,
-      projeto_assunto: v.votacoes ? v.votacoes.descricao : 'S/N',
-      data: v.votacoes ? v.votacoes.data : '',
-      casa: v.votacoes ? v.votacoes.casa : '',
-      nome_parlamentar: v.parlamentares ? v.parlamentares.nome_parlamentar : 'S/N',
-      partido: v.parlamentares ? v.parlamentares.partido : '',
-      uf: v.parlamentares ? v.parlamentares.uf : ''
-    }));
-
-    DATA = { 
-      parlamentares: parlamentares, 
-      despesas: despesas,
-      total_gasto: totalGasto,
-      top_fornecedores: topFornecedores,
-      candidaturas_tse: candTse,
-      alertas_auditoria: allAlerts,
-      votos: votos
-    };
+    const { data: scoresData } = await supabase.from('scores').select('*, parlamentares(nome_parlamentar, partido, uf, casa, id)');
+    const parlamentares = scoresData.map(s => ({...s.parlamentares, ...s}));
+    const { data: despData } = await supabase.from('despesas').select('*, parlamentares(nome_parlamentar, partido, uf, casa)').limit(2000);
+    const despesas = despData.map(d => ({...d, ...d.parlamentares}));
+    const { data: votosRaw } = await supabase.from('votos').select('voto, votacoes(descricao), parlamentares(nome_parlamentar)').limit(1000);
+    DATA = { parlamentares, despesas, votos: votosRaw.map(v=>({voto:v.voto, projeto_assunto:v.votacoes?.descricao, nome_parlamentar:v.parlamentares?.nome_parlamentar})), alertas_auditoria: despesas.filter(d=>d.valor>5000).map(d=>({...d, tipo:'Valor Alto'})) };
     render();
   } catch (e) {
     console.error(e);
     const errBox = document.getElementById('ranking');
-    if(errBox) errBox.innerHTML=`<h3 style='color:red;padding:20px'>Erro ao carregar do Supabase: ${e.message||e}</h3>`;
+    if(errBox) errBox.innerHTML=`<h3 style='color:red;padding:20px'>Erro: ${e.message}</h3>`;
   }
 }
 
-// Iniciar apenas quando a página carregar
 window.addEventListener('DOMContentLoaded', () => {
-  // Dá um pequeno atraso caso o script do CDN ainda esteja sendo avaliado
   loadFromSupabase();
-  
-  // PWA Registration
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js')
-      .then(() => console.log('Service Worker Registered'))
-      .catch(err => console.error('SW Registration Failed', err));
+      .then(() => console.log('SW OK'))
+      .catch(err => console.error('SW Fail', err));
   }
 });
 </script>
