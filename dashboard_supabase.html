@@ -395,17 +395,46 @@ async function loadFromSupabase() {
   try {
     if (!window.supabase) throw new Error("SDK Supabase não carregado.");
     const supabase = window.supabase.createClient(supaUrl, supaKey);
-    const { data: scoresData } = await supabase.from('scores').select('*, parlamentares(nome_parlamentar, partido, uf, casa, id)');
-    const parlamentares = scoresData.map(s => ({...s.parlamentares, ...s}));
-    const { data: despData } = await supabase.from('despesas').select('*, parlamentares(nome_parlamentar, partido, uf, casa)').limit(2000);
+    const { data: scoresData } = await supabase.from('scores')
+      .select('*, parlamentares(nome_parlamentar, partido, uf, casa, id)')
+      .order('periodo', { ascending: false })
+      .limit(4000);
+    
+    const seen = new Set();
+    const parlamentares = [];
+    for (const s of scoresData) {
+      if (!s.parlamentares) continue;
+      const pid = s.parlamentar_id;
+      if (!seen.has(pid)) {
+        seen.add(pid);
+        parlamentares.push({ ...s.parlamentares, ...s });
+      }
+    }
+
+    const { data: despData } = await supabase.from('despesas').select('*, parlamentares(nome_parlamentar, partido, uf, casa)').limit(5000);
     const despesas = despData.map(d => ({...d, ...d.parlamentares}));
-    const { data: votosRaw } = await supabase.from('votos').select('voto, votacoes(descricao), parlamentares(nome_parlamentar)').limit(1000);
-    DATA = { parlamentares, despesas, votos: votosRaw.map(v=>({voto:v.voto, projeto_assunto:v.votacoes?.descricao, nome_parlamentar:v.parlamentares?.nome_parlamentar})), alertas_auditoria: despesas.filter(d=>d.valor>5000).map(d=>({...d, tipo:'Valor Alto'})) };
+    const { data: votosRaw } = await supabase.from('votos').select('voto, votacoes(descricao), parlamentares(nome_parlamentar, partido, uf)').limit(5000);
+    // Calcular métricas agregadas
+    const totalGasto = despesas.reduce((acc, d) => acc + (d.valor || 0), 0);
+
+    DATA = { 
+      parlamentares, 
+      despesas, 
+      total_gasto: totalGasto,
+      votos: votosRaw.map(v => ({
+        voto: v.voto,
+        projeto_assunto: v.votacoes?.descricao,
+        nome_parlamentar: v.parlamentares?.nome_parlamentar,
+        partido: v.parlamentares?.partido,
+        uf: v.parlamentares?.uf
+      })), 
+      alertas_auditoria: despesas.filter(d => d.valor > 5000).map(d => ({...d, tipo: 'Valor Alto'})) 
+    };
     render();
   } catch (e) {
-    console.error(e);
+    console.error("Erro no carregamento Supabase:", e);
     const errBox = document.getElementById('ranking');
-    if(errBox) errBox.innerHTML=`<h3 style='color:red;padding:20px'>Erro: ${e.message}</h3>`;
+    if(errBox) errBox.innerHTML=`<h3 style='color:red;padding:20px'>Erro ao conectar com Supabase: ${e.message}</h3>`;
   }
 }
 

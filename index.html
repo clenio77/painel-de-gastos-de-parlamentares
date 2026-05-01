@@ -129,6 +129,14 @@ body::before{content:'';position:fixed;inset:-50%;width:200%;height:200%;backgro
   .tbl{font-size:12px}
   .tbl th, .tbl td{padding:10px 12px}
 }
+
+/* Paginação */
+.pag{display:flex;justify-content:center;align-items:center;gap:12px;margin:32px 0;flex-wrap:wrap}
+.pag-btn{background:var(--card);border:1px solid var(--brd);color:var(--t1);padding:10px 20px;border-radius:10px;font-weight:700;cursor:pointer;transition:.2s}
+.pag-btn:hover:not(:disabled){border-color:var(--blue);background:var(--card-h)}
+.pag-btn:disabled{opacity:.3;cursor:not-allowed}
+.pag-info{font-size:14px;color:var(--t2);font-weight:600}
+
 </style>
 </head>
 <body>
@@ -180,6 +188,7 @@ body::before{content:'';position:fixed;inset:-50%;width:200%;height:200%;backgro
       </tr></thead>
       <tbody id="tbl-body"></tbody>
     </table>
+    <div class="pag" id="pag-gastos"></div>
   </div>
 
   <div id="panel-fornecedores" class="panel">
@@ -207,6 +216,7 @@ body::before{content:'';position:fixed;inset:-50%;width:200%;height:200%;backgro
       </tr></thead>
       <tbody id="tbl-body-votacoes"></tbody>
     </table>
+    <div class="pag" id="pag-votacoes"></div>
   </div>
 
   <div id="panel-auditoria" class="panel">
@@ -228,6 +238,10 @@ body::before{content:'';position:fixed;inset:-50%;width:200%;height:200%;backgro
 <script>
 let DATA = {};
 let allDespesas = [];
+let currentPageGastos = 1;
+let currentPageVotacoes = 1;
+const itemsPerPage = 50;
+
 
 function fmt(v){return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v)}
 function sc(s){return s>=70?'sh':s>=40?'sm':'sl'}
@@ -331,11 +345,38 @@ function renderGastos(){
   document.getElementById('filt-partido').innerHTML='<option value="">Todos os partidos</option>'+partidos.map(p=>`<option>${p}</option>`).join('');
   document.getElementById('filt-tipo').innerHTML='<option value="">Todos os tipos</option>'+tipos.map(t=>`<option>${t}</option>`).join('');
   document.getElementById('desp-tag').textContent=`${desps.length} registros`;
+  currentPageGastos = 1;
   filterGastos();
 }
 
-function filterGastos(){
+function renderPag(containerId, totalItems, currentPage, onPageChange) {
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const container = document.getElementById(containerId);
+  if (totalPages <= 1) { container.innerHTML = ''; return; }
+
+  container.innerHTML = `
+    <button class="pag-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="${onPageChange}(${currentPage - 1})">Anterior</button>
+    <span class="pag-info">Página ${currentPage} de ${totalPages}</span>
+    <button class="pag-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="${onPageChange}(${currentPage + 1})">Próxima</button>
+  `;
+}
+
+function changePageGastos(p) {
+  currentPageGastos = p;
+  filterGastos(false);
+  document.querySelector('.main-content').scrollTop = 0;
+}
+
+function changePageVotacoes(p) {
+  currentPageVotacoes = p;
+  filterVotacoes(false);
+  document.querySelector('.main-content').scrollTop = 0;
+}
+
+function filterGastos(resetPage = true){
+  if (resetPage) currentPageGastos = 1;
   const fp=document.getElementById('filt-parl').value;
+
   const fpartido=document.getElementById('filt-partido').value;
   const ft=document.getElementById('filt-tipo').value;
   const ff=document.getElementById('filt-forn').value.toLowerCase();
@@ -357,7 +398,10 @@ function filterGastos(){
   const total=filtered.reduce((s,d)=>s+d.valor,0);
   document.getElementById('desp-tag').textContent=`${filtered.length} de ${allDespesas.length} • ${fmt(total)}`;
 
-  document.getElementById('tbl-body').innerHTML=filtered.slice(0,200).map(d=>{
+  const start = (currentPageGastos - 1) * itemsPerPage;
+  const pageData = filtered.slice(start, start + itemsPerPage);
+
+  document.getElementById('tbl-body').innerHTML=pageData.map(d=>{
     const alertsStr = d.alertas && d.alertas.length > 0 ? `<br><span style="color:var(--red);font-size:10px">🚨 ${d.alertas.map(a=>a.tipo).join(', ')}</span>` : '';
     const docLink = d.url_documento ? `<br><a href="${d.url_documento}" target="_blank" title="Ver Nota Fiscal/Recibo Original" style="color:var(--brand);text-decoration:none;font-weight:600">🔗 Nota</a>` : '<br><span style="color:var(--t3);font-size:10px" title="Sem comprovante digital">📄 S/N</span>';
     const docDate = d.data_documento ? d.data_documento.split('T')[0] : 'S/ Data';
@@ -369,7 +413,10 @@ function filterGastos(){
     <td style="font-size:11px;color:var(--t2)">${docDate}${docLink}</td>
     <td class="val ${valClass(d.valor)}">${fmt(d.valor)}</td>
   </tr>`}).join('');
+
+  renderPag('pag-gastos', filtered.length, currentPageGastos, 'changePageGastos');
 }
+
 
 function renderFornecedores(){
   const f=(DATA.top_fornecedores||[]).sort((a,b)=>b.total-a.total);
@@ -461,11 +508,14 @@ function renderVotacoes(){
   document.getElementById('filt-vot-parl').innerHTML = '<option value="">Todos os parlamentares</option>' + parls.map(p => `<option>${p}</option>`).join('');
   document.getElementById('filt-vot-part').innerHTML = '<option value="">Todos os partidos</option>' + partidos.map(p => `<option>${p}</option>`).join('');
   document.getElementById('vot-tag').textContent = `${votos.length} votos registrados`;
+  currentPageVotacoes = 1;
   filterVotacoes();
 }
 
-function filterVotacoes(){
+function filterVotacoes(resetPage = true){
+  if (resetPage) currentPageVotacoes = 1;
   const fp = document.getElementById('filt-vot-parl').value;
+
   const fpartido = document.getElementById('filt-vot-part').value;
   const fv = document.getElementById('filt-vot-voto').value;
   const fd = document.getElementById('filt-vot-desc').value.toLowerCase();
@@ -480,7 +530,10 @@ function filterVotacoes(){
 
   document.getElementById('vot-tag').textContent = `${filtered.length} votos exibidos`;
 
-  document.getElementById('tbl-body-votacoes').innerHTML = filtered.slice(0, 300).map(v => {
+  const start = (currentPageVotacoes - 1) * itemsPerPage;
+  const pageData = filtered.slice(start, start + itemsPerPage);
+
+  document.getElementById('tbl-body-votacoes').innerHTML = pageData.map(v => {
     let color = 'var(--t3)';
     let bg = 'transparent';
     if(v.voto === 'Sim') { color = '#10b981'; bg = 'rgba(16,185,129,0.1)'; }
@@ -494,7 +547,10 @@ function filterVotacoes(){
       <td style="font-weight:bold;color:${color}"><span style="background:${bg};padding:4px 8px;border-radius:4px">${v.voto}</span>${v.descricao_ausencia ? `<br><small style="font-size:9px;color:var(--t3)">${v.descricao_ausencia}</small>` : ''}</td>
     </tr>`;
   }).join('');
+
+  renderPag('pag-votacoes', filtered.length, currentPageVotacoes, 'changePageVotacoes');
 }
+
 
 function render(){
   renderStats();renderRanking();renderGastos();renderFornecedores();renderTransparencia();renderAuditoria();renderVotacoes();

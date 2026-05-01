@@ -1,0 +1,2519 @@
+--------------------------------------------------
+🕒 Início da execução: sex 01 mai 2026 12:58:35 -03
+Database initialized at candidatos.db
+🚀 INICIANDO COLETA DINÂMICA (Baseada em: 01/05/2026)
+Obtendo listas atualizadas de deputados e senadores...
+Total a processar: 939 parlamentares.
+
+📅 PROCESSANDO PERÍODO: 05/2026
+------------------------------
+[1/939] Coletando Alan Rick (senado)... ✅ desp=0 vot=0 score=54.85
+[2/939] Coletando Alessandro Vieira (senado)... ✅ desp=0 vot=0 score=34.5
+[3/939] Coletando Ana Paula Lobato (senado)... ✅ desp=0 vot=0 score=51.9
+[4/939] Coletando Angelo Coronel (senado)... ✅ desp=0 vot=0 score=52.2
+[5/939] Coletando Astronauta Marcos Pontes (senado)... ✅ desp=0 vot=0 score=54.97
+[6/939] Coletando Beto Faro (senado)... ✅ desp=0 vot=0 score=51.57
+[7/939] Coletando Camilo Santana (senado)... ✅ desp=0 vot=0 score=55.5
+[8/939] Coletando Carlos Fávaro (senado)... ✅ desp=0 vot=0 score=30.0
+[9/939] Coletando Carlos Portinho (senado)... ✅ desp=0 vot=0 score=30.0
+[10/939] Coletando Carlos Viana (senado)... ✅ desp=0 vot=0 score=54.15
+[11/939] Coletando Chico Rodrigues (senado)... ✅ desp=0 vot=0 score=34.5
+[12/939] Coletando Cid Gomes (senado)... ✅ desp=0 vot=0 score=51.3
+[13/939] Coletando Ciro Nogueira (senado)... ✅ desp=0 vot=0 score=40.0
+[14/939] Coletando Cleitinho (senado)... ✅ desp=0 vot=0 score=55.5
+[15/939] Coletando Confúcio Moura (senado)... ✅ desp=0 vot=0 score=30.0
+[16/939] Coletando Damares Alves (senado)... ✅ desp=0 vot=0 score=51.9
+[17/939] Coletando Daniella Ribeiro (senado)... ✅ desp=0 vot=0 score=54.3
+[18/939] Coletando Davi Alcolumbre (senado)... ✅ desp=0 vot=0 score=55.42
+[19/939] Coletando Dr. Hiran (senado)... ✅ desp=0 vot=0 score=55.5
+[20/939] Coletando Dra. Eudócia (senado)... ✅ desp=0 vot=0 score=30.0
+[21/939] Coletando Eduardo Braga (senado)... ✅ desp=0 vot=0 score=49.2
+[22/939] Coletando Eduardo Girão (senado)... ✅ desp=0 vot=0 score=51.3
+[23/939] Coletando Eduardo Gomes (senado)... ✅ desp=0 vot=0 score=40.0
+[24/939] Coletando Efraim Filho (senado)... ✅ desp=0 vot=0 score=53.7
+[25/939] Coletando Eliziane Gama (senado)... ✅ desp=0 vot=0 score=30.0
+[26/939] Coletando Esperidião Amin (senado)... ✅ desp=0 vot=0 score=54.47
+[27/939] Coletando Fabiano Contarato (senado)... ✅ desp=0 vot=0 score=34.5
+[28/939] Coletando Fernando Dueire (senado)... ✅ desp=0 vot=0 score=30.0
+[29/939] Coletando Flávio Arns (senado)... ✅ desp=0 vot=0 score=30.0
+[30/939] Coletando Flávio Bolsonaro (senado)... ✅ desp=0 vot=0 score=55.49
+[31/939] Coletando Giordano (senado)... ✅ desp=0 vot=0 score=54.9
+[32/939] Coletando Hamilton Mourão (senado)... ✅ desp=0 vot=0 score=52.93
+[33/939] Coletando Humberto Costa (senado)... ✅ desp=0 vot=0 score=51.25
+[34/939] Coletando Irajá (senado)... ✅ desp=0 vot=0 score=54.89
+[35/939] Coletando Ivete da Silveira (senado)... ✅ desp=0 vot=0 score=30.0
+[36/939] Coletando Izalci Lucas (senado)... ✅ desp=0 vot=0 score=51.63
+[37/939] Coletando Jader Barbalho (senado)... ✅ desp=0 vot=0 score=51.3
+[38/939] Coletando Jaime Bagattoli (senado)... ✅ desp=0 vot=0 score=49.2
+[39/939] Coletando Jaques Wagner (senado)... ✅ desp=0 vot=0 score=30.0
+[40/939] Coletando Jayme Campos (senado)... ✅ desp=0 vot=0 score=53.1
+[41/939] Coletando Jorge Kajuru (senado)... ✅ desp=0 vot=0 score=30.0
+[42/939] Coletando Jorge Seif (senado)... ✅ desp=0 vot=0 score=55.03
+[43/939] Coletando Laércio Oliveira (senado)... ✅ desp=0 vot=0 score=53.65
+[44/939] Coletando Leila Barros (senado)... ✅ desp=0 vot=0 score=52.5
+[45/939] Coletando Lucas Barreto (senado)... ✅ desp=0 vot=0 score=34.5
+[46/939] Coletando Luis Carlos Heinze (senado)... ✅ desp=0 vot=0 score=51.85
+[47/939] Coletando Magno Malta (senado)... ✅ desp=0 vot=0 score=55.5
+[48/939] Coletando Mara Gabrilli (senado)... ✅ desp=0 vot=0 score=49.2
+[49/939] Coletando Marcelo Castro (senado)... ✅ desp=0 vot=0 score=30.0
+[50/939] Coletando Marcio Bittar (senado)... ✅ desp=0 vot=0 score=53.66
+[51/939] Coletando Marcos Rogério (senado)... ✅ desp=0 vot=0 score=51.3
+[52/939] Coletando Marcos do Val (senado)... ✅ desp=0 vot=0 score=34.5
+[53/939] Coletando Nelsinho Trad (senado)... ✅ desp=0 vot=0 score=51.9
+[54/939] Coletando Omar Aziz (senado)... ✅ desp=0 vot=0 score=51.81
+[55/939] Coletando Oriovisto Guimarães (senado)... ✅ desp=0 vot=0 score=34.5
+[56/939] Coletando Otto Alencar (senado)... ✅ desp=0 vot=0 score=54.68
+[57/939] Coletando Paulo Paim (senado)... ✅ desp=0 vot=0 score=34.5
+[58/939] Coletando Plínio Valério (senado)... ✅ desp=0 vot=0 score=40.0
+[59/939] Coletando Professora Dorinha Seabra (senado)... ✅ desp=0 vot=0 score=51.3
+[60/939] Coletando Randolfe Rodrigues (senado)... ✅ desp=0 vot=0 score=40.0
+[61/939] Coletando Renan Calheiros (senado)... ✅ desp=0 vot=0 score=34.5
+[62/939] Coletando Renan Filho (senado)... ✅ desp=0 vot=0 score=55.22
+[63/939] Coletando Roberta Acioly (senado)... ✅ desp=0 vot=0 score=30.0
+[64/939] Coletando Rodrigo Pacheco (senado)... ✅ desp=0 vot=0 score=34.5
+[65/939] Coletando Rogerio Marinho (senado)... ✅ desp=0 vot=0 score=34.5
+[66/939] Coletando Rogério Carvalho (senado)... ✅ desp=0 vot=0 score=51.9
+[67/939] Coletando Romário (senado)... ✅ desp=0 vot=0 score=55.5
+[68/939] Coletando Sergio Moro (senado)... ✅ desp=0 vot=0 score=55.11
+[69/939] Coletando Soraya Thronicke (senado)... ✅ desp=0 vot=0 score=34.5
+[70/939] Coletando Styvenson Valentim (senado)... ✅ desp=0 vot=0 score=34.5
+[71/939] Coletando Sérgio Petecão (senado)... ✅ desp=0 vot=0 score=54.06
+[72/939] Coletando Teresa Leitão (senado)... ✅ desp=0 vot=0 score=55.5
+[73/939] Coletando Tereza Cristina (senado)... ✅ desp=0 vot=0 score=53.11
+[74/939] Coletando Vanderlan Cardoso (senado)... ✅ desp=0 vot=0 score=34.5
+[75/939] Coletando Veneziano Vital do Rêgo (senado)... ✅ desp=0 vot=0 score=54.11
+[76/939] Coletando Wellington Dias (senado)... ✅ desp=0 vot=0 score=55.4
+[77/939] Coletando Wellington Fagundes (senado)... ✅ desp=0 vot=0 score=51.46
+[78/939] Coletando Weverton (senado)... ✅ desp=0 vot=0 score=53.81
+[79/939] Coletando Wilder Morais (senado)... ✅ desp=0 vot=0 score=49.2
+[80/939] Coletando Zenaide Maia (senado)... ✅ desp=0 vot=0 score=51.9
+[81/939] Coletando Zequinha Marinho (senado)... ✅ desp=0 vot=0 score=53.59
+[82/939] Coletando Abilio Brunini (camara)... ✅ desp=0 vot=0 score=53.05
+[83/939] Coletando Acácio Favacho (camara)... ✅ desp=0 vot=0 score=50.97
+[84/939] Coletando Adail Filho (camara)... ✅ desp=0 vot=0 score=55.35
+[85/939] Coletando Adail Filho (camara)... ✅ desp=0 vot=0 score=55.35
+[86/939] Coletando Adilson Barroso (camara)... ✅ desp=0 vot=0 score=55.47
+[87/939] Coletando Adolfo Viana (camara)... ✅ desp=0 vot=0 score=55.5
+[88/939] Coletando Adriana Ventura (camara)... ✅ desp=0 vot=0 score=54.1
+[89/939] Coletando Adriano do Baldy (camara)... ✅ desp=0 vot=0 score=55.37
+[90/939] Coletando Aécio Neves (camara)... ✅ desp=0 vot=0 score=54.94
+[91/939] Coletando Afonso Florence (camara)... ✅ desp=0 vot=0 score=51.9
+[92/939] Coletando Afonso Hamm (camara)... ✅ desp=0 vot=0 score=55.01
+[93/939] Coletando Afonso Motta (camara)... ✅ desp=0 vot=0 score=49.2
+[94/939] Coletando Aguinaldo Ribeiro (camara)... ✅ desp=0 vot=0 score=54.21
+[95/939] Coletando Airton Faleiro (camara)... ✅ desp=0 vot=0 score=53.94
+[96/939] Coletando AJ Albuquerque (camara)... ✅ desp=0 vot=0 score=55.25
+[97/939] Coletando Alberto Fraga (camara)... ✅ desp=0 vot=0 score=53.52
+[98/939] Coletando Alberto Mourão (camara)... ✅ desp=0 vot=0 score=49.2
+[99/939] Coletando Albuquerque (camara)... ✅ desp=0 vot=0 score=51.3
+[100/939] Coletando Alceu Moreira (camara)... ✅ desp=0 vot=0 score=53.69
+[101/939] Coletando Alencar Santana (camara)... ✅ desp=0 vot=0 score=34.5
+[102/939] Coletando Alex Manente (camara)... ✅ desp=0 vot=0 score=55.29
+[103/939] Coletando Alex Santana (camara)... ✅ desp=0 vot=0 score=54.9
+[104/939] Coletando Alexandre Guimarães (camara)... ✅ desp=0 vot=0 score=54.76
+[105/939] Coletando Alexandre Guimarães (camara)... ✅ desp=0 vot=0 score=54.76
+[106/939] Coletando Alexandre Leite (camara)... ✅ desp=0 vot=0 score=52.43
+[107/939] Coletando Alexandre Lindenmeyer (camara)... ✅ desp=0 vot=0 score=55.35
+[108/939] Coletando Alexandre Padilha (camara)... ✅ desp=0 vot=0 score=34.5
+[109/939] Coletando Alfredinho (camara)... ✅ desp=0 vot=0 score=54.71
+[110/939] Coletando Alfredo Gaspar (camara)... ✅ desp=0 vot=0 score=54.3
+[111/939] Coletando Alfredo Gaspar (camara)... ✅ desp=0 vot=0 score=54.3
+[112/939] Coletando Alice Portugal (camara)... ✅ desp=0 vot=0 score=54.7
+[113/939] Coletando Aliel Machado (camara)... ✅ desp=0 vot=0 score=52.5
+[114/939] Coletando Aline Gurgel (camara)... ✅ desp=0 vot=0 score=34.5
+[115/939] Coletando Aline Gurgel (camara)... ✅ desp=0 vot=0 score=34.5
+[116/939] Coletando Allan Garcês (camara)... ✅ desp=0 vot=0 score=30.0
+[117/939] Coletando Altineu Côrtes (camara)... ✅ desp=0 vot=0 score=34.5
+[118/939] Coletando Aluisio Mendes (camara)... ✅ desp=0 vot=0 score=53.42
+[119/939] Coletando Aluisio Mendes (camara)... ✅ desp=0 vot=0 score=53.42
+[120/939] Coletando Amália Barros (camara)... ✅ desp=0 vot=0 score=51.9
+[121/939] Coletando Amanda Gentil (camara)... ✅ desp=0 vot=0 score=51.3
+[122/939] Coletando Amaro Neto (camara)... ✅ desp=0 vot=0 score=55.15
+[123/939] Coletando Amaro Neto (camara)... ✅ desp=0 vot=0 score=55.15
+[124/939] Coletando Amom Mandel (camara)... ✅ desp=0 vot=0 score=55.5
+[125/939] Coletando Amom Mandel (camara)... ✅ desp=0 vot=0 score=55.5
+[126/939] Coletando Ana Paula Leão (camara)... ✅ desp=0 vot=0 score=51.3
+[127/939] Coletando Ana Paula Lima (camara)... ✅ desp=0 vot=0 score=55.15
+[128/939] Coletando Ana Pimentel (camara)... ✅ desp=0 vot=0 score=51.9
+[129/939] Coletando ANDRÉ ABDON (camara)... ✅ desp=0 vot=0 score=55.5
+[130/939] Coletando André Fernandes (camara)... ✅ desp=0 vot=0 score=53.1
+[131/939] Coletando André Ferreira (camara)... ✅ desp=0 vot=0 score=54.49
+[132/939] Coletando André Figueiredo (camara)... ✅ desp=0 vot=0 score=54.31
+[133/939] Coletando André Fufuca (camara)... ✅ desp=0 vot=0 score=55.28
+[134/939] Coletando André Janones (camara)... ✅ desp=0 vot=0 score=52.5
+[135/939] Coletando André Janones (camara)... ✅ desp=0 vot=0 score=52.5
+[136/939] Coletando Andreia Siqueira (camara)... ✅ desp=0 vot=0 score=49.2
+[137/939] Coletando Andreia Siqueira (camara)... ✅ desp=0 vot=0 score=49.2
+[138/939] Coletando Antônia Lúcia (camara)... ✅ desp=0 vot=0 score=30.0
+[139/939] Coletando Antônia Lúcia (camara)... ✅ desp=0 vot=0 score=30.0
+[140/939] Coletando Antonio Andrade (camara)... ✅ desp=0 vot=0 score=51.9
+[141/939] Coletando Antonio Andrade (camara)... ✅ desp=0 vot=0 score=51.9
+[142/939] Coletando Antonio Brito (camara)... ✅ desp=0 vot=0 score=54.92
+[143/939] Coletando Antonio Carlos Rodrigues (camara)... ✅ desp=0 vot=0 score=55.42
+[144/939] Coletando Antônio Doido (camara)... ✅ desp=0 vot=0 score=30.0
+[145/939] Coletando Any Ortiz (camara)... ✅ desp=0 vot=0 score=55.09
+[146/939] Coletando Any Ortiz (camara)... ✅ desp=0 vot=0 score=55.09
+[147/939] Coletando Arlindo Chinaglia (camara)... ✅ desp=0 vot=0 score=54.3
+[148/939] Coletando Arnaldo Jardim (camara)... ✅ desp=0 vot=0 score=53.84
+[149/939] Coletando Arthur Lira (camara)... ✅ desp=0 vot=0 score=52.97
+[150/939] Coletando Arthur Oliveira Maia (camara)... ✅ desp=0 vot=0 score=40.0
+[151/939] Coletando Átila Lins (camara)... ✅ desp=0 vot=0 score=30.0
+[152/939] Coletando Átila Lira (camara)... ✅ desp=0 vot=0 score=30.0
+[153/939] Coletando Augusto Coutinho (camara)... ✅ desp=0 vot=0 score=55.39
+[154/939] Coletando Augusto Pupio (camara)... ✅ desp=0 vot=0 score=52.5
+[155/939] Coletando Augusto Puppio (camara)... ✅ desp=0 vot=0 score=52.5
+[156/939] Coletando Aureo Ribeiro (camara)... ✅ desp=0 vot=0 score=54.13
+[157/939] Coletando Bacelar (camara)... ✅ desp=0 vot=0 score=51.04
+[158/939] Coletando Baleia Rossi (camara)... ✅ desp=0 vot=0 score=55.2
+[159/939] Coletando Bandeira de Mello (camara)... ✅ desp=0 vot=0 score=52.07
+[160/939] Coletando Bandeira de Mello (camara)... ✅ desp=0 vot=0 score=52.07
+[161/939] Coletando Bebeto (camara)... ✅ desp=0 vot=0 score=55.37
+[162/939] Coletando Bebeto (camara)... ✅ desp=0 vot=0 score=55.37
+[163/939] Coletando Benedita da Silva (camara)... ✅ desp=0 vot=0 score=54.77
+[164/939] Coletando Benes Leocádio (camara)... ✅ desp=0 vot=0 score=55.11
+[165/939] Coletando Beto Pereira (camara)... ✅ desp=0 vot=0 score=55.32
+[166/939] Coletando Beto Pereira (camara)... ✅ desp=0 vot=0 score=55.32
+[167/939] Coletando Beto Preto (camara)... ✅ desp=0 vot=0 score=54.85
+[168/939] Coletando Beto Richa (camara)... ✅ desp=0 vot=0 score=55.21
+[169/939] Coletando Bia Kicis (camara)... ✅ desp=0 vot=0 score=54.46
+[170/939] Coletando Bibo Nunes (camara)... ✅ desp=0 vot=0 score=51.14
+[171/939] Coletando Bohn Gass (camara)... ✅ desp=0 vot=0 score=53.7
+[172/939] Coletando Bosco Costa (camara)... ✅ desp=0 vot=0 score=55.08
+[173/939] Coletando Bruno Farias (camara)... ✅ desp=0 vot=0 score=52.5
+[174/939] Coletando Bruno Farias (camara)... ✅ desp=0 vot=0 score=52.5
+[175/939] Coletando Bruno Ganem (camara)... ✅ desp=0 vot=0 score=55.5
+[176/939] Coletando Cabo Gilberto Silva (camara)... ✅ desp=0 vot=0 score=55.38
+[177/939] Coletando Caio Vianna (camara)... ✅ desp=0 vot=0 score=55.5
+[178/939] Coletando Camila Jara (camara)... ✅ desp=0 vot=0 score=51.3
+[179/939] Coletando Capitão Alberto Neto (camara)... ✅ desp=0 vot=0 score=51.3
+[180/939] Coletando Capitão Alden (camara)... ✅ desp=0 vot=0 score=54.29
+[181/939] Coletando Capitão Augusto (camara)... ✅ desp=0 vot=0 score=55.27
+[182/939] Coletando Capitão Samuel (camara)... ✅ desp=0 vot=0 score=53.7
+[183/939] Coletando Carla Ayres (camara)... ✅ desp=0 vot=0 score=51.9
+[184/939] Coletando Carla Dickson (camara)... ✅ desp=0 vot=0 score=53.1
+[185/939] Coletando Carla Dickson (camara)... ✅ desp=0 vot=0 score=53.1
+[186/939] Coletando Carla Zambelli (camara)... ✅ desp=0 vot=0 score=54.3
+[187/939] Coletando Carlos Chiodini (camara)... ✅ desp=0 vot=0 score=55.23
+[188/939] Coletando Carlos Gomes (camara)... ✅ desp=0 vot=0 score=53.7
+[189/939] Coletando Carlos Henrique Gaguim (camara)... ✅ desp=0 vot=0 score=53.79
+[190/939] Coletando Carlos Jordy (camara)... ✅ desp=0 vot=0 score=53.1
+[191/939] Coletando Carlos Sampaio (camara)... ✅ desp=0 vot=0 score=55.16
+[192/939] Coletando Carlos Sampaio (camara)... ✅ desp=0 vot=0 score=55.16
+[193/939] Coletando Carlos Veras (camara)... ✅ desp=0 vot=0 score=53.7
+[194/939] Coletando Carlos Zarattini (camara)... ✅ desp=0 vot=0 score=55.23
+[195/939] Coletando Carmen Zanotto (camara)... ✅ desp=0 vot=0 score=55.5
+[196/939] Coletando Carol Dartora (camara)... ✅ desp=0 vot=0 score=52.5
+[197/939] Coletando Caroline de Toni (camara)... ✅ desp=0 vot=0 score=30.0
+[198/939] Coletando Castro Neto (camara)... ✅ desp=0 vot=0 score=54.3
+[199/939] Coletando Castro Neto (camara)... ✅ desp=0 vot=0 score=54.3
+[200/939] Coletando Célia Xakriabá (camara)... ✅ desp=0 vot=0 score=51.3
+[201/939] Coletando Célio Silveira (camara)... ✅ desp=0 vot=0 score=54.14
+[202/939] Coletando Célio Studart (camara)... ✅ desp=0 vot=0 score=53.7
+[203/939] Coletando Celso Russomanno (camara)... ✅ desp=0 vot=0 score=34.5
+[204/939] Coletando Celso Sabino (camara)... ✅ desp=0 vot=0 score=53.73
+[205/939] Coletando Celso Sabino (camara)... ✅ desp=0 vot=0 score=53.73
+[206/939] Coletando Celso Sabino (camara)... ✅ desp=0 vot=0 score=53.73
+[207/939] Coletando Cezinha de Madureira (camara)... ✅ desp=0 vot=0 score=53.7
+[208/939] Coletando Cezinha de Madureira (camara)... ✅ desp=0 vot=0 score=53.7
+[209/939] Coletando Charles Fernandes (camara)... ✅ desp=0 vot=0 score=55.5
+[210/939] Coletando Chico Alencar (camara)... ✅ desp=0 vot=0 score=53.1
+[211/939] Coletando Chiquinho Brazão (camara)... ✅ desp=0 vot=0 score=55.28
+[212/939] Coletando Chiquinho Brazão (camara)... ✅ desp=0 vot=0 score=55.28
+[213/939] Coletando Chris Tonietto (camara)... ✅ desp=0 vot=0 score=54.3
+[214/939] Coletando Clarissa Tércio (camara)... ✅ desp=0 vot=0 score=51.61
+[215/939] Coletando Claudio Cajado (camara)... ✅ desp=0 vot=0 score=49.2
+[216/939] Coletando Cleber Verde (camara)... ✅ desp=0 vot=0 score=54.09
+[217/939] Coletando Cleber Verde (camara)... ✅ desp=0 vot=0 score=54.09
+[218/939] Coletando Clodoaldo Magalhães (camara)... ✅ desp=0 vot=0 score=53.21
+[219/939] Coletando Cobalchini (camara)... ✅ desp=0 vot=0 score=55.05
+[220/939] Coletando Coronel Armando (camara)... ✅ desp=0 vot=0 score=55.5
+[221/939] Coletando Coronel Armando (camara)... ✅ desp=0 vot=0 score=55.5
+[222/939] Coletando Coronel Assis (camara)... ✅ desp=0 vot=0 score=55.5
+[223/939] Coletando Coronel Assis (camara)... ✅ desp=0 vot=0 score=55.5
+[224/939] Coletando Coronel Chrisóstomo (camara)... ✅ desp=0 vot=0 score=53.68
+[225/939] Coletando Coronel Fernanda (camara)... ✅ desp=0 vot=0 score=51.44
+[226/939] Coletando Coronel Meira (camara)... ✅ desp=0 vot=0 score=34.5
+[227/939] Coletando Coronel Tadeu (camara)... ✅ desp=0 vot=0 score=55.19
+[228/939] Coletando Coronel Telhada (camara)... ✅ desp=0 vot=0 score=54.59
+[229/939] Coletando Coronel Ulysses (camara)... ✅ desp=0 vot=0 score=54.9
+[230/939] Coletando Covatti Filho (camara)... ✅ desp=0 vot=0 score=54.9
+[231/939] Coletando Cristiane Lopes (camara)... ✅ desp=0 vot=0 score=53.7
+[232/939] Coletando Cristiane Lopes (camara)... ✅ desp=0 vot=0 score=53.7
+[233/939] Coletando Cristiano Furlan (camara)... ✅ desp=0 vot=0 score=51.3
+[234/939] Coletando Da Vitoria (camara)... ✅ desp=0 vot=0 score=34.5
+[235/939] Coletando Dagoberto Nogueira (camara)... ✅ desp=0 vot=0 score=53.02
+[236/939] Coletando Dagoberto Nogueira (camara)... ✅ desp=0 vot=0 score=53.02
+[237/939] Coletando Daiana Santos (camara)... ✅ desp=0 vot=0 score=34.5
+[238/939] Coletando Dal Barreto (camara)... ✅ desp=0 vot=0 score=53.61
+[239/939] Coletando Damião Feliciano (camara)... ✅ desp=0 vot=0 score=51.25
+[240/939] Coletando Dandara (camara)... ✅ desp=0 vot=0 score=51.9
+[241/939] Coletando Dani Cunha (camara)... ✅ desp=0 vot=0 score=52.11
+[242/939] Coletando Dani Cunha (camara)... ✅ desp=0 vot=0 score=52.11
+[243/939] Coletando Daniel Agrobom (camara)... ✅ desp=0 vot=0 score=51.3
+[244/939] Coletando Daniel Agrobom (camara)... ✅ desp=0 vot=0 score=51.3
+[245/939] Coletando Daniel Almeida (camara)... ✅ desp=0 vot=0 score=54.24
+[246/939] Coletando Daniel Barbosa (camara)... ✅ desp=0 vot=0 score=53.1
+[247/939] Coletando Daniel Freitas (camara)... ✅ desp=0 vot=0 score=54.3
+[248/939] Coletando Daniel José (camara)... ✅ desp=0 vot=0 score=51.9
+[249/939] Coletando Daniel Soranz (camara)... ✅ desp=0 vot=0 score=55.02
+[250/939] Coletando Daniel Trzeciak (camara)... ✅ desp=0 vot=0 score=55.48
+[251/939] Coletando Daniela do Waguinho (camara)... ✅ desp=0 vot=0 score=53.1
+[252/939] Coletando Daniela do Waguinho (camara)... ✅ desp=0 vot=0 score=53.1
+[253/939] Coletando Daniela Reinehr (camara)... ✅ desp=0 vot=0 score=51.3
+[254/939] Coletando Danilo Forte (camara)... ✅ desp=0 vot=0 score=53.71
+[255/939] Coletando Danilo Forte (camara)... ✅ desp=0 vot=0 score=53.71
+[256/939] Coletando Danrlei de Deus Hinterholz (camara)... ✅ desp=0 vot=0 score=30.0
+[257/939] Coletando Darci de Matos (camara)... ✅ desp=0 vot=0 score=53.99
+[258/939] Coletando David Soares (camara)... ✅ desp=0 vot=0 score=55.44
+[259/939] Coletando David Soares (camara)... ✅ desp=0 vot=0 score=55.44
+[260/939] Coletando Dayany Bittencourt (camara)... ✅ desp=0 vot=0 score=51.3
+[261/939] Coletando Dayany do Capitão (camara)... ✅ desp=0 vot=0 score=54.9
+[262/939] Coletando Defensor Stélio Dener (camara)... ✅ desp=0 vot=0 score=53.78
+[263/939] Coletando Defensor Stélio Dener (camara)... ✅ desp=0 vot=0 score=53.78
+[264/939] Coletando Delegada Adriana Accorsi (camara)... ✅ desp=0 vot=0 score=51.9
+[265/939] Coletando Delegada Ione (camara)... ✅ desp=0 vot=0 score=54.57
+[266/939] Coletando Delegada Katarina (camara)... ✅ desp=0 vot=0 score=52.5
+[267/939] Coletando Delegado Bruno Lima (camara)... ✅ desp=0 vot=0 score=51.3
+[268/939] Coletando Delegado Bruno Lima (camara)... ✅ desp=0 vot=0 score=51.3
+[269/939] Coletando Delegado Caveira (camara)... ✅ desp=0 vot=0 score=54.66
+[270/939] Coletando Delegado da Cunha (camara)... ✅ desp=0 vot=0 score=53.7
+[271/939] Coletando Delegado da Cunha (camara)... ✅ desp=0 vot=0 score=53.7
+[272/939] Coletando Delegado Éder Mauro (camara)... ✅ desp=0 vot=0 score=34.5
+[273/939] Coletando Delegado Fabio Costa (camara)... ✅ desp=0 vot=0 score=52.5
+[274/939] Coletando Delegado Marcelo Freitas (camara)... ✅ desp=0 vot=0 score=53.1
+[275/939] Coletando Delegado Matheus Laiola (camara)... ✅ desp=0 vot=0 score=52.5
+[276/939] Coletando Delegado Palumbo (camara)... ✅ desp=0 vot=0 score=54.7
+[277/939] Coletando Delegado Palumbo (camara)... ✅ desp=0 vot=0 score=54.7
+[278/939] Coletando Delegado Paulo Bilynskyj (camara)... ✅ desp=0 vot=0 score=53.1
+[279/939] Coletando Delegado Ramagem (camara)... ✅ desp=0 vot=0 score=40.0
+[280/939] Coletando Délio Pinheiro (camara)... ✅ desp=0 vot=0 score=30.0
+[281/939] Coletando Deltan Dallagnol (camara)... ✅ desp=0 vot=0 score=54.56
+[282/939] Coletando Denise Pessôa (camara)... ✅ desp=0 vot=0 score=55.5
+[283/939] Coletando Detinha (camara)... ✅ desp=0 vot=0 score=55.12
+[284/939] Coletando Diego Andrade (camara)... ✅ desp=0 vot=0 score=54.14
+[285/939] Coletando Diego Coronel (camara)... ✅ desp=0 vot=0 score=52.29
+[286/939] Coletando Diego Coronel (camara)... ✅ desp=0 vot=0 score=52.29
+[287/939] Coletando Diego Garcia (camara)... ✅ desp=0 vot=0 score=53.04
+[288/939] Coletando Diego Garcia (camara)... ✅ desp=0 vot=0 score=53.04
+[289/939] Coletando Dilceu Sperafico (camara)... ✅ desp=0 vot=0 score=49.2
+[290/939] Coletando Dilvanda Faro (camara)... ✅ desp=0 vot=0 score=34.5
+[291/939] Coletando Dimas Fabiano (camara)... ✅ desp=0 vot=0 score=55.5
+[292/939] Coletando Dimas Gadelha (camara)... ✅ desp=0 vot=0 score=40.0
+[293/939] Coletando Domingos Neto (camara)... ✅ desp=0 vot=0 score=55.5
+[294/939] Coletando Domingos Sávio (camara)... ✅ desp=0 vot=0 score=54.68
+[295/939] Coletando Dorinaldo Malafaia (camara)... ✅ desp=0 vot=0 score=52.5
+[296/939] Coletando Douglas Viegas (camara)... ✅ desp=0 vot=0 score=54.9
+[297/939] Coletando Doutor Luizinho (camara)... ✅ desp=0 vot=0 score=54.14
+[298/939] Coletando Dr Benjamim (camara)... ✅ desp=0 vot=0 score=54.3
+[299/939] Coletando Dr Fabio Rueda (camara)... ✅ desp=0 vot=0 score=54.85
+[300/939] Coletando Dr Flávio (camara)... ✅ desp=0 vot=0 score=55.11
+[301/939] Coletando Dr. Allan Garcês (camara)... ✅ desp=0 vot=0 score=30.0
+[302/939] Coletando Dr. Benjamim (camara)... ✅ desp=0 vot=0 score=51.25
+[303/939] Coletando Dr. Daniel Soranz (camara)... ✅ desp=0 vot=0 score=55.02
+[304/939] Coletando Dr. Fernando Máximo (camara)... ✅ desp=0 vot=0 score=30.0
+[305/939] Coletando Dr. Fernando Máximo (camara)... ✅ desp=0 vot=0 score=30.0
+[306/939] Coletando Dr. Francisco (camara)... ✅ desp=0 vot=0 score=53.7
+[307/939] Coletando Dr. Frederico (camara)... ✅ desp=0 vot=0 score=55.09
+[308/939] Coletando Dr. Frederico (camara)... ✅ desp=0 vot=0 score=55.09
+[309/939] Coletando Dr. Gonçalo (camara)... ✅ desp=0 vot=0 score=54.23
+[310/939] Coletando Dr. Ismael Alexandrino (camara)... ✅ desp=0 vot=0 score=55.5
+[311/939] Coletando Dr. Jaziel (camara)... ✅ desp=0 vot=0 score=30.0
+[312/939] Coletando Dr. Luiz Ovando (camara)... ✅ desp=0 vot=0 score=55.47
+[313/939] Coletando Dr. Remy Soares (camara)... ✅ desp=0 vot=0 score=55.12
+[314/939] Coletando Dr. Victor Linhalis (camara)... ✅ desp=0 vot=0 score=51.9
+[315/939] Coletando Dr. Zacharias Calil (camara)... ✅ desp=0 vot=0 score=40.0
+[316/939] Coletando Dr. Zacharias Calil (camara)... ✅ desp=0 vot=0 score=40.0
+[317/939] Coletando Dra. Alessandra Haber (camara)... ✅ desp=0 vot=0 score=34.5
+[318/939] Coletando Dra. Alessandra Haber (camara)... ✅ desp=0 vot=0 score=34.5
+[319/939] Coletando Dra. Mayra Pinheiro (camara)... ✅ desp=0 vot=0 score=51.9
+[320/939] Coletando Duarte (camara)... ✅ desp=0 vot=0 score=51.9
+[321/939] Coletando Duarte (camara)... ✅ desp=0 vot=0 score=51.9
+[322/939] Coletando Duarte Gonçalves Jr (camara)... ✅ desp=0 vot=0 score=55.32
+[323/939] Coletando Duarte Gonçalves Jr (camara)... ✅ desp=0 vot=0 score=55.32
+[324/939] Coletando Duarte Gonçalves Jr (camara)... ✅ desp=0 vot=0 score=55.32
+[325/939] Coletando Duarte Jr. (camara)... ✅ desp=0 vot=0 score=51.9
+[326/939] Coletando Duarte Jr. (camara)... ✅ desp=0 vot=0 score=51.9
+[327/939] Coletando Duda Ramos (camara)... ✅ desp=0 vot=0 score=49.2
+[328/939] Coletando Duda Ramos (camara)... ✅ desp=0 vot=0 score=49.2
+[329/939] Coletando Duda Ramos (camara)... ✅ desp=0 vot=0 score=49.2
+[330/939] Coletando Duda Salabert (camara)... ✅ desp=0 vot=0 score=51.3
+[331/939] Coletando Duda Salabert (camara)... ✅ desp=0 vot=0 score=51.3
+[332/939] Coletando Eduardo Bismarck (camara)... ✅ desp=0 vot=0 score=55.31
+[333/939] Coletando Eduardo Bismarck (camara)... ✅ desp=0 vot=0 score=55.31
+[334/939] Coletando Eduardo Bolsonaro (camara)... ✅ desp=0 vot=0 score=52.03
+[335/939] Coletando Eduardo da Fonte (camara)... ✅ desp=0 vot=0 score=54.63
+[336/939] Coletando Eduardo Velloso (camara)... ✅ desp=0 vot=0 score=51.61
+[337/939] Coletando Eduardo Velloso (camara)... ✅ desp=0 vot=0 score=51.61
+[338/939] Coletando Elcione Barbalho (camara)... ✅ desp=0 vot=0 score=52.65
+[339/939] Coletando Eli Borges (camara)... ✅ desp=0 vot=0 score=54.14
+[340/939] Coletando Eli Borges (camara)... ✅ desp=0 vot=0 score=54.14
+[341/939] Coletando Eliane Braz (camara)... ✅ desp=0 vot=0 score=51.9
+[342/939] Coletando Elisangela Araujo (camara)... ✅ desp=0 vot=0 score=51.3
+[343/939] Coletando Eliza Virgínia (camara)... ✅ desp=0 vot=0 score=34.5
+[344/939] Coletando Elmano Férrer (camara)... ✅ desp=0 vot=0 score=30.0
+[345/939] Coletando Elmar Nascimento (camara)... ✅ desp=0 vot=0 score=54.77
+[346/939] Coletando Ely Santos (camara)... ✅ desp=0 vot=0 score=53.7
+[347/939] Coletando Emanuel Pinheiro Neto (camara)... ✅ desp=0 vot=0 score=34.5
+[348/939] Coletando Emanuel Pinheiro Neto (camara)... ✅ desp=0 vot=0 score=34.5
+[349/939] Coletando Emidinho Madeira (camara)... ✅ desp=0 vot=0 score=54.9
+[350/939] Coletando Enfermeira Ana Paula (camara)... ✅ desp=0 vot=0 score=52.48
+[351/939] Coletando Enfermeira Ana Paula (camara)... ✅ desp=0 vot=0 score=52.48
+[352/939] Coletando Enfermeira Rejane (camara)... ✅ desp=0 vot=0 score=52.5
+[353/939] Coletando Enio Verri (camara)... ✅ desp=0 vot=0 score=55.0
+[354/939] Coletando Eriberto Medeiros (camara)... ✅ desp=0 vot=0 score=54.75
+[355/939] Coletando Erika Hilton (camara)... ✅ desp=0 vot=0 score=51.9
+[356/939] Coletando Erika Kokay (camara)... ✅ desp=0 vot=0 score=51.9
+[357/939] Coletando Eros Biondini (camara)... ✅ desp=0 vot=0 score=52.8
+[358/939] Coletando Euclydes Pettersen (camara)... ✅ desp=0 vot=0 score=52.11
+[359/939] Coletando Euclydes Pettersen (camara)... ✅ desp=0 vot=0 score=52.11
+[360/939] Coletando Eunício Oliveira (camara)... ✅ desp=0 vot=0 score=49.2
+[361/939] Coletando Evair Vieira de Melo (camara)... ✅ desp=0 vot=0 score=40.0
+[362/939] Coletando Evair Vieira de Melo (camara)... ✅ desp=0 vot=0 score=40.0
+[363/939] Coletando Fabiano Cazeca (camara)... ✅ desp=0 vot=0 score=49.2
+[364/939] Coletando Fabiano Cazeca (camara)... ✅ desp=0 vot=0 score=49.2
+[365/939] Coletando Fabio Garcia (camara)... ✅ desp=0 vot=0 score=40.0
+[366/939] Coletando Fábio Henrique (camara)... ✅ desp=0 vot=0 score=52.5
+[367/939] Coletando Fábio Macedo (camara)... ✅ desp=0 vot=0 score=52.5
+[368/939] Coletando Fabio Reis (camara)... ✅ desp=0 vot=0 score=55.44
+[369/939] Coletando Fabio Schiochet (camara)... ✅ desp=0 vot=0 score=54.18
+[370/939] Coletando Fábio Teruel (camara)... ✅ desp=0 vot=0 score=34.5
+[371/939] Coletando Fatima Pelaes (camara)... ✅ desp=0 vot=0 score=51.3
+[372/939] Coletando Fausto Jr. (camara)... ✅ desp=0 vot=0 score=30.0
+[373/939] Coletando Fausto Pinato (camara)... ✅ desp=0 vot=0 score=54.3
+[374/939] Coletando Fausto Pinato (camara)... ✅ desp=0 vot=0 score=54.3
+[375/939] Coletando Fausto Santos Jr. (camara)... ✅ desp=0 vot=0 score=51.9
+[376/939] Coletando Felipe Becari (camara)... ✅ desp=0 vot=0 score=55.5
+[377/939] Coletando Felipe Becari (camara)... ✅ desp=0 vot=0 score=55.5
+[378/939] Coletando Felipe Carreras (camara)... ✅ desp=0 vot=0 score=30.0
+[379/939] Coletando Felipe Francischini (camara)... ✅ desp=0 vot=0 score=53.68
+[380/939] Coletando Felipe Francischini (camara)... ✅ desp=0 vot=0 score=53.68
+[381/939] Coletando Felipe Saliba (camara)... ✅ desp=0 vot=0 score=53.28
+[382/939] Coletando Felipe Saliba (camara)... ✅ desp=0 vot=0 score=53.28
+[383/939] Coletando Félix Mendonça Júnior (camara)... ✅ desp=0 vot=0 score=34.5
+[384/939] Coletando Fernanda Melchionna (camara)... ✅ desp=0 vot=0 score=54.3
+[385/939] Coletando Fernanda Pessoa (camara)... ✅ desp=0 vot=0 score=53.13
+[386/939] Coletando Fernanda Pessoa (camara)... ✅ desp=0 vot=0 score=53.13
+[387/939] Coletando Fernando Coelho Filho (camara)... ✅ desp=0 vot=0 score=51.3
+[388/939] Coletando Fernando Mineiro (camara)... ✅ desp=0 vot=0 score=51.9
+[389/939] Coletando Fernando Monteiro (camara)... ✅ desp=0 vot=0 score=51.9
+[390/939] Coletando Fernando Monteiro (camara)... ✅ desp=0 vot=0 score=51.9
+[391/939] Coletando Fernando Monteiro (camara)... ✅ desp=0 vot=0 score=51.9
+[392/939] Coletando Fernando Rodolfo (camara)... ✅ desp=0 vot=0 score=51.9
+[393/939] Coletando Fernando Rodolfo (camara)... ✅ desp=0 vot=0 score=51.9
+[394/939] Coletando Filipe Barros (camara)... ✅ desp=0 vot=0 score=53.1
+[395/939] Coletando Filipe Martins (camara)... ✅ desp=0 vot=0 score=53.99
+[396/939] Coletando Flávia Morais (camara)... ✅ desp=0 vot=0 score=30.0
+[397/939] Coletando Flávia Morais (camara)... ✅ desp=0 vot=0 score=30.0
+[398/939] Coletando Flavinha (camara)... ✅ desp=0 vot=0 score=51.3
+[399/939] Coletando Flávio Nogueira (camara)... ✅ desp=0 vot=0 score=40.0
+[400/939] Coletando Florentino Neto (camara)... ✅ desp=0 vot=0 score=52.45
+[401/939] Coletando Franciane Bayer (camara)... ✅ desp=0 vot=0 score=51.3
+[402/939] Coletando Fred Costa (camara)... ✅ desp=0 vot=0 score=53.71
+[403/939] Coletando Fred Costa (camara)... ✅ desp=0 vot=0 score=53.71
+[404/939] Coletando Fred Linhares (camara)... ✅ desp=0 vot=0 score=51.9
+[405/939] Coletando Gabriel Mota (camara)... ✅ desp=0 vot=0 score=52.5
+[406/939] Coletando Gabriel Mota (camara)... ✅ desp=0 vot=0 score=52.5
+[407/939] Coletando Gabriel Nunes (camara)... ✅ desp=0 vot=0 score=55.11
+[408/939] Coletando General Girão (camara)... ✅ desp=0 vot=0 score=51.9
+[409/939] Coletando General Pazuello (camara)... ✅ desp=0 vot=0 score=51.9
+[410/939] Coletando Geovania de Sá (camara)... ✅ desp=0 vot=0 score=55.46
+[411/939] Coletando Geovania de Sá (camara)... ✅ desp=0 vot=0 score=55.46
+[412/939] Coletando Geraldo Mendes (camara)... ✅ desp=0 vot=0 score=54.84
+[413/939] Coletando Geraldo Resende (camara)... ✅ desp=0 vot=0 score=53.8
+[414/939] Coletando Geraldo Resende (camara)... ✅ desp=0 vot=0 score=53.8
+[415/939] Coletando Gerlen Diniz (camara)... ✅ desp=0 vot=0 score=54.61
+[416/939] Coletando Gervásio Maia (camara)... ✅ desp=0 vot=0 score=40.0
+[417/939] Coletando Gervásio Maia (camara)... ✅ desp=0 vot=0 score=40.0
+[418/939] Coletando Giacobo (camara)... ✅ desp=0 vot=0 score=54.58
+[419/939] Coletando Giacobo (camara)... ✅ desp=0 vot=0 score=54.58
+[420/939] Coletando Gilberto Abramo (camara)... ✅ desp=0 vot=0 score=51.3
+[421/939] Coletando Gilberto Nascimento (camara)... ✅ desp=0 vot=0 score=55.31
+[422/939] Coletando Gilberto Nascimento (camara)... ✅ desp=0 vot=0 score=55.31
+[423/939] Coletando Gilberto Nascimento (camara)... ✅ desp=0 vot=0 score=55.31
+[424/939] Coletando Gilson Daniel (camara)... ✅ desp=0 vot=0 score=55.12
+[425/939] Coletando Gilson Marques (camara)... ✅ desp=0 vot=0 score=54.66
+[426/939] Coletando Gilvan da Federal (camara)... ✅ desp=0 vot=0 score=51.9
+[427/939] Coletando Gilvan Maximo (camara)... ✅ desp=0 vot=0 score=53.7
+[428/939] Coletando Giovani Cherini (camara)... ✅ desp=0 vot=0 score=51.43
+[429/939] Coletando Gisela Simona (camara)... ✅ desp=0 vot=0 score=53.1
+[430/939] Coletando Glauber Braga (camara)... ✅ desp=0 vot=0 score=54.83
+[431/939] Coletando Gláucia Santiago (camara)... ✅ desp=0 vot=0 score=34.5
+[432/939] Coletando Glaustin da Fokus (camara)... ✅ desp=0 vot=0 score=51.11
+[433/939] Coletando Glaustin da Fokus (camara)... ✅ desp=0 vot=0 score=51.11
+[434/939] Coletando Gleisi Hoffmann (camara)... ✅ desp=0 vot=0 score=54.56
+[435/939] Coletando Gorete Pereira (camara)... ✅ desp=0 vot=0 score=51.3
+[436/939] Coletando Gorete Pereira (camara)... ✅ desp=0 vot=0 score=51.3
+[437/939] Coletando Greyce Elias (camara)... ✅ desp=0 vot=0 score=55.06
+[438/939] Coletando Greyce Elias (camara)... ✅ desp=0 vot=0 score=55.06
+[439/939] Coletando Guilherme Boulos (camara)... ✅ desp=0 vot=0 score=51.9
+[440/939] Coletando Guilherme Derrite (camara)... ✅ desp=0 vot=0 score=40.0
+[441/939] Coletando Guilherme Derrite (camara)... ✅ desp=0 vot=0 score=40.0
+[442/939] Coletando Guilherme Uchoa (camara)... ✅ desp=0 vot=0 score=54.11
+[443/939] Coletando Guilherme Uchoa (camara)... ✅ desp=0 vot=0 score=54.11
+[444/939] Coletando Gustavo Gayer (camara)... ✅ desp=0 vot=0 score=51.9
+[445/939] Coletando Gustinho Ribeiro (camara)... ✅ desp=0 vot=0 score=51.56
+[446/939] Coletando Gustinho Ribeiro (camara)... ✅ desp=0 vot=0 score=51.56
+[447/939] Coletando Gutemberg Reis (camara)... ✅ desp=0 vot=0 score=54.9
+[448/939] Coletando Heitor Schuch (camara)... ✅ desp=0 vot=0 score=55.43
+[449/939] Coletando Heitor Schuch (camara)... ✅ desp=0 vot=0 score=55.43
+[450/939] Coletando Helder Salomão (camara)... ✅ desp=0 vot=0 score=55.48
+[451/939] Coletando Helena Lima (camara)... ✅ desp=0 vot=0 score=51.9
+[452/939] Coletando Helena Lima (camara)... ✅ desp=0 vot=0 score=51.9
+[453/939] Coletando Hélio Leite (camara)... ✅ desp=0 vot=0 score=55.02
+[454/939] Coletando Helio Lopes (camara)... ✅ desp=0 vot=0 score=30.0
+[455/939] Coletando Heloísa Helena (camara)... ✅ desp=0 vot=0 score=51.9
+[456/939] Coletando Henderson Pinto (camara)... ✅ desp=0 vot=0 score=53.1
+[457/939] Coletando Henderson Pinto (camara)... ✅ desp=0 vot=0 score=53.1
+[458/939] Coletando Henrique Júnior (camara)... ✅ desp=0 vot=0 score=30.0
+[459/939] Coletando Hercílio Coelho Diniz (camara)... ✅ desp=0 vot=0 score=40.0
+[460/939] Coletando Hildo do Candango (camara)... ✅ desp=0 vot=0 score=54.22
+[461/939] Coletando Hildo Rocha (camara)... ✅ desp=0 vot=0 score=54.47
+[462/939] Coletando Hugo Leal (camara)... ✅ desp=0 vot=0 score=55.14
+[463/939] Coletando Hugo Motta (camara)... ✅ desp=0 vot=0 score=55.32
+[464/939] Coletando Icaro de Valmir (camara)... ✅ desp=0 vot=0 score=34.5
+[465/939] Coletando Icaro de Valmir (camara)... ✅ desp=0 vot=0 score=34.5
+[466/939] Coletando Idilvan Alencar (camara)... ✅ desp=0 vot=0 score=54.27
+[467/939] Coletando Idilvan Alencar (camara)... ✅ desp=0 vot=0 score=54.27
+[468/939] Coletando Igor Timo (camara)... ✅ desp=0 vot=0 score=51.95
+[469/939] Coletando Igor Timo (camara)... ✅ desp=0 vot=0 score=51.95
+[470/939] Coletando Igor Timo (camara)... ✅ desp=0 vot=0 score=51.95
+[471/939] Coletando Ilacir Bicalho (camara)... ✅ desp=0 vot=0 score=52.93
+[472/939] Coletando Ilacir Bicalho (camara)... ✅ desp=0 vot=0 score=52.93
+[473/939] Coletando Ilacir Bicalho (camara)... ✅ desp=0 vot=0 score=52.93
+[474/939] Coletando Inácio Arruda (camara)... ✅ desp=0 vot=0 score=53.1
+[475/939] Coletando Ismael (camara)... ✅ desp=0 vot=0 score=40.0
+[476/939] Coletando Ismael (camara)... ✅ desp=0 vot=0 score=40.0
+[477/939] Coletando Ismael Alexandrino (camara)... ✅ desp=0 vot=0 score=54.31
+[478/939] Coletando Isnaldo Bulhões Jr. (camara)... ✅ desp=0 vot=0 score=34.5
+[479/939] Coletando Ivan Junior (camara)... ✅ desp=0 vot=0 score=34.5
+[480/939] Coletando Ivan Valente (camara)... ✅ desp=0 vot=0 score=54.59
+[481/939] Coletando Ivoneide Caetano (camara)... ✅ desp=0 vot=0 score=53.1
+[482/939] Coletando Iza Arruda (camara)... ✅ desp=0 vot=0 score=53.7
+[483/939] Coletando Jack Rocha (camara)... ✅ desp=0 vot=0 score=53.1
+[484/939] Coletando Jadyel Alencar (camara)... ✅ desp=0 vot=0 score=51.3
+[485/939] Coletando Jadyel Alencar (camara)... ✅ desp=0 vot=0 score=51.3
+[486/939] Coletando Jandira Feghali (camara)... ✅ desp=0 vot=0 score=52.5
+[487/939] Coletando Jeferson Rodrigues (camara)... ✅ desp=0 vot=0 score=51.3
+[488/939] Coletando Jeferson Rodrigues (camara)... ✅ desp=0 vot=0 score=51.3
+[489/939] Coletando Jefferson Campos (camara)... ✅ desp=0 vot=0 score=55.07
+[490/939] Coletando Jhonatan de Jesus (camara)... ✅ desp=0 vot=0 score=55.22
+[491/939] Coletando Jilmar Tatto (camara)... ✅ desp=0 vot=0 score=52.5
+[492/939] Coletando João Carlos (camara)... ✅ desp=0 vot=0 score=34.5
+[493/939] Coletando João Carlos Bacelar (camara)... ✅ desp=0 vot=0 score=40.0
+[494/939] Coletando João Cury (camara)... ✅ desp=0 vot=0 score=54.61
+[495/939] Coletando João Daniel (camara)... ✅ desp=0 vot=0 score=52.5
+[496/939] Coletando João Leão (camara)... ✅ desp=0 vot=0 score=54.25
+[497/939] Coletando João Maia (camara)... ✅ desp=0 vot=0 score=55.44
+[498/939] Coletando João Maia (camara)... ✅ desp=0 vot=0 score=55.44
+[499/939] Coletando Joaquim Passarinho (camara)... ✅ desp=0 vot=0 score=55.0
+[500/939] Coletando Jonas Donizette (camara)... ✅ desp=0 vot=0 score=55.5
+[501/939] Coletando Jones Moura (camara)... ✅ desp=0 vot=0 score=51.9
+[502/939] Coletando Jorge Araújo (camara)... ✅ desp=0 vot=0 score=51.3
+[503/939] Coletando Jorge Braz (camara)... ✅ desp=0 vot=0 score=55.5
+[504/939] Coletando Jorge Goetten (camara)... ✅ desp=0 vot=0 score=52.64
+[505/939] Coletando Jorge Goetten (camara)... ✅ desp=0 vot=0 score=52.64
+[506/939] Coletando Jorge Solla (camara)... ✅ desp=0 vot=0 score=55.45
+[507/939] Coletando José Airton Félix Cirilo (camara)... ✅ desp=0 vot=0 score=51.3
+[508/939] Coletando José Guimarães (camara)... ✅ desp=0 vot=0 score=40.0
+[509/939] Coletando José Medeiros (camara)... ✅ desp=0 vot=0 score=53.7
+[510/939] Coletando José Nelto (camara)... ✅ desp=0 vot=0 score=49.2
+[511/939] Coletando José Nelto (camara)... ✅ desp=0 vot=0 score=49.2
+[512/939] Coletando José Priante (camara)... ✅ desp=0 vot=0 score=54.69
+[513/939] Coletando José Rocha (camara)... ✅ desp=0 vot=0 score=51.18
+[514/939] Coletando Joseildo Ramos (camara)... ✅ desp=0 vot=0 score=51.9
+[515/939] Coletando Josenildo (camara)... ✅ desp=0 vot=0 score=53.73
+[516/939] Coletando Josias Gomes (camara)... ✅ desp=0 vot=0 score=54.22
+[517/939] Coletando Josimar Maranhãozinho (camara)... ✅ desp=0 vot=0 score=49.2
+[518/939] Coletando Josivaldo JP (camara)... ✅ desp=0 vot=0 score=55.5
+[519/939] Coletando Josivaldo JP (camara)... ✅ desp=0 vot=0 score=55.5
+[520/939] Coletando Juarez Costa (camara)... ✅ desp=0 vot=0 score=54.8
+[521/939] Coletando Juarez Costa (camara)... ✅ desp=0 vot=0 score=54.8
+[522/939] Coletando Julia Zanatta (camara)... ✅ desp=0 vot=0 score=54.06
+[523/939] Coletando Juliana Cardoso (camara)... ✅ desp=0 vot=0 score=51.9
+[524/939] Coletando Juliana Kolankiewicz (camara)... ✅ desp=0 vot=0 score=51.2
+[525/939] Coletando Julio Arcoverde (camara)... ✅ desp=0 vot=0 score=54.74
+[526/939] Coletando Júlio Cesar (camara)... ✅ desp=0 vot=0 score=30.0
+[527/939] Coletando Julio Cesar Ribeiro (camara)... ✅ desp=0 vot=0 score=34.5
+[528/939] Coletando Julio Lopes (camara)... ✅ desp=0 vot=0 score=55.46
+[529/939] Coletando Júlio Oliveira (camara)... ✅ desp=0 vot=0 score=53.7
+[530/939] Coletando Juninho do Pneu (camara)... ✅ desp=0 vot=0 score=34.5
+[531/939] Coletando Juninho do Pneu (camara)... ✅ desp=0 vot=0 score=34.5
+[532/939] Coletando Junio Amaral (camara)... ✅ desp=0 vot=0 score=53.1
+[533/939] Coletando Júnior Ferrari (camara)... ✅ desp=0 vot=0 score=54.8
+[534/939] Coletando Junior Lourenço (camara)... ✅ desp=0 vot=0 score=51.3
+[535/939] Coletando Junior Lourenço (camara)... ✅ desp=0 vot=0 score=51.3
+[536/939] Coletando Júnior Mano (camara)... ✅ desp=0 vot=0 score=52.5
+[537/939] Coletando Júnior Mano (camara)... ✅ desp=0 vot=0 score=52.5
+[538/939] Coletando Juscelino Filho (camara)... ✅ desp=0 vot=0 score=53.71
+[539/939] Coletando Juscelino Filho (camara)... ✅ desp=0 vot=0 score=53.71
+[540/939] Coletando Katia Dias (camara)... ✅ desp=0 vot=0 score=53.7
+[541/939] Coletando Katia Dias (camara)... ✅ desp=0 vot=0 score=53.7
+[542/939] Coletando Katia Dias (camara)... ✅ desp=0 vot=0 score=53.7
+[543/939] Coletando Keniston Braga (camara)... ✅ desp=0 vot=0 score=52.56
+[544/939] Coletando Kiko Celeguim (camara)... ✅ desp=0 vot=0 score=55.47
+[545/939] Coletando Kim Kataguiri (camara)... ✅ desp=0 vot=0 score=55.5
+[546/939] Coletando Kim Kataguiri (camara)... ✅ desp=0 vot=0 score=55.5
+[547/939] Coletando Lafayette de Andrada (camara)... ✅ desp=0 vot=0 score=30.0
+[548/939] Coletando Lafayette de Andrada (camara)... ✅ desp=0 vot=0 score=30.0
+[549/939] Coletando Laura Carneiro (camara)... ✅ desp=0 vot=0 score=55.09
+[550/939] Coletando Lázaro Botelho (camara)... ✅ desp=0 vot=0 score=53.63
+[551/939] Coletando Leandre (camara)... ✅ desp=0 vot=0 score=54.9
+[552/939] Coletando Lebrão (camara)... ✅ desp=0 vot=0 score=34.5
+[553/939] Coletando Lêda Borges (camara)... ✅ desp=0 vot=0 score=51.9
+[554/939] Coletando Lêda Borges (camara)... ✅ desp=0 vot=0 score=51.9
+[555/939] Coletando Lenir de Assis (camara)... ✅ desp=0 vot=0 score=53.1
+[556/939] Coletando Leo Prates (camara)... ✅ desp=0 vot=0 score=34.5
+[557/939] Coletando Leo Prates (camara)... ✅ desp=0 vot=0 score=34.5
+[558/939] Coletando Leonardo Gadelha (camara)... ✅ desp=0 vot=0 score=51.48
+[559/939] Coletando Leonardo Gadelha (camara)... ✅ desp=0 vot=0 score=51.48
+[560/939] Coletando Leonardo Monteiro (camara)... ✅ desp=0 vot=0 score=52.5
+[561/939] Coletando Leônidas Cristino (camara)... ✅ desp=0 vot=0 score=51.3
+[562/939] Coletando Leur Lomanto Júnior (camara)... ✅ desp=0 vot=0 score=30.0
+[563/939] Coletando Lídice da Mata (camara)... ✅ desp=0 vot=0 score=55.49
+[564/939] Coletando Lincoln Portela (camara)... ✅ desp=0 vot=0 score=34.5
+[565/939] Coletando Lindbergh Farias (camara)... ✅ desp=0 vot=0 score=51.9
+[566/939] Coletando Loreny (camara)... ✅ desp=0 vot=0 score=53.7
+[567/939] Coletando Lucas Abrahao (camara)... ✅ desp=0 vot=0 score=34.5
+[568/939] Coletando Lucas Ramos (camara)... ✅ desp=0 vot=0 score=54.3
+[569/939] Coletando Lucas Redecker (camara)... ✅ desp=0 vot=0 score=54.4
+[570/939] Coletando Lucas Redecker (camara)... ✅ desp=0 vot=0 score=54.4
+[571/939] Coletando Luciano Alves (camara)... ✅ desp=0 vot=0 score=34.5
+[572/939] Coletando Luciano Amaral (camara)... ✅ desp=0 vot=0 score=51.9
+[573/939] Coletando Luciano Amaral (camara)... ✅ desp=0 vot=0 score=51.9
+[574/939] Coletando Luciano Azevedo (camara)... ✅ desp=0 vot=0 score=54.23
+[575/939] Coletando Luciano Bivar (camara)... ✅ desp=0 vot=0 score=49.2
+[576/939] Coletando Luciano Bivar (camara)... ✅ desp=0 vot=0 score=49.2
+[577/939] Coletando Luciano Ducci (camara)... ✅ desp=0 vot=0 score=55.5
+[578/939] Coletando Luciano Galego (camara)... ✅ desp=0 vot=0 score=55.38
+[579/939] Coletando Luciano Vieira (camara)... ✅ desp=0 vot=0 score=52.13
+[580/939] Coletando Luciano Vieira (camara)... ✅ desp=0 vot=0 score=52.13
+[581/939] Coletando Luciano Vieira (camara)... ✅ desp=0 vot=0 score=52.13
+[582/939] Coletando Lucio Mosquini (camara)... ✅ desp=0 vot=0 score=53.02
+[583/939] Coletando Lucio Mosquini (camara)... ✅ desp=0 vot=0 score=53.02
+[584/939] Coletando Lucyana Genésio (camara)... ✅ desp=0 vot=0 score=34.5
+[585/939] Coletando Luis Carlos Gomes (camara)... ✅ desp=0 vot=0 score=51.9
+[586/939] Coletando Luis Tibé (camara)... ✅ desp=0 vot=0 score=54.38
+[587/939] Coletando Luisa Canziani (camara)... ✅ desp=0 vot=0 score=40.0
+[588/939] Coletando Luisa Canziani (camara)... ✅ desp=0 vot=0 score=40.0
+[589/939] Coletando Luiz Antonio Corrêa (camara)... ✅ desp=0 vot=0 score=40.0
+[590/939] Coletando Luiz Carlos Busato (camara)... ✅ desp=0 vot=0 score=55.5
+[591/939] Coletando Luiz Carlos Hauly (camara)... ✅ desp=0 vot=0 score=55.17
+[592/939] Coletando Luiz Carlos Motta (camara)... ✅ desp=0 vot=0 score=55.23
+[593/939] Coletando Luiz Couto (camara)... ✅ desp=0 vot=0 score=55.5
+[594/939] Coletando Luiz Fernando Faria (camara)... ✅ desp=0 vot=0 score=54.54
+[595/939] Coletando Luiz Fernando Faria (camara)... ✅ desp=0 vot=0 score=54.54
+[596/939] Coletando Luiz Fernando Vampiro (camara)... ✅ desp=0 vot=0 score=55.36
+[597/939] Coletando Luiz Gastão (camara)... ✅ desp=0 vot=0 score=49.2
+[598/939] Coletando Luiz Lima (camara)... ✅ desp=0 vot=0 score=54.85
+[599/939] Coletando Luiz Lima (camara)... ✅ desp=0 vot=0 score=54.85
+[600/939] Coletando Luiz Marinho (camara)... ✅ desp=0 vot=0 score=55.5
+[601/939] Coletando Luiz Nishimori (camara)... ✅ desp=0 vot=0 score=55.1
+[602/939] Coletando Luiz Philippe de Orleans e Bragança (camara)... ✅ desp=0 vot=0 score=51.9
+[603/939] Coletando Luiza Erundina (camara)... ✅ desp=0 vot=0 score=52.72
+[604/939] Coletando Luizianne Lins (camara)... ✅ desp=0 vot=0 score=53.1
+[605/939] Coletando Luizianne Lins (camara)... ✅ desp=0 vot=0 score=53.1
+[606/939] Coletando Lula da Fonte (camara)... ✅ desp=0 vot=0 score=51.3
+[607/939] Coletando Magda Mofatto (camara)... ✅ desp=0 vot=0 score=49.2
+[608/939] Coletando Magda Mofatto (camara)... ✅ desp=0 vot=0 score=49.2
+[609/939] Coletando Magda Mofatto (camara)... ✅ desp=0 vot=0 score=49.2
+[610/939] Coletando Magda Mofatto (camara)... ✅ desp=0 vot=0 score=49.2
+[611/939] Coletando Marangoni (camara)... ✅ desp=0 vot=0 score=54.72
+[612/939] Coletando Marangoni (camara)... ✅ desp=0 vot=0 score=54.72
+[613/939] Coletando Marcel van Hattem (camara)... ✅ desp=0 vot=0 score=55.5
+[614/939] Coletando Marcelo Álvaro Antônio (camara)... ✅ desp=0 vot=0 score=54.7
+[615/939] Coletando Marcelo Calero (camara)... ✅ desp=0 vot=0 score=54.95
+[616/939] Coletando Marcelo Crivella (camara)... ✅ desp=0 vot=0 score=51.3
+[617/939] Coletando Marcelo Lima (camara)... ✅ desp=0 vot=0 score=40.0
+[618/939] Coletando Marcelo Lima (camara)... ✅ desp=0 vot=0 score=40.0
+[619/939] Coletando Marcelo Lima (camara)... ✅ desp=0 vot=0 score=40.0
+[620/939] Coletando Marcelo Moraes (camara)... ✅ desp=0 vot=0 score=55.22
+[621/939] Coletando Marcelo Nilo (camara)... ✅ desp=0 vot=0 score=53.05
+[622/939] Coletando Marcelo Queiroz (camara)... ✅ desp=0 vot=0 score=53.6
+[623/939] Coletando Marcelo Queiroz (camara)... ✅ desp=0 vot=0 score=53.6
+[624/939] Coletando Marcio Alvino (camara)... ✅ desp=0 vot=0 score=52.5
+[625/939] Coletando Márcio Biolchi (camara)... ✅ desp=0 vot=0 score=30.0
+[626/939] Coletando Márcio Correa (camara)... ✅ desp=0 vot=0 score=49.2
+[627/939] Coletando Márcio Honaiser (camara)... ✅ desp=0 vot=0 score=49.2
+[628/939] Coletando Márcio Honaiser (camara)... ✅ desp=0 vot=0 score=49.2
+[629/939] Coletando Márcio Honaiser (camara)... ✅ desp=0 vot=0 score=49.2
+[630/939] Coletando Márcio Jerry (camara)... ✅ desp=0 vot=0 score=30.0
+[631/939] Coletando Márcio Marinho (camara)... ✅ desp=0 vot=0 score=40.0
+[632/939] Coletando Marco Bertaiolli (camara)... ✅ desp=0 vot=0 score=54.04
+[633/939] Coletando Marco Brasil (camara)... ✅ desp=0 vot=0 score=50.71
+[634/939] Coletando Marcon (camara)... ✅ desp=0 vot=0 score=55.5
+[635/939] Coletando Marcos Aurélio Sampaio (camara)... ✅ desp=0 vot=0 score=51.9
+[636/939] Coletando Marcos Aurélio Sampaio (camara)... ✅ desp=0 vot=0 score=51.9
+[637/939] Coletando Marcos Pereira (camara)... ✅ desp=0 vot=0 score=54.9
+[638/939] Coletando Marcos Pollon (camara)... ✅ desp=0 vot=0 score=55.28
+[639/939] Coletando Marcos Soares (camara)... ✅ desp=0 vot=0 score=40.0
+[640/939] Coletando Marcos Soares (camara)... ✅ desp=0 vot=0 score=40.0
+[641/939] Coletando Marcos Tavares (camara)... ✅ desp=0 vot=0 score=53.1
+[642/939] Coletando Maria Arraes (camara)... ✅ desp=0 vot=0 score=53.1
+[643/939] Coletando Maria Arraes (camara)... ✅ desp=0 vot=0 score=53.1
+[644/939] Coletando Maria do Rosário (camara)... ✅ desp=0 vot=0 score=34.5
+[645/939] Coletando Maria Rosas (camara)... ✅ desp=0 vot=0 score=53.7
+[646/939] Coletando Mariana Carvalho (camara)... ✅ desp=0 vot=0 score=40.0
+[647/939] Coletando Mariana Carvalho (camara)... ✅ desp=0 vot=0 score=40.0
+[648/939] Coletando Mariana Carvalho (camara)... ✅ desp=0 vot=0 score=40.0
+[649/939] Coletando Marina Silva (camara)... ✅ desp=0 vot=0 score=54.9
+[650/939] Coletando Mario Frias (camara)... ✅ desp=0 vot=0 score=51.8
+[651/939] Coletando Mário Heringer (camara)... ✅ desp=0 vot=0 score=49.2
+[652/939] Coletando Mário Negromonte Jr. (camara)... ✅ desp=0 vot=0 score=54.61
+[653/939] Coletando Mário Negromonte Jr. (camara)... ✅ desp=0 vot=0 score=54.61
+[654/939] Coletando Marreca Filho (camara)... ✅ desp=0 vot=0 score=51.9
+[655/939] Coletando Marreca Filho (camara)... ✅ desp=0 vot=0 score=51.9
+[656/939] Coletando Marussa Boldrin (camara)... ✅ desp=0 vot=0 score=55.25
+[657/939] Coletando Marussa Boldrin (camara)... ✅ desp=0 vot=0 score=55.25
+[658/939] Coletando Marx Beltrão (camara)... ✅ desp=0 vot=0 score=53.17
+[659/939] Coletando Marx Beltrão (camara)... ✅ desp=0 vot=0 score=53.17
+[660/939] Coletando Matheus Noronha (camara)... ✅ desp=0 vot=0 score=34.5
+[661/939] Coletando Maurício Carvalho (camara)... ✅ desp=0 vot=0 score=54.02
+[662/939] Coletando Mauricio do Vôlei (camara)... ✅ desp=0 vot=0 score=34.5
+[663/939] Coletando Mauricio Marcon (camara)... ✅ desp=0 vot=0 score=40.0
+[664/939] Coletando Mauricio Marcon (camara)... ✅ desp=0 vot=0 score=40.0
+[665/939] Coletando Mauricio Neves (camara)... ✅ desp=0 vot=0 score=53.72
+[666/939] Coletando Mauro Benevides Filho (camara)... ✅ desp=0 vot=0 score=30.0
+[667/939] Coletando Mauro Benevides Filho (camara)... ✅ desp=0 vot=0 score=30.0
+[668/939] Coletando Max Lemos (camara)... ✅ desp=0 vot=0 score=54.9
+[669/939] Coletando Max Lemos (camara)... ✅ desp=0 vot=0 score=54.9
+[670/939] Coletando Max Lemos (camara)... ✅ desp=0 vot=0 score=54.9
+[671/939] Coletando Meire Serafim (camara)... ✅ desp=0 vot=0 score=51.9
+[672/939] Coletando Mendonça Filho (camara)... ✅ desp=0 vot=0 score=54.66
+[673/939] Coletando Mendonça Filho (camara)... ✅ desp=0 vot=0 score=54.66
+[674/939] Coletando Merlong Solano (camara)... ✅ desp=0 vot=0 score=55.5
+[675/939] Coletando Mersinho Lucena (camara)... ✅ desp=0 vot=0 score=53.7
+[676/939] Coletando Mersinho Lucena (camara)... ✅ desp=0 vot=0 score=53.7
+[677/939] Coletando Messias Donato (camara)... ✅ desp=0 vot=0 score=52.5
+[678/939] Coletando Messias Donato (camara)... ✅ desp=0 vot=0 score=52.5
+[679/939] Coletando Miguel Ângelo (camara)... ✅ desp=0 vot=0 score=34.5
+[680/939] Coletando Miguel Lombardi (camara)... ✅ desp=0 vot=0 score=55.25
+[681/939] Coletando Milton Vieira (camara)... ✅ desp=0 vot=0 score=53.98
+[682/939] Coletando Misael Varella (camara)... ✅ desp=0 vot=0 score=49.2
+[683/939] Coletando Missionária Michele Collins (camara)... ✅ desp=0 vot=0 score=52.5
+[684/939] Coletando Missionário José Olimpio (camara)... ✅ desp=0 vot=0 score=34.5
+[685/939] Coletando Moses Rodrigues (camara)... ✅ desp=0 vot=0 score=55.15
+[686/939] Coletando Murillo Gouvea (camara)... ✅ desp=0 vot=0 score=55.5
+[687/939] Coletando Murillo Gouvea (camara)... ✅ desp=0 vot=0 score=55.5
+[688/939] Coletando Murillo Gouvea (camara)... ✅ desp=0 vot=0 score=55.5
+[689/939] Coletando Murilo Galdino (camara)... ✅ desp=0 vot=0 score=53.08
+[690/939] Coletando Natália Bonavides (camara)... ✅ desp=0 vot=0 score=53.7
+[691/939] Coletando Naumi Amorim (camara)... ✅ desp=0 vot=0 score=54.0
+[692/939] Coletando Nelinho Freitas (camara)... ✅ desp=0 vot=0 score=55.46
+[693/939] Coletando Nelson Barbudo (camara)... ✅ desp=0 vot=0 score=55.5
+[694/939] Coletando Nelson Barbudo (camara)... ✅ desp=0 vot=0 score=55.5
+[695/939] Coletando Nely Aquino (camara)... ✅ desp=0 vot=0 score=51.9
+[696/939] Coletando Neto Carletto (camara)... ✅ desp=0 vot=0 score=55.5
+[697/939] Coletando Neto Carletto (camara)... ✅ desp=0 vot=0 score=55.5
+[698/939] Coletando Newton Bonin (camara)... ✅ desp=0 vot=0 score=49.2
+[699/939] Coletando Newton Cardoso Jr (camara)... ✅ desp=0 vot=0 score=40.0
+[700/939] Coletando Nicoletti (camara)... ✅ desp=0 vot=0 score=52.27
+[701/939] Coletando Nicoletti (camara)... ✅ desp=0 vot=0 score=52.27
+[702/939] Coletando Nikolas Ferreira (camara)... ✅ desp=0 vot=0 score=54.3
+[703/939] Coletando Nilto Tatto (camara)... ✅ desp=0 vot=0 score=53.03
+[704/939] Coletando Nitinho (camara)... ✅ desp=0 vot=0 score=53.7
+[705/939] Coletando Odair Cunha (camara)... ✅ desp=0 vot=0 score=55.5
+[706/939] Coletando Olival Marques (camara)... ✅ desp=0 vot=0 score=55.14
+[707/939] Coletando Olival Marques (camara)... ✅ desp=0 vot=0 score=55.14
+[708/939] Coletando Orlando Silva (camara)... ✅ desp=0 vot=0 score=51.9
+[709/939] Coletando Osmar Terra (camara)... ✅ desp=0 vot=0 score=53.1
+[710/939] Coletando Osmar Terra (camara)... ✅ desp=0 vot=0 score=53.1
+[711/939] Coletando Ossesio Silva (camara)... ✅ desp=0 vot=0 score=53.1
+[712/939] Coletando Otoni de Paula (camara)... ✅ desp=0 vot=0 score=51.9
+[713/939] Coletando Otoni de Paula (camara)... ✅ desp=0 vot=0 score=51.9
+[714/939] Coletando Otto Alencar Filho (camara)... ✅ desp=0 vot=0 score=40.0
+[715/939] Coletando Padovani (camara)... ✅ desp=0 vot=0 score=49.2
+[716/939] Coletando Padovani (camara)... ✅ desp=0 vot=0 score=49.2
+[717/939] Coletando Padovani (camara)... ✅ desp=0 vot=0 score=49.2
+[718/939] Coletando Padovani (camara)... ✅ desp=0 vot=0 score=49.2
+[719/939] Coletando Padre João (camara)... ✅ desp=0 vot=0 score=53.7
+[720/939] Coletando Pastor Claudio Mariano (camara)... ✅ desp=0 vot=0 score=51.9
+[721/939] Coletando Pastor Diniz (camara)... ✅ desp=0 vot=0 score=52.5
+[722/939] Coletando Pastor Eurico (camara)... ✅ desp=0 vot=0 score=53.1
+[723/939] Coletando Pastor Eurico (camara)... ✅ desp=0 vot=0 score=53.1
+[724/939] Coletando Pastor Gil (camara)... ✅ desp=0 vot=0 score=34.5
+[725/939] Coletando Pastor Henrique Vieira (camara)... ✅ desp=0 vot=0 score=34.5
+[726/939] Coletando Pastor Sargento Isidório (camara)... ✅ desp=0 vot=0 score=55.5
+[727/939] Coletando Patrus Ananias (camara)... ✅ desp=0 vot=0 score=55.39
+[728/939] Coletando Pauderney Avelino (camara)... ✅ desp=0 vot=0 score=54.68
+[729/939] Coletando Paulão (camara)... ✅ desp=0 vot=0 score=52.5
+[730/939] Coletando Paulinho da Força (camara)... ✅ desp=0 vot=0 score=53.64
+[731/939] Coletando Paulinho Freire (camara)... ✅ desp=0 vot=0 score=55.4
+[732/939] Coletando Paulo Abi-Ackel (camara)... ✅ desp=0 vot=0 score=52.97
+[733/939] Coletando Paulo Alexandre Barbosa (camara)... ✅ desp=0 vot=0 score=55.48
+[734/939] Coletando Paulo Azi (camara)... ✅ desp=0 vot=0 score=55.01
+[735/939] Coletando Paulo Foletto (camara)... ✅ desp=0 vot=0 score=54.29
+[736/939] Coletando Paulo Folletto (camara)... ✅ desp=0 vot=0 score=34.5
+[737/939] Coletando Paulo Freire Costa (camara)... ✅ desp=0 vot=0 score=53.7
+[738/939] Coletando Paulo Guedes (camara)... ✅ desp=0 vot=0 score=40.0
+[739/939] Coletando Paulo Lemos (camara)... ✅ desp=0 vot=0 score=54.3
+[740/939] Coletando Paulo Lemos (camara)... ✅ desp=0 vot=0 score=54.3
+[741/939] Coletando Paulo Litro (camara)... ✅ desp=0 vot=0 score=54.07
+[742/939] Coletando Paulo Litro (camara)... ✅ desp=0 vot=0 score=54.07
+[743/939] Coletando Paulo Magalhães (camara)... ✅ desp=0 vot=0 score=49.2
+[744/939] Coletando Paulo Marinho Jr (camara)... ✅ desp=0 vot=0 score=55.47
+[745/939] Coletando Paulo Pimenta (camara)... ✅ desp=0 vot=0 score=52.5
+[746/939] Coletando Paulo Teixeira (camara)... ✅ desp=0 vot=0 score=52.42
+[747/939] Coletando Pedro Aihara (camara)... ✅ desp=0 vot=0 score=55.44
+[748/939] Coletando Pedro Aihara (camara)... ✅ desp=0 vot=0 score=55.44
+[749/939] Coletando Pedro Aihara (camara)... ✅ desp=0 vot=0 score=55.44
+[750/939] Coletando Pedro Campos (camara)... ✅ desp=0 vot=0 score=55.03
+[751/939] Coletando Pedro Jr (camara)... ✅ desp=0 vot=0 score=54.3
+[752/939] Coletando Pedro Lucas Fernandes (camara)... ✅ desp=0 vot=0 score=52.5
+[753/939] Coletando Pedro Lupion (camara)... ✅ desp=0 vot=0 score=52.5
+[754/939] Coletando Pedro Lupion (camara)... ✅ desp=0 vot=0 score=52.5
+[755/939] Coletando Pedro Paulo (camara)... ✅ desp=0 vot=0 score=55.5
+[756/939] Coletando Pedro Tourinho (camara)... ✅ desp=0 vot=0 score=54.3
+[757/939] Coletando Pedro Uczai (camara)... ✅ desp=0 vot=0 score=55.14
+[758/939] Coletando Pedro Westphalen (camara)... ✅ desp=0 vot=0 score=54.88
+[759/939] Coletando Pezenti (camara)... ✅ desp=0 vot=0 score=55.5
+[760/939] Coletando Pinheirinho (camara)... ✅ desp=0 vot=0 score=53.1
+[761/939] Coletando Pompeo de Mattos (camara)... ✅ desp=0 vot=0 score=54.2
+[762/939] Coletando Pr. Marco Feliciano (camara)... ✅ desp=0 vot=0 score=54.62
+[763/939] Coletando Priscila Costa (camara)... ✅ desp=0 vot=0 score=34.5
+[764/939] Coletando Prof. Paulo Fernando (camara)... ✅ desp=0 vot=0 score=40.0
+[765/939] Coletando Prof. Reginaldo Veras (camara)... ✅ desp=0 vot=0 score=34.5
+[766/939] Coletando Professor Alcides (camara)... ✅ desp=0 vot=0 score=49.2
+[767/939] Coletando Professor Alcides (camara)... ✅ desp=0 vot=0 score=49.2
+[768/939] Coletando Professora Goreth (camara)... ✅ desp=0 vot=0 score=53.01
+[769/939] Coletando Professora Luciene Cavalcante (camara)... ✅ desp=0 vot=0 score=34.5
+[770/939] Coletando Professora Marcivania (camara)... ✅ desp=0 vot=0 score=34.5
+[771/939] Coletando Rafael Brito (camara)... ✅ desp=0 vot=0 score=54.16
+[772/939] Coletando Rafael Fera (camara)... ✅ desp=0 vot=0 score=51.3
+[773/939] Coletando Rafael Fera o Fiscal do Povo (camara)... ✅ desp=0 vot=0 score=51.3
+[774/939] Coletando Rafael Prudente (camara)... ✅ desp=0 vot=0 score=51.55
+[775/939] Coletando Rafael Simoes (camara)... ✅ desp=0 vot=0 score=54.2
+[776/939] Coletando Raimundo Costa (camara)... ✅ desp=0 vot=0 score=55.5
+[777/939] Coletando Raimundo Costa (camara)... ✅ desp=0 vot=0 score=55.5
+[778/939] Coletando Raimundo Santos (camara)... ✅ desp=0 vot=0 score=52.44
+[779/939] Coletando Raniery Paulino (camara)... ✅ desp=0 vot=0 score=55.02
+[780/939] Coletando Reginaldo Lopes (camara)... ✅ desp=0 vot=0 score=40.0
+[781/939] Coletando Reginete Bispo (camara)... ✅ desp=0 vot=0 score=34.5
+[782/939] Coletando Reimont (camara)... ✅ desp=0 vot=0 score=54.9
+[783/939] Coletando Reinhold Stephanes (camara)... ✅ desp=0 vot=0 score=55.5
+[784/939] Coletando Reinhold Stephanes (camara)... ✅ desp=0 vot=0 score=55.5
+[785/939] Coletando Renan Ferreirinha (camara)... ✅ desp=0 vot=0 score=55.5
+[786/939] Coletando Renata Abreu (camara)... ✅ desp=0 vot=0 score=55.21
+[787/939] Coletando Renilce Nicodemos (camara)... ✅ desp=0 vot=0 score=55.04
+[788/939] Coletando Renildo Calheiros (camara)... ✅ desp=0 vot=0 score=55.5
+[789/939] Coletando Ribamar Silva (camara)... ✅ desp=0 vot=0 score=54.08
+[790/939] Coletando Ribamar Silva (camara)... ✅ desp=0 vot=0 score=54.08
+[791/939] Coletando Ribeiro Neto (camara)... ✅ desp=0 vot=0 score=55.0
+[792/939] Coletando Ribeiro Neto (camara)... ✅ desp=0 vot=0 score=55.0
+[793/939] Coletando Ribeiro Neto (camara)... ✅ desp=0 vot=0 score=55.0
+[794/939] Coletando Ricardo Abrão (camara)... ✅ desp=0 vot=0 score=49.2
+[795/939] Coletando Ricardo Abrão (camara)... ✅ desp=0 vot=0 score=49.2
+[796/939] Coletando Ricardo Ayres (camara)... ✅ desp=0 vot=0 score=53.39
+[797/939] Coletando Ricardo Barros (camara)... ✅ desp=0 vot=0 score=51.61
+[798/939] Coletando Ricardo Galvão (camara)... ✅ desp=0 vot=0 score=51.9
+[799/939] Coletando Ricardo Guidi (camara)... ✅ desp=0 vot=0 score=54.37
+[800/939] Coletando Ricardo Guidi (camara)... ✅ desp=0 vot=0 score=54.37
+[801/939] Coletando Ricardo Maia (camara)... ✅ desp=0 vot=0 score=52.52
+[802/939] Coletando Ricardo Salles (camara)... ✅ desp=0 vot=0 score=50.95
+[803/939] Coletando Ricardo Salles (camara)... ✅ desp=0 vot=0 score=50.95
+[804/939] Coletando Ricardo Silva (camara)... ✅ desp=0 vot=0 score=51.9
+[805/939] Coletando Robério Monteiro (camara)... ✅ desp=0 vot=0 score=54.14
+[806/939] Coletando Robério Monteiro (camara)... ✅ desp=0 vot=0 score=54.14
+[807/939] Coletando Roberta Roma (camara)... ✅ desp=0 vot=0 score=54.3
+[808/939] Coletando Roberto Duarte (camara)... ✅ desp=0 vot=0 score=55.39
+[809/939] Coletando Roberto Monteiro (camara)... ✅ desp=0 vot=0 score=52.36
+[810/939] Coletando Roberto Monteiro Pai (camara)... ✅ desp=0 vot=0 score=52.36
+[811/939] Coletando Robinson Faria (camara)... ✅ desp=0 vot=0 score=52.58
+[812/939] Coletando Robinson Faria (camara)... ✅ desp=0 vot=0 score=52.58
+[813/939] Coletando Rodolfo Nogueira (camara)... ✅ desp=0 vot=0 score=52.09
+[814/939] Coletando Rodrigo da Zaeli (camara)... ✅ desp=0 vot=0 score=55.25
+[815/939] Coletando Rodrigo de Castro (camara)... ✅ desp=0 vot=0 score=54.72
+[816/939] Coletando Rodrigo Estacho (camara)... ✅ desp=0 vot=0 score=55.4
+[817/939] Coletando Rodrigo Gambale (camara)... ✅ desp=0 vot=0 score=54.9
+[818/939] Coletando Rodrigo Rollemberg (camara)... ✅ desp=0 vot=0 score=54.41
+[819/939] Coletando Rodrigo Valadares (camara)... ✅ desp=0 vot=0 score=55.5
+[820/939] Coletando Rodrigo Valadares (camara)... ✅ desp=0 vot=0 score=55.5
+[821/939] Coletando Rogéria Santos (camara)... ✅ desp=0 vot=0 score=30.0
+[822/939] Coletando Rogério Correia (camara)... ✅ desp=0 vot=0 score=51.3
+[823/939] Coletando Romero Rodrigues (camara)... ✅ desp=0 vot=0 score=52.18
+[824/939] Coletando Romero Rodrigues (camara)... ✅ desp=0 vot=0 score=52.18
+[825/939] Coletando Ronaldo Nogueira (camara)... ✅ desp=0 vot=0 score=52.5
+[826/939] Coletando Rosana Valle (camara)... ✅ desp=0 vot=0 score=52.84
+[827/939] Coletando Rosangela Gomes (camara)... ✅ desp=0 vot=0 score=53.1
+[828/939] Coletando Rosangela Moro (camara)... ✅ desp=0 vot=0 score=34.5
+[829/939] Coletando Rosangela Moro (camara)... ✅ desp=0 vot=0 score=34.5
+[830/939] Coletando Rosângela Reis (camara)... ✅ desp=0 vot=0 score=54.1
+[831/939] Coletando Roseana Sarney (camara)... ✅ desp=0 vot=0 score=49.2
+[832/939] Coletando Rubens Otoni (camara)... ✅ desp=0 vot=0 score=55.5
+[833/939] Coletando Rubens Pereira Júnior (camara)... ✅ desp=0 vot=0 score=30.0
+[834/939] Coletando Rui Falcão (camara)... ✅ desp=0 vot=0 score=54.3
+[835/939] Coletando Ruy Carneiro (camara)... ✅ desp=0 vot=0 score=52.5
+[836/939] Coletando Ruy Carneiro (camara)... ✅ desp=0 vot=0 score=52.5
+[837/939] Coletando Sâmia Bomfim (camara)... ✅ desp=0 vot=0 score=54.9
+[838/939] Coletando Samuel dos Santos (camara)... ✅ desp=0 vot=0 score=46.8
+[839/939] Coletando Samuel dos Santos (camara)... ✅ desp=0 vot=0 score=46.8
+[840/939] Coletando Samuel Santos (camara)... ✅ desp=0 vot=0 score=46.8
+[841/939] Coletando Samuel Santos (camara)... ✅ desp=0 vot=0 score=46.8
+[842/939] Coletando Samuel Viana (camara)... ✅ desp=0 vot=0 score=53.1
+[843/939] Coletando Samuel Viana (camara)... ✅ desp=0 vot=0 score=53.1
+[844/939] Coletando Samuel Viana (camara)... ✅ desp=0 vot=0 score=53.1
+[845/939] Coletando Sanderson (camara)... ✅ desp=0 vot=0 score=51.3
+[846/939] Coletando Sandro Alex (camara)... ✅ desp=0 vot=0 score=55.26
+[847/939] Coletando Sargento Fahur (camara)... ✅ desp=0 vot=0 score=55.22
+[848/939] Coletando Sargento Fahur (camara)... ✅ desp=0 vot=0 score=55.22
+[849/939] Coletando Sargento Gonçalves (camara)... ✅ desp=0 vot=0 score=53.1
+[850/939] Coletando Sargento Portugal (camara)... ✅ desp=0 vot=0 score=51.3
+[851/939] Coletando Saullo Vianna (camara)... ✅ desp=0 vot=0 score=55.5
+[852/939] Coletando Saullo Vianna (camara)... ✅ desp=0 vot=0 score=55.5
+[853/939] Coletando Saulo Pedroso (camara)... ✅ desp=0 vot=0 score=53.5
+[854/939] Coletando Sérgio Brito (camara)... ✅ desp=0 vot=0 score=53.7
+[855/939] Coletando Sergio Santos Rodrigues (camara)... ✅ desp=0 vot=0 score=40.0
+[856/939] Coletando Sergio Souza (camara)... ✅ desp=0 vot=0 score=34.5
+[857/939] Coletando Sérgio Turra (camara)... ✅ desp=0 vot=0 score=53.47
+[858/939] Coletando Sidney Leite (camara)... ✅ desp=0 vot=0 score=55.5
+[859/939] Coletando Silas Câmara (camara)... ✅ desp=0 vot=0 score=51.76
+[860/939] Coletando Silvia Cristina (camara)... ✅ desp=0 vot=0 score=55.5
+[861/939] Coletando Silvia Cristina (camara)... ✅ desp=0 vot=0 score=55.5
+[862/939] Coletando Silvia Waiãpi (camara)... ✅ desp=0 vot=0 score=34.5
+[863/939] Coletando Silvio Antonio (camara)... ✅ desp=0 vot=0 score=55.33
+[864/939] Coletando Silvio Costa Filho (camara)... ✅ desp=0 vot=0 score=53.1
+[865/939] Coletando Silvye Alves (camara)... ✅ desp=0 vot=0 score=34.5
+[866/939] Coletando Simone Marquetto (camara)... ✅ desp=0 vot=0 score=53.7
+[867/939] Coletando Simone Marquetto (camara)... ✅ desp=0 vot=0 score=53.7
+[868/939] Coletando Socorro Neri (camara)... ✅ desp=0 vot=0 score=51.9
+[869/939] Coletando Soldado Noelio (camara)... ✅ desp=0 vot=0 score=51.3
+[870/939] Coletando Sônia Guajajara (camara)... ✅ desp=0 vot=0 score=53.7
+[871/939] Coletando Sonize Barbosa (camara)... ✅ desp=0 vot=0 score=51.3
+[872/939] Coletando Soraya Santos (camara)... ✅ desp=0 vot=0 score=53.1
+[873/939] Coletando Sóstenes Cavalcante (camara)... ✅ desp=0 vot=0 score=51.9
+[874/939] Coletando Stefano Aguiar (camara)... ✅ desp=0 vot=0 score=54.3
+[875/939] Coletando Tabata Amaral (camara)... ✅ desp=0 vot=0 score=51.9
+[876/939] Coletando Tadeu Oliveira (camara)... ✅ desp=0 vot=0 score=51.97
+[877/939] Coletando Tadeu Veneri (camara)... ✅ desp=0 vot=0 score=53.7
+[878/939] Coletando Talíria Petrone (camara)... ✅ desp=0 vot=0 score=30.0
+[879/939] Coletando Tarcísio Motta (camara)... ✅ desp=0 vot=0 score=51.3
+[880/939] Coletando Tenente Coronel Zucco (camara)... ✅ desp=0 vot=0 score=53.1
+[881/939] Coletando Tenente Coronel Zucco (camara)... ✅ desp=0 vot=0 score=53.1
+[882/939] Coletando Thiago de Joaldo (camara)... ✅ desp=0 vot=0 score=52.5
+[883/939] Coletando Thiago de Joaldo (camara)... ✅ desp=0 vot=0 score=52.5
+[884/939] Coletando Thiago Flores (camara)... ✅ desp=0 vot=0 score=55.5
+[885/939] Coletando Thiago Flores (camara)... ✅ desp=0 vot=0 score=55.5
+[886/939] Coletando Thiago Flores (camara)... ✅ desp=0 vot=0 score=55.5
+[887/939] Coletando Tiago Dimas (camara)... ✅ desp=0 vot=0 score=55.38
+[888/939] Coletando Tião Medeiros (camara)... ✅ desp=0 vot=0 score=54.36
+[889/939] Coletando Tiririca (camara)... ✅ desp=0 vot=0 score=53.7
+[890/939] Coletando Tiririca (camara)... ✅ desp=0 vot=0 score=53.7
+[891/939] Coletando Toninho Wandscheer (camara)... ✅ desp=0 vot=0 score=54.76
+[892/939] Coletando Toninho Wandscheer (camara)... ✅ desp=0 vot=0 score=54.76
+[893/939] Coletando Túlio Gadêlha (camara)... ✅ desp=0 vot=0 score=30.0
+[894/939] Coletando Túlio Gadêlha (camara)... ✅ desp=0 vot=0 score=30.0
+[895/939] Coletando Ulisses Guimarães (camara)... ✅ desp=0 vot=0 score=55.5
+[896/939] Coletando Valmir Assunção (camara)... ✅ desp=0 vot=0 score=52.39
+[897/939] Coletando Vander Loubet (camara)... ✅ desp=0 vot=0 score=53.85
+[898/939] Coletando Vanderlan Alves (camara)... ✅ desp=0 vot=0 score=52.8
+[899/939] Coletando Vanderlan Alves (camara)... ✅ desp=0 vot=0 score=52.8
+[900/939] Coletando Vanderlan Alves (camara)... ✅ desp=0 vot=0 score=52.8
+[901/939] Coletando Vavá (camara)... ✅ desp=0 vot=0 score=55.14
+[902/939] Coletando Vermelho (camara)... ✅ desp=0 vot=0 score=54.88
+[903/939] Coletando Vermelho (camara)... ✅ desp=0 vot=0 score=54.88
+[904/939] Coletando Vermelho (camara)... ✅ desp=0 vot=0 score=54.88
+[905/939] Coletando Vicentinho (camara)... ✅ desp=0 vot=0 score=40.0
+[906/939] Coletando Vicentinho Júnior (camara)... ✅ desp=0 vot=0 score=54.9
+[907/939] Coletando Vicentinho Júnior (camara)... ✅ desp=0 vot=0 score=54.9
+[908/939] Coletando Vinicius Carvalho (camara)... ✅ desp=0 vot=0 score=54.63
+[909/939] Coletando Vinicius Carvalho (camara)... ✅ desp=0 vot=0 score=54.63
+[910/939] Coletando Vinicius Gurgel (camara)... ✅ desp=0 vot=0 score=52.18
+[911/939] Coletando Vitor Lippi (camara)... ✅ desp=0 vot=0 score=55.21
+[912/939] Coletando Vitor Lippi (camara)... ✅ desp=0 vot=0 score=55.21
+[913/939] Coletando Waldemar Oliveira (camara)... ✅ desp=0 vot=0 score=49.2
+[914/939] Coletando Waldenor Pereira (camara)... ✅ desp=0 vot=0 score=55.33
+[915/939] Coletando Washington Quaquá (camara)... ✅ desp=0 vot=0 score=54.9
+[916/939] Coletando Weliton Prado (camara)... ✅ desp=0 vot=0 score=54.81
+[917/939] Coletando Weliton Prado (camara)... ✅ desp=0 vot=0 score=54.81
+[918/939] Coletando Wellington Roberto (camara)... ✅ desp=0 vot=0 score=54.03
+[919/939] Coletando Wellington Roberto (camara)... ✅ desp=0 vot=0 score=54.03
+[920/939] Coletando Welter (camara)... ✅ desp=0 vot=0 score=55.05
+[921/939] Coletando Wilson Santiago (camara)... ✅ desp=0 vot=0 score=55.5
+[922/939] Coletando Wolmer Araújo (camara)... ✅ desp=0 vot=0 score=34.5
+[923/939] Coletando Wolmer Araújo (camara)... ✅ desp=0 vot=0 score=34.5
+[924/939] Coletando Yandra Moura (camara)... ✅ desp=0 vot=0 score=30.0
+[925/939] Coletando Yury do Paredão (camara)... ✅ desp=0 vot=0 score=54.36
+[926/939] Coletando Yury do Paredão (camara)... ✅ desp=0 vot=0 score=54.36
+[927/939] Coletando Yury do Paredão (camara)... ✅ desp=0 vot=0 score=54.36
+[928/939] Coletando Zé Adriano (camara)... ✅ desp=0 vot=0 score=34.5
+[929/939] Coletando Zé Haroldo Cathedral (camara)... ✅ desp=0 vot=0 score=52.49
+[930/939] Coletando Zé Haroldo Cathedral (camara)... ✅ desp=0 vot=0 score=52.49
+[931/939] Coletando Zé Neto (camara)... ✅ desp=0 vot=0 score=54.53
+[932/939] Coletando Zé Silva (camara)... ✅ desp=0 vot=0 score=51.9
+[933/939] Coletando Zé Silva (camara)... ✅ desp=0 vot=0 score=51.9
+[934/939] Coletando Zé Trovão (camara)... ✅ desp=0 vot=0 score=34.5
+[935/939] Coletando Zé Vitor (camara)... ✅ desp=0 vot=0 score=52.49
+[936/939] Coletando Zeca Dirceu (camara)... ✅ desp=0 vot=0 score=55.36
+[937/939] Coletando Zezinho Barbary (camara)... ✅ desp=0 vot=0 score=54.63
+[938/939] Coletando Zucco (camara)... ✅ desp=0 vot=0 score=53.1
+[939/939] Coletando Zucco (camara)... ✅ desp=0 vot=0 score=53.1
+
+======================================================================
+📊 RELATÓRIO DE MONITORAMENTO — 2026/05
+======================================================================
+
+
+🏛️  SENADO FEDERAL
+--------------------------------------------------
+  🟡 Camilo Santana            | Score:  55.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Cleitinho                 | Score:  55.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Dr. Hiran                 | Score:  55.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Magno Malta               | Score:  55.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Romário                   | Score:  55.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Teresa Leitão             | Score:  55.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Flávio Bolsonaro          | Score:  55.49 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Davi Alcolumbre           | Score:  55.42 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Wellington Dias           | Score:  55.40 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Renan Filho               | Score:  55.22 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Sergio Moro               | Score:  55.11 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Jorge Seif                | Score:  55.03 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Astronauta Marcos Pontes  | Score:  54.97 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Giordano                  | Score:  54.90 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Irajá                     | Score:  54.89 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Alan Rick                 | Score:  54.85 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Otto Alencar              | Score:  54.68 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Esperidião Amin           | Score:  54.47 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Daniella Ribeiro          | Score:  54.30 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Carlos Viana              | Score:  54.15 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Veneziano Vital do Rêgo   | Score:  54.11 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Sérgio Petecão            | Score:  54.06 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Weverton                  | Score:  53.81 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Efraim Filho              | Score:  53.70 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Marcio Bittar             | Score:  53.66 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Laércio Oliveira          | Score:  53.65 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Zequinha Marinho          | Score:  53.59 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Tereza Cristina           | Score:  53.11 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Jayme Campos              | Score:  53.10 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Hamilton Mourão           | Score:  52.93 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Leila Barros              | Score:  52.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Angelo Coronel            | Score:  52.20 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Ana Paula Lobato          | Score:  51.90 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Damares Alves             | Score:  51.90 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Nelsinho Trad             | Score:  51.90 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Rogério Carvalho          | Score:  51.90 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Zenaide Maia              | Score:  51.90 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Luis Carlos Heinze        | Score:  51.85 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Omar Aziz                 | Score:  51.81 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Izalci Lucas              | Score:  51.63 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Beto Faro                 | Score:  51.57 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Wellington Fagundes       | Score:  51.46 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Cid Gomes                 | Score:  51.30 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Eduardo Girão             | Score:  51.30 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Jader Barbalho            | Score:  51.30 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Marcos Rogério            | Score:  51.30 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Professora Dorinha Seabra | Score:  51.30 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Humberto Costa            | Score:  51.25 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Eduardo Braga             | Score:  49.20 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Jaime Bagattoli           | Score:  49.20 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Mara Gabrilli             | Score:  49.20 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Wilder Morais             | Score:  49.20 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Ciro Nogueira             | Score:  40.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Eduardo Gomes             | Score:  40.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Plínio Valério            | Score:  40.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🟡 Randolfe Rodrigues        | Score:  40.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Alessandro Vieira         | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Chico Rodrigues           | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Fabiano Contarato         | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Lucas Barreto             | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Marcos do Val             | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Oriovisto Guimarães       | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Paulo Paim                | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Renan Calheiros           | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Rodrigo Pacheco           | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Rogerio Marinho           | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Soraya Thronicke          | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Styvenson Valentim        | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Vanderlan Cardoso         | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Carlos Fávaro             | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Carlos Portinho           | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Confúcio Moura            | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Dra. Eudócia              | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Eliziane Gama             | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Fernando Dueire           | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Flávio Arns               | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Ivete da Silveira         | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Jaques Wagner             | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Jorge Kajuru              | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Marcelo Castro            | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+  🔴 Roberta Acioly            | Score:  30.00 | Desp:   0 (R$      0.00) | Vot:   0 (0%)
+
+======================================================================
+💾 Dashboard atualizado para 05/2026
+
+📅 PROCESSANDO PERÍODO: 04/2026
+------------------------------
+[1/939] Coletando Alan Rick (senado)... ✅ desp=0 vot=8 score=94.85
+[2/939] Coletando Alessandro Vieira (senado)... ✅ desp=2 vot=8 score=64.86
+[3/939] Coletando Ana Paula Lobato (senado)... ✅ desp=0 vot=8 score=81.9
+[4/939] Coletando Angelo Coronel (senado)... ✅ desp=0 vot=8 score=77.2
+[5/939] Coletando Astronauta Marcos Pontes (senado)... ✅ desp=2 vot=8 score=73.11
+[6/939] Coletando Beto Faro (senado)... ✅ desp=0 vot=8 score=91.57
+[7/939] Coletando Camilo Santana (senado)... ✅ desp=0 vot=8 score=95.5
+[8/939] Coletando Carlos Fávaro (senado)... ✅ desp=7 vot=8 score=45.25
+[9/939] Coletando Carlos Portinho (senado)... ✅ desp=40 vot=8 score=42.47
+[10/939] Coletando Carlos Viana (senado)... ✅ desp=14 vot=8 score=78.47
+[11/939] Coletando Chico Rodrigues (senado)... ✅ desp=1 vot=8 score=74.17
+[12/939] Coletando Cid Gomes (senado)... ✅ desp=7 vot=8 score=54.08
+[13/939] Coletando Ciro Nogueira (senado)... ✅ desp=1 vot=8 score=81.05
+[14/939] Coletando Cleitinho (senado)... ✅ desp=1 vot=8 score=70.47
+[15/939] Coletando Confúcio Moura (senado)... ✅ desp=2 vot=8 score=65.01
+[16/939] Coletando Damares Alves (senado)... ✅ desp=12 vot=8 score=78.28
+[17/939] Coletando Daniella Ribeiro (senado)... ✅ desp=3 vot=8 score=76.67
+[18/939] Coletando Davi Alcolumbre (senado)... ✅ desp=0 vot=8 score=95.42
+[19/939] Coletando Dr. Hiran (senado)... ✅ desp=1 vot=8 score=95.17
+[20/939] Coletando Dra. Eudócia (senado)... ✅ desp=6 vot=8 score=45.09
+[21/939] Coletando Eduardo Braga (senado)... ✅ desp=0 vot=8 score=84.2
+[22/939] Coletando Eduardo Girão (senado)... ✅ desp=0 vot=8 score=66.3
+[23/939] Coletando Eduardo Gomes (senado)... ✅ desp=2 vot=8 score=72.4
+[24/939] Coletando Efraim Filho (senado)... ✅ desp=0 vot=8 score=88.7
+[25/939] Coletando Eliziane Gama (senado)... ✅ desp=2 vot=8 score=58.95
+[26/939] Coletando Esperidião Amin (senado)... ✅ desp=22 vot=8 score=77.11
+[27/939] Coletando Fabiano Contarato (senado)... ✅ desp=20 vot=8 score=64.11
+[28/939] Coletando Fernando Dueire (senado)... ✅ desp=2 vot=8 score=48.54
+[29/939] Coletando Flávio Arns (senado)... ✅ desp=0 vot=8 score=60.0
+[30/939] Coletando Flávio Bolsonaro (senado)... ✅ desp=2 vot=8 score=88.67
+[31/939] Coletando Giordano (senado)... ✅ desp=0 vot=8 score=89.9
+[32/939] Coletando Hamilton Mourão (senado)... ✅ desp=18 vot=8 score=70.43
+[33/939] Coletando Humberto Costa (senado)... ✅ desp=5 vot=8 score=80.35
+[34/939] Coletando Irajá (senado)... ✅ desp=1 vot=8 score=89.59
+[35/939] Coletando Ivete da Silveira (senado)... ✅ desp=23 vot=8 score=60.44
+[36/939] Coletando Izalci Lucas (senado)... ✅ desp=2 vot=8 score=56.63
+[37/939] Coletando Jader Barbalho (senado)... ✅ desp=0 vot=8 score=86.3
+[38/939] Coletando Jaime Bagattoli (senado)... ✅ desp=5 vot=8 score=86.35
+[39/939] Coletando Jaques Wagner (senado)... ✅ desp=1 vot=8 score=68.36
+[40/939] Coletando Jayme Campos (senado)... ✅ desp=5 vot=8 score=65.5
+[41/939] Coletando Jorge Kajuru (senado)... ✅ desp=0 vot=8 score=60.0
+[42/939] Coletando Jorge Seif (senado)... ✅ desp=14 vot=8 score=78.01
+[43/939] Coletando Laércio Oliveira (senado)... ✅ desp=14 vot=8 score=62.37
+[44/939] Coletando Leila Barros (senado)... ✅ desp=4 vot=8 score=88.1
+[45/939] Coletando Lucas Barreto (senado)... ✅ desp=12 vot=8 score=64.98
+[46/939] Coletando Luis Carlos Heinze (senado)... ✅ desp=6 vot=8 score=75.75
+[47/939] Coletando Magno Malta (senado)... ✅ desp=12 vot=8 score=63.81
+[48/939] Coletando Mara Gabrilli (senado)... ✅ desp=6 vot=8 score=65.82
+[49/939] Coletando Marcelo Castro (senado)... ✅ desp=2 vot=8 score=50.31
+[50/939] Coletando Marcio Bittar (senado)... ✅ desp=0 vot=8 score=88.66
+[51/939] Coletando Marcos Rogério (senado)... ✅ desp=0 vot=8 score=86.3
+[52/939] Coletando Marcos do Val (senado)... ✅ desp=2 vot=8 score=49.46
+[53/939] Coletando Nelsinho Trad (senado)... ✅ desp=4 vot=8 score=64.29
+[54/939] Coletando Omar Aziz (senado)... ✅ desp=4 vot=8 score=65.98
+[55/939] Coletando Oriovisto Guimarães (senado)... ✅ desp=0 vot=8 score=34.5
+[56/939] Coletando Otto Alencar (senado)... ✅ desp=1 vot=8 score=94.31
+[57/939] Coletando Paulo Paim (senado)... ✅ desp=6 vot=8 score=49.37
+[58/939] Coletando Plínio Valério (senado)... ✅ desp=2 vot=8 score=93.12
+[59/939] Coletando Professora Dorinha Seabra (senado)... ✅ desp=4 vot=8 score=77.91
+[60/939] Coletando Randolfe Rodrigues (senado)... ✅ desp=1 vot=8 score=97.7
+[61/939] Coletando Renan Calheiros (senado)... ✅ desp=0 vot=8 score=69.5
+[62/939] Coletando Renan Filho (senado)... ✅ desp=0 vot=8 score=90.22
+[63/939] Coletando Roberta Acioly (senado)... ✅ desp=3 vot=8 score=58.48
+[64/939] Coletando Rodrigo Pacheco (senado)... ✅ desp=0 vot=8 score=74.5
+[65/939] Coletando Rogerio Marinho (senado)... ✅ desp=0 vot=8 score=74.5
+[66/939] Coletando Rogério Carvalho (senado)... ✅ desp=3 vot=8 score=84.69
+[67/939] Coletando Romário (senado)... ✅ desp=0 vot=8 score=90.5
+[68/939] Coletando Sergio Moro (senado)... ✅ desp=3 vot=8 score=82.48
+[69/939] Coletando Soraya Thronicke (senado)... ✅ desp=2 vot=8 score=54.1
+[70/939] Coletando Styvenson Valentim (senado)... ✅ desp=0 vot=8 score=74.5
+[71/939] Coletando Sérgio Petecão (senado)... ✅ desp=0 vot=8 score=84.06
+[72/939] Coletando Teresa Leitão (senado)... ✅ desp=6 vot=8 score=85.64
+[73/939] Coletando Tereza Cristina (senado)... ✅ desp=1 vot=8 score=91.26
+[74/939] Coletando Vanderlan Cardoso (senado)... ✅ desp=0 vot=8 score=44.5
+[75/939] Coletando Veneziano Vital do Rêgo (senado)... ✅ desp=17 vot=8 score=75.19
+[76/939] Coletando Wellington Dias (senado)... ✅ desp=0 vot=6 score=95.4
+[77/939] Coletando Wellington Fagundes (senado)... ✅ desp=10 vot=8 score=54.16
+[78/939] Coletando Weverton (senado)... ✅ desp=0 vot=8 score=88.81
+[79/939] Coletando Wilder Morais (senado)... ✅ desp=0 vot=8 score=59.2
+[80/939] Coletando Zenaide Maia (senado)... ✅ desp=17 vot=8 score=61.9
+[81/939] Coletando Zequinha Marinho (senado)... ✅ desp=6 vot=8 score=84.45
+[82/939] Coletando Abilio Brunini (camara)... ✅ desp=0 vot=0 score=53.05
+[83/939] Coletando Acácio Favacho (camara)... ✅ desp=1 vot=1 score=88.9
+[84/939] Coletando Adail Filho (camara)... ✅ desp=15 vot=1 score=93.5
+[85/939] Coletando Adail Filho (camara)... ✅ desp=15 vot=1 score=93.5
+[86/939] Coletando Adilson Barroso (camara)... ✅ desp=15 vot=1 score=92.64
+[87/939] Coletando Adolfo Viana (camara)... ✅ desp=0 vot=0 score=55.5
+[88/939] Coletando Adriana Ventura (camara)... ✅ desp=0 vot=1 score=96.07
+[89/939] Coletando Adriano do Baldy (camara)... ✅ desp=15 vot=1 score=80.93
+[90/939] Coletando Aécio Neves (camara)... ✅ desp=10 vot=1 score=92.43
+[91/939] Coletando Afonso Florence (camara)... ✅ desp=8 vot=1 score=81.91
+[92/939] Coletando Afonso Hamm (camara)... ✅ desp=15 vot=1 score=92.74
+[93/939] Coletando Afonso Motta (camara)... ✅ desp=15 vot=1 score=86.02
+[94/939] Coletando Aguinaldo Ribeiro (camara)... ✅ desp=9 vot=1 score=80.06
+[95/939] Coletando Airton Faleiro (camara)... ✅ desp=3 vot=1 score=89.64
+[96/939] Coletando AJ Albuquerque (camara)... ✅ desp=5 vot=1 score=93.86
+[97/939] Coletando Alberto Fraga (camara)... ✅ desp=0 vot=1 score=95.68
+[98/939] Coletando Alberto Mourão (camara)... ✅ desp=0 vot=0 score=49.2
+[99/939] Coletando Albuquerque (camara)... ✅ desp=0 vot=1 score=91.3
+[100/939] Coletando Alceu Moreira (camara)... ✅ desp=15 vot=1 score=84.85
+[101/939] Coletando Alencar Santana (camara)... ✅ desp=0 vot=1 score=74.5
+[102/939] Coletando Alex Manente (camara)... ✅ desp=0 vot=0 score=55.29
+[103/939] Coletando Alex Santana (camara)... ✅ desp=1 vot=0 score=54.75
+[104/939] Coletando Alexandre Guimarães (camara)... ✅ desp=14 vot=1 score=90.22
+[105/939] Coletando Alexandre Guimarães (camara)... ✅ desp=14 vot=1 score=90.22
+[106/939] Coletando Alexandre Leite (camara)... ✅ desp=8 vot=1 score=86.81
+[107/939] Coletando Alexandre Lindenmeyer (camara)... ✅ desp=15 vot=1 score=89.8
+[108/939] Coletando Alexandre Padilha (camara)... ✅ desp=0 vot=0 score=34.5
+[109/939] Coletando Alfredinho (camara)... ✅ desp=4 vot=1 score=67.2
+[110/939] Coletando Alfredo Gaspar (camara)... ✅ desp=0 vot=1 score=94.3
+[111/939] Coletando Alfredo Gaspar (camara)... ✅ desp=0 vot=1 score=76.2
+[112/939] Coletando Alice Portugal (camara)... ✅ desp=8 vot=1 score=93.36
+[113/939] Coletando Aliel Machado (camara)... ✅ desp=15 vot=0 score=49.5
+[114/939] Coletando Aline Gurgel (camara)... ✅ desp=0 vot=1 score=74.5
+[115/939] Coletando Aline Gurgel (camara)... ✅ desp=0 vot=1 score=74.5
+[116/939] Coletando Allan Garcês (camara)... ✅ desp=0 vot=0 score=30.0
+[117/939] Coletando Altineu Côrtes (camara)... ✅ desp=0 vot=0 score=34.5
+[118/939] Coletando Aluisio Mendes (camara)... ✅ desp=3 vot=1 score=91.02
+[119/939] Coletando Aluisio Mendes (camara)... ✅ desp=3 vot=1 score=91.02
+[120/939] Coletando Amália Barros (camara)... ✅ desp=0 vot=0 score=51.9
+[121/939] Coletando Amanda Gentil (camara)... ✅ desp=0 vot=0 score=51.3
+[122/939] Coletando Amaro Neto (camara)... ✅ desp=11 vot=1 score=91.39
+[123/939] Coletando Amaro Neto (camara)... ✅ desp=11 vot=1 score=91.39
+[124/939] Coletando Amom Mandel (camara)... ✅ desp=0 vot=0 score=55.5
+[125/939] Coletando Amom Mandel (camara)... ✅ desp=0 vot=0 score=55.5
+[126/939] Coletando Ana Paula Leão (camara)... ✅ desp=15 vot=0 score=37.18
+[127/939] Coletando Ana Paula Lima (camara)... ✅ desp=9 vot=1 score=93.18
+[128/939] Coletando Ana Pimentel (camara)... ✅ desp=15 vot=1 score=87.49
+[129/939] Coletando ANDRÉ ABDON (camara)... ✅ desp=10 vot=0 score=42.75
+[130/939] Coletando André Fernandes (camara)... ✅ desp=15 vot=1 score=92.98
+[131/939] Coletando André Ferreira (camara)... ✅ desp=15 vot=1 score=92.65
+[132/939] Coletando André Figueiredo (camara)... ✅ desp=0 vot=1 score=94.31
+[133/939] Coletando André Fufuca (camara)... ✅ desp=0 vot=0 score=55.28
+[134/939] Coletando André Janones (camara)... ✅ desp=9 vot=1 score=87.03
+[135/939] Coletando André Janones (camara)... Aviso: Não foi possível buscar orientações para 2617164-10: The read operation timed out
+✅ desp=9 vot=1 score=89.53
+[136/939] Coletando Andreia Siqueira (camara)... ✅ desp=3 vot=0 score=25.22
+[137/939] Coletando Andreia Siqueira (camara)... ✅ desp=3 vot=0 score=25.22
+[138/939] Coletando Antônia Lúcia (camara)... ✅ desp=4 vot=1 score=69.11
+[139/939] Coletando Antônia Lúcia (camara)... ✅ desp=4 vot=1 score=69.11
+[140/939] Coletando Antonio Andrade (camara)... ✅ desp=15 vot=1 score=71.12
+[141/939] Coletando Antonio Andrade (camara)... ✅ desp=15 vot=1 score=71.12
+[142/939] Coletando Antonio Brito (camara)... ✅ desp=0 vot=0 score=54.92
+[143/939] Coletando Antonio Carlos Rodrigues (camara)... ✅ desp=4 vot=1 score=75.69
+[144/939] Coletando Antônio Doido (camara)... ✅ desp=10 vot=1 score=68.26
+[145/939] Coletando Any Ortiz (camara)... ✅ desp=15 vot=1 score=88.43
+[146/939] Coletando Any Ortiz (camara)... ✅ desp=15 vot=1 score=88.43
+[147/939] Coletando Arlindo Chinaglia (camara)... ✅ desp=10 vot=1 score=87.97
+[148/939] Coletando Arnaldo Jardim (camara)... ✅ desp=6 vot=1 score=93.01
+[149/939] Coletando Arthur Lira (camara)... ✅ desp=2 vot=0 score=52.1
+[150/939] Coletando Arthur Oliveira Maia (camara)... ✅ desp=15 vot=1 score=84.21
+[151/939] Coletando Átila Lins (camara)... ✅ desp=1 vot=1 score=66.56
+[152/939] Coletando Átila Lira (camara)... ✅ desp=1 vot=1 score=69.56
+[153/939] Coletando Augusto Coutinho (camara)... ✅ desp=15 vot=1 score=84.66
+[154/939] Coletando Augusto Pupio (camara)... ✅ desp=0 vot=0 score=52.5
+[155/939] Coletando Augusto Puppio (camara)... ✅ desp=0 vot=0 score=52.5
+[156/939] Coletando Aureo Ribeiro (camara)... ✅ desp=1 vot=0 score=53.71
+[157/939] Coletando Bacelar (camara)... ✅ desp=5 vot=1 score=64.55
+[158/939] Coletando Baleia Rossi (camara)... ✅ desp=1 vot=0 score=43.86
+[159/939] Coletando Bandeira de Mello (camara)... ✅ desp=15 vot=1 score=88.54
+[160/939] Coletando Bandeira de Mello (camara)... ✅ desp=15 vot=1 score=88.54
+[161/939] Coletando Bebeto (camara)... ✅ desp=15 vot=1 score=91.36
+[162/939] Coletando Bebeto (camara)... ✅ desp=15 vot=1 score=91.36
+[163/939] Coletando Benedita da Silva (camara)... ✅ desp=14 vot=1 score=77.27
+[164/939] Coletando Benes Leocádio (camara)... ✅ desp=11 vot=1 score=92.47
+[165/939] Coletando Beto Pereira (camara)... ✅ desp=3 vot=1 score=73.49
+[166/939] Coletando Beto Pereira (camara)... ✅ desp=3 vot=1 score=73.49
+[167/939] Coletando Beto Preto (camara)... ✅ desp=15 vot=1 score=90.66
+[168/939] Coletando Beto Richa (camara)... ✅ desp=15 vot=1 score=92.45
+[169/939] Coletando Bia Kicis (camara)... ✅ desp=15 vot=0 score=44.69
+[170/939] Coletando Bibo Nunes (camara)... ✅ desp=15 vot=1 score=90.64
+[171/939] Coletando Bohn Gass (camara)... ✅ desp=15 vot=1 score=91.77
+[172/939] Coletando Bosco Costa (camara)... ✅ desp=0 vot=0 score=55.08
+[173/939] Coletando Bruno Farias (camara)... ✅ desp=10 vot=0 score=50.03
+[174/939] Coletando Bruno Farias (camara)... ✅ desp=10 vot=0 score=50.03
+[175/939] Coletando Bruno Ganem (camara)... ✅ desp=0 vot=1 score=95.5
+[176/939] Coletando Cabo Gilberto Silva (camara)... ✅ desp=5 vot=1 score=96.13
+[177/939] Coletando Caio Vianna (camara)... ✅ desp=0 vot=0 score=55.5
+[178/939] Coletando Camila Jara (camara)... ✅ desp=15 vot=1 score=89.25
+[179/939] Coletando Capitão Alberto Neto (camara)... ✅ desp=4 vot=1 score=87.99
+[180/939] Coletando Capitão Alden (camara)... ✅ desp=0 vot=1 score=96.2
+[181/939] Coletando Capitão Augusto (camara)... ✅ desp=15 vot=1 score=92.19
+[182/939] Coletando Capitão Samuel (camara)... ✅ desp=0 vot=0 score=53.7
+[183/939] Coletando Carla Ayres (camara)... ✅ desp=0 vot=0 score=51.9
+[184/939] Coletando Carla Dickson (camara)... ✅ desp=10 vot=1 score=91.11
+[185/939] Coletando Carla Dickson (camara)... ✅ desp=10 vot=1 score=93.41
+[186/939] Coletando Carla Zambelli (camara)... ✅ desp=0 vot=0 score=54.3
+[187/939] Coletando Carlos Chiodini (camara)... ✅ desp=2 vot=0 score=54.96
+[188/939] Coletando Carlos Gomes (camara)... ✅ desp=15 vot=1 score=89.81
+[189/939] Coletando Carlos Henrique Gaguim (camara)... ✅ desp=15 vot=1 score=83.4
+[190/939] Coletando Carlos Jordy (camara)... ✅ desp=15 vot=1 score=88.09
+[191/939] Coletando Carlos Sampaio (camara)... ✅ desp=1 vot=1 score=93.94
+[192/939] Coletando Carlos Sampaio (camara)... ✅ desp=1 vot=1 score=93.94
+[193/939] Coletando Carlos Veras (camara)... ✅ desp=15 vot=1 score=90.63
+[194/939] Coletando Carlos Zarattini (camara)... ✅ desp=15 vot=0 score=52.81
+[195/939] Coletando Carmen Zanotto (camara)... ✅ desp=0 vot=0 score=55.5
+[196/939] Coletando Carol Dartora (camara)... ✅ desp=15 vot=0 score=43.89
+[197/939] Coletando Caroline de Toni (camara)... ✅ desp=15 vot=0 score=26.96
+[198/939] Coletando Castro Neto (camara)... ✅ desp=0 vot=0 score=54.3
+[199/939] Coletando Castro Neto (camara)... ✅ desp=0 vot=0 score=54.3
+[200/939] Coletando Célia Xakriabá (camara)... ✅ desp=15 vot=1 score=87.45
+[201/939] Coletando Célio Silveira (camara)... ✅ desp=15 vot=1 score=90.59
+[202/939] Coletando Célio Studart (camara)... ✅ desp=4 vot=0 score=33.44
+[203/939] Coletando Celso Russomanno (camara)... ✅ desp=0 vot=1 score=74.5
+[204/939] Coletando Celso Sabino (camara)... ✅ desp=0 vot=0 score=53.73
+[205/939] Coletando Celso Sabino (camara)... ✅ desp=0 vot=0 score=53.73
+[206/939] Coletando Celso Sabino (camara)... ✅ desp=0 vot=0 score=53.73
+[207/939] Coletando Cezinha de Madureira (camara)... ✅ desp=6 vot=1 score=86.44
+[208/939] Coletando Cezinha de Madureira (camara)... ✅ desp=6 vot=1 score=88.54
+[209/939] Coletando Charles Fernandes (camara)... ✅ desp=15 vot=1 score=91.14
+[210/939] Coletando Chico Alencar (camara)... ✅ desp=15 vot=1 score=69.08
+[211/939] Coletando Chiquinho Brazão (camara)... ✅ desp=0 vot=0 score=55.28
+[212/939] Coletando Chiquinho Brazão (camara)... ✅ desp=0 vot=0 score=55.28
+[213/939] Coletando Chris Tonietto (camara)... ✅ desp=13 vot=1 score=91.75
+[214/939] Coletando Clarissa Tércio (camara)... ✅ desp=14 vot=1 score=69.56
+[215/939] Coletando Claudio Cajado (camara)... ✅ desp=10 vot=1 score=84.5
+[216/939] Coletando Cleber Verde (camara)... ✅ desp=5 vot=1 score=73.31
+[217/939] Coletando Cleber Verde (camara)... ✅ desp=5 vot=1 score=73.31
+[218/939] Coletando Clodoaldo Magalhães (camara)... ✅ desp=9 vot=1 score=78.65
+[219/939] Coletando Cobalchini (camara)... ✅ desp=15 vot=1 score=89.09
+[220/939] Coletando Coronel Armando (camara)... ✅ desp=0 vot=0 score=55.5
+[221/939] Coletando Coronel Armando (camara)... ✅ desp=0 vot=0 score=55.5
+[222/939] Coletando Coronel Assis (camara)... ✅ desp=4 vot=1 score=94.65
+[223/939] Coletando Coronel Assis (camara)... ✅ desp=4 vot=1 score=96.15
+[224/939] Coletando Coronel Chrisóstomo (camara)... ✅ desp=0 vot=1 score=95.78
+[225/939] Coletando Coronel Fernanda (camara)... ✅ desp=2 vot=1 score=91.83
+[226/939] Coletando Coronel Meira (camara)... ✅ desp=15 vot=1 score=80.44
+[227/939] Coletando Coronel Tadeu (camara)... ✅ desp=0 vot=0 score=55.19
+[228/939] Coletando Coronel Telhada (camara)... ✅ desp=0 vot=0 score=54.59
+[229/939] Coletando Coronel Ulysses (camara)... ✅ desp=1 vot=1 score=94.61
+[230/939] Coletando Covatti Filho (camara)... ✅ desp=4 vot=0 score=51.23
+[231/939] Coletando Cristiane Lopes (camara)... ✅ desp=7 vot=1 score=85.43
+[232/939] Coletando Cristiane Lopes (camara)... ✅ desp=7 vot=1 score=85.43
+[233/939] Coletando Cristiano Furlan (camara)... ✅ desp=0 vot=0 score=51.3
+[234/939] Coletando Da Vitoria (camara)... ✅ desp=3 vot=1 score=69.3
+[235/939] Coletando Dagoberto Nogueira (camara)... ✅ desp=9 vot=0 score=46.71
+[236/939] Coletando Dagoberto Nogueira (camara)... ✅ desp=9 vot=0 score=46.71
+[237/939] Coletando Daiana Santos (camara)... ✅ desp=15 vot=1 score=67.93
+[238/939] Coletando Dal Barreto (camara)... ✅ desp=3 vot=0 score=51.07
+[239/939] Coletando Damião Feliciano (camara)... ✅ desp=1 vot=1 score=86.26
+[240/939] Coletando Dandara (camara)... ✅ desp=2 vot=1 score=87.86
+[241/939] Coletando Dani Cunha (camara)... ✅ desp=15 vot=1 score=89.02
+[242/939] Coletando Dani Cunha (camara)... ✅ desp=15 vot=1 score=91.65
+[243/939] Coletando Daniel Agrobom (camara)... ✅ desp=0 vot=1 score=94.2
+[244/939] Coletando Daniel Agrobom (camara)... ✅ desp=0 vot=1 score=91.3
+[245/939] Coletando Daniel Almeida (camara)... ✅ desp=1 vot=1 score=93.53
+[246/939] Coletando Daniel Barbosa (camara)... ✅ desp=8 vot=1 score=91.24
+[247/939] Coletando Daniel Freitas (camara)... ✅ desp=14 vot=0 score=44.69
+[248/939] Coletando Daniel José (camara)... ✅ desp=0 vot=0 score=51.9
+[249/939] Coletando Daniel Soranz (camara)... ✅ desp=15 vot=1 score=92.62
+[250/939] Coletando Daniel Trzeciak (camara)... ✅ desp=15 vot=1 score=84.37
+[251/939] Coletando Daniela do Waguinho (camara)... ✅ desp=3 vot=1 score=91.92
+[252/939] Coletando Daniela do Waguinho (camara)... ✅ desp=3 vot=1 score=91.92
+[253/939] Coletando Daniela Reinehr (camara)... ✅ desp=15 vot=1 score=92.11
+[254/939] Coletando Danilo Forte (camara)... ✅ desp=8 vot=1 score=71.17
+[255/939] Coletando Danilo Forte (camara)... ✅ desp=8 vot=1 score=71.17
+[256/939] Coletando Danrlei de Deus Hinterholz (camara)... ✅ desp=15 vot=1 score=67.17
+[257/939] Coletando Darci de Matos (camara)... ✅ desp=0 vot=0 score=53.99
+[258/939] Coletando David Soares (camara)... ✅ desp=11 vot=0 score=35.29
+[259/939] Coletando David Soares (camara)... ✅ desp=11 vot=0 score=35.29
+[260/939] Coletando Dayany Bittencourt (camara)... ✅ desp=0 vot=0 score=51.3
+[261/939] Coletando Dayany do Capitão (camara)... ✅ desp=0 vot=0 score=54.9
+[262/939] Coletando Defensor Stélio Dener (camara)... ✅ desp=4 vot=1 score=93.22
+[263/939] Coletando Defensor Stélio Dener (camara)... ✅ desp=4 vot=1 score=93.22
+[264/939] Coletando Delegada Adriana Accorsi (camara)... ✅ desp=1 vot=1 score=75.0
+[265/939] Coletando Delegada Ione (camara)... ✅ desp=15 vot=1 score=91.05
+[266/939] Coletando Delegada Katarina (camara)... ✅ desp=0 vot=1 score=92.5
+[267/939] Coletando Delegado Bruno Lima (camara)... ✅ desp=9 vot=0 score=36.44
+[268/939] Coletando Delegado Bruno Lima (camara)... ✅ desp=9 vot=0 score=36.44
+[269/939] Coletando Delegado Caveira (camara)... ✅ desp=4 vot=1 score=95.4
+[270/939] Coletando Delegado da Cunha (camara)... ✅ desp=5 vot=1 score=80.64
+[271/939] Coletando Delegado da Cunha (camara)... ✅ desp=5 vot=1 score=80.64
+[272/939] Coletando Delegado Éder Mauro (camara)... ✅ desp=1 vot=1 score=53.0
+[273/939] Coletando Delegado Fabio Costa (camara)... ✅ desp=10 vot=1 score=90.71
+[274/939] Coletando Delegado Marcelo Freitas (camara)... ✅ desp=15 vot=1 score=86.88
+[275/939] Coletando Delegado Matheus Laiola (camara)... ✅ desp=14 vot=1 score=76.17
+[276/939] Coletando Delegado Palumbo (camara)... ✅ desp=15 vot=1 score=86.52
+[277/939] Coletando Delegado Palumbo (camara)... ✅ desp=15 vot=1 score=86.52
+[278/939] Coletando Delegado Paulo Bilynskyj (camara)... ✅ desp=15 vot=1 score=91.64
+[279/939] Coletando Delegado Ramagem (camara)... ✅ desp=0 vot=0 score=40.0
+[280/939] Coletando Délio Pinheiro (camara)... ✅ desp=0 vot=0 score=30.0
+[281/939] Coletando Deltan Dallagnol (camara)... ✅ desp=0 vot=0 score=54.56
+[282/939] Coletando Denise Pessôa (camara)... ✅ desp=15 vot=1 score=91.38
+[283/939] Coletando Detinha (camara)... ✅ desp=0 vot=0 score=55.12
+[284/939] Coletando Diego Andrade (camara)... ✅ desp=1 vot=1 score=93.48
+[285/939] Coletando Diego Coronel (camara)... ✅ desp=15 vot=0 score=47.69
+[286/939] Coletando Diego Coronel (camara)... ✅ desp=15 vot=0 score=47.69
+[287/939] Coletando Diego Garcia (camara)... ✅ desp=15 vot=1 score=90.44
+[288/939] Coletando Diego Garcia (camara)... ✅ desp=15 vot=1 score=90.44
+[289/939] Coletando Dilceu Sperafico (camara)... ✅ desp=15 vot=1 score=71.07
+[290/939] Coletando Dilvanda Faro (camara)... ✅ desp=2 vot=1 score=67.88
+[291/939] Coletando Dimas Fabiano (camara)... ✅ desp=15 vot=0 score=52.6
+[292/939] Coletando Dimas Gadelha (camara)... ✅ desp=0 vot=1 score=100.0
+[293/939] Coletando Domingos Neto (camara)... ✅ desp=2 vot=0 score=38.54
+[294/939] Coletando Domingos Sávio (camara)... ✅ desp=15 vot=1 score=91.22
+[295/939] Coletando Dorinaldo Malafaia (camara)... ✅ desp=2 vot=0 score=27.84
+[296/939] Coletando Douglas Viegas (camara)... ✅ desp=0 vot=0 score=54.9
+[297/939] Coletando Doutor Luizinho (camara)... ✅ desp=0 vot=0 score=54.14
+[298/939] Coletando Dr Benjamim (camara)... ✅ desp=0 vot=0 score=54.3
+[299/939] Coletando Dr Fabio Rueda (camara)... ✅ desp=0 vot=0 score=54.85
+[300/939] Coletando Dr Flávio (camara)... ✅ desp=11 vot=1 score=86.82
+[301/939] Coletando Dr. Allan Garcês (camara)... ✅ desp=0 vot=0 score=30.0
+[302/939] Coletando Dr. Benjamim (camara)... ✅ desp=0 vot=0 score=51.25
+[303/939] Coletando Dr. Daniel Soranz (camara)... ✅ desp=15 vot=1 score=92.62
+[304/939] Coletando Dr. Fernando Máximo (camara)... ✅ desp=4 vot=1 score=68.86
+[305/939] Coletando Dr. Fernando Máximo (camara)... ✅ desp=4 vot=1 score=78.86
+[306/939] Coletando Dr. Francisco (camara)... ✅ desp=14 vot=1 score=84.93
+[307/939] Coletando Dr. Frederico (camara)... ✅ desp=4 vot=1 score=86.31
+[308/939] Coletando Dr. Frederico (camara)... ✅ desp=4 vot=1 score=86.31
+[309/939] Coletando Dr. Gonçalo (camara)... ✅ desp=0 vot=0 score=54.23
+[310/939] Coletando Dr. Ismael Alexandrino (camara)... ✅ desp=4 vot=1 score=71.76
+[311/939] Coletando Dr. Jaziel (camara)... ✅ desp=0 vot=1 score=80.0
+[312/939] Coletando Dr. Luiz Ovando (camara)... ✅ desp=15 vot=1 score=93.14
+[313/939] Coletando Dr. Remy Soares (camara)... ✅ desp=0 vot=0 score=55.12
+[314/939] Coletando Dr. Victor Linhalis (camara)... ✅ desp=4 vot=1 score=83.03
+[315/939] Coletando Dr. Zacharias Calil (camara)... ✅ desp=14 vot=1 score=97.92
+[316/939] Coletando Dr. Zacharias Calil (camara)... ✅ desp=14 vot=1 score=97.92
+[317/939] Coletando Dra. Alessandra Haber (camara)... ✅ desp=1 vot=0 score=33.92
+[318/939] Coletando Dra. Alessandra Haber (camara)... ✅ desp=1 vot=0 score=33.92
+[319/939] Coletando Dra. Mayra Pinheiro (camara)... ✅ desp=0 vot=0 score=51.9
+[320/939] Coletando Duarte (camara)... ✅ desp=0 vot=1 score=91.9
+[321/939] Coletando Duarte (camara)... ✅ desp=0 vot=1 score=91.9
+[322/939] Coletando Duarte Gonçalves Jr (camara)... ✅ desp=0 vot=0 score=55.32
+[323/939] Coletando Duarte Gonçalves Jr (camara)... ✅ desp=0 vot=0 score=55.32
+[324/939] Coletando Duarte Gonçalves Jr (camara)... ✅ desp=0 vot=0 score=55.32
+[325/939] Coletando Duarte Jr. (camara)... ✅ desp=0 vot=1 score=91.9
+[326/939] Coletando Duarte Jr. (camara)... ✅ desp=0 vot=1 score=91.9
+[327/939] Coletando Duda Ramos (camara)... ✅ desp=3 vot=0 score=40.09
+[328/939] Coletando Duda Ramos (camara)... ✅ desp=3 vot=0 score=40.09
+[329/939] Coletando Duda Ramos (camara)... ✅ desp=3 vot=0 score=40.09
+[330/939] Coletando Duda Salabert (camara)... ✅ desp=9 vot=1 score=78.98
+[331/939] Coletando Duda Salabert (camara)... ✅ desp=9 vot=1 score=78.98
+[332/939] Coletando Eduardo Bismarck (camara)... ✅ desp=11 vot=1 score=72.27
+[333/939] Coletando Eduardo Bismarck (camara)... ✅ desp=11 vot=1 score=72.27
+[334/939] Coletando Eduardo Bolsonaro (camara)... ✅ desp=0 vot=0 score=52.03
+[335/939] Coletando Eduardo da Fonte (camara)... ✅ desp=1 vot=1 score=90.69
+[336/939] Coletando Eduardo Velloso (camara)... ✅ desp=9 vot=1 score=85.99
+[337/939] Coletando Eduardo Velloso (camara)... ✅ desp=9 vot=1 score=85.99
+[338/939] Coletando Elcione Barbalho (camara)... ✅ desp=6 vot=1 score=91.8
+[339/939] Coletando Eli Borges (camara)... ✅ desp=15 vot=1 score=91.34
+[340/939] Coletando Eli Borges (camara)... ✅ desp=15 vot=1 score=89.39
+[341/939] Coletando Eliane Braz (camara)... ✅ desp=0 vot=0 score=51.9
+[342/939] Coletando Elisangela Araujo (camara)... ✅ desp=0 vot=0 score=51.3
+[343/939] Coletando Eliza Virgínia (camara)... ✅ desp=0 vot=0 score=34.5
+[344/939] Coletando Elmano Férrer (camara)... ✅ desp=0 vot=0 score=30.0
+[345/939] Coletando Elmar Nascimento (camara)... ✅ desp=2 vot=1 score=94.21
+[346/939] Coletando Ely Santos (camara)... ✅ desp=0 vot=0 score=53.7
+[347/939] Coletando Emanuel Pinheiro Neto (camara)... ✅ desp=15 vot=1 score=71.53
+[348/939] Coletando Emanuel Pinheiro Neto (camara)... ✅ desp=15 vot=1 score=71.53
+[349/939] Coletando Emidinho Madeira (camara)... ✅ desp=15 vot=1 score=90.63
+[350/939] Coletando Enfermeira Ana Paula (camara)... ✅ desp=0 vot=0 score=52.48
+[351/939] Coletando Enfermeira Ana Paula (camara)... ✅ desp=0 vot=0 score=52.48
+[352/939] Coletando Enfermeira Rejane (camara)... ✅ desp=2 vot=1 score=88.11
+[353/939] Coletando Enio Verri (camara)... ✅ desp=0 vot=0 score=55.0
+[354/939] Coletando Eriberto Medeiros (camara)... ✅ desp=9 vot=1 score=92.99
+[355/939] Coletando Erika Hilton (camara)... ✅ desp=10 vot=0 score=41.81
+[356/939] Coletando Erika Kokay (camara)... ✅ desp=11 vot=1 score=89.09
+[357/939] Coletando Eros Biondini (camara)... ✅ desp=10 vot=1 score=89.08
+[358/939] Coletando Euclydes Pettersen (camara)... ✅ desp=0 vot=0 score=52.11
+[359/939] Coletando Euclydes Pettersen (camara)... ✅ desp=0 vot=0 score=52.11
+[360/939] Coletando Eunício Oliveira (camara)... ✅ desp=2 vot=1 score=59.2
+[361/939] Coletando Evair Vieira de Melo (camara)... ✅ desp=8 vot=1 score=95.09
+[362/939] Coletando Evair Vieira de Melo (camara)... ✅ desp=8 vot=1 score=95.09
+[363/939] Coletando Fabiano Cazeca (camara)... ✅ desp=0 vot=0 score=49.2
+[364/939] Coletando Fabiano Cazeca (camara)... ✅ desp=0 vot=0 score=49.2
+[365/939] Coletando Fabio Garcia (camara)... ✅ desp=1 vot=1 score=99.41
+[366/939] Coletando Fábio Henrique (camara)... ✅ desp=0 vot=0 score=52.5
+[367/939] Coletando Fábio Macedo (camara)... ✅ desp=0 vot=1 score=92.5
+[368/939] Coletando Fabio Reis (camara)... ✅ desp=7 vot=0 score=47.53
+[369/939] Coletando Fabio Schiochet (camara)... ✅ desp=15 vot=1 score=91.73
+[370/939] Coletando Fábio Teruel (camara)... ✅ desp=12 vot=1 score=63.79
+[371/939] Coletando Fatima Pelaes (camara)... ✅ desp=0 vot=0 score=51.3
+[372/939] Coletando Fausto Jr. (camara)... ✅ desp=5 vot=1 score=65.87
+[373/939] Coletando Fausto Pinato (camara)... ✅ desp=1 vot=1 score=86.2
+[374/939] Coletando Fausto Pinato (camara)... ✅ desp=1 vot=1 score=86.2
+[375/939] Coletando Fausto Santos Jr. (camara)... ✅ desp=5 vot=1 score=87.77
+[376/939] Coletando Felipe Becari (camara)... ✅ desp=15 vot=1 score=84.36
+[377/939] Coletando Felipe Becari (camara)... ✅ desp=15 vot=1 score=84.36
+[378/939] Coletando Felipe Carreras (camara)... ✅ desp=15 vot=1 score=66.97
+[379/939] Coletando Felipe Francischini (camara)... ✅ desp=5 vot=1 score=85.44
+[380/939] Coletando Felipe Francischini (camara)... ✅ desp=5 vot=1 score=85.44
+[381/939] Coletando Felipe Saliba (camara)... ✅ desp=0 vot=0 score=53.28
+[382/939] Coletando Felipe Saliba (camara)... ✅ desp=0 vot=0 score=53.28
+[383/939] Coletando Félix Mendonça Júnior (camara)... ✅ desp=15 vot=1 score=62.86
+[384/939] Coletando Fernanda Melchionna (camara)... ✅ desp=15 vot=1 score=91.94
+[385/939] Coletando Fernanda Pessoa (camara)... ✅ desp=15 vot=1 score=90.9
+[386/939] Coletando Fernanda Pessoa (camara)... ✅ desp=15 vot=1 score=90.9
+[387/939] Coletando Fernando Coelho Filho (camara)... ✅ desp=7 vot=1 score=77.16
+[388/939] Coletando Fernando Mineiro (camara)... ✅ desp=14 vot=1 score=87.26
+[389/939] Coletando Fernando Monteiro (camara)... ✅ desp=9 vot=1 score=86.94
+[390/939] Coletando Fernando Monteiro (camara)... ✅ desp=9 vot=1 score=86.94
+[391/939] Coletando Fernando Monteiro (camara)... ✅ desp=9 vot=1 score=86.94
+[392/939] Coletando Fernando Rodolfo (camara)... ✅ desp=15 vot=1 score=71.5
+[393/939] Coletando Fernando Rodolfo (camara)... ✅ desp=15 vot=1 score=88.8
+[394/939] Coletando Filipe Barros (camara)... ✅ desp=11 vot=0 score=49.42
+[395/939] Coletando Filipe Martins (camara)... ✅ desp=15 vot=1 score=90.86
+[396/939] Coletando Flávia Morais (camara)... ✅ desp=0 vot=0 score=30.0
+[397/939] Coletando Flávia Morais (camara)... ✅ desp=0 vot=0 score=30.0
+[398/939] Coletando Flavinha (camara)... ✅ desp=0 vot=0 score=51.3
+[399/939] Coletando Flávio Nogueira (camara)... ✅ desp=15 vot=1 score=96.13
+[400/939] Coletando Florentino Neto (camara)... ✅ desp=1 vot=1 score=92.23
+[401/939] Coletando Franciane Bayer (camara)... ✅ desp=0 vot=1 score=91.3
+[402/939] Coletando Fred Costa (camara)... ✅ desp=15 vot=1 score=84.13
+[403/939] Coletando Fred Costa (camara)... ✅ desp=15 vot=1 score=84.13
+[404/939] Coletando Fred Linhares (camara)... ✅ desp=2 vot=1 score=76.02
+[405/939] Coletando Gabriel Mota (camara)... ✅ desp=2 vot=1 score=63.56
+[406/939] Coletando Gabriel Mota (camara)... ✅ desp=2 vot=1 score=63.56
+[407/939] Coletando Gabriel Nunes (camara)... ✅ desp=15 vot=1 score=92.28
+[408/939] Coletando General Girão (camara)... ✅ desp=11 vot=1 score=67.24
+[409/939] Coletando General Pazuello (camara)... ✅ desp=15 vot=1 score=91.66
+[410/939] Coletando Geovania de Sá (camara)... ✅ desp=15 vot=1 score=90.97
+[411/939] Coletando Geovania de Sá (camara)... ✅ desp=15 vot=1 score=90.97
+[412/939] Coletando Geraldo Mendes (camara)... Aviso: Não foi possível buscar orientações para 2617164-10: The read operation timed out
+✅ desp=2 vot=1 score=76.04
+[413/939] Coletando Geraldo Resende (camara)... ✅ desp=5 vot=1 score=89.39
+[414/939] Coletando Geraldo Resende (camara)... ✅ desp=5 vot=1 score=89.39
+[415/939] Coletando Gerlen Diniz (camara)... ✅ desp=0 vot=0 score=54.61
+[416/939] Coletando Gervásio Maia (camara)... ✅ desp=15 vot=1 score=87.81
+[417/939] Coletando Gervásio Maia (camara)... ✅ desp=15 vot=1 score=87.81
+[418/939] Coletando Giacobo (camara)... ✅ desp=3 vot=0 score=24.58
+[419/939] Coletando Giacobo (camara)... ✅ desp=3 vot=0 score=24.58
+[420/939] Coletando Gilberto Abramo (camara)... ✅ desp=7 vot=0 score=49.49
+[421/939] Coletando Gilberto Nascimento (camara)... ✅ desp=3 vot=0 score=41.39
+[422/939] Coletando Gilberto Nascimento (camara)... ✅ desp=3 vot=0 score=41.39
+[423/939] Coletando Gilberto Nascimento (camara)... ✅ desp=3 vot=0 score=41.39
+[424/939] Coletando Gilson Daniel (camara)... ✅ desp=15 vot=1 score=90.7
+[425/939] Coletando Gilson Marques (camara)... ✅ desp=11 vot=1 score=93.46
+[426/939] Coletando Gilvan da Federal (camara)... ✅ desp=15 vot=0 score=41.68
+[427/939] Coletando Gilvan Maximo (camara)... ✅ desp=0 vot=0 score=53.7
+[428/939] Coletando Giovani Cherini (camara)... ✅ desp=15 vot=1 score=83.18
+[429/939] Coletando Gisela Simona (camara)... ✅ desp=0 vot=0 score=53.1
+[430/939] Coletando Glauber Braga (camara)... ✅ desp=0 vot=0 score=54.83
+[431/939] Coletando Gláucia Santiago (camara)... ✅ desp=0 vot=0 score=34.5
+[432/939] Coletando Glaustin da Fokus (camara)... ✅ desp=2 vot=0 score=21.11
+[433/939] Coletando Glaustin da Fokus (camara)... ✅ desp=2 vot=0 score=21.11
+[434/939] Coletando Gleisi Hoffmann (camara)... ✅ desp=12 vot=1 score=91.67
+[435/939] Coletando Gorete Pereira (camara)... ✅ desp=3 vot=0 score=50.69
+[436/939] Coletando Gorete Pereira (camara)... ✅ desp=3 vot=0 score=50.69
+[437/939] Coletando Greyce Elias (camara)... ✅ desp=15 vot=0 score=43.06
+[438/939] Coletando Greyce Elias (camara)... ✅ desp=15 vot=0 score=43.06
+[439/939] Coletando Guilherme Boulos (camara)... ✅ desp=0 vot=0 score=51.9
+[440/939] Coletando Guilherme Derrite (camara)... ✅ desp=2 vot=0 score=39.41
+[441/939] Coletando Guilherme Derrite (camara)... ✅ desp=2 vot=0 score=39.41
+[442/939] Coletando Guilherme Uchoa (camara)... ✅ desp=7 vot=1 score=92.12
+[443/939] Coletando Guilherme Uchoa (camara)... ✅ desp=7 vot=1 score=92.12
+[444/939] Coletando Gustavo Gayer (camara)... ✅ desp=3 vot=1 score=76.22
+[445/939] Coletando Gustinho Ribeiro (camara)... ✅ desp=0 vot=0 score=51.56
+[446/939] Coletando Gustinho Ribeiro (camara)... ✅ desp=0 vot=0 score=51.56
+[447/939] Coletando Gutemberg Reis (camara)... ✅ desp=15 vot=1 score=90.15
+[448/939] Coletando Heitor Schuch (camara)... ✅ desp=15 vot=0 score=50.9
+[449/939] Coletando Heitor Schuch (camara)... ✅ desp=15 vot=0 score=50.9
+[450/939] Coletando Helder Salomão (camara)... ✅ desp=6 vot=1 score=94.58
+[451/939] Coletando Helena Lima (camara)... ✅ desp=4 vot=0 score=46.94
+[452/939] Coletando Helena Lima (camara)... ✅ desp=4 vot=0 score=46.94
+[453/939] Coletando Hélio Leite (camara)... ✅ desp=0 vot=0 score=55.02
+[454/939] Coletando Helio Lopes (camara)... ✅ desp=5 vot=1 score=72.04
+[455/939] Coletando Heloísa Helena (camara)... ✅ desp=1 vot=1 score=91.64
+[456/939] Coletando Henderson Pinto (camara)... ✅ desp=8 vot=1 score=90.09
+[457/939] Coletando Henderson Pinto (camara)... ✅ desp=8 vot=1 score=90.09
+[458/939] Coletando Henrique Júnior (camara)... ✅ desp=0 vot=0 score=30.0
+[459/939] Coletando Hercílio Coelho Diniz (camara)... ✅ desp=0 vot=0 score=40.0
+[460/939] Coletando Hildo do Candango (camara)... ✅ desp=0 vot=0 score=54.22
+[461/939] Coletando Hildo Rocha (camara)... ✅ desp=0 vot=1 score=94.47
+[462/939] Coletando Hugo Leal (camara)... ✅ desp=9 vot=1 score=82.95
+[463/939] Coletando Hugo Motta (camara)... ✅ desp=14 vot=0 score=29.2
+[464/939] Coletando Icaro de Valmir (camara)... ✅ desp=9 vot=1 score=55.45
+[465/939] Coletando Icaro de Valmir (camara)... ✅ desp=9 vot=1 score=66.95
+[466/939] Coletando Idilvan Alencar (camara)... ✅ desp=0 vot=1 score=94.27
+[467/939] Coletando Idilvan Alencar (camara)... ✅ desp=0 vot=1 score=94.27
+[468/939] Coletando Igor Timo (camara)... ✅ desp=15 vot=1 score=86.74
+[469/939] Coletando Igor Timo (camara)... ✅ desp=15 vot=1 score=86.74
+[470/939] Coletando Igor Timo (camara)... ✅ desp=15 vot=1 score=86.74
+[471/939] Coletando Ilacir Bicalho (camara)... ✅ desp=3 vot=1 score=87.01
+[472/939] Coletando Ilacir Bicalho (camara)... ✅ desp=3 vot=1 score=87.01
+[473/939] Coletando Ilacir Bicalho (camara)... ✅ desp=3 vot=1 score=87.01
+[474/939] Coletando Inácio Arruda (camara)... ✅ desp=0 vot=1 score=93.1
+[475/939] Coletando Ismael (camara)... ✅ desp=15 vot=1 score=95.77
+[476/939] Coletando Ismael (camara)... ✅ desp=15 vot=1 score=96.83
+[477/939] Coletando Ismael Alexandrino (camara)... ✅ desp=4 vot=1 score=70.57
+[478/939] Coletando Isnaldo Bulhões Jr. (camara)... ✅ desp=0 vot=0 score=34.5
+[479/939] Coletando Ivan Junior (camara)... ✅ desp=0 vot=0 score=34.5
+[480/939] Coletando Ivan Valente (camara)... ✅ desp=0 vot=0 score=54.59
+[481/939] Coletando Ivoneide Caetano (camara)... ✅ desp=15 vot=1 score=81.13
+[482/939] Coletando Iza Arruda (camara)... ✅ desp=5 vot=1 score=91.73
+[483/939] Coletando Jack Rocha (camara)... ✅ desp=7 vot=1 score=89.01
+[484/939] Coletando Jadyel Alencar (camara)... ✅ desp=8 vot=0 score=37.45
+[485/939] Coletando Jadyel Alencar (camara)... ✅ desp=8 vot=0 score=37.45
+[486/939] Coletando Jandira Feghali (camara)... ✅ desp=7 vot=1 score=91.37
+[487/939] Coletando Jeferson Rodrigues (camara)... ✅ desp=1 vot=1 score=86.23
+[488/939] Coletando Jeferson Rodrigues (camara)... ✅ desp=1 vot=1 score=86.23
+[489/939] Coletando Jefferson Campos (camara)... ✅ desp=2 vot=1 score=90.89
+[490/939] Coletando Jhonatan de Jesus (camara)... ✅ desp=0 vot=0 score=55.22
+[491/939] Coletando Jilmar Tatto (camara)... ✅ desp=7 vot=1 score=85.22
+[492/939] Coletando João Carlos (camara)... ✅ desp=0 vot=1 score=74.5
+[493/939] Coletando João Carlos Bacelar (camara)... ✅ desp=3 vot=1 score=68.96
+[494/939] Coletando João Cury (camara)... ✅ desp=15 vot=1 score=88.51
+[495/939] Coletando João Daniel (camara)... ✅ desp=10 vot=1 score=81.8
+[496/939] Coletando João Leão (camara)... ✅ desp=6 vot=0 score=53.3
+[497/939] Coletando João Maia (camara)... ✅ desp=9 vot=1 score=93.01
+[498/939] Coletando João Maia (camara)... ✅ desp=9 vot=1 score=91.49
+[499/939] Coletando Joaquim Passarinho (camara)... ✅ desp=14 vot=1 score=85.44
+[500/939] Coletando Jonas Donizette (camara)... ✅ desp=8 vot=1 score=93.18
+[501/939] Coletando Jones Moura (camara)... ✅ desp=0 vot=0 score=51.9
+[502/939] Coletando Jorge Araújo (camara)... ✅ desp=8 vot=1 score=84.98
+[503/939] Coletando Jorge Braz (camara)... ✅ desp=10 vot=1 score=94.03
+[504/939] Coletando Jorge Goetten (camara)... ✅ desp=15 vot=1 score=67.61
+[505/939] Coletando Jorge Goetten (camara)... ✅ desp=15 vot=1 score=85.15
+[506/939] Coletando Jorge Solla (camara)... ✅ desp=3 vot=1 score=91.37
+[507/939] Coletando José Airton Félix Cirilo (camara)... ✅ desp=0 vot=0 score=51.3
+[508/939] Coletando José Guimarães (camara)... ✅ desp=10 vot=0 score=21.08
+[509/939] Coletando José Medeiros (camara)... ✅ desp=15 vot=1 score=82.75
+[510/939] Coletando José Nelto (camara)... ✅ desp=3 vot=1 score=87.94
+[511/939] Coletando José Nelto (camara)... ✅ desp=3 vot=1 score=87.94
+[512/939] Coletando José Priante (camara)... ✅ desp=0 vot=0 score=54.69
+[513/939] Coletando José Rocha (camara)... ✅ desp=4 vot=1 score=90.02
+[514/939] Coletando Joseildo Ramos (camara)... ✅ desp=15 vot=1 score=84.15
+[515/939] Coletando Josenildo (camara)... ✅ desp=12 vot=1 score=91.46
+[516/939] Coletando Josias Gomes (camara)... ✅ desp=0 vot=0 score=54.22
+[517/939] Coletando Josimar Maranhãozinho (camara)... ✅ desp=0 vot=0 score=49.2
+[518/939] Coletando Josivaldo JP (camara)... ✅ desp=3 vot=0 score=55.01
+[519/939] Coletando Josivaldo JP (camara)... ✅ desp=3 vot=0 score=55.01
+[520/939] Coletando Juarez Costa (camara)... ✅ desp=7 vot=0 score=42.91
+[521/939] Coletando Juarez Costa (camara)... ✅ desp=7 vot=0 score=42.91
+[522/939] Coletando Julia Zanatta (camara)... ✅ desp=15 vot=1 score=92.62
+[523/939] Coletando Juliana Cardoso (camara)... ✅ desp=8 vot=1 score=87.08
+[524/939] Coletando Juliana Kolankiewicz (camara)... ✅ desp=0 vot=0 score=51.2
+[525/939] Coletando Julio Arcoverde (camara)... ✅ desp=2 vot=1 score=94.31
+[526/939] Coletando Júlio Cesar (camara)... ✅ desp=0 vot=1 score=70.0
+[527/939] Coletando Julio Cesar Ribeiro (camara)... ✅ desp=2 vot=0 score=29.92
+[528/939] Coletando Julio Lopes (camara)... ✅ desp=1 vot=0 score=55.3
+[529/939] Coletando Júlio Oliveira (camara)... ✅ desp=0 vot=0 score=53.7
+[530/939] Coletando Juninho do Pneu (camara)... ✅ desp=13 vot=1 score=49.92
+[531/939] Coletando Juninho do Pneu (camara)... ✅ desp=13 vot=1 score=49.92
+[532/939] Coletando Junio Amaral (camara)... ✅ desp=0 vot=1 score=95.4
+[533/939] Coletando Júnior Ferrari (camara)... ✅ desp=3 vot=1 score=94.17
+[534/939] Coletando Junior Lourenço (camara)... ✅ desp=0 vot=1 score=94.2
+[535/939] Coletando Junior Lourenço (camara)... ✅ desp=0 vot=1 score=91.3
+[536/939] Coletando Júnior Mano (camara)... ✅ desp=0 vot=0 score=52.5
+[537/939] Coletando Júnior Mano (camara)... ✅ desp=0 vot=0 score=52.5
+[538/939] Coletando Juscelino Filho (camara)... ✅ desp=1 vot=0 score=51.92
+[539/939] Coletando Juscelino Filho (camara)... ✅ desp=1 vot=0 score=51.92
+[540/939] Coletando Katia Dias (camara)... ✅ desp=0 vot=0 score=53.7
+[541/939] Coletando Katia Dias (camara)... ✅ desp=0 vot=0 score=53.7
+[542/939] Coletando Katia Dias (camara)... ✅ desp=0 vot=0 score=53.7
+[543/939] Coletando Keniston Braga (camara)... ✅ desp=2 vot=1 score=90.86
+[544/939] Coletando Kiko Celeguim (camara)... ✅ desp=8 vot=1 score=71.52
+[545/939] Coletando Kim Kataguiri (camara)... ✅ desp=1 vot=1 score=95.46
+[546/939] Coletando Kim Kataguiri (camara)... ✅ desp=1 vot=1 score=96.96
+[547/939] Coletando Lafayette de Andrada (camara)... ✅ desp=5 vot=1 score=64.02
+[548/939] Coletando Lafayette de Andrada (camara)... ✅ desp=5 vot=1 score=74.02
+[549/939] Coletando Laura Carneiro (camara)... ✅ desp=15 vot=1 score=51.3
+[550/939] Coletando Lázaro Botelho (camara)... ✅ desp=0 vot=0 score=53.63
+[551/939] Coletando Leandre (camara)... ✅ desp=15 vot=1 score=92.08
+[552/939] Coletando Lebrão (camara)... ✅ desp=0 vot=0 score=34.5
+[553/939] Coletando Lêda Borges (camara)... ✅ desp=14 vot=0 score=40.92
+[554/939] Coletando Lêda Borges (camara)... ✅ desp=14 vot=0 score=40.92
+[555/939] Coletando Lenir de Assis (camara)... ✅ desp=0 vot=0 score=53.1
+[556/939] Coletando Leo Prates (camara)... ✅ desp=8 vot=1 score=57.9
+[557/939] Coletando Leo Prates (camara)... ✅ desp=8 vot=1 score=57.9
+[558/939] Coletando Leonardo Gadelha (camara)... ✅ desp=0 vot=0 score=51.48
+[559/939] Coletando Leonardo Gadelha (camara)... ✅ desp=0 vot=0 score=51.48
+[560/939] Coletando Leonardo Monteiro (camara)... ✅ desp=6 vot=1 score=78.0
+[561/939] Coletando Leônidas Cristino (camara)... ✅ desp=0 vot=0 score=51.3
+[562/939] Coletando Leur Lomanto Júnior (camara)... ✅ desp=13 vot=1 score=57.66
+[563/939] Coletando Lídice da Mata (camara)... ✅ desp=15 vot=1 score=91.61
+[564/939] Coletando Lincoln Portela (camara)... ✅ desp=3 vot=1 score=82.3
+[565/939] Coletando Lindbergh Farias (camara)... ✅ desp=0 vot=1 score=91.9
+[566/939] Coletando Loreny (camara)... ✅ desp=0 vot=0 score=53.7
+[567/939] Coletando Lucas Abrahao (camara)... ✅ desp=0 vot=0 score=34.5
+[568/939] Coletando Lucas Ramos (camara)... ✅ desp=1 vot=1 score=84.22
+[569/939] Coletando Lucas Redecker (camara)... ✅ desp=15 vot=1 score=83.11
+[570/939] Coletando Lucas Redecker (camara)... ✅ desp=15 vot=1 score=83.11
+[571/939] Coletando Luciano Alves (camara)... ✅ desp=0 vot=0 score=34.5
+[572/939] Coletando Luciano Amaral (camara)... ✅ desp=15 vot=1 score=78.94
+[573/939] Coletando Luciano Amaral (camara)... ✅ desp=15 vot=1 score=78.94
+[574/939] Coletando Luciano Azevedo (camara)... ✅ desp=0 vot=0 score=54.23
+[575/939] Coletando Luciano Bivar (camara)... ✅ desp=0 vot=1 score=89.2
+[576/939] Coletando Luciano Bivar (camara)... ✅ desp=0 vot=1 score=89.2
+[577/939] Coletando Luciano Ducci (camara)... ✅ desp=15 vot=1 score=92.69
+[578/939] Coletando Luciano Galego (camara)... ✅ desp=0 vot=0 score=55.38
+[579/939] Coletando Luciano Vieira (camara)... ✅ desp=9 vot=1 score=73.4
+[580/939] Coletando Luciano Vieira (camara)... ✅ desp=9 vot=1 score=90.78
+[581/939] Coletando Luciano Vieira (camara)... ✅ desp=9 vot=1 score=90.78
+[582/939] Coletando Lucio Mosquini (camara)... ✅ desp=14 vot=1 score=88.17
+[583/939] Coletando Lucio Mosquini (camara)... ✅ desp=14 vot=1 score=90.49
+[584/939] Coletando Lucyana Genésio (camara)... ✅ desp=0 vot=0 score=34.5
+[585/939] Coletando Luis Carlos Gomes (camara)... ✅ desp=0 vot=0 score=51.9
+[586/939] Coletando Luis Tibé (camara)... ✅ desp=0 vot=0 score=54.38
+[587/939] Coletando Luisa Canziani (camara)... ✅ desp=2 vot=0 score=39.31
+[588/939] Coletando Luisa Canziani (camara)... ✅ desp=2 vot=0 score=39.31
+[589/939] Coletando Luiz Antonio Corrêa (camara)... ✅ desp=0 vot=0 score=40.0
+[590/939] Coletando Luiz Carlos Busato (camara)... ✅ desp=15 vot=1 score=85.95
+[591/939] Coletando Luiz Carlos Hauly (camara)... ✅ desp=8 vot=1 score=91.02
+[592/939] Coletando Luiz Carlos Motta (camara)... ✅ desp=6 vot=1 score=87.52
+[593/939] Coletando Luiz Couto (camara)... ✅ desp=15 vot=1 score=86.52
+[594/939] Coletando Luiz Fernando Faria (camara)... ✅ desp=5 vot=1 score=86.79
+[595/939] Coletando Luiz Fernando Faria (camara)... ✅ desp=5 vot=1 score=86.79
+[596/939] Coletando Luiz Fernando Vampiro (camara)... ✅ desp=0 vot=0 score=55.36
+[597/939] Coletando Luiz Gastão (camara)... ✅ desp=0 vot=1 score=89.2
+[598/939] Coletando Luiz Lima (camara)... ✅ desp=9 vot=1 score=94.48
+[599/939] Coletando Luiz Lima (camara)... ✅ desp=9 vot=1 score=94.48
+[600/939] Coletando Luiz Marinho (camara)... ✅ desp=0 vot=0 score=55.5
+[601/939] Coletando Luiz Nishimori (camara)... ✅ desp=1 vot=1 score=95.02
+[602/939] Coletando Luiz Philippe de Orleans e Bragança (camara)... ✅ desp=2 vot=1 score=93.85
+[603/939] Coletando Luiza Erundina (camara)... ✅ desp=15 vot=1 score=79.71
+[604/939] Coletando Luizianne Lins (camara)... ✅ desp=4 vot=0 score=51.34
+[605/939] Coletando Luizianne Lins (camara)... ✅ desp=4 vot=0 score=51.34
+[606/939] Coletando Lula da Fonte (camara)... ✅ desp=13 vot=1 score=73.59
+[607/939] Coletando Magda Mofatto (camara)... ✅ desp=0 vot=1 score=92.8
+[608/939] Coletando Magda Mofatto (camara)... ✅ desp=0 vot=1 score=89.2
+[609/939] Coletando Magda Mofatto (camara)... ✅ desp=0 vot=1 score=89.2
+[610/939] Coletando Magda Mofatto (camara)... ✅ desp=0 vot=1 score=92.8
+[611/939] Coletando Marangoni (camara)... ✅ desp=11 vot=0 score=42.57
+[612/939] Coletando Marangoni (camara)... ✅ desp=11 vot=0 score=42.57
+[613/939] Coletando Marcel van Hattem (camara)... ✅ desp=14 vot=1 score=94.53
+[614/939] Coletando Marcelo Álvaro Antônio (camara)... ✅ desp=15 vot=1 score=81.31
+[615/939] Coletando Marcelo Calero (camara)... ✅ desp=0 vot=0 score=54.95
+[616/939] Coletando Marcelo Crivella (camara)... ✅ desp=15 vot=1 score=88.77
+[617/939] Coletando Marcelo Lima (camara)... ✅ desp=0 vot=0 score=40.0
+[618/939] Coletando Marcelo Lima (camara)... ✅ desp=0 vot=0 score=40.0
+[619/939] Coletando Marcelo Lima (camara)... ✅ desp=0 vot=0 score=40.0
+[620/939] Coletando Marcelo Moraes (camara)... ✅ desp=15 vot=1 score=94.33
+[621/939] Coletando Marcelo Nilo (camara)... ✅ desp=9 vot=0 score=52.27
+[622/939] Coletando Marcelo Queiroz (camara)... ✅ desp=13 vot=1 score=66.1
+[623/939] Coletando Marcelo Queiroz (camara)... ✅ desp=13 vot=1 score=66.1
+[624/939] Coletando Marcio Alvino (camara)... ✅ desp=3 vot=0 score=50.91
+[625/939] Coletando Márcio Biolchi (camara)... ✅ desp=15 vot=1 score=66.49
+[626/939] Coletando Márcio Correa (camara)... ✅ desp=0 vot=0 score=49.2
+[627/939] Coletando Márcio Honaiser (camara)... ✅ desp=2 vot=0 score=48.37
+[628/939] Coletando Márcio Honaiser (camara)... ✅ desp=2 vot=0 score=48.37
+[629/939] Coletando Márcio Honaiser (camara)... ✅ desp=2 vot=0 score=48.37
+[630/939] Coletando Márcio Jerry (camara)... ✅ desp=5 vot=1 score=64.36
+[631/939] Coletando Márcio Marinho (camara)... ✅ desp=2 vot=1 score=90.38
+[632/939] Coletando Marco Bertaiolli (camara)... ✅ desp=0 vot=0 score=54.04
+[633/939] Coletando Marco Brasil (camara)... ✅ desp=0 vot=0 score=50.71
+[634/939] Coletando Marcon (camara)... ✅ desp=15 vot=1 score=92.6
+[635/939] Coletando Marcos Aurélio Sampaio (camara)... ✅ desp=0 vot=0 score=51.9
+[636/939] Coletando Marcos Aurélio Sampaio (camara)... ✅ desp=0 vot=0 score=51.9
+[637/939] Coletando Marcos Pereira (camara)... ✅ desp=5 vot=1 score=64.9
+[638/939] Coletando Marcos Pollon (camara)... ✅ desp=15 vot=1 score=91.8
+[639/939] Coletando Marcos Soares (camara)... ✅ desp=15 vot=0 score=37.13
+[640/939] Coletando Marcos Soares (camara)... ✅ desp=15 vot=0 score=37.13
+[641/939] Coletando Marcos Tavares (camara)... ✅ desp=7 vot=1 score=80.88
+[642/939] Coletando Maria Arraes (camara)... ✅ desp=15 vot=1 score=89.66
+[643/939] Coletando Maria Arraes (camara)... ✅ desp=15 vot=1 score=89.66
+[644/939] Coletando Maria do Rosário (camara)... ✅ desp=15 vot=1 score=71.91
+[645/939] Coletando Maria Rosas (camara)... ✅ desp=8 vot=1 score=81.98
+[646/939] Coletando Mariana Carvalho (camara)... ✅ desp=0 vot=0 score=40.0
+[647/939] Coletando Mariana Carvalho (camara)... ✅ desp=0 vot=0 score=40.0
+[648/939] Coletando Mariana Carvalho (camara)... ✅ desp=0 vot=0 score=40.0
+[649/939] Coletando Marina Silva (camara)... ✅ desp=0 vot=1 score=94.9
+[650/939] Coletando Mario Frias (camara)... ✅ desp=8 vot=1 score=92.93
+[651/939] Coletando Mário Heringer (camara)... ✅ desp=0 vot=0 score=49.2
+[652/939] Coletando Mário Negromonte Jr. (camara)... ✅ desp=3 vot=1 score=93.38
+[653/939] Coletando Mário Negromonte Jr. (camara)... ✅ desp=3 vot=1 score=93.38
+[654/939] Coletando Marreca Filho (camara)... ✅ desp=0 vot=0 score=51.9
+[655/939] Coletando Marreca Filho (camara)... ✅ desp=0 vot=0 score=51.9
+[656/939] Coletando Marussa Boldrin (camara)... ✅ desp=15 vot=0 score=51.25
+[657/939] Coletando Marussa Boldrin (camara)... ✅ desp=15 vot=0 score=51.25
+[658/939] Coletando Marx Beltrão (camara)... ✅ desp=0 vot=1 score=93.17
+[659/939] Coletando Marx Beltrão (camara)... ✅ desp=0 vot=1 score=93.17
+[660/939] Coletando Matheus Noronha (camara)... ✅ desp=0 vot=1 score=83.0
+[661/939] Coletando Maurício Carvalho (camara)... ✅ desp=15 vot=0 score=51.08
+[662/939] Coletando Mauricio do Vôlei (camara)... ✅ desp=15 vot=1 score=79.94
+[663/939] Coletando Mauricio Marcon (camara)... ✅ desp=12 vot=1 score=66.76
+[664/939] Coletando Mauricio Marcon (camara)... ✅ desp=12 vot=1 score=75.07
+[665/939] Coletando Mauricio Neves (camara)... ✅ desp=2 vot=1 score=76.07
+[666/939] Coletando Mauro Benevides Filho (camara)... ✅ desp=5 vot=1 score=56.59
+[667/939] Coletando Mauro Benevides Filho (camara)... ✅ desp=5 vot=1 score=56.59
+[668/939] Coletando Max Lemos (camara)... ✅ desp=0 vot=1 score=94.9
+[669/939] Coletando Max Lemos (camara)... ✅ desp=0 vot=1 score=94.9
+[670/939] Coletando Max Lemos (camara)... ✅ desp=0 vot=1 score=94.9
+[671/939] Coletando Meire Serafim (camara)... ✅ desp=1 vot=1 score=91.76
+[672/939] Coletando Mendonça Filho (camara)... ✅ desp=1 vot=1 score=94.4
+[673/939] Coletando Mendonça Filho (camara)... ✅ desp=1 vot=1 score=96.19
+[674/939] Coletando Merlong Solano (camara)... ✅ desp=15 vot=1 score=89.67
+[675/939] Coletando Mersinho Lucena (camara)... ✅ desp=2 vot=1 score=85.02
+[676/939] Coletando Mersinho Lucena (camara)... ✅ desp=2 vot=1 score=85.02
+[677/939] Coletando Messias Donato (camara)... ✅ desp=15 vot=1 score=89.2
+[678/939] Coletando Messias Donato (camara)... ✅ desp=15 vot=1 score=89.2
+[679/939] Coletando Miguel Ângelo (camara)... ✅ desp=10 vot=1 score=71.33
+[680/939] Coletando Miguel Lombardi (camara)... ✅ desp=14 vot=1 score=91.88
+[681/939] Coletando Milton Vieira (camara)... ✅ desp=10 vot=1 score=82.96
+[682/939] Coletando Misael Varella (camara)... ✅ desp=0 vot=0 score=49.2
+[683/939] Coletando Missionária Michele Collins (camara)... ✅ desp=0 vot=0 score=52.5
+[684/939] Coletando Missionário José Olimpio (camara)... ✅ desp=15 vot=1 score=80.64
+[685/939] Coletando Moses Rodrigues (camara)... ✅ desp=4 vot=1 score=65.47
+[686/939] Coletando Murillo Gouvea (camara)... ✅ desp=15 vot=1 score=91.59
+[687/939] Coletando Murillo Gouvea (camara)... ✅ desp=15 vot=1 score=91.59
+[688/939] Coletando Murillo Gouvea (camara)... ✅ desp=15 vot=1 score=91.59
+[689/939] Coletando Murilo Galdino (camara)... ✅ desp=8 vot=1 score=75.27
+[690/939] Coletando Natália Bonavides (camara)... ✅ desp=1 vot=1 score=93.63
+[691/939] Coletando Naumi Amorim (camara)... ✅ desp=0 vot=0 score=54.0
+[692/939] Coletando Nelinho Freitas (camara)... ✅ desp=0 vot=0 score=55.46
+[693/939] Coletando Nelson Barbudo (camara)... ✅ desp=14 vot=0 score=41.05
+[694/939] Coletando Nelson Barbudo (camara)... ✅ desp=14 vot=0 score=41.05
+[695/939] Coletando Nely Aquino (camara)... ✅ desp=3 vot=1 score=91.21
+[696/939] Coletando Neto Carletto (camara)... ✅ desp=5 vot=1 score=73.39
+[697/939] Coletando Neto Carletto (camara)... ✅ desp=5 vot=1 score=73.39
+[698/939] Coletando Newton Bonin (camara)... ✅ desp=0 vot=0 score=49.2
+[699/939] Coletando Newton Cardoso Jr (camara)... ✅ desp=6 vot=0 score=38.9
+[700/939] Coletando Nicoletti (camara)... ✅ desp=15 vot=0 score=48.05
+[701/939] Coletando Nicoletti (camara)... ✅ desp=15 vot=0 score=48.05
+[702/939] Coletando Nikolas Ferreira (camara)... ✅ desp=13 vot=1 score=89.53
+[703/939] Coletando Nilto Tatto (camara)... ✅ desp=15 vot=1 score=74.97
+[704/939] Coletando Nitinho (camara)... ✅ desp=0 vot=0 score=53.7
+[705/939] Coletando Odair Cunha (camara)... ✅ desp=15 vot=1 score=92.77
+[706/939] Coletando Olival Marques (camara)... ✅ desp=0 vot=0 score=55.14
+[707/939] Coletando Olival Marques (camara)... ✅ desp=0 vot=0 score=55.14
+[708/939] Coletando Orlando Silva (camara)... ✅ desp=1 vot=1 score=90.0
+[709/939] Coletando Osmar Terra (camara)... ✅ desp=15 vot=0 score=50.7
+[710/939] Coletando Osmar Terra (camara)... ✅ desp=15 vot=0 score=50.7
+[711/939] Coletando Ossesio Silva (camara)... ✅ desp=0 vot=0 score=53.1
+[712/939] Coletando Otoni de Paula (camara)... ✅ desp=0 vot=1 score=91.9
+[713/939] Coletando Otoni de Paula (camara)... ✅ desp=0 vot=1 score=91.9
+[714/939] Coletando Otto Alencar Filho (camara)... ✅ desp=0 vot=0 score=40.0
+[715/939] Coletando Padovani (camara)... ✅ desp=2 vot=0 score=39.94
+[716/939] Coletando Padovani (camara)... ✅ desp=2 vot=0 score=39.94
+[717/939] Coletando Padovani (camara)... ✅ desp=2 vot=0 score=39.94
+[718/939] Coletando Padovani (camara)... ✅ desp=2 vot=0 score=39.94
+[719/939] Coletando Padre João (camara)... ✅ desp=15 vot=1 score=89.97
+[720/939] Coletando Pastor Claudio Mariano (camara)... ✅ desp=0 vot=0 score=51.9
+[721/939] Coletando Pastor Diniz (camara)... ✅ desp=1 vot=1 score=89.21
+[722/939] Coletando Pastor Eurico (camara)... ✅ desp=15 vot=1 score=65.4
+[723/939] Coletando Pastor Eurico (camara)... ✅ desp=15 vot=1 score=63.1
+[724/939] Coletando Pastor Gil (camara)... ✅ desp=0 vot=1 score=83.0
+[725/939] Coletando Pastor Henrique Vieira (camara)... ✅ desp=14 vot=0 score=4.5
+[726/939] Coletando Pastor Sargento Isidório (camara)... ✅ desp=0 vot=1 score=95.5
+[727/939] Coletando Patrus Ananias (camara)... ✅ desp=15 vot=1 score=93.75
+[728/939] Coletando Pauderney Avelino (camara)... ✅ desp=0 vot=0 score=54.68
+[729/939] Coletando Paulão (camara)... ✅ desp=9 vot=1 score=89.79
+[730/939] Coletando Paulinho da Força (camara)... ✅ desp=5 vot=0 score=52.96
+[731/939] Coletando Paulinho Freire (camara)... ✅ desp=0 vot=0 score=55.4
+[732/939] Coletando Paulo Abi-Ackel (camara)... ✅ desp=8 vot=1 score=87.27
+[733/939] Coletando Paulo Alexandre Barbosa (camara)... ✅ desp=0 vot=1 score=95.48
+[734/939] Coletando Paulo Azi (camara)... ✅ desp=2 vot=1 score=83.66
+[735/939] Coletando Paulo Foletto (camara)... ✅ desp=4 vot=0 score=52.83
+[736/939] Coletando Paulo Folletto (camara)... ✅ desp=4 vot=0 score=33.05
+[737/939] Coletando Paulo Freire Costa (camara)... ✅ desp=1 vot=0 score=48.84
+[738/939] Coletando Paulo Guedes (camara)... ✅ desp=15 vot=0 score=36.36
+[739/939] Coletando Paulo Lemos (camara)... ✅ desp=11 vot=1 score=93.74
+[740/939] Coletando Paulo Lemos (camara)... ✅ desp=11 vot=1 score=93.74
+[741/939] Coletando Paulo Litro (camara)... ✅ desp=15 vot=0 score=50.22
+[742/939] Coletando Paulo Litro (camara)... ✅ desp=15 vot=0 score=50.22
+[743/939] Coletando Paulo Magalhães (camara)... ✅ desp=8 vot=1 score=81.88
+[744/939] Coletando Paulo Marinho Jr (camara)... ✅ desp=2 vot=1 score=96.41
+[745/939] Coletando Paulo Pimenta (camara)... ✅ desp=2 vot=1 score=74.89
+[746/939] Coletando Paulo Teixeira (camara)... ✅ desp=15 vot=1 score=90.88
+[747/939] Coletando Pedro Aihara (camara)... ✅ desp=15 vot=1 score=92.2
+[748/939] Coletando Pedro Aihara (camara)... ✅ desp=15 vot=1 score=92.2
+[749/939] Coletando Pedro Aihara (camara)... ✅ desp=15 vot=1 score=92.2
+[750/939] Coletando Pedro Campos (camara)... ✅ desp=15 vot=1 score=91.89
+[751/939] Coletando Pedro Jr (camara)... ✅ desp=0 vot=0 score=54.3
+[752/939] Coletando Pedro Lucas Fernandes (camara)... ✅ desp=7 vot=0 score=44.78
+[753/939] Coletando Pedro Lupion (camara)... ✅ desp=0 vot=1 score=92.5
+[754/939] Coletando Pedro Lupion (camara)... ✅ desp=0 vot=1 score=92.5
+[755/939] Coletando Pedro Paulo (camara)... ✅ desp=0 vot=1 score=95.5
+[756/939] Coletando Pedro Tourinho (camara)... ✅ desp=0 vot=0 score=54.3
+[757/939] Coletando Pedro Uczai (camara)... ✅ desp=15 vot=1 score=91.89
+[758/939] Coletando Pedro Westphalen (camara)... ✅ desp=15 vot=1 score=91.35
+[759/939] Coletando Pezenti (camara)... ✅ desp=11 vot=1 score=90.44
+[760/939] Coletando Pinheirinho (camara)... ✅ desp=15 vot=0 score=42.34
+[761/939] Coletando Pompeo de Mattos (camara)... ✅ desp=15 vot=1 score=92.48
+[762/939] Coletando Pr. Marco Feliciano (camara)... ✅ desp=1 vot=1 score=95.8
+[763/939] Coletando Priscila Costa (camara)... ✅ desp=0 vot=0 score=34.5
+[764/939] Coletando Prof. Paulo Fernando (camara)... ✅ desp=0 vot=0 score=40.0
+[765/939] Coletando Prof. Reginaldo Veras (camara)... ✅ desp=15 vot=1 score=60.97
+[766/939] Coletando Professor Alcides (camara)... ✅ desp=3 vot=1 score=86.01
+[767/939] Coletando Professor Alcides (camara)... ✅ desp=3 vot=1 score=82.41
+[768/939] Coletando Professora Goreth (camara)... ✅ desp=0 vot=0 score=53.01
+[769/939] Coletando Professora Luciene Cavalcante (camara)... ✅ desp=3 vot=1 score=69.29
+[770/939] Coletando Professora Marcivania (camara)... ✅ desp=1 vot=1 score=74.25
+[771/939] Coletando Rafael Brito (camara)... ✅ desp=0 vot=1 score=94.16
+[772/939] Coletando Rafael Fera (camara)... ✅ desp=15 vot=0 score=46.79
+[773/939] Coletando Rafael Fera o Fiscal do Povo (camara)... ✅ desp=15 vot=0 score=46.79
+[774/939] Coletando Rafael Prudente (camara)... ✅ desp=15 vot=1 score=80.42
+[775/939] Coletando Rafael Simoes (camara)... ✅ desp=9 vot=0 score=41.49
+[776/939] Coletando Raimundo Costa (camara)... ✅ desp=15 vot=0 score=52.27
+[777/939] Coletando Raimundo Costa (camara)... ✅ desp=15 vot=0 score=52.27
+[778/939] Coletando Raimundo Santos (camara)... ✅ desp=8 vot=1 score=79.62
+[779/939] Coletando Raniery Paulino (camara)... ✅ desp=0 vot=0 score=55.02
+[780/939] Coletando Reginaldo Lopes (camara)... ✅ desp=5 vot=0 score=32.9
+[781/939] Coletando Reginete Bispo (camara)... ✅ desp=0 vot=0 score=34.5
+[782/939] Coletando Reimont (camara)... ✅ desp=12 vot=1 score=82.34
+[783/939] Coletando Reinhold Stephanes (camara)... ✅ desp=1 vot=0 score=55.2
+[784/939] Coletando Reinhold Stephanes (camara)... ✅ desp=1 vot=0 score=55.2
+[785/939] Coletando Renan Ferreirinha (camara)... ✅ desp=0 vot=0 score=55.5
+[786/939] Coletando Renata Abreu (camara)... ✅ desp=4 vot=1 score=94.36
+[787/939] Coletando Renilce Nicodemos (camara)... ✅ desp=1 vot=1 score=88.64
+[788/939] Coletando Renildo Calheiros (camara)... ✅ desp=15 vot=1 score=87.28
+[789/939] Coletando Ribamar Silva (camara)... ✅ desp=4 vot=1 score=93.45
+[790/939] Coletando Ribamar Silva (camara)... ✅ desp=4 vot=1 score=93.45
+[791/939] Coletando Ribeiro Neto (camara)... ✅ desp=3 vot=1 score=88.27
+[792/939] Coletando Ribeiro Neto (camara)... ✅ desp=3 vot=1 score=88.27
+[793/939] Coletando Ribeiro Neto (camara)... ✅ desp=3 vot=1 score=88.27
+[794/939] Coletando Ricardo Abrão (camara)... ✅ desp=4 vot=1 score=83.37
+[795/939] Coletando Ricardo Abrão (camara)... ✅ desp=4 vot=1 score=83.37
+[796/939] Coletando Ricardo Ayres (camara)... ✅ desp=15 vot=1 score=88.51
+[797/939] Coletando Ricardo Barros (camara)... ✅ desp=6 vot=1 score=89.93
+[798/939] Coletando Ricardo Galvão (camara)... ✅ desp=0 vot=0 score=51.9
+[799/939] Coletando Ricardo Guidi (camara)... ✅ desp=15 vot=1 score=83.12
+[800/939] Coletando Ricardo Guidi (camara)... ✅ desp=15 vot=1 score=85.0
+[801/939] Coletando Ricardo Maia (camara)... ✅ desp=7 vot=1 score=87.66
+[802/939] Coletando Ricardo Salles (camara)... ✅ desp=15 vot=1 score=89.36
+[803/939] Coletando Ricardo Salles (camara)... ✅ desp=15 vot=1 score=89.36
+[804/939] Coletando Ricardo Silva (camara)... ✅ desp=0 vot=0 score=51.9
+[805/939] Coletando Robério Monteiro (camara)... ✅ desp=0 vot=1 score=94.14
+[806/939] Coletando Robério Monteiro (camara)... ✅ desp=0 vot=1 score=94.14
+[807/939] Coletando Roberta Roma (camara)... ✅ desp=6 vot=1 score=94.85
+[808/939] Coletando Roberto Duarte (camara)... ✅ desp=14 vot=1 score=92.49
+[809/939] Coletando Roberto Monteiro (camara)... ✅ desp=15 vot=1 score=86.84
+[810/939] Coletando Roberto Monteiro Pai (camara)... ✅ desp=15 vot=1 score=86.84
+[811/939] Coletando Robinson Faria (camara)... ✅ desp=1 vot=1 score=71.54
+[812/939] Coletando Robinson Faria (camara)... ✅ desp=1 vot=1 score=89.07
+[813/939] Coletando Rodolfo Nogueira (camara)... ✅ desp=15 vot=1 score=91.24
+[814/939] Coletando Rodrigo da Zaeli (camara)... ✅ desp=15 vot=1 score=93.39
+[815/939] Coletando Rodrigo de Castro (camara)... ✅ desp=15 vot=1 score=89.9
+[816/939] Coletando Rodrigo Estacho (camara)... ✅ desp=3 vot=0 score=54.5
+[817/939] Coletando Rodrigo Gambale (camara)... ✅ desp=7 vot=1 score=89.41
+[818/939] Coletando Rodrigo Rollemberg (camara)... ✅ desp=15 vot=1 score=91.23
+[819/939] Coletando Rodrigo Valadares (camara)... ✅ desp=0 vot=1 score=95.5
+[820/939] Coletando Rodrigo Valadares (camara)... ✅ desp=0 vot=1 score=97.0
+[821/939] Coletando Rogéria Santos (camara)... ✅ desp=3 vot=1 score=53.08
+[822/939] Coletando Rogério Correia (camara)... ✅ desp=7 vot=1 score=80.63
+[823/939] Coletando Romero Rodrigues (camara)... ✅ desp=4 vot=1 score=68.83
+[824/939] Coletando Romero Rodrigues (camara)... ✅ desp=4 vot=1 score=68.83
+[825/939] Coletando Ronaldo Nogueira (camara)... ✅ desp=0 vot=0 score=52.5
+[826/939] Coletando Rosana Valle (camara)... ✅ desp=15 vot=1 score=85.18
+[827/939] Coletando Rosangela Gomes (camara)... ✅ desp=4 vot=1 score=92.41
+[828/939] Coletando Rosangela Moro (camara)... ✅ desp=3 vot=1 score=74.04
+[829/939] Coletando Rosangela Moro (camara)... ✅ desp=3 vot=1 score=82.54
+[830/939] Coletando Rosângela Reis (camara)... ✅ desp=15 vot=0 score=30.37
+[831/939] Coletando Roseana Sarney (camara)... ✅ desp=0 vot=0 score=49.2
+[832/939] Coletando Rubens Otoni (camara)... ✅ desp=7 vot=0 score=34.34
+[833/939] Coletando Rubens Pereira Júnior (camara)... ✅ desp=4 vot=1 score=62.88
+[834/939] Coletando Rui Falcão (camara)... ✅ desp=8 vot=1 score=92.94
+[835/939] Coletando Ruy Carneiro (camara)... ✅ desp=15 vot=0 score=38.36
+[836/939] Coletando Ruy Carneiro (camara)... ✅ desp=15 vot=0 score=38.36
+[837/939] Coletando Sâmia Bomfim (camara)... ✅ desp=9 vot=1 score=73.65
+[838/939] Coletando Samuel dos Santos (camara)... ✅ desp=0 vot=0 score=46.8
+[839/939] Coletando Samuel dos Santos (camara)... ✅ desp=0 vot=0 score=46.8
+[840/939] Coletando Samuel Santos (camara)... ✅ desp=0 vot=0 score=46.8
+[841/939] Coletando Samuel Santos (camara)... ✅ desp=0 vot=0 score=46.8
+[842/939] Coletando Samuel Viana (camara)... ✅ desp=10 vot=1 score=93.66
+[843/939] Coletando Samuel Viana (camara)... ✅ desp=10 vot=1 score=91.36
+[844/939] Coletando Samuel Viana (camara)... ✅ desp=10 vot=1 score=91.36
+[845/939] Coletando Sanderson (camara)... ✅ desp=15 vot=1 score=90.83
+[846/939] Coletando Sandro Alex (camara)... ✅ desp=0 vot=1 score=95.26
+[847/939] Coletando Sargento Fahur (camara)... ✅ desp=15 vot=1 score=91.39
+[848/939] Coletando Sargento Fahur (camara)... ✅ desp=15 vot=1 score=92.98
+[849/939] Coletando Sargento Gonçalves (camara)... ✅ desp=1 vot=1 score=95.06
+[850/939] Coletando Sargento Portugal (camara)... ✅ desp=13 vot=1 score=71.08
+[851/939] Coletando Saullo Vianna (camara)... ✅ desp=4 vot=1 score=69.34
+[852/939] Coletando Saullo Vianna (camara)... ✅ desp=4 vot=1 score=69.34
+[853/939] Coletando Saulo Pedroso (camara)... ✅ desp=11 vot=0 score=50.12
+[854/939] Coletando Sérgio Brito (camara)... ✅ desp=13 vot=1 score=90.62
+[855/939] Coletando Sergio Santos Rodrigues (camara)... ✅ desp=0 vot=0 score=40.0
+[856/939] Coletando Sergio Souza (camara)... ✅ desp=5 vot=1 score=63.64
+[857/939] Coletando Sérgio Turra (camara)... ✅ desp=1 vot=1 score=93.34
+[858/939] Coletando Sidney Leite (camara)... ✅ desp=0 vot=1 score=95.5
+[859/939] Coletando Silas Câmara (camara)... ✅ desp=0 vot=0 score=51.76
+[860/939] Coletando Silvia Cristina (camara)... ✅ desp=15 vot=1 score=93.86
+[861/939] Coletando Silvia Cristina (camara)... ✅ desp=15 vot=1 score=92.36
+[862/939] Coletando Silvia Waiãpi (camara)... ✅ desp=0 vot=0 score=34.5
+[863/939] Coletando Silvio Antonio (camara)... ✅ desp=15 vot=1 score=81.06
+[864/939] Coletando Silvio Costa Filho (camara)... ✅ desp=1 vot=0 score=50.2
+[865/939] Coletando Silvye Alves (camara)... ✅ desp=14 vot=1 score=45.42
+[866/939] Coletando Simone Marquetto (camara)... ✅ desp=11 vot=0 score=51.21
+[867/939] Coletando Simone Marquetto (camara)... ✅ desp=11 vot=0 score=51.21
+[868/939] Coletando Socorro Neri (camara)... ✅ desp=5 vot=1 score=79.01
+[869/939] Coletando Soldado Noelio (camara)... ✅ desp=0 vot=0 score=51.3
+[870/939] Coletando Sônia Guajajara (camara)... ✅ desp=0 vot=1 score=93.7
+[871/939] Coletando Sonize Barbosa (camara)... ✅ desp=0 vot=0 score=51.3
+[872/939] Coletando Soraya Santos (camara)... ✅ desp=0 vot=1 score=95.4
+[873/939] Coletando Sóstenes Cavalcante (camara)... ✅ desp=15 vot=0 score=31.95
+[874/939] Coletando Stefano Aguiar (camara)... ✅ desp=7 vot=1 score=93.48
+[875/939] Coletando Tabata Amaral (camara)... ✅ desp=15 vot=1 score=66.93
+[876/939] Coletando Tadeu Oliveira (camara)... ✅ desp=0 vot=0 score=51.97
+[877/939] Coletando Tadeu Veneri (camara)... ✅ desp=15 vot=1 score=91.05
+[878/939] Coletando Talíria Petrone (camara)... ✅ desp=10 vot=1 score=68.31
+[879/939] Coletando Tarcísio Motta (camara)... ✅ desp=13 vot=0 score=48.72
+[880/939] Coletando Tenente Coronel Zucco (camara)... ✅ desp=15 vot=1 score=84.95
+[881/939] Coletando Tenente Coronel Zucco (camara)... ✅ desp=15 vot=1 score=87.25
+[882/939] Coletando Thiago de Joaldo (camara)... ✅ desp=6 vot=0 score=51.28
+[883/939] Coletando Thiago de Joaldo (camara)... ✅ desp=6 vot=0 score=51.28
+[884/939] Coletando Thiago Flores (camara)... ✅ desp=15 vot=1 score=91.37
+[885/939] Coletando Thiago Flores (camara)... ✅ desp=15 vot=1 score=91.37
+[886/939] Coletando Thiago Flores (camara)... ✅ desp=15 vot=1 score=91.37
+[887/939] Coletando Tiago Dimas (camara)... ✅ desp=15 vot=1 score=91.31
+[888/939] Coletando Tião Medeiros (camara)... ✅ desp=11 vot=1 score=90.71
+[889/939] Coletando Tiririca (camara)... ✅ desp=1 vot=1 score=95.55
+[890/939] Coletando Tiririca (camara)... ✅ desp=1 vot=1 score=93.45
+[891/939] Coletando Toninho Wandscheer (camara)... ✅ desp=3 vot=1 score=64.76
+[892/939] Coletando Toninho Wandscheer (camara)... ✅ desp=3 vot=1 score=64.76
+[893/939] Coletando Túlio Gadêlha (camara)... ✅ desp=15 vot=1 score=67.43
+[894/939] Coletando Túlio Gadêlha (camara)... ✅ desp=15 vot=1 score=67.43
+[895/939] Coletando Ulisses Guimarães (camara)... ✅ desp=0 vot=0 score=55.5
+[896/939] Coletando Valmir Assunção (camara)... ✅ desp=4 vot=0 score=51.18
+[897/939] Coletando Vander Loubet (camara)... ✅ desp=12 vot=1 score=73.95
+[898/939] Coletando Vanderlan Alves (camara)... ✅ desp=5 vot=1 score=92.11
+[899/939] Coletando Vanderlan Alves (camara)... ✅ desp=5 vot=1 score=92.11
+[900/939] Coletando Vanderlan Alves (camara)... ✅ desp=5 vot=1 score=92.11
+[901/939] Coletando Vavá (camara)... ✅ desp=2 vot=1 score=94.7
+[902/939] Coletando Vermelho (camara)... ✅ desp=2 vot=0 score=52.85
+[903/939] Coletando Vermelho (camara)... ✅ desp=2 vot=0 score=52.85
+[904/939] Coletando Vermelho (camara)... ✅ desp=2 vot=0 score=52.85
+[905/939] Coletando Vicentinho (camara)... ✅ desp=0 vot=0 score=40.0
+[906/939] Coletando Vicentinho Júnior (camara)... ✅ desp=1 vot=0 score=54.2
+[907/939] Coletando Vicentinho Júnior (camara)... ✅ desp=1 vot=0 score=54.2
+[908/939] Coletando Vinicius Carvalho (camara)... ✅ desp=9 vot=1 score=88.99
+[909/939] Coletando Vinicius Carvalho (camara)... ✅ desp=9 vot=1 score=90.78
+[910/939] Coletando Vinicius Gurgel (camara)... ✅ desp=2 vot=0 score=35.92
+[911/939] Coletando Vitor Lippi (camara)... ✅ desp=15 vot=1 score=75.95
+[912/939] Coletando Vitor Lippi (camara)... ✅ desp=15 vot=1 score=75.95
+[913/939] Coletando Waldemar Oliveira (camara)... ✅ desp=9 vot=1 score=77.42
+[914/939] Coletando Waldenor Pereira (camara)... ✅ desp=5 vot=1 score=83.5
+[915/939] Coletando Washington Quaquá (camara)... ✅ desp=0 vot=0 score=54.9
+[916/939] Coletando Weliton Prado (camara)... ✅ desp=6 vot=0 score=53.45
+[917/939] Coletando Weliton Prado (camara)... ✅ desp=6 vot=0 score=53.45
+[918/939] Coletando Wellington Roberto (camara)... Aviso: Não foi possível buscar orientações para 2617164-10: The read operation timed out
+✅ desp=5 vot=1 score=46.79
+[919/939] Coletando Wellington Roberto (camara)... ✅ desp=5 vot=1 score=64.8
+[920/939] Coletando Welter (camara)... ✅ desp=15 vot=1 score=91.92
+[921/939] Coletando Wilson Santiago (camara)... ✅ desp=14 vot=0 score=42.29
+[922/939] Coletando Wolmer Araújo (camara)... ✅ desp=0 vot=0 score=34.5
+[923/939] Coletando Wolmer Araújo (camara)... ✅ desp=0 vot=0 score=34.5
+[924/939] Coletando Yandra Moura (camara)... ✅ desp=1 vot=0 score=29.85
+[925/939] Coletando Yury do Paredão (camara)... ✅ desp=0 vot=1 score=96.24
+[926/939] Coletando Yury do Paredão (camara)... ✅ desp=0 vot=1 score=94.36
+[927/939] Coletando Yury do Paredão (camara)... ✅ desp=0 vot=1 score=94.36
+[928/939] Coletando Zé Adriano (camara)... ✅ desp=0 vot=1 score=74.5
+[929/939] Coletando Zé Haroldo Cathedral (camara)... ✅ desp=5 vot=1 score=86.79
+[930/939] Coletando Zé Haroldo Cathedral (camara)... ✅ desp=5 vot=1 score=86.79
+[931/939] Coletando Zé Neto (camara)... ✅ desp=11 vot=1 score=93.6
+[932/939] Coletando Zé Silva (camara)... ✅ desp=0 vot=1 score=91.9
+[933/939] Coletando Zé Silva (camara)... ✅ desp=0 vot=1 score=91.9
+[934/939] Coletando Zé Trovão (camara)... ✅ desp=15 vot=1 score=67.95
+[935/939] Coletando Zé Vitor (camara)... ✅ desp=0 vot=0 score=52.49
+[936/939] Coletando Zeca Dirceu (camara)... ✅ desp=1 vot=0 score=55.16
+[937/939] Coletando Zezinho Barbary (camara)... ✅ desp=5 vot=1 score=91.34
+[938/939] Coletando Zucco (camara)... ✅ desp=15 vot=1 score=84.95
+[939/939] Coletando Zucco (camara)... Iniciando migração Local -> Nuvem (Supabase)...
+[parlamentares] Encontrados 722 registros. Iniciando migração para Supabase...
+[parlamentares] Lote 1/8 migrado com sucesso.
+[parlamentares] Lote 2/8 migrado com sucesso.
+[parlamentares] Lote 3/8 migrado com sucesso.
+[parlamentares] Lote 4/8 migrado com sucesso.
+[parlamentares] Lote 5/8 migrado com sucesso.
+[parlamentares] Lote 6/8 migrado com sucesso.
+[parlamentares] Lote 7/8 migrado com sucesso.
+[parlamentares] Lote 8/8 migrado com sucesso.
+[votacoes] Encontrados 13 registros. Iniciando migração para Supabase...
+[votacoes] Lote 1/1 migrado com sucesso.
+[votos] Encontrados 2567 registros. Iniciando migração para Supabase...
+[votos] Lote 1/26 migrado com sucesso.
+[votos] Lote 2/26 migrado com sucesso.
+[votos] Lote 3/26 migrado com sucesso.
+[votos] Lote 4/26 migrado com sucesso.
+[votos] Lote 5/26 migrado com sucesso.
+[votos] Lote 6/26 migrado com sucesso.
+[votos] Lote 7/26 migrado com sucesso.
+[votos] Lote 8/26 migrado com sucesso.
+[votos] Lote 9/26 migrado com sucesso.
+[votos] Lote 10/26 migrado com sucesso.
+[votos] Lote 11/26 migrado com sucesso.
+[votos] Lote 12/26 migrado com sucesso.
+[votos] Lote 13/26 migrado com sucesso.
+[votos] Lote 14/26 migrado com sucesso.
+[votos] Lote 15/26 migrado com sucesso.
+[votos] Lote 16/26 migrado com sucesso.
+[votos] Lote 17/26 migrado com sucesso.
+[votos] Lote 18/26 migrado com sucesso.
+[votos] Lote 19/26 migrado com sucesso.
+[votos] Lote 20/26 migrado com sucesso.
+[votos] Lote 21/26 migrado com sucesso.
+[votos] Lote 22/26 migrado com sucesso.
+[votos] Lote 23/26 migrado com sucesso.
+[votos] Lote 24/26 migrado com sucesso.
+[votos] Lote 25/26 migrado com sucesso.
+[votos] Lote 26/26 migrado com sucesso.
+[despesas] Encontrados 13530 registros. Iniciando migração para Supabase...
+[despesas] Lote 1/136 migrado com sucesso.
+[despesas] Lote 2/136 migrado com sucesso.
+[despesas] Lote 3/136 migrado com sucesso.
+[despesas] Lote 4/136 migrado com sucesso.
+[despesas] Lote 5/136 migrado com sucesso.
+[despesas] Lote 6/136 migrado com sucesso.
+[despesas] Lote 7/136 migrado com sucesso.
+[despesas] Lote 8/136 migrado com sucesso.
+[despesas] Lote 9/136 migrado com sucesso.
+[despesas] Lote 10/136 migrado com sucesso.
+[despesas] Lote 11/136 migrado com sucesso.
+[despesas] Lote 12/136 migrado com sucesso.
+[despesas] Lote 13/136 migrado com sucesso.
+[despesas] Lote 14/136 migrado com sucesso.
+[despesas] Lote 15/136 migrado com sucesso.
+[despesas] Lote 16/136 migrado com sucesso.
+[despesas] Lote 17/136 migrado com sucesso.
+[despesas] Lote 18/136 migrado com sucesso.
+[despesas] Lote 19/136 migrado com sucesso.
+[despesas] Lote 20/136 migrado com sucesso.
+[despesas] Lote 21/136 migrado com sucesso.
+[despesas] Lote 22/136 migrado com sucesso.
+[despesas] Lote 23/136 migrado com sucesso.
+[despesas] Lote 24/136 migrado com sucesso.
+[despesas] Lote 25/136 migrado com sucesso.
+[despesas] Lote 26/136 migrado com sucesso.
+[despesas] Lote 27/136 migrado com sucesso.
+[despesas] Lote 28/136 migrado com sucesso.
+[despesas] Lote 29/136 migrado com sucesso.
+[despesas] Lote 30/136 migrado com sucesso.
+[despesas] Lote 31/136 migrado com sucesso.
+[despesas] Lote 32/136 migrado com sucesso.
+[despesas] Lote 33/136 migrado com sucesso.
+[despesas] Lote 34/136 migrado com sucesso.
+[despesas] Lote 35/136 migrado com sucesso.
+[despesas] Lote 36/136 migrado com sucesso.
+[despesas] Lote 37/136 migrado com sucesso.
+[despesas] Lote 38/136 migrado com sucesso.
+[despesas] Lote 39/136 migrado com sucesso.
+[despesas] Lote 40/136 migrado com sucesso.
+[despesas] Lote 41/136 migrado com sucesso.
+[despesas] Lote 42/136 migrado com sucesso.
+[despesas] Lote 43/136 migrado com sucesso.
+[despesas] Lote 44/136 migrado com sucesso.
+[despesas] Lote 45/136 migrado com sucesso.
+[despesas] Lote 46/136 migrado com sucesso.
+[despesas] Lote 47/136 migrado com sucesso.
+[despesas] Lote 48/136 migrado com sucesso.
+[despesas] Lote 49/136 migrado com sucesso.
+[despesas] Lote 50/136 migrado com sucesso.
+[despesas] Lote 51/136 migrado com sucesso.
+[despesas] Lote 52/136 migrado com sucesso.
+[despesas] Lote 53/136 migrado com sucesso.
+[despesas] Lote 54/136 migrado com sucesso.
+[despesas] Lote 55/136 migrado com sucesso.
+[despesas] Lote 56/136 migrado com sucesso.
+[despesas] Lote 57/136 migrado com sucesso.
+[despesas] Lote 58/136 migrado com sucesso.
+[despesas] Lote 59/136 migrado com sucesso.
+[despesas] Lote 60/136 migrado com sucesso.
+[despesas] Lote 61/136 migrado com sucesso.
+[despesas] Lote 62/136 migrado com sucesso.
+[despesas] Lote 63/136 migrado com sucesso.
+[despesas] Lote 64/136 migrado com sucesso.
+[despesas] Lote 65/136 migrado com sucesso.
+[despesas] Lote 66/136 migrado com sucesso.
+[despesas] Lote 67/136 migrado com sucesso.
+[despesas] Lote 68/136 migrado com sucesso.
+[despesas] Lote 69/136 migrado com sucesso.
+[despesas] Lote 70/136 migrado com sucesso.
+[despesas] Lote 71/136 migrado com sucesso.
+[despesas] Lote 72/136 migrado com sucesso.
+[despesas] Lote 73/136 migrado com sucesso.
+[despesas] Lote 74/136 migrado com sucesso.
+[despesas] Lote 75/136 migrado com sucesso.
+[despesas] Lote 76/136 migrado com sucesso.
+[despesas] Lote 77/136 migrado com sucesso.
+[despesas] Lote 78/136 migrado com sucesso.
+[despesas] Lote 79/136 migrado com sucesso.
+[despesas] Lote 80/136 migrado com sucesso.
+[despesas] Lote 81/136 migrado com sucesso.
+[despesas] Lote 82/136 migrado com sucesso.
+[despesas] Lote 83/136 migrado com sucesso.
+[despesas] Lote 84/136 migrado com sucesso.
+[despesas] Lote 85/136 migrado com sucesso.
+[despesas] Lote 86/136 migrado com sucesso.
+[despesas] Lote 87/136 migrado com sucesso.
+[despesas] Lote 88/136 migrado com sucesso.
+[despesas] Lote 89/136 migrado com sucesso.
+[despesas] Lote 90/136 migrado com sucesso.
+[despesas] Lote 91/136 migrado com sucesso.
+[despesas] Lote 92/136 migrado com sucesso.
+[despesas] Lote 93/136 migrado com sucesso.
+[despesas] Lote 94/136 migrado com sucesso.
+[despesas] Lote 95/136 migrado com sucesso.
+[despesas] Lote 96/136 migrado com sucesso.
+[despesas] Lote 97/136 migrado com sucesso.
+[despesas] Lote 98/136 migrado com sucesso.
+[despesas] Lote 99/136 migrado com sucesso.
+[despesas] Lote 100/136 migrado com sucesso.
+[despesas] Lote 101/136 migrado com sucesso.
+[despesas] Lote 102/136 migrado com sucesso.
+[despesas] Lote 103/136 migrado com sucesso.
+[despesas] Lote 104/136 migrado com sucesso.
+[despesas] Lote 105/136 migrado com sucesso.
+[despesas] Lote 106/136 migrado com sucesso.
+[despesas] Lote 107/136 migrado com sucesso.
+[despesas] Lote 108/136 migrado com sucesso.
+[despesas] Lote 109/136 migrado com sucesso.
+[despesas] Lote 110/136 migrado com sucesso.
+[despesas] Lote 111/136 migrado com sucesso.
+[despesas] Lote 112/136 migrado com sucesso.
+[despesas] Lote 113/136 migrado com sucesso.
+[despesas] Lote 114/136 migrado com sucesso.
+[despesas] Lote 115/136 migrado com sucesso.
+[despesas] Lote 116/136 migrado com sucesso.
+[despesas] Lote 117/136 migrado com sucesso.
+[despesas] Lote 118/136 migrado com sucesso.
+[despesas] Lote 119/136 migrado com sucesso.
+[despesas] Lote 120/136 migrado com sucesso.
+[despesas] Lote 121/136 migrado com sucesso.
+[despesas] Lote 122/136 migrado com sucesso.
+[despesas] Lote 123/136 migrado com sucesso.
+[despesas] Lote 124/136 migrado com sucesso.
+[despesas] Lote 125/136 migrado com sucesso.
+[despesas] Lote 126/136 migrado com sucesso.
+[despesas] Lote 127/136 migrado com sucesso.
+[despesas] Lote 128/136 migrado com sucesso.
+[despesas] Lote 129/136 migrado com sucesso.
+[despesas] Lote 130/136 migrado com sucesso.
+[despesas] Lote 131/136 migrado com sucesso.
+[despesas] Lote 132/136 migrado com sucesso.
+[despesas] Lote 133/136 migrado com sucesso.
+[despesas] Lote 134/136 migrado com sucesso.
+[despesas] Lote 135/136 migrado com sucesso.
+[despesas] Lote 136/136 migrado com sucesso.
+[proposicoes] Tabela vazia localmente. Pulando.
+[candidaturas_tse] Encontrados 651 registros. Iniciando migração para Supabase...
+[candidaturas_tse] Lote 1/7 migrado com sucesso.
+[candidaturas_tse] Lote 2/7 migrado com sucesso.
+[candidaturas_tse] Lote 3/7 migrado com sucesso.
+[candidaturas_tse] Lote 4/7 migrado com sucesso.
+[candidaturas_tse] Lote 5/7 migrado com sucesso.
+[candidaturas_tse] Lote 6/7 migrado com sucesso.
+[candidaturas_tse] Lote 7/7 migrado com sucesso.
+[scores] Encontrados 2173 registros. Iniciando migração para Supabase...
+[scores] Lote 1/22 migrado com sucesso.
+[scores] Lote 2/22 migrado com sucesso.
+[scores] Lote 3/22 migrado com sucesso.
+[scores] Lote 4/22 migrado com sucesso.
+[scores] Lote 5/22 migrado com sucesso.
+[scores] Lote 6/22 migrado com sucesso.
+[scores] Lote 7/22 migrado com sucesso.
+[scores] Lote 8/22 migrado com sucesso.
+[scores] Lote 9/22 migrado com sucesso.
+[scores] Lote 10/22 migrado com sucesso.
+[scores] Lote 11/22 migrado com sucesso.
+[scores] Lote 12/22 migrado com sucesso.
+[scores] Lote 13/22 migrado com sucesso.
+[scores] Lote 14/22 migrado com sucesso.
+[scores] Lote 15/22 migrado com sucesso.
+[scores] Lote 16/22 migrado com sucesso.
+[scores] Lote 17/22 migrado com sucesso.
+[scores] Lote 18/22 migrado com sucesso.
+[scores] Lote 19/22 migrado com sucesso.
+[scores] Lote 20/22 migrado com sucesso.
+[scores] Lote 21/22 migrado com sucesso.
+[scores] Lote 22/22 migrado com sucesso.
+Migração concluída!
+✅ desp=15 vot=1 score=87.25
+
+======================================================================
+📊 RELATÓRIO DE MONITORAMENTO — 2026/04
+======================================================================
+
+
+🏛️  SENADO FEDERAL
+--------------------------------------------------
+  🟢 Randolfe Rodrigues        | Score:  97.70 | Desp:   1 (R$  2,500.00) | Vot:   8 (100%)
+  🟢 Camilo Santana            | Score:  95.50 | Desp:   0 (R$      0.00) | Vot:   8 (100%)
+  🟢 Davi Alcolumbre           | Score:  95.42 | Desp:   0 (R$      0.00) | Vot:   8 (100%)
+  🟢 Wellington Dias           | Score:  95.40 | Desp:   0 (R$      0.00) | Vot:   6 (100%)
+  🟢 Dr. Hiran                 | Score:  95.17 | Desp:   1 (R$    500.00) | Vot:   8 (100%)
+  🟢 Alan Rick                 | Score:  94.85 | Desp:   0 (R$      0.00) | Vot:   8 (100%)
+  🟢 Otto Alencar              | Score:  94.31 | Desp:   1 (R$    475.80) | Vot:   8 (100%)
+  🟢 Plínio Valério            | Score:  93.12 | Desp:   2 (R$  7,500.00) | Vot:   8 (100%)
+  🟢 Beto Faro                 | Score:  91.57 | Desp:   0 (R$      0.00) | Vot:   8 (100%)
+  🟢 Tereza Cristina           | Score:  91.26 | Desp:   1 (R$  2,500.00) | Vot:   8 (100%)
+  🟢 Romário                   | Score:  90.50 | Desp:   0 (R$      0.00) | Vot:   8 (88%)
+  🟢 Renan Filho               | Score:  90.22 | Desp:   0 (R$      0.00) | Vot:   8 (88%)
+  🟢 Giordano                  | Score:  89.90 | Desp:   0 (R$      0.00) | Vot:   8 (88%)
+  🟢 Irajá                     | Score:  89.59 | Desp:   1 (R$    389.68) | Vot:   8 (88%)
+  🟢 Weverton                  | Score:  88.81 | Desp:   0 (R$      0.00) | Vot:   8 (88%)
+  🟢 Efraim Filho              | Score:  88.70 | Desp:   0 (R$      0.00) | Vot:   8 (88%)
+  🟢 Flávio Bolsonaro          | Score:  88.67 | Desp:   2 (R$  2,162.60) | Vot:   8 (88%)
+  🟢 Marcio Bittar             | Score:  88.66 | Desp:   0 (R$      0.00) | Vot:   8 (88%)
+  🟢 Leila Barros              | Score:  88.10 | Desp:   4 (R$  4,509.57) | Vot:   8 (100%)
+  🟢 Jaime Bagattoli           | Score:  86.35 | Desp:   5 (R$  4,152.91) | Vot:   8 (100%)
+  🟢 Jader Barbalho            | Score:  86.30 | Desp:   0 (R$      0.00) | Vot:   8 (88%)
+  🟢 Marcos Rogério            | Score:  86.30 | Desp:   0 (R$      0.00) | Vot:   8 (88%)
+  🟢 Teresa Leitão             | Score:  85.64 | Desp:   6 (R$ 14,191.00) | Vot:   8 (100%)
+  🟢 Rogério Carvalho          | Score:  84.69 | Desp:   3 (R$ 11,300.00) | Vot:   8 (100%)
+  🟢 Zequinha Marinho          | Score:  84.45 | Desp:   6 (R$ 12,861.38) | Vot:   8 (100%)
+  🟢 Eduardo Braga             | Score:  84.20 | Desp:   0 (R$      0.00) | Vot:   8 (88%)
+  🟢 Sérgio Petecão            | Score:  84.06 | Desp:   0 (R$      0.00) | Vot:   8 (75%)
+  🟢 Sergio Moro               | Score:  82.48 | Desp:   3 (R$  3,403.84) | Vot:   8 (75%)
+  🟢 Ana Paula Lobato          | Score:  81.90 | Desp:   0 (R$      0.00) | Vot:   8 (75%)
+  🟢 Ciro Nogueira             | Score:  81.05 | Desp:   1 (R$  4,044.65) | Vot:   8 (75%)
+  🟢 Humberto Costa            | Score:  80.35 | Desp:   5 (R$  1,255.30) | Vot:   8 (75%)
+  🟢 Carlos Viana              | Score:  78.47 | Desp:  14 (R$  6,835.18) | Vot:   8 (75%)
+  🟢 Damares Alves             | Score:  78.28 | Desp:  12 (R$ 13,982.11) | Vot:   8 (100%)
+  🟢 Jorge Seif                | Score:  78.01 | Desp:  14 (R$ 22,763.89) | Vot:   8 (100%)
+  🟢 Professora Dorinha Seabra | Score:  77.91 | Desp:   4 (R$  4,468.54) | Vot:   8 (75%)
+  🟢 Angelo Coronel            | Score:  77.20 | Desp:   0 (R$      0.00) | Vot:   8 (62%)
+  🟢 Esperidião Amin           | Score:  77.11 | Desp:  22 (R$ 16,438.57) | Vot:   8 (88%)
+  🟢 Daniella Ribeiro          | Score:  76.67 | Desp:   3 (R$ 10,688.99) | Vot:   8 (75%)
+  🟢 Luis Carlos Heinze        | Score:  75.75 | Desp:   6 (R$  8,312.05) | Vot:   8 (75%)
+  🟢 Veneziano Vital do Rêgo   | Score:  75.19 | Desp:  17 (R$ 19,500.00) | Vot:   8 (88%)
+  🟢 Rodrigo Pacheco           | Score:  74.50 | Desp:   0 (R$      0.00) | Vot:   8 (100%)
+  🟢 Rogerio Marinho           | Score:  74.50 | Desp:   0 (R$      0.00) | Vot:   8 (100%)
+  🟢 Styvenson Valentim        | Score:  74.50 | Desp:   0 (R$      0.00) | Vot:   8 (100%)
+  🟢 Chico Rodrigues           | Score:  74.17 | Desp:   1 (R$    496.62) | Vot:   8 (100%)
+  🟢 Astronauta Marcos Pontes  | Score:  73.11 | Desp:   2 (R$  2,300.00) | Vot:   8 (50%)
+  🟢 Eduardo Gomes             | Score:  72.40 | Desp:   2 (R$  5,036.00) | Vot:   8 (62%)
+  🟢 Cleitinho                 | Score:  70.47 | Desp:   1 (R$     40.00) | Vot:   8 (38%)
+  🟢 Hamilton Mourão           | Score:  70.43 | Desp:  18 (R$ 24,292.52) | Vot:   8 (88%)
+  🟡 Renan Calheiros           | Score:  69.50 | Desp:   0 (R$      0.00) | Vot:   8 (88%)
+  🟡 Jaques Wagner             | Score:  68.36 | Desp:   1 (R$  2,125.62) | Vot:   8 (100%)
+  🟡 Eduardo Girão             | Score:  66.30 | Desp:   0 (R$      0.00) | Vot:   8 (38%)
+  🟡 Omar Aziz                 | Score:  65.98 | Desp:   4 (R$ 37,504.94) | Vot:   8 (100%)
+  🟡 Mara Gabrilli             | Score:  65.82 | Desp:   6 (R$ 10,341.80) | Vot:   8 (62%)
+  🟡 Jayme Campos              | Score:  65.50 | Desp:   5 (R$ 29,697.66) | Vot:   8 (88%)
+  🟡 Confúcio Moura            | Score:  65.01 | Desp:   2 (R$  7,267.74) | Vot:   8 (100%)
+  🟡 Lucas Barreto             | Score:  64.98 | Desp:  12 (R$  7,091.90) | Vot:   8 (88%)
+  🟡 Alessandro Vieira         | Score:  64.86 | Desp:   2 (R$  6,204.90) | Vot:   8 (88%)
+  🟡 Nelsinho Trad             | Score:  64.29 | Desp:   4 (R$ 30,550.00) | Vot:   8 (88%)
+  🟡 Fabiano Contarato         | Score:  64.11 | Desp:  20 (R$  6,914.67) | Vot:   8 (88%)
+  🟡 Magno Malta               | Score:  63.81 | Desp:  12 (R$ 27,523.86) | Vot:   8 (75%)
+  🟡 Laércio Oliveira          | Score:  62.37 | Desp:  14 (R$ 35,159.84) | Vot:   8 (88%)
+  🟡 Zenaide Maia              | Score:  61.90 | Desp:  17 (R$ 46,445.08) | Vot:   8 (100%)
+  🟡 Ivete da Silveira         | Score:  60.44 | Desp:  23 (R$ 13,527.35) | Vot:   8 (100%)
+  🟡 Flávio Arns               | Score:  60.00 | Desp:   0 (R$      0.00) | Vot:   8 (75%)
+  🟡 Jorge Kajuru              | Score:  60.00 | Desp:   0 (R$      0.00) | Vot:   8 (75%)
+  🟡 Wilder Morais             | Score:  59.20 | Desp:   0 (R$      0.00) | Vot:   8 (25%)
+  🟡 Eliziane Gama             | Score:  58.95 | Desp:   2 (R$  8,508.00) | Vot:   8 (88%)
+  🟡 Roberta Acioly            | Score:  58.48 | Desp:   3 (R$ 17,515.48) | Vot:   8 (100%)
+  🟡 Izalci Lucas              | Score:  56.63 | Desp:   2 (R$ 43,000.00) | Vot:   8 (88%)
+  🟡 Wellington Fagundes       | Score:  54.16 | Desp:  10 (R$ 16,158.40) | Vot:   8 (38%)
+  🟡 Soraya Thronicke          | Score:  54.10 | Desp:   2 (R$ 14,060.55) | Vot:   8 (75%)
+  🟡 Cid Gomes                 | Score:  54.08 | Desp:   7 (R$ 10,211.23) | Vot:   8 (25%)
+  🟡 Marcelo Castro            | Score:  50.31 | Desp:   2 (R$ 13,237.56) | Vot:   8 (75%)
+  🟡 Marcos do Val             | Score:  49.46 | Desp:   2 (R$ 25,000.00) | Vot:   8 (88%)
+  🟡 Paulo Paim                | Score:  49.37 | Desp:   6 (R$ 20,607.92) | Vot:   8 (75%)
+  🟡 Fernando Dueire           | Score:  48.54 | Desp:   2 (R$  2,031.96) | Vot:   8 (50%)
+  🟡 Carlos Fávaro             | Score:  45.25 | Desp:   7 (R$ 19,389.22) | Vot:   8 (75%)
+  🟡 Dra. Eudócia              | Score:  45.09 | Desp:   6 (R$ 34,000.00) | Vot:   8 (100%)
+  🟡 Vanderlan Cardoso         | Score:  44.50 | Desp:   0 (R$      0.00) | Vot:   8 (25%)
+  🟡 Carlos Portinho           | Score:  42.47 | Desp:  40 (R$ 29,238.18) | Vot:   8 (88%)
+  🔴 Oriovisto Guimarães       | Score:  34.50 | Desp:   0 (R$      0.00) | Vot:   8 (0%)
+
+======================================================================
+
+Iniciando sincronização automática com o Supabase...
+Integração com Supabase concluída perfeitamente!
+✅ Exportados: 2173 parlamentares, 13530 despesas, R$ 18,295,535.23 total
+🚨 Alertas de Auditoria gerados: 5230
+Iniciando migração Local -> Nuvem (Supabase)...
+[parlamentares] Encontrados 722 registros. Iniciando migração para Supabase...
+[parlamentares] Lote 1/8 migrado com sucesso.
+[parlamentares] Lote 2/8 migrado com sucesso.
+[parlamentares] Lote 3/8 migrado com sucesso.
+[parlamentares] Lote 4/8 migrado com sucesso.
+[parlamentares] Lote 5/8 migrado com sucesso.
+[parlamentares] Lote 6/8 migrado com sucesso.
+[parlamentares] Lote 7/8 migrado com sucesso.
+[parlamentares] Lote 8/8 migrado com sucesso.
+[votacoes] Encontrados 13 registros. Iniciando migração para Supabase...
+[votacoes] Lote 1/1 migrado com sucesso.
+[votos] Encontrados 2567 registros. Iniciando migração para Supabase...
+[votos] Lote 1/26 migrado com sucesso.
+[votos] Lote 2/26 migrado com sucesso.
+[votos] Lote 3/26 migrado com sucesso.
+[votos] Lote 4/26 migrado com sucesso.
+[votos] Lote 5/26 migrado com sucesso.
+[votos] Lote 6/26 migrado com sucesso.
+[votos] Lote 7/26 migrado com sucesso.
+[votos] Lote 8/26 migrado com sucesso.
+[votos] Lote 9/26 migrado com sucesso.
+[votos] Lote 10/26 migrado com sucesso.
+[votos] Lote 11/26 migrado com sucesso.
+[votos] Lote 12/26 migrado com sucesso.
+[votos] Lote 13/26 migrado com sucesso.
+[votos] Lote 14/26 migrado com sucesso.
+[votos] Lote 15/26 migrado com sucesso.
+[votos] Lote 16/26 migrado com sucesso.
+[votos] Lote 17/26 migrado com sucesso.
+[votos] Lote 18/26 migrado com sucesso.
+[votos] Lote 19/26 migrado com sucesso.
+[votos] Lote 20/26 migrado com sucesso.
+[votos] Lote 21/26 migrado com sucesso.
+[votos] Lote 22/26 migrado com sucesso.
+[votos] Lote 23/26 migrado com sucesso.
+[votos] Lote 24/26 migrado com sucesso.
+[votos] Lote 25/26 migrado com sucesso.
+[votos] Lote 26/26 migrado com sucesso.
+[despesas] Encontrados 13530 registros. Iniciando migração para Supabase...
+[despesas] Lote 1/136 migrado com sucesso.
+[despesas] Lote 2/136 migrado com sucesso.
+[despesas] Lote 3/136 migrado com sucesso.
+[despesas] Lote 4/136 migrado com sucesso.
+[despesas] Lote 5/136 migrado com sucesso.
+[despesas] Lote 6/136 migrado com sucesso.
+[despesas] Lote 7/136 migrado com sucesso.
+[despesas] Lote 8/136 migrado com sucesso.
+[despesas] Lote 9/136 migrado com sucesso.
+[despesas] Lote 10/136 migrado com sucesso.
+[despesas] Lote 11/136 migrado com sucesso.
+[despesas] Lote 12/136 migrado com sucesso.
+[despesas] Lote 13/136 migrado com sucesso.
+[despesas] Lote 14/136 migrado com sucesso.
+[despesas] Lote 15/136 migrado com sucesso.
+[despesas] Lote 16/136 migrado com sucesso.
+[despesas] Lote 17/136 migrado com sucesso.
+[despesas] Lote 18/136 migrado com sucesso.
+[despesas] Lote 19/136 migrado com sucesso.
+[despesas] Lote 20/136 migrado com sucesso.
+[despesas] Lote 21/136 migrado com sucesso.
+[despesas] Lote 22/136 migrado com sucesso.
+[despesas] Lote 23/136 migrado com sucesso.
+[despesas] Lote 24/136 migrado com sucesso.
+[despesas] Lote 25/136 migrado com sucesso.
+[despesas] Lote 26/136 migrado com sucesso.
+[despesas] Lote 27/136 migrado com sucesso.
+[despesas] Lote 28/136 migrado com sucesso.
+[despesas] Lote 29/136 migrado com sucesso.
+[despesas] Lote 30/136 migrado com sucesso.
+[despesas] Lote 31/136 migrado com sucesso.
+[despesas] Lote 32/136 migrado com sucesso.
+[despesas] Lote 33/136 migrado com sucesso.
+[despesas] Lote 34/136 migrado com sucesso.
+[despesas] Lote 35/136 migrado com sucesso.
+[despesas] Lote 36/136 migrado com sucesso.
+[despesas] Lote 37/136 migrado com sucesso.
+[despesas] Lote 38/136 migrado com sucesso.
+[despesas] Lote 39/136 migrado com sucesso.
+[despesas] Lote 40/136 migrado com sucesso.
+[despesas] Lote 41/136 migrado com sucesso.
+[despesas] Lote 42/136 migrado com sucesso.
+[despesas] Lote 43/136 migrado com sucesso.
+[despesas] Lote 44/136 migrado com sucesso.
+[despesas] Lote 45/136 migrado com sucesso.
+[despesas] Lote 46/136 migrado com sucesso.
+[despesas] Lote 47/136 migrado com sucesso.
+[despesas] Lote 48/136 migrado com sucesso.
+[despesas] Lote 49/136 migrado com sucesso.
+[despesas] Lote 50/136 migrado com sucesso.
+[despesas] Lote 51/136 migrado com sucesso.
+[despesas] Lote 52/136 migrado com sucesso.
+[despesas] Lote 53/136 migrado com sucesso.
+[despesas] Lote 54/136 migrado com sucesso.
+[despesas] Lote 55/136 migrado com sucesso.
+[despesas] Lote 56/136 migrado com sucesso.
+[despesas] Lote 57/136 migrado com sucesso.
+[despesas] Lote 58/136 migrado com sucesso.
+[despesas] Lote 59/136 migrado com sucesso.
+[despesas] Lote 60/136 migrado com sucesso.
+[despesas] Lote 61/136 migrado com sucesso.
+[despesas] Lote 62/136 migrado com sucesso.
+[despesas] Lote 63/136 migrado com sucesso.
+[despesas] Lote 64/136 migrado com sucesso.
+[despesas] Lote 65/136 migrado com sucesso.
+[despesas] Lote 66/136 migrado com sucesso.
+[despesas] Lote 67/136 migrado com sucesso.
+[despesas] Lote 68/136 migrado com sucesso.
+[despesas] Lote 69/136 migrado com sucesso.
+[despesas] Lote 70/136 migrado com sucesso.
+[despesas] Lote 71/136 migrado com sucesso.
+[despesas] Lote 72/136 migrado com sucesso.
+[despesas] Lote 73/136 migrado com sucesso.
+[despesas] Lote 74/136 migrado com sucesso.
+[despesas] Lote 75/136 migrado com sucesso.
+[despesas] Lote 76/136 migrado com sucesso.
+[despesas] Lote 77/136 migrado com sucesso.
+[despesas] Lote 78/136 migrado com sucesso.
+[despesas] Lote 79/136 migrado com sucesso.
+[despesas] Lote 80/136 migrado com sucesso.
+[despesas] Lote 81/136 migrado com sucesso.
+[despesas] Lote 82/136 migrado com sucesso.
+[despesas] Lote 83/136 migrado com sucesso.
+[despesas] Lote 84/136 migrado com sucesso.
+[despesas] Lote 85/136 migrado com sucesso.
+[despesas] Lote 86/136 migrado com sucesso.
+[despesas] Lote 87/136 migrado com sucesso.
+[despesas] Lote 88/136 migrado com sucesso.
+[despesas] Lote 89/136 migrado com sucesso.
+[despesas] Lote 90/136 migrado com sucesso.
+[despesas] Lote 91/136 migrado com sucesso.
+[despesas] Lote 92/136 migrado com sucesso.
+[despesas] Lote 93/136 migrado com sucesso.
+[despesas] Lote 94/136 migrado com sucesso.
+[despesas] Lote 95/136 migrado com sucesso.
+[despesas] Lote 96/136 migrado com sucesso.
+[despesas] Lote 97/136 migrado com sucesso.
+[despesas] Lote 98/136 migrado com sucesso.
+[despesas] Lote 99/136 migrado com sucesso.
+[despesas] Lote 100/136 migrado com sucesso.
+[despesas] Lote 101/136 migrado com sucesso.
+[despesas] Lote 102/136 migrado com sucesso.
+[despesas] Lote 103/136 migrado com sucesso.
+[despesas] Lote 104/136 migrado com sucesso.
+[despesas] Lote 105/136 migrado com sucesso.
+[despesas] Lote 106/136 migrado com sucesso.
+[despesas] Lote 107/136 migrado com sucesso.
+[despesas] Lote 108/136 migrado com sucesso.
+[despesas] Lote 109/136 migrado com sucesso.
+[despesas] Lote 110/136 migrado com sucesso.
+[despesas] Lote 111/136 migrado com sucesso.
+[despesas] Lote 112/136 migrado com sucesso.
+[despesas] Lote 113/136 migrado com sucesso.
+[despesas] Lote 114/136 migrado com sucesso.
+[despesas] Lote 115/136 migrado com sucesso.
+[despesas] Lote 116/136 migrado com sucesso.
+[despesas] Lote 117/136 migrado com sucesso.
+[despesas] Lote 118/136 migrado com sucesso.
+[despesas] Lote 119/136 migrado com sucesso.
+[despesas] Lote 120/136 migrado com sucesso.
+[despesas] Lote 121/136 migrado com sucesso.
+[despesas] Lote 122/136 migrado com sucesso.
+[despesas] Lote 123/136 migrado com sucesso.
+[despesas] Lote 124/136 migrado com sucesso.
+[despesas] Lote 125/136 migrado com sucesso.
+[despesas] Lote 126/136 migrado com sucesso.
+[despesas] Lote 127/136 migrado com sucesso.
+[despesas] Lote 128/136 migrado com sucesso.
+[despesas] Lote 129/136 migrado com sucesso.
+[despesas] Lote 130/136 migrado com sucesso.
+[despesas] Lote 131/136 migrado com sucesso.
+[despesas] Lote 132/136 migrado com sucesso.
+[despesas] Lote 133/136 migrado com sucesso.
+[despesas] Lote 134/136 migrado com sucesso.
+[despesas] Lote 135/136 migrado com sucesso.
+[despesas] Lote 136/136 migrado com sucesso.
+[proposicoes] Tabela vazia localmente. Pulando.
+[candidaturas_tse] Encontrados 651 registros. Iniciando migração para Supabase...
+[candidaturas_tse] Lote 1/7 migrado com sucesso.
+[candidaturas_tse] Lote 2/7 migrado com sucesso.
+[candidaturas_tse] Lote 3/7 migrado com sucesso.
+[candidaturas_tse] Lote 4/7 migrado com sucesso.
+[candidaturas_tse] Lote 5/7 migrado com sucesso.
+[candidaturas_tse] Lote 6/7 migrado com sucesso.
+[candidaturas_tse] Lote 7/7 migrado com sucesso.
+[scores] Encontrados 2173 registros. Iniciando migração para Supabase...
+[scores] Lote 1/22 migrado com sucesso.
+[scores] Lote 2/22 migrado com sucesso.
+[scores] Lote 3/22 migrado com sucesso.
+[scores] Lote 4/22 migrado com sucesso.
+[scores] Lote 5/22 migrado com sucesso.
+[scores] Lote 6/22 migrado com sucesso.
+[scores] Lote 7/22 migrado com sucesso.
+[scores] Lote 8/22 migrado com sucesso.
+[scores] Lote 9/22 migrado com sucesso.
+[scores] Lote 10/22 migrado com sucesso.
+[scores] Lote 11/22 migrado com sucesso.
+[scores] Lote 12/22 migrado com sucesso.
+[scores] Lote 13/22 migrado com sucesso.
+[scores] Lote 14/22 migrado com sucesso.
+[scores] Lote 15/22 migrado com sucesso.
+[scores] Lote 16/22 migrado com sucesso.
+[scores] Lote 17/22 migrado com sucesso.
+[scores] Lote 18/22 migrado com sucesso.
+[scores] Lote 19/22 migrado com sucesso.
+[scores] Lote 20/22 migrado com sucesso.
+[scores] Lote 21/22 migrado com sucesso.
+[scores] Lote 22/22 migrado com sucesso.
+Migração concluída!
+============================================================
+🚀 INICIANDO PIPELINE AUTOMATIZADO CVP-IA
+============================================================
+
+[1. Coleta e Scoring] INICIANDO...
+✅ [1. Coleta e Scoring] CONCLUÍDO COM SUCESSO.
+
+
+[2. Auditoria e JSON] INICIANDO...
+✅ [2. Auditoria e JSON] CONCLUÍDO COM SUCESSO.
+
+
+[3. Nuvem (Supabase)] INICIANDO...
+✅ [3. Nuvem (Supabase)] CONCLUÍDO COM SUCESSO.
+
+============================================================
+✨ PIPELINE CVP-IA FINALIZADO! Todos os dados estão atualizados na nuvem.
+============================================================
+✅ Execução finalizada com SUCESSO em: sex 01 mai 2026 15:11:34 -03
+--------------------------------------------------
