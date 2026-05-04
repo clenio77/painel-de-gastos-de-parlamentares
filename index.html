@@ -166,6 +166,7 @@ body::before{content:'';position:fixed;inset:-50%;width:200%;height:200%;backgro
   <div id="panel-ranking" class="panel active">
     <h2 class="stitle"><span>🏆</span>Ranking por Score Geral<span class="tag" id="total-tag"></span></h2>
     <div class="rk" id="ranking"></div>
+    <div class="pag" id="pag-ranking"></div>
   </div>
 
   <div id="panel-gastos" class="panel">
@@ -238,9 +239,12 @@ body::before{content:'';position:fixed;inset:-50%;width:200%;height:200%;backgro
 <script>
 let DATA = {};
 let allDespesas = [];
+let currentPageRanking = 1;
 let currentPageGastos = 1;
 let currentPageVotacoes = 1;
 const itemsPerPage = 50;
+const rankingPerPage = 30;
+
 
 
 function fmt(v){return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v)}
@@ -267,8 +271,10 @@ function renderStats(){
     <div class="stat"><b style="color:var(--cyan)">${avg.toFixed(1)}</b><small>Score Médio</small></div>`;
 }
 
-function renderRanking(){
+function renderRanking(resetPage = true){
+  if (resetPage) currentPageRanking = 1;
   const r=(DATA.parlamentares||[]).filter(p=>p.score_geral!=null).sort((a,b)=>(b.score_geral||0)-(a.score_geral||0));
+
   const depCount=r.filter(x=>x.casa==='camara').length;
   const senCount=r.filter(x=>x.casa==='senado').length;
   document.getElementById('total-tag').textContent=`${depCount} dep. • ${senCount} sen.`;
@@ -277,7 +283,11 @@ function renderRanking(){
   const despByParl={};
   (DATA.despesas||[]).forEach(d=>{if(!despByParl[d.parlamentar_id])despByParl[d.parlamentar_id]=[];despByParl[d.parlamentar_id].push(d)});
 
-  document.getElementById('ranking').innerHTML=r.map((p,i)=>{
+  const start = (currentPageRanking - 1) * rankingPerPage;
+  const pageData = r.slice(start, start + rankingPerPage);
+
+  document.getElementById('ranking').innerHTML=pageData.map((p,i)=>{
+    const pos = start + i;
     const s=p.score_geral||0;const sa=p.score_atividade||0;const sg=p.score_gasto||0;const st=p.score_transparencia;
     const casa=p.casa==='camara'?'<span class="tg tg-c">Câmara</span>':'<span class="tg tg-s">Senado</span>';
     const desps=despByParl[p.id]||[];
@@ -286,7 +296,7 @@ function renderRanking(){
 
     let detailHtml='';
     if(desps.length>0){
-      const rows=desps.sort((a,b)=>b.valor-a.valor).map(d=>{
+      const rows=desps.sort((a,b)=>b.valor-a.valor).slice(0, 50).map(d=>{
         const isSusp = d.suspeita ? ' <span title="Despesa Suspeita (Regra TCU)">🚨</span>' : '';
         const docLink = d.url_documento ? `<a href="${d.url_documento}" target="_blank" title="Ver Nota Fiscal/Recibo Original" style="color:var(--brand);text-decoration:none">🔗 Nota</a>` : '<span style="color:var(--t3);font-size:11px" title="Sem comprovante digital">📄 S/N</span>';
         const docDate = d.data_documento ? d.data_documento.split('T')[0] : 'S/ Data';
@@ -300,7 +310,7 @@ function renderRanking(){
           <div class="val" style="font-weight:600">${fmt(d.valor)}</div>
         </div>`
       }).join('');
-      detailHtml=`<div class="detail" id="det-${i}">
+      detailHtml=`<div class="detail" id="det-${pos}">
         <h3 style="margin-bottom: 12px; border-bottom: 1px solid var(--b2); padding-bottom: 8px;">
            📄 ${desps.length} notas processadas — Total Reembolsado: <span style="color:var(--brand)">${fmt(totalG)}</span>
         </h3>
@@ -309,14 +319,14 @@ function renderRanking(){
           ${rows}
         </div></div>`;
     } else {
-      detailHtml=`<div class="detail" id="det-${i}">
+      detailHtml=`<div class="detail" id="det-${pos}">
         <p style="text-align:center;color:var(--t3);padding:20px;font-size:13px">✅ Nenhuma nota/despesa registrada ou processada neste período.</p>
       </div>`;
     }
 
     return`<div>
-      <div class="pk" onclick="toggleDet(${i})">
-        <div class="pk__r">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</div>
+      <div class="pk" onclick="toggleDet(${pos})">
+        <div class="pk__r">${pos===0?'🥇':pos===1?'🥈':pos===2?'🥉':pos+1}</div>
         <div>
           <div class="pk__n">${p.nome_parlamentar}</div>
           <div class="pk__m">${casa}<span>${p.partido||''} • ${p.uf||''}</span><span title="Total reembolsado da cota">💰 ${fmt(totalG)} (${desps.length} notas de despesa)</span></div>
@@ -331,7 +341,28 @@ function renderRanking(){
         </div>
       </div>${detailHtml}</div>`;
   }).join('');
+
+  renderPagRanking('pag-ranking', r.length, currentPageRanking, 'changePageRanking');
 }
+
+function renderPagRanking(containerId, totalItems, currentPage, onPageChange) {
+  const totalPages = Math.ceil(totalItems / rankingPerPage);
+  const container = document.getElementById(containerId);
+  if (totalPages <= 1) { container.innerHTML = ''; return; }
+
+  container.innerHTML = `
+    <button class="pag-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="${onPageChange}(${currentPage - 1})">Anterior</button>
+    <span class="pag-info">Página ${currentPage} de ${totalPages}</span>
+    <button class="pag-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="${onPageChange}(${currentPage + 1})">Próxima</button>
+  `;
+}
+
+function changePageRanking(p) {
+  currentPageRanking = p;
+  renderRanking(false);
+  document.querySelector('.main-content').scrollTop = 0;
+}
+
 
 function toggleDet(i){const el=document.getElementById('det-'+i);if(el)el.classList.toggle('open')}
 

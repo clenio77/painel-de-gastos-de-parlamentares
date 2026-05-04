@@ -9,6 +9,8 @@ scratch/
 # Arquivos não monitorados (Untracked)
 .claude/
 .github/
+crawler_base.py
+requirements.txt
 CLAUDE.md
 DECISOES.md
 cnpj_cache.json
