@@ -76,7 +76,7 @@ def months_back(n: int) -> list[tuple[int, int]]:
 
 
 def period_label(y: int, m: int) -> str:
-    return f"{m:02d}/{y}"
+    return f"{y}-{m:02d}"
 
 
 # ---------- SQLite ----------
@@ -403,18 +403,30 @@ def enrich_cnpj(conn: sqlite3.Connection, cnpj: str) -> None:
 # ---------- Coherence stub (orientation when available) ----------
 
 def mark_vote_divergence(voto: str, orientacao: str | None) -> int:
-    if not orientacao:
-        return 0
-    o = orientacao.strip().lower()
-    v = (voto or "").strip().lower()
-    if not o or o in ("liberado", "obstrução", "obstrucao"):
-        return 0
     from etl.coerencia_partidaria import divergiu
 
     return 1 if divergiu(voto, orientacao) else 0
 
 
-# ---------- Migrate to Supabase ----------
+# ---------- Migrate to Supabase (LIVE UUID schema) ----------
+
+def _rest(url: str, key: str, method: str, path: str, body: Any = None, prefer: str = "return=representation") -> Any:
+    data = None if body is None else json.dumps(body).encode("utf-8")
+    req = Request(
+        f"{url}/rest/v1/{path}",
+        data=data,
+        headers={
+            "apikey": key,
+            "Authorization": f"Bearer {key}",
+            "Content-Type": "application/json",
+            "Prefer": prefer,
+        },
+        method=method,
+    )
+    with urlopen(req, timeout=180) as resp:
+        raw = resp.read().decode("utf-8")
+        return json.loads(raw) if raw else None
+
 
 def migrate_supabase(conn: sqlite3.Connection) -> None:
     url = os.getenv("SUPABASE_URL", "").rstrip("/")
@@ -423,32 +435,19 @@ def migrate_supabase(conn: sqlite3.Connection) -> None:
         log.warning("SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY ausentes — pulando migração.")
         return
 
-    def upsert(table: str, rows: list[dict], on_conflict: str) -> None:
-        if not rows:
-            log.info("[%s] Tabela vazia localmente. Pulando.", table)
+    def upsert(table: str, rows_data: list[dict], on_conflict: str) -> None:
+        if not rows_data:
+            log.info("[%s] Vazio. Pulando.", table)
             return
         batch = 100
-        total = (len(rows) + batch - 1) // batch
-        log.info("[%s] Encontrados %s registros. Iniciando migração…", table, len(rows))
-        for i in range(0, len(rows), batch):
-            chunk = rows[i : i + batch]
-            endpoint = f"{url}/rest/v1/{table}?on_conflict={on_conflict}"
-            body = json.dumps(chunk).encode("utf-8")
-            req = Request(
-                endpoint,
-                data=body,
-                headers={
-                    "apikey": key,
-                    "Authorization": f"Bearer {key}",
-                    "Content-Type": "application/json",
-                    "Prefer": "resolution=merge-duplicates,return=minimal",
-                },
-                method="POST",
-            )
+        total = (len(rows_data) + batch - 1) // batch
+        log.info("[%s] %s registros…", table, len(rows_data))
+        for i in range(0, len(rows_data), batch):
+            chunk = rows_data[i : i + batch]
+            endpoint = f"{table}?on_conflict={on_conflict}"
             try:
-                with urlopen(req, timeout=120) as resp:
-                    resp.read()
-                log.info("[%s] Lote %s/%s migrado com sucesso.", table, i // batch + 1, total)
+                _rest(url, key, "POST", endpoint, chunk, prefer="resolution=merge-duplicates,return=minimal")
+                log.info("[%s] Lote %s/%s ok", table, i // batch + 1, total)
             except Exception as e:  # noqa: BLE001
                 log.error("[%s] Falha lote %s: %s", table, i // batch + 1, e)
                 raise
@@ -458,71 +457,250 @@ def migrate_supabase(conn: sqlite3.Connection) -> None:
         cols = [d[0] for d in cur.description]
         return [dict(zip(cols, r)) for r in cur.fetchall()]
 
-    # Map local ids — for supabase we send natural keys where possible.
-    # Prefer uploading with stable business keys already in UNIQUE constraints.
-    parl = rows(
-        "SELECT id, id_api, nome_parlamentar, partido, uf, casa FROM parlamentares"
-    )
-    # Supabase expects id as PK — keep local ids if previously synced; else let serial assign via upsert on (casa,id_api)
-    # PostgREST upsert on UNIQUE(casa,id_api) requires those columns; omit serial id for insert-or-merge by conflict target.
-    parl_payload = [
-        {"id_api": r["id_api"], "nome_parlamentar": r["nome_parlamentar"], "partido": r["partido"], "uf": r["uf"], "casa": r["casa"]}
-        for r in parl
-    ]
-    upsert("parlamentares", parl_payload, "casa,id_api")
+    def fetch_all(table: str, select: str) -> list[dict]:
+        out: list[dict] = []
+        start = 0
+        page = 1000
+        while True:
+            path = f"{table}?select={select}"
+            req = Request(
+                f"{url}/rest/v1/{path}",
+                headers={
+                    "apikey": key,
+                    "Authorization": f"Bearer {key}",
+                    "Range": f"{start}-{start + page - 1}",
+                },
+            )
+            with urlopen(req, timeout=120) as resp:
+                chunk = json.loads(resp.read().decode("utf-8") or "[]")
+            if not chunk:
+                break
+            out.extend(chunk)
+            if len(chunk) < page:
+                break
+            start += page
+        return out
 
-    # Re-fetch remote ids would be ideal; for local-first demo we also push scores with parlamentar_id local.
-    # Production: resolve remote IDs via select. Here we push using id_api join on client views.
-    # Simplified: push scores keyed by (parlamentar_id, periodo) using local ids only if DB was seeded from same source.
-    scores = rows(
-        """SELECT parlamentar_id, periodo, score_geral, score_atividade, score_gasto,
-                  score_transparencia, score_coerencia, dados_insuficientes, detalhes
-           FROM scores"""
-    )
-    for s in scores:
-        if isinstance(s.get("detalhes"), str):
+    # --- Parlamentares: upsert by id_camara / id_senado ---
+    local_parl = rows("SELECT id, id_api, nome_parlamentar, partido, uf, casa FROM parlamentares")
+    camara_rows = []
+    senado_rows = []
+    for r in local_parl:
+        base = {
+            "nome_parlamentar": r["nome_parlamentar"],
+            "nome_civil": r["nome_parlamentar"],
+            "partido": r["partido"],
+            "uf": (r["uf"] or "")[:2] or None,
+            "casa": r["casa"],
+        }
+        if r["casa"] == "camara":
             try:
-                s["detalhes"] = json.loads(s["detalhes"])
+                base["id_camara"] = int(r["id_api"])
+            except (TypeError, ValueError):
+                continue
+            camara_rows.append(base)
+        else:
+            try:
+                base["id_senado"] = int(r["id_api"])
+            except (TypeError, ValueError):
+                continue
+            senado_rows.append(base)
+
+    upsert("parlamentares", camara_rows, "id_camara")
+    upsert("parlamentares", senado_rows, "id_senado")
+
+    remote = fetch_all("parlamentares", "id,casa,id_camara,id_senado")
+    remote_map: dict[tuple[str, str], str] = {}
+    for r in remote:
+        if r.get("id_camara") is not None:
+            remote_map[("camara", str(r["id_camara"]))] = r["id"]
+        if r.get("id_senado") is not None:
+            remote_map[("senado", str(r["id_senado"]))] = r["id"]
+
+    local_to_remote: dict[int, str] = {}
+    for r in local_parl:
+        rid = remote_map.get((r["casa"], str(r["id_api"])))
+        if rid:
+            local_to_remote[int(r["id"])] = rid
+    log.info("Mapeados %s/%s parlamentares locais → UUID remoto", len(local_to_remote), len(local_parl))
+
+    # --- Scores ---
+    scores_payload = []
+    for s in rows(
+        """SELECT parlamentar_id, periodo, score_geral, score_atividade, score_gasto,
+                  score_transparencia, score_coerencia, dados_insuficientes, detalhes FROM scores"""
+    ):
+        rid = local_to_remote.get(int(s["parlamentar_id"]))
+        if not rid:
+            continue
+        det = s.get("detalhes")
+        if isinstance(det, str):
+            try:
+                det = json.loads(det)
             except json.JSONDecodeError:
-                s["detalhes"] = {}
-        s["dados_insuficientes"] = bool(s.get("dados_insuficientes"))
-    upsert("scores", scores, "parlamentar_id,periodo")
+                det = {}
+        scores_payload.append(
+            {
+                "parlamentar_id": rid,
+                "periodo": s["periodo"],
+                "score_geral": s["score_geral"],
+                "score_atividade": s["score_atividade"],
+                "score_gasto": s["score_gasto"],
+                "score_transparencia": s["score_transparencia"],
+                "score_coerencia": s["score_coerencia"],
+                "dados_insuficientes": bool(s.get("dados_insuficientes")),
+                "detalhes": det or {},
+            }
+        )
+    upsert("scores", scores_payload, "parlamentar_id,periodo")
 
-    despesas = rows(
+    # --- Despesas: replace by (ano, mes) window then insert ---
+    desp_local = rows(
         """SELECT parlamentar_id, periodo, tipo_despesa, fornecedor, cnpj_fornecedor,
-                  data_documento, valor, url_documento, chave_natural FROM despesas"""
+                  data_documento, valor, url_documento FROM despesas"""
     )
-    upsert("despesas", despesas, "chave_natural")
+    periods = sorted({d["periodo"] for d in desp_local if d.get("periodo")})
+    for per in periods:
+        try:
+            y, m = per.split("-")
+            y_i, m_i = int(y), int(m)
+        except Exception:  # noqa: BLE001
+            continue
+        # delete existing for period via REST filter
+        del_path = f"despesas?ano=eq.{y_i}&mes=eq.{m_i}"
+        try:
+            _rest(url, key, "DELETE", del_path, prefer="return=minimal")
+            log.info("[despesas] Limpou ano=%s mes=%s", y_i, m_i)
+        except Exception as e:  # noqa: BLE001
+            log.warning("[despesas] delete %s: %s", per, e)
 
-    votacoes = rows("SELECT id_api, casa, descricao, data FROM votacoes")
-    upsert("votacoes", votacoes, "casa,id_api")
+    desp_payload = []
+    for d in desp_local:
+        rid = local_to_remote.get(int(d["parlamentar_id"]))
+        if not rid or not d.get("periodo"):
+            continue
+        try:
+            y, m = str(d["periodo"]).split("-")
+            y_i, m_i = int(y), int(m)
+        except Exception:  # noqa: BLE001
+            continue
+        desp_payload.append(
+            {
+                "parlamentar_id": rid,
+                "ano": y_i,
+                "mes": m_i,
+                "tipo_despesa": d.get("tipo_despesa"),
+                "fornecedor": d.get("fornecedor"),
+                "cnpj_fornecedor": d.get("cnpj_fornecedor"),
+                "data_documento": d.get("data_documento"),
+                "valor": d.get("valor") or 0,
+                "url_documento": d.get("url_documento") or "",
+            }
+        )
+    # plain insert (no on_conflict) in batches
+    if desp_payload:
+        batch = 100
+        total = (len(desp_payload) + batch - 1) // batch
+        log.info("[despesas] Inserindo %s…", len(desp_payload))
+        for i in range(0, len(desp_payload), batch):
+            chunk = desp_payload[i : i + batch]
+            _rest(url, key, "POST", "despesas", chunk, prefer="return=minimal")
+            log.info("[despesas] Lote %s/%s ok", i // batch + 1, total)
 
-    votos = rows(
+    # --- Votações / votos ---
+    vot_local = rows("SELECT id, id_api, casa, descricao, data FROM votacoes")
+    vot_payload = [
+        {
+            "casa": v["casa"],
+            "id_externo": v["id_api"],
+            "descricao": v.get("descricao"),
+            "data": (v.get("data") or "")[:10] or None,
+        }
+        for v in vot_local
+        if v.get("id_api")
+    ]
+    upsert("votacoes", vot_payload, "casa,id_externo")
+
+    remote_vot = fetch_all("votacoes", "id,casa,id_externo")
+    vot_map = {(v["casa"], str(v["id_externo"])): v["id"] for v in remote_vot}
+
+    local_vot_to_remote: dict[int, str] = {}
+    for v in vot_local:
+        rid = vot_map.get((v["casa"], str(v["id_api"])))
+        if rid:
+            local_vot_to_remote[int(v["id"])] = rid
+
+    votos_payload = []
+    for v in rows(
         "SELECT votacao_id, parlamentar_id, voto, descricao_ausencia, divergiu_orientacao FROM votos"
-    )
-    for v in votos:
-        v["divergiu_orientacao"] = bool(v.get("divergiu_orientacao"))
-    upsert("votos", votos, "votacao_id,parlamentar_id")
+    ):
+        vid = local_vot_to_remote.get(int(v["votacao_id"]))
+        pid = local_to_remote.get(int(v["parlamentar_id"]))
+        if not vid or not pid:
+            continue
+        votos_payload.append(
+            {
+                "votacao_id": vid,
+                "parlamentar_id": pid,
+                "voto": v.get("voto"),
+                "descricao_ausencia": v.get("descricao_ausencia"),
+                "divergiu_orientacao": bool(v.get("divergiu_orientacao")),
+            }
+        )
+    upsert("votos", votos_payload, "votacao_id,parlamentar_id")
 
-    props = rows(
+    # --- Proposições ---
+    props_payload = []
+    for p in rows(
         """SELECT parlamentar_id, casa, id_api, sigla_tipo, numero, ano, ementa, situacao, url_oficial
            FROM proposicoes"""
-    )
-    upsert("proposicoes", props, "casa,id_api")
+    ):
+        pid = local_to_remote.get(int(p["parlamentar_id"])) if p.get("parlamentar_id") else None
+        if not p.get("id_api") or not pid:
+            continue
+        props_payload.append(
+            {
+                "parlamentar_id": pid,
+                "casa": p.get("casa"),
+                "id_api": str(p["id_api"]),
+                "tipo": p.get("sigla_tipo"),
+                "sigla_tipo": p.get("sigla_tipo"),
+                "numero": p.get("numero"),
+                "ano": p.get("ano"),
+                "ementa": p.get("ementa"),
+                "situacao": p.get("situacao"),
+                "url_oficial": p.get("url_oficial"),
+            }
+        )
+    upsert("proposicoes", props_payload, "casa,id_api")
 
-    tse = rows(
-        """SELECT parlamentar_id, nome_parlamentar, cargo, ano_eleicao, total_bens, total_receitas
-           FROM candidaturas_tse"""
-    )
-    upsert("candidaturas_tse", tse, "parlamentar_id,ano_eleicao")
-
+    # --- Fornecedores ---
     forn = rows("SELECT cnpj, razao_social, situacao, sancionado_tcu, detalhe, verificado_em FROM fornecedores")
+    forn_payload = []
     for f in forn:
-        f["sancionado_tcu"] = bool(f.get("sancionado_tcu"))
-    upsert("fornecedores", forn, "cnpj")
+        digits = "".join(ch for ch in str(f.get("cnpj") or "") if ch.isdigit())
+        if len(digits) != 14:
+            continue
+        forn_payload.append(
+            {
+                "cnpj": digits,
+                "razao_social": f.get("razao_social"),
+                "situacao": f.get("situacao"),
+                "sancionado_tcu": bool(f.get("sancionado_tcu")),
+                "detalhe": f.get("detalhe"),
+                "verificado_em": f.get("verificado_em"),
+            }
+        )
+    upsert("fornecedores", forn_payload, "cnpj")
 
-    run = [{"atualizado_em": datetime.utcnow().isoformat() + "Z", "status": "ok", "detalhes": {"source": "etl"}}]
-    upsert("pipeline_runs", run, "id")
+    _rest(
+        url,
+        key,
+        "POST",
+        "pipeline_runs",
+        [{"status": "ok", "detalhes": {"source": "etl", "at": datetime.utcnow().isoformat() + "Z"}}],
+        prefer="return=minimal",
+    )
     log.info("Migração concluída!")
 
 
@@ -629,12 +807,7 @@ def collect_and_score(conn: sqlite3.Connection, n_months: int) -> None:
                 desps = fetch_despesas_deputado(id_api, y, m)
                 for d in desps:
                     save_despesa(conn, pid, periodo, d)
-                    cnpj = d.get("cnpjCpfFornecedor")
-                    if cnpj:
-                        try:
-                            enrich_cnpj(conn, str(cnpj))
-                        except Exception:  # noqa: BLE001
-                            pass
+                    # CNPJ enrichment deferred to end of run (rate limits)
                 # proposicoes once per year
                 if m == periods[-1][1] or m == 1:
                     for pr in fetch_proposicoes_autor(id_api, y):
@@ -683,6 +856,20 @@ def collect_and_score(conn: sqlite3.Connection, n_months: int) -> None:
             time.sleep(0.5)
 
     log.info("Coleta finalizada. Rejeitados/duplicados evitados na lista: %s", rejected)
+
+    # Enriquecer amostra de CNPJs únicos
+    cnps = conn.execute(
+        """SELECT DISTINCT cnpj_fornecedor FROM despesas
+           WHERE cnpj_fornecedor IS NOT NULL AND length(replace(replace(cnpj_fornecedor,'.',''),'/','')) >= 14
+           LIMIT 80"""
+    ).fetchall()
+    log.info("Enriquecendo até %s CNPJs…", len(cnps))
+    for row in cnps:
+        try:
+            enrich_cnpj(conn, str(row[0]))
+        except Exception as e:  # noqa: BLE001
+            log.debug("cnpj skip: %s", e)
+    conn.commit()
 
 
 def main() -> int:
