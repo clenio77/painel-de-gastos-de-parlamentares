@@ -179,13 +179,23 @@
   }
 
   /* ---------- Data shaping ---------- */
+  /** Prefer latest period with real data over empty "dados insuficientes" stubs. */
+  function scorePreference(s) {
+    const sufficient = isDadosInsuficientes(s) ? 0 : 1;
+    return sufficient * 1e9 + parsePeriod(s.periodo);
+  }
+
+  /**
+   * Ranking must be 1 row per parlamentar.
+   * Production bug: mapping every scores row created clones (e.g. Diego Garcia ×3 at 86.5).
+   */
   function dedupeScoresByParlamentar(scores) {
     const byId = new Map();
     for (const s of scores) {
       if (!s.parlamentar_id && !(s.parlamentares && s.parlamentares.id)) continue;
-      const pid = s.parlamentar_id || s.parlamentares.id;
+      const pid = String(s.parlamentar_id || s.parlamentares.id);
       const prev = byId.get(pid);
-      if (!prev || parsePeriod(s.periodo) > parsePeriod(prev.periodo)) {
+      if (!prev || scorePreference(s) > scorePreference(prev)) {
         byId.set(pid, s);
       }
     }
@@ -210,7 +220,14 @@
       p.id_api = p.id_camara || p.id_senado || p.id;
       return p;
     });
-    return list.filter((p) => p.id != null && p.score_geral != null);
+    // Final guard: never emit duplicate parlamentar ids into the ranking.
+    const unique = new Map();
+    for (const p of list) {
+      if (p.id == null || p.score_geral == null) continue;
+      const key = String(p.id);
+      if (!unique.has(key)) unique.set(key, p);
+    }
+    return Array.from(unique.values());
   }
 
   function filterDespesasByPeriod(despesas) {

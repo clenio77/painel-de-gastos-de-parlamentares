@@ -1,5 +1,7 @@
 -- Views aligned to LIVE schema (UUID PKs, despesas.ano/mes, etc.)
 
+-- One row per parlamentar: prefer periods with real data, then latest period.
+-- Avoids ranking clones when ETL writes identical monthly scores (e.g. Diego Garcia 86.5 ×4).
 CREATE OR REPLACE VIEW v_ranking_atual
 WITH (security_invoker = true) AS
 SELECT DISTINCT ON (s.parlamentar_id)
@@ -18,7 +20,10 @@ SELECT DISTINCT ON (s.parlamentar_id)
   s.detalhes
 FROM scores s
 JOIN parlamentares p ON p.id = s.parlamentar_id
-ORDER BY s.parlamentar_id, s.periodo DESC;
+ORDER BY
+  s.parlamentar_id,
+  COALESCE(s.dados_insuficientes, false) ASC,
+  s.periodo DESC;
 
 CREATE OR REPLACE VIEW v_total_gastos
 WITH (security_invoker = true) AS
