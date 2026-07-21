@@ -9,8 +9,14 @@ Uso:
 Variáveis (.env):
   SUPABASE_URL
   SUPABASE_SERVICE_ROLE_KEY
-  ETL_MONTHS=6
+  ETL_MONTHS=6                 # janela relativa a partir de hoje (padrão)
+  ETL_YEARS=2025               # anos cheios (ex.: 2025 ou 2024,2025)
+  ETL_FROM=2025-01             # início inclusive (YYYY-MM)
+  ETL_TO=2025-12               # fim inclusive (YYYY-MM)
+  ETL_PERIODS=2025-01:2025-12  # lista/intervalos explícitos
   SQLITE_PATH=candidatos.db
+
+Prioridade de períodos: ETL_PERIODS > ETL_YEARS > ETL_FROM/ETL_TO > ETL_MONTHS.
 """
 
 from __future__ import annotations
@@ -18,6 +24,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 import sqlite3
 import sys
 import time
@@ -73,6 +80,78 @@ def months_back(n: int) -> list[tuple[int, int]]:
             m = 12
             y -= 1
     return list(reversed(out))
+
+
+def parse_ym(value: str) -> tuple[int, int]:
+    m = re.fullmatch(r"(\d{4})-(\d{1,2})", value.strip())
+    if not m:
+        raise ValueError(f"Período inválido (use YYYY-MM): {value!r}")
+    year, month = int(m.group(1)), int(m.group(2))
+    if month < 1 or month > 12:
+        raise ValueError(f"Mês inválido em período: {value!r}")
+    return year, month
+
+
+def months_between(start: tuple[int, int], end: tuple[int, int]) -> list[tuple[int, int]]:
+    if end < start:
+        raise ValueError(f"ETL_TO/fim anterior ao início: {start} > {end}")
+    y, m = start
+    out: list[tuple[int, int]] = []
+    while (y, m) <= end:
+        out.append((y, m))
+        m += 1
+        if m == 13:
+            m = 1
+            y += 1
+    return out
+
+
+def resolve_periods() -> list[tuple[int, int]]:
+    """
+    Resolve which (year, month) windows to collect.
+
+    Priority: ETL_PERIODS > ETL_YEARS > ETL_FROM/ETL_TO > ETL_MONTHS.
+    Periods beyond the current month are clipped.
+    """
+    today = date.today()
+    cap = (today.year, today.month)
+
+    def clip(periods: list[tuple[int, int]]) -> list[tuple[int, int]]:
+        return sorted({p for p in periods if p <= cap})
+
+    periods_env = (os.getenv("ETL_PERIODS") or "").strip()
+    if periods_env:
+        out: list[tuple[int, int]] = []
+        for part in periods_env.split(","):
+            part = part.strip()
+            if not part:
+                continue
+            if ":" in part:
+                a, b = part.split(":", 1)
+                out.extend(months_between(parse_ym(a), parse_ym(b)))
+            else:
+                out.append(parse_ym(part))
+        return clip(out)
+
+    years_env = (os.getenv("ETL_YEARS") or "").strip()
+    if years_env:
+        out = []
+        for token in years_env.split(","):
+            token = token.strip()
+            if not token:
+                continue
+            year = int(token)
+            out.extend((year, month) for month in range(1, 13))
+        return clip(out)
+
+    from_env = (os.getenv("ETL_FROM") or "").strip()
+    to_env = (os.getenv("ETL_TO") or "").strip()
+    if from_env or to_env:
+        start = parse_ym(from_env) if from_env else months_back(int(os.getenv("ETL_MONTHS", "6")))[0]
+        end = parse_ym(to_env) if to_env else cap
+        return clip(months_between(start, end))
+
+    return months_back(int(os.getenv("ETL_MONTHS", "6")))
 
 
 def period_label(y: int, m: int) -> str:
@@ -706,9 +785,15 @@ def migrate_supabase(conn: sqlite3.Connection) -> None:
 
 # ---------- Main pipeline ----------
 
-def collect_and_score(conn: sqlite3.Connection, n_months: int) -> None:
-    periods = months_back(n_months)
-    log.info("INICIANDO COLETA DINÂMICA (Baseada em: %s)", date.today().strftime("%d/%m/%Y"))
+def collect_and_score(conn: sqlite3.Connection, periods: list[tuple[int, int]] | None = None) -> None:
+    periods = periods if periods is not None else resolve_periods()
+    if not periods:
+        raise RuntimeError("Nenhum período de coleta resolvido (verifique ETL_YEARS/ETL_FROM/ETL_MONTHS).")
+    log.info(
+        "INICIANDO COLETA DINÂMICA (hoje=%s; períodos=%s)",
+        date.today().strftime("%d/%m/%Y"),
+        ", ".join(period_label(y, m) for y, m in periods),
+    )
     deps = fetch_deputados()
     sens = fetch_senadores()
 
@@ -874,14 +959,15 @@ def collect_and_score(conn: sqlite3.Connection, n_months: int) -> None:
 
 def main() -> int:
     sqlite_path = os.getenv("SQLITE_PATH", str(ROOT / "candidatos.db"))
-    n_months = int(os.getenv("ETL_MONTHS", "6"))
+    periods = resolve_periods()
     conn = init_db(sqlite_path)
     log.info("=" * 60)
     log.info("INICIANDO PIPELINE AUTOMATIZADO CVP-IA")
+    log.info("Períodos: %s", ", ".join(period_label(y, m) for y, m in periods) or "(vazio)")
     log.info("=" * 60)
     try:
         log.info("[1. Coleta e Scoring] INICIANDO…")
-        collect_and_score(conn, n_months)
+        collect_and_score(conn, periods)
         log.info("[1. Coleta e Scoring] CONCLUÍDO.")
         log.info("[2. Auditoria local] (heurísticas no SQL Supabase / painel)")
         log.info("[3. Nuvem (Supabase)] INICIANDO…")

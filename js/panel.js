@@ -379,7 +379,7 @@
     const scored = r.filter((x) => !x.dados_insuficientes);
     const avg = scored.reduce((s, x) => s + (x.score_geral || 0), 0) / Math.max(scored.length, 1);
     document.getElementById('stats').innerHTML = `
-      <div class="stat"><b style="color:var(--blue)">${r.length}</b><small>Parlamentares</small></div>
+      <div class="stat"><b style="color:var(--blue)">${r.length}</b><small>Parlamentares no ranking</small></div>
       <div class="stat"><b style="color:var(--yellow)">${esc(fmt(tg))}</b><small>Total Gastos</small></div>
       <div class="stat"><b style="color:var(--purple)">${d.length}</b><small>Despesas</small></div>
       <div class="stat"><b style="color:var(--cyan)">${avg.toFixed(1)}</b><small>Score Médio</small></div>`;
@@ -1087,7 +1087,8 @@
   async function fetchAllPages(table, select, pageSize) {
     let page = 0;
     let out = [];
-    const maxPages = 40;
+    // scores/despesas can exceed 40k; keep a generous ceiling
+    const maxPages = 100;
     while (page < maxPages) {
       const from = page * pageSize;
       const to = from + pageSize - 1;
@@ -1101,6 +1102,13 @@
     return out;
   }
 
+  function pickDefaultPeriod(periods) {
+    // Prefer a concrete month so the stat card reflects Congress size (~513+81),
+    // not the Supabase 1000-row ceiling nor historical leftover rows.
+    if (!periods || !periods.length) return 'all';
+    return periods[0];
+  }
+
   async function loadFromSupabase() {
     const ranking = document.getElementById('ranking');
     ranking.innerHTML = '<p class="empty-msg">Carregando dados da nuvem…</p>';
@@ -1108,11 +1116,11 @@
       if (!window.supabase) throw new Error('SDK Supabase não carregado.');
       supabase = window.supabase.createClient(SUPA_URL, SUPA_KEY);
 
-      const { data: scoresData, error: err1 } = await supabase
-        .from('scores')
-        .select('*, parlamentares(nome_parlamentar, partido, uf, casa, id, id_camara, id_senado)')
-        .order('periodo', { ascending: false });
-      if (err1) throw err1;
+      const scoresData = await fetchAllPages(
+        'scores',
+        '*, parlamentares(nome_parlamentar, partido, uf, casa, id, id_camara, id_senado)',
+        1000
+      );
 
       DATA.allScores = scoresData || [];
       const periods = [
@@ -1123,6 +1131,7 @@
         ),
       ].sort((a, b) => parsePeriod(b) - parsePeriod(a));
       DATA.periods = periods;
+      currentPeriod = pickDefaultPeriod(periods);
 
       const despData = await fetchAllPages(
         'despesas',
