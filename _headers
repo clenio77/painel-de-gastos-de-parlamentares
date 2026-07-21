@@ -1,0 +1,41 @@
+/*
+  Headers for static hosts (Netlify / Cloudflare Pages).
+  Adjust if deploying elsewhere (Vercel: vercel.json headers).
+*/
+/*
+  /index.html
+    Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; connect-src 'self' https://*.supabase.co; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; worker-src 'self'; frame-ancestors 'none'; base-uri 'self'
+    X-Content-Type-Options: nosniff
+    Referrer-Policy: strict-origin-when-cross-origin
+    X-Frame-Options: DENY
+
+  /js/*
+    Cache-Control: public, max-age=3600
+    X-Content-Type-Options: nosniff
+
+  /css/*
+    Cache-Control: public, max-age=3600
+
+  /sw.js
+    Cache-Control: no-cache
+*/
+/*
+  Note: some static hosts require a different format.
+  Netlify uses _headers; Cloudflare Pages uses _headers; Vercel uses vercel.json.
+*/
+
+/index.html
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; connect-src 'self' https://*.supabase.co; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; worker-src 'self'; frame-ancestors 'none'; base-uri 'self'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+
+/js/*
+  Cache-Control: public, max-age=3600
+  X-Content-Type-Options: nosniff
+
+/css/*
+  Cache-Control: public, max-age=3600
+
+/sw.js
+  Cache-Control: no-cache
