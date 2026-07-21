@@ -56,14 +56,16 @@ def http_get_json(url: str, headers: dict | None = None, retries: int = 3) -> An
     hdrs = {"Accept": "application/json", "User-Agent": "CVP-IA-ETL/1.0"}
     if headers:
         hdrs.update(headers)
+    timeout_s = float(os.getenv("ETL_HTTP_TIMEOUT", "45"))
     last_err: Exception | None = None
     for attempt in range(retries):
         try:
             req = Request(url, headers=hdrs)
-            with urlopen(req, timeout=60) as resp:
+            with urlopen(req, timeout=timeout_s) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except Exception as e:  # noqa: BLE001
             last_err = e
+            log.warning("HTTP retry %s/%s %s: %s", attempt + 1, retries, url.split("?")[0], e)
             time.sleep(1.5 * (attempt + 1))
     raise RuntimeError(f"GET failed {url}: {last_err}")
 
@@ -881,21 +883,46 @@ def collect_and_score(conn: sqlite3.Connection, periods: list[tuple[int, int]] |
 
     # Per parlamentar expenses + scores + proposicoes
     rejected = 0
+    resume = (os.getenv("ETL_RESUME", "1") or "1").strip().lower() not in ("0", "false", "no")
+    needed_periods = {period_label(y, m) for y, m in periods}
+    skipped = 0
     for idx, (casa, raw) in enumerate(people, 1):
         id_api = str(raw["id"] if casa == "camara" else raw["id"])
         nome = raw.get("nome") or raw.get("nomeCivil") or "?"
         pid = id_map[(casa, id_api)]
+        if resume:
+            existing = {
+                str(r[0])
+                for r in conn.execute(
+                    "SELECT periodo FROM scores WHERE parlamentar_id=?",
+                    (pid,),
+                ).fetchall()
+            }
+            if needed_periods <= existing:
+                skipped += 1
+                if idx % 50 == 0:
+                    log.info("[%s/%s] Processados… (resume skip=%s)", idx, len(people), skipped)
+                continue
         for y, m in periods:
             periodo = period_label(y, m)
             desps = []
             if casa == "camara":
-                desps = fetch_despesas_deputado(id_api, y, m)
+                try:
+                    desps = fetch_despesas_deputado(id_api, y, m)
+                except Exception as e:  # noqa: BLE001
+                    log.warning("despesas %s %s: %s", id_api, periodo, e)
+                    desps = []
                 for d in desps:
                     save_despesa(conn, pid, periodo, d)
                     # CNPJ enrichment deferred to end of run (rate limits)
                 # proposicoes once per year
                 if m == periods[-1][1] or m == 1:
-                    for pr in fetch_proposicoes_autor(id_api, y):
+                    try:
+                        props = fetch_proposicoes_autor(id_api, y)
+                    except Exception as e:  # noqa: BLE001
+                        log.warning("proposicoes %s %s: %s", id_api, y, e)
+                        props = []
+                    for pr in props:
                         conn.execute(
                             """
                             INSERT INTO proposicoes (
@@ -935,12 +962,16 @@ def collect_and_score(conn: sqlite3.Connection, periods: list[tuple[int, int]] |
             save_score(conn, pid, periodo, sc)
         conn.commit()
         if idx % 50 == 0:
-            log.info("[%s/%s] Processados…", idx, len(people))
+            log.info("[%s/%s] Processados… (resume skip=%s)", idx, len(people), skipped)
         # light rate-limit
         if idx % 20 == 0:
             time.sleep(0.5)
 
-    log.info("Coleta finalizada. Rejeitados/duplicados evitados na lista: %s", rejected)
+    log.info(
+        "Coleta finalizada. Rejeitados/duplicados evitados na lista: %s; resume skip: %s",
+        rejected,
+        skipped,
+    )
 
     # Enriquecer amostra de CNPJs únicos
     cnps = conn.execute(
