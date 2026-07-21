@@ -36,3 +36,11 @@ DROP POLICY IF EXISTS fornecedores_select_public ON fornecedores;
 DROP POLICY IF EXISTS pipeline_runs_select_public ON pipeline_runs;
 CREATE POLICY fornecedores_select_public ON fornecedores FOR SELECT TO anon, authenticated USING (true);
 CREATE POLICY pipeline_runs_select_public ON pipeline_runs FOR SELECT TO anon, authenticated USING (true);
+
+-- Unique constraints required for PostgREST upserts (ON CONFLICT)
+ALTER TABLE parlamentares DROP CONSTRAINT IF EXISTS parlamentares_id_camara_key;
+ALTER TABLE parlamentares DROP CONSTRAINT IF EXISTS parlamentares_id_senado_key;
+ALTER TABLE parlamentares ADD CONSTRAINT parlamentares_id_camara_key UNIQUE (id_camara);
+ALTER TABLE parlamentares ADD CONSTRAINT parlamentares_id_senado_key UNIQUE (id_senado);
+ALTER TABLE proposicoes DROP CONSTRAINT IF EXISTS proposicoes_casa_id_api_key;
+ALTER TABLE proposicoes ADD CONSTRAINT proposicoes_casa_id_api_key UNIQUE (casa, id_api);
