@@ -92,30 +92,71 @@
     };
   }
 
+  function normalizePeriod(p) {
+    if (!p) return '';
+    const s = String(p).trim();
+    const iso = s.match(/^(\d{4})-(\d{1,2})$/);
+    if (iso) return `${iso[1]}-${iso[2].padStart(2, '0')}`;
+    const br = s.match(/^(\d{1,2})[\/\-](\d{4})$/);
+    if (br) return `${br[2]}-${br[1].padStart(2, '0')}`;
+    const slash = s.match(/^(\d{4})\/(\d{1,2})$/);
+    if (slash) return `${slash[1]}-${slash[2].padStart(2, '0')}`;
+    return s;
+  }
+
   function parsePeriod(p) {
-    if (!p) return 0;
-    const m = String(p).match(/(\d{1,2})[\/\-](\d{4})/);
-    if (m) return parseInt(m[2], 10) * 100 + parseInt(m[1], 10);
-    const iso = String(p).match(/(\d{4})-(\d{2})/);
+    const n = normalizePeriod(p);
+    const iso = n.match(/^(\d{4})-(\d{2})$/);
     if (iso) return parseInt(iso[1], 10) * 100 + parseInt(iso[2], 10);
     return 0;
   }
 
   function periodLabel(p) {
+    const n = normalizePeriod(p);
+    const m = n.match(/^(\d{4})-(\d{2})$/);
+    if (m) return `${m[2]}/${m[1]}`;
     return p || '—';
   }
 
+  function periodParts(p) {
+    const n = normalizePeriod(p || currentPeriod);
+    const m = n.match(/^(\d{4})-(\d{2})$/);
+    if (!m) return null;
+    return { y: parseInt(m[1], 10), m: parseInt(m[2], 10), iso: n };
+  }
+
   function inPeriod(dateStr) {
-    if (currentPeriod === 'all' || !dateStr) return currentPeriod === 'all';
-    const d = String(dateStr);
-    const [mm, yyyy] = currentPeriod.split('/');
-    if (!mm || !yyyy) return true;
-    return d.startsWith(`${yyyy}-${mm.padStart(2, '0')}`) || d.includes(`${yyyy}-${mm}`);
+    if (currentPeriod === 'all') return true;
+    if (!dateStr) return false;
+    const parts = periodParts(currentPeriod);
+    if (!parts) return true;
+    return String(dateStr).startsWith(`${parts.y}-${String(parts.m).padStart(2, '0')}`);
+  }
+
+  function despesaInPeriod(d) {
+    if (currentPeriod === 'all') return true;
+    const parts = periodParts(currentPeriod);
+    if (!parts) return true;
+    if (d.ano != null && d.mes != null) {
+      return Number(d.ano) === parts.y && Number(d.mes) === parts.m;
+    }
+    return inPeriod(d.data_documento);
   }
 
   function scoreInPeriod(s) {
     if (currentPeriod === 'all') return true;
-    return String(s.periodo || '') === currentPeriod || String(s.periodo || '').replace('-', '/') === currentPeriod;
+    return normalizePeriod(s.periodo) === normalizePeriod(currentPeriod);
+  }
+
+  function isDadosInsuficientes(s) {
+    if (s.dados_insuficientes) return true;
+    const det = s.detalhes || {};
+    const parsed = typeof det === 'string' ? (() => { try { return JSON.parse(det); } catch { return {}; } })() : det;
+    const ativ = parsed.score_atividade || {};
+    const gasto = parsed.score_gasto || {};
+    const semVotos = (ativ.total_votacoes || 0) === 0;
+    const semDesp = (gasto.num_despesas || 0) === 0 && (gasto.total_gasto || 0) === 0;
+    return semVotos && semDesp;
   }
 
   /* ---------- Tabs ---------- */
@@ -161,9 +202,12 @@
       p.score_gasto = s.score_gasto;
       p.score_transparencia = s.score_transparencia;
       p.score_coerencia = s.score_coerencia;
-      p.dados_insuficientes = !!(s.dados_insuficientes || s.detalhes?.dados_insuficientes);
-      p.periodo = s.periodo;
-      p.detalhes = s.detalhes || {};
+      p.dados_insuficientes = isDadosInsuficientes(s);
+      p.periodo = normalizePeriod(s.periodo);
+      p.detalhes = typeof s.detalhes === 'string'
+        ? (() => { try { return JSON.parse(s.detalhes); } catch { return {}; } })()
+        : (s.detalhes || {});
+      p.id_api = p.id_camara || p.id_senado || p.id;
       return p;
     });
     return list.filter((p) => p.id != null && p.score_geral != null);
@@ -171,7 +215,7 @@
 
   function filterDespesasByPeriod(despesas) {
     if (currentPeriod === 'all') return despesas;
-    return despesas.filter((d) => inPeriod(d.data_documento) || d.periodo === currentPeriod);
+    return despesas.filter(despesaInPeriod);
   }
 
   function filterVotosByPeriod(votos) {
@@ -848,8 +892,8 @@
 
     const official =
       p.casa === 'camara'
-        ? `https://www.camara.leg.br/deputados/${esc(p.id_api || p.id)}`
-        : `https://www25.senado.leg.br/web/senadores/senador/-/perfil/${esc(p.id_api || p.id)}`;
+        ? `https://www.camara.leg.br/deputados/${esc(p.id_camara || p.id_api || '')}`
+        : `https://www25.senado.leg.br/web/senadores/senador/-/perfil/${esc(p.id_senado || p.id_api || '')}`;
 
     body.innerHTML = `
       <header class="ficha-head">
@@ -938,13 +982,17 @@
       </section>`;
     drawer.classList.add('open');
     drawer.setAttribute('aria-hidden', 'false');
-    document.getElementById('ficha-backdrop').classList.add('open');
+    const backdrop = document.getElementById('ficha-backdrop');
+    backdrop.classList.add('open');
+    backdrop.hidden = false;
   }
 
   function closeFicha() {
     document.getElementById('ficha-drawer').classList.remove('open');
     document.getElementById('ficha-drawer').setAttribute('aria-hidden', 'true');
-    document.getElementById('ficha-backdrop').classList.remove('open');
+    const backdrop = document.getElementById('ficha-backdrop');
+    backdrop.classList.remove('open');
+    backdrop.hidden = true;
   }
 
   /* ---------- Pagination ---------- */
@@ -1045,7 +1093,7 @@
 
       const { data: scoresData, error: err1 } = await supabase
         .from('scores')
-        .select('*, parlamentares(nome_parlamentar, partido, uf, casa, id, id_api)')
+        .select('*, parlamentares(nome_parlamentar, partido, uf, casa, id, id_camara, id_senado)')
         .order('periodo', { ascending: false });
       if (err1) throw err1;
 
@@ -1053,9 +1101,8 @@
       const periods = [
         ...new Set(
           (scoresData || [])
-            .map((s) => s.periodo)
+            .map((s) => normalizePeriod(s.periodo))
             .filter(Boolean)
-            .map((p) => String(p).replace('-', '/'))
         ),
       ].sort((a, b) => parsePeriod(b) - parsePeriod(a));
       DATA.periods = periods;
@@ -1101,6 +1148,12 @@
         );
         propRows = props.map((p) => {
           if (p.parlamentares) p.nome_parlamentar = p.parlamentares.nome_parlamentar;
+          p.sigla_tipo = p.sigla_tipo || p.tipo || '';
+          p.url_oficial =
+            p.url_oficial ||
+            (p.casa === 'camara' && p.id_api
+              ? `https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=${p.id_api}`
+              : null);
           return p;
         });
       } catch (_) {
