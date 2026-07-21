@@ -119,21 +119,24 @@ save_state() {
 }
 
 validate_once() {
-  local parl scores desp mtime pids alive=0 progressed=0
+  local parl scores desp mtime pids alive=0 progressed=0 now db_age
   read -r parl scores desp mtime <<<"$(metric_2025)"
   pids="$(etl_pids | tr '\n' ' ')"
   [[ -n "${pids// }" ]] && alive=1
+  now="$(date +%s)"
+  db_age=$((now - mtime))
 
   load_state
 
-  if [[ "$parl" -gt "$PREV_PARL" || "$scores" -gt "$PREV_SCORES" || "$desp" -gt "$PREV_DESP" || "$mtime" -gt "$PREV_MTIME" ]]; then
+  # Progresso real OU DB tocado recentemente (ainda coletando o mesmo parlamentar).
+  if [[ "$parl" -gt "$PREV_PARL" || "$scores" -gt "$PREV_SCORES" || "$desp" -gt "$PREV_DESP" || "$mtime" -gt "$PREV_MTIME" || "$db_age" -lt "$INTERVAL_SEC" ]]; then
     progressed=1
     STUCK_COUNT=0
   else
     STUCK_COUNT=$((STUCK_COUNT + 1))
   fi
 
-  log "check: parl_2025=${parl}/${TARGET_PARL} scores=${scores} despesas=${desp} alive=${alive} pids=${pids:--} progressed=${progressed} stuck=${STUCK_COUNT}/${STUCK_CHECKS}"
+  log "check: parl_2025=${parl}/${TARGET_PARL} scores=${scores} despesas=${desp} alive=${alive} db_age=${db_age}s pids=${pids:--} progressed=${progressed} stuck=${STUCK_COUNT}/${STUCK_CHECKS}"
 
   if pipeline_finished && [[ "$parl" -ge "$TARGET_PARL" ]]; then
     save_state "$parl" "$scores" "$desp" "$mtime" 0
@@ -154,9 +157,9 @@ validate_once() {
     return 1
   fi
 
-  # Vivo mas sem progresso → travado
+  # Vivo mas DB parado por >= intervalo → travado (exige STUCK_CHECKS ciclos).
   if [[ "$progressed" -eq 0 && "$STUCK_COUNT" -ge "$STUCK_CHECKS" ]]; then
-    log "ALERTA: sem progresso em ${STUCK_CHECKS} ciclo(s) (~$((STUCK_CHECKS * INTERVAL_SEC / 60)) min). Reiniciando…"
+    log "ALERTA: sem progresso em ${STUCK_CHECKS} ciclo(s) (~$((STUCK_CHECKS * INTERVAL_SEC / 60)) min; db_age=${db_age}s). Reiniciando…"
     kill_etl
     start_etl
     save_state "$parl" "$scores" "$desp" "$mtime" 0
