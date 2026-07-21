@@ -42,7 +42,7 @@ resolve_db_url() {
   fi
   if [[ -n "${SUPABASE_DB_PASSWORD:-}" && -n "${SUPABASE_PROJECT_REF:-}" ]]; then
     # Session pooler (IPv4-friendly). Ajuste a região se necessário via SUPABASE_POOLER_HOST.
-    local host="${SUPABASE_POOLER_HOST:-aws-0-us-east-1.pooler.supabase.com}"
+    local host="${SUPABASE_POOLER_HOST:-aws-1-sa-east-1.pooler.supabase.com}"
     echo "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPABASE_DB_PASSWORD}@${host}:6543/postgres"
     return
   fi
