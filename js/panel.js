@@ -92,6 +92,110 @@
     };
   }
 
+  function digitsOnly(v) {
+    return String(v || '').replace(/\D/g, '');
+  }
+
+  function formatCnpj(v) {
+    const d = digitsOnly(v);
+    if (d.length === 14) {
+      return d.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+    }
+    if (d.length === 11) {
+      return d.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
+    }
+    return v || '—';
+  }
+
+  function lookupEnrich(cnpj) {
+    if (!cnpj) return null;
+    const map = DATA.fornecedoresEnrich || {};
+    return map[cnpj] || map[digitsOnly(cnpj)] || null;
+  }
+
+  function downloadCsv(filename, rows) {
+    if (!rows || !rows.length) return;
+    const headers = Object.keys(rows[0]);
+    const cell = (v) => {
+      const s = v == null ? '' : String(v);
+      if (/[",\n\r]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+      return s;
+    };
+    const lines = [headers.join(',')].concat(
+      rows.map((r) => headers.map((h) => cell(r[h])).join(','))
+    );
+    const blob = new Blob(['\ufeff' + lines.join('\n')], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(a.href);
+  }
+
+  function median(nums) {
+    const a = nums.filter((n) => n != null && !Number.isNaN(Number(n))).map(Number).sort((x, y) => x - y);
+    if (!a.length) return null;
+    const mid = Math.floor(a.length / 2);
+    return a.length % 2 ? a[mid] : (a[mid - 1] + a[mid]) / 2;
+  }
+
+  function gastoDoParlamentar(id) {
+    return (DATA.despesas || [])
+      .filter((d) => String(d.parlamentar_id) === String(id))
+      .reduce((s, d) => s + (d.valor || 0), 0);
+  }
+
+  function peerStats(p) {
+    const fields = [
+      'score_geral',
+      'score_atividade',
+      'score_gasto',
+      'score_transparencia',
+      'score_coerencia',
+    ];
+    function pack(mode) {
+      const group = (DATA.parlamentares || []).filter((x) => {
+        if (x.dados_insuficientes || x.score_geral == null) return false;
+        if (x.casa !== p.casa) return false;
+        if (mode === 'partido') return !!(x.partido && x.partido === p.partido);
+        if (mode === 'uf') return !!(x.uf && x.uf === p.uf);
+        return false;
+      });
+      const n = group.length;
+      if (n < 3) return { n, insuficiente: true };
+      const out = { n, insuficiente: false };
+      fields.forEach((f) => {
+        out[f] = median(group.map((x) => x[f]));
+      });
+      out.gasto = median(group.map((x) => gastoDoParlamentar(x.id)));
+      return out;
+    }
+    return { partido: pack('partido'), uf: pack('uf') };
+  }
+
+  function deltaLabel(value, med) {
+    if (value == null || med == null) return '—';
+    const d = Number(value) - Number(med);
+    const sign = d >= 0 ? '+' : '';
+    return `${sign}${d.toFixed(1)}`;
+  }
+
+  function deltaClass(value, med) {
+    if (value == null || med == null) return '';
+    return Number(value) - Number(med) >= 0 ? 'delta-pos' : 'delta-neg';
+  }
+
+  function showDrawer() {
+    const drawer = document.getElementById('ficha-drawer');
+    const backdrop = document.getElementById('ficha-backdrop');
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    backdrop.classList.add('open');
+    backdrop.hidden = false;
+  }
+
   function normalizePeriod(p) {
     if (!p) return '';
     const s = String(p).trim();
@@ -305,7 +409,7 @@
           d.suspeita = true;
         }
       }
-      const enrich = DATA.fornecedoresEnrich[d.cnpj_fornecedor];
+      const enrich = lookupEnrich(d.cnpj_fornecedor);
       if (enrich && (enrich.situacao === 'IRREGULAR' || enrich.sancionado_tcu)) {
         const alerta = {
           tipo: enrich.sancionado_tcu ? 'Fornecedor Sancionado TCU' : 'CNPJ Irregular',
@@ -316,8 +420,8 @@
         allAlerts.push(Object.assign({}, d, alerta));
         d.suspeita = true;
       }
-      if (d.data_documento && d.cnpj_fornecedor) {
-        const key = `${d.parlamentar_id}_${d.data_documento}_${d.cnpj_fornecedor}`;
+      if (d.data_documento && digitsOnly(d.cnpj_fornecedor)) {
+        const key = `${d.parlamentar_id}_${(d.data_documento || '').split('T')[0]}_${digitsOnly(d.cnpj_fornecedor)}`;
         if (!gastosDiarios[key]) gastosDiarios[key] = [];
         gastosDiarios[key].push(d);
       }
@@ -345,20 +449,35 @@
   function buildTopFornecedores(despesas) {
     const fMap = {};
     despesas.forEach((d) => {
-      if (!d.fornecedor) return;
-      const k = d.fornecedor;
+      const dig = digitsOnly(d.cnpj_fornecedor);
+      const k = dig || (d.fornecedor || '').trim().toLowerCase();
+      if (!k) return;
       if (!fMap[k]) {
         fMap[k] = {
-          fornecedor: k,
-          cnpj_fornecedor: d.cnpj_fornecedor,
+          key: k,
+          cnpj_digits: dig || '',
+          cnpj_fornecedor: d.cnpj_fornecedor || '',
+          fornecedor: d.fornecedor || 'Sem nome',
           total: 0,
           qtd: 0,
           parls: new Set(),
+          parlIds: new Map(),
+          tipos: {},
+          notas: [],
         };
       }
-      fMap[k].total += d.valor || 0;
-      fMap[k].qtd += 1;
-      fMap[k].parls.add(d.nome_parlamentar);
+      const row = fMap[k];
+      row.total += d.valor || 0;
+      row.qtd += 1;
+      if (d.nome_parlamentar) {
+        row.parls.add(d.nome_parlamentar);
+        if (d.parlamentar_id != null) row.parlIds.set(String(d.parlamentar_id), d.nome_parlamentar);
+      }
+      if (d.fornecedor && (!row.fornecedor || row.fornecedor === 'Sem nome')) row.fornecedor = d.fornecedor;
+      if (d.cnpj_fornecedor) row.cnpj_fornecedor = d.cnpj_fornecedor;
+      const tipo = d.tipo_despesa || 'Outros';
+      row.tipos[tipo] = (row.tipos[tipo] || 0) + (d.valor || 0);
+      row.notas.push(d);
     });
     return Object.values(fMap)
       .sort((a, b) => b.total - a.total)
@@ -366,9 +485,25 @@
       .map((x) =>
         Object.assign({}, x, {
           parlamentares: Array.from(x.parls).join(', '),
-          enrich: DATA.fornecedoresEnrich[x.cnpj_fornecedor] || null,
+          enrich: lookupEnrich(x.cnpj_fornecedor || x.cnpj_digits),
         })
       );
+  }
+
+  function findFornecedorAgg(cnpjOrKey) {
+    const dig = digitsOnly(cnpjOrKey);
+    const list = DATA.top_fornecedores || [];
+    let hit = list.find((x) => x.cnpj_digits && x.cnpj_digits === dig);
+    if (hit) return hit;
+    hit = list.find((x) => digitsOnly(x.cnpj_fornecedor) === dig || x.key === dig || x.key === String(cnpjOrKey).toLowerCase());
+    if (hit) return hit;
+    // rebuild from full despesas if not in top 80
+    const all = buildTopFornecedores(DATA.despesas || []);
+    return (
+      all.find((x) => x.cnpj_digits === dig || x.key === dig) ||
+      all.find((x) => (x.fornecedor || '').toLowerCase() === String(cnpjOrKey).toLowerCase()) ||
+      null
+    );
   }
 
   /* ---------- Render: stats / ranking ---------- */
@@ -437,6 +572,27 @@
             ? `<div class="sp" title="Coerência partidária"><b class="${sc(scohr)}">${Number(scohr).toFixed(0)}</b><small>Coerência</small></div>`
             : '';
 
+        const peer = peerStats(p);
+        let peerLine = '';
+        if (!p.dados_insuficientes) {
+          const parts = [];
+          if (!peer.partido.insuficiente) {
+            parts.push(
+              `vs partido <span class="${deltaClass(s, peer.partido.score_geral)}">${esc(
+                deltaLabel(s, peer.partido.score_geral)
+              )}</span>`
+            );
+          }
+          if (!peer.uf.insuficiente) {
+            parts.push(
+              `vs UF <span class="${deltaClass(s, peer.uf.score_geral)}">${esc(
+                deltaLabel(s, peer.uf.score_geral)
+              )}</span>`
+            );
+          }
+          if (parts.length) peerLine = `<div class="peer-line">${parts.join(' · ')}</div>`;
+        }
+
         return `<div class="rk-row">
       <div class="pk" role="button" tabindex="0" data-toggle-det="${pos}" data-open-ficha="${esc(p.id)}">
         <div class="pk__r">${pos === 0 ? '1' : pos === 1 ? '2' : pos === 2 ? '3' : pos + 1}</div>
@@ -446,6 +602,7 @@
             <span>${esc(fmt(totalG))} (${desps.length} notas)</span>
             <span class="period-chip">${esc(periodLabel(p.periodo) || currentPeriod)}</span>
           </div>
+          ${peerLine}
         </div>
         <div class="pk__sc">
           <div class="sp" title="Presença em votações"><b class="${sc(sa)}">${Number(sa).toFixed(0)}</b><small>Presença</small></div>
@@ -517,9 +674,15 @@
           const tipo = esc((d.tipo_despesa || '').substring(0, 40));
           return `<div class="exp-row"${d.suspeita ? ' style="background:rgba(239,68,68,.1)"' : ''}>
             <div class="tipo" title="${esc(d.tipo_despesa || '')}">${tipo}${d.suspeita ? ' !' : ''}</div>
-            <div class="forn">${esc(d.fornecedor || 'N/A')}${
+            <div class="forn">${
+              digitsOnly(d.cnpj_fornecedor)
+                ? `<button type="button" class="linkish" data-open-forn="${esc(
+                    digitsOnly(d.cnpj_fornecedor)
+                  )}">${esc(d.fornecedor || 'N/A')}</button>`
+                : esc(d.fornecedor || 'N/A')
+            }${
             d.cnpj_fornecedor
-              ? `<br><small class="mono">${esc(d.cnpj_fornecedor)}</small>`
+              ? `<br><small class="mono">${esc(formatCnpj(d.cnpj_fornecedor))}</small>`
               : ''
           }</div>
             <div class="data">${esc((d.data_documento || '').split('T')[0] || 'S/ Data')}<br>${docLink(d.url_documento, 'Nota')}</div>
@@ -536,6 +699,12 @@
     }
     el.querySelectorAll('[data-ficha]').forEach((btn) =>
       btn.addEventListener('click', () => openFicha(btn.getAttribute('data-ficha')))
+    );
+    el.querySelectorAll('[data-open-forn]').forEach((btn) =>
+      btn.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        openFichaFornecedor(btn.getAttribute('data-open-forn'));
+      })
     );
     el.classList.add('open');
   }
@@ -581,7 +750,7 @@
       if (ff && !(d.fornecedor || '').toLowerCase().includes(ff) && !(d.cnpj_fornecedor || '').includes(ff))
         return false;
       if (onlySusp) {
-        const en = DATA.fornecedoresEnrich[d.cnpj_fornecedor];
+        const en = lookupEnrich(d.cnpj_fornecedor);
         if (!(d.suspeita || (en && (en.situacao === 'IRREGULAR' || en.sancionado_tcu)))) return false;
       }
       return true;
@@ -608,20 +777,38 @@
           d.alertas && d.alertas.length
             ? `<br><span class="alert-mini">${esc(d.alertas.map((a) => a.tipo).join(', '))}</span>`
             : '';
-        const en = DATA.fornecedoresEnrich[d.cnpj_fornecedor];
+        const en = lookupEnrich(d.cnpj_fornecedor);
         const badge = enBadge(en);
+        const cnpjDig = digitsOnly(d.cnpj_fornecedor);
+        const cnpjBtn = cnpjDig
+          ? `<button type="button" class="linkish mono" data-open-forn="${esc(cnpjDig)}">${esc(
+              formatCnpj(d.cnpj_fornecedor)
+            )}</button>`
+          : `<span class="cnpj">${esc(d.cnpj_fornecedor || 'N/A')}</span>`;
         return `<tr class="${d.suspeita ? 'suspeito' : ''}">
         <td><b>${esc(d.nome_parlamentar)}</b><br><span class="sub">${esc(d.partido || '')}/${esc(d.uf || '')} • ${
           d.casa === 'camara' ? 'Câmara' : 'Senado'
         }</span></td>
         <td class="tipo-cell">${esc(d.tipo_despesa || '')}${alertsStr}</td>
-        <td>${esc(d.fornecedor || 'N/A')} ${badge}</td>
-        <td class="cnpj">${esc(d.cnpj_fornecedor || 'N/A')}</td>
+        <td>${
+          cnpjDig
+            ? `<button type="button" class="linkish" data-open-forn="${esc(cnpjDig)}">${esc(
+                d.fornecedor || 'N/A'
+              )}</button>`
+            : esc(d.fornecedor || 'N/A')
+        } ${badge}</td>
+        <td>${cnpjBtn}</td>
         <td>${esc((d.data_documento || '').split('T')[0] || 'S/ Data')}<br>${docLink(d.url_documento, 'Nota')}</td>
         <td class="val ${valClass(d.valor)}">${esc(fmt(d.valor))}</td>
       </tr>`;
       })
       .join('');
+    document.querySelectorAll('#tbl-body [data-open-forn]').forEach((btn) => {
+      btn.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        openFichaFornecedor(btn.getAttribute('data-open-forn'));
+      });
+    });
     renderPag('pag-gastos', filtered.length, currentPageGastos, 'gastos', ITEMS_PER_PAGE);
   }
 
@@ -640,28 +827,43 @@
     document.getElementById('forn-list').innerHTML = f
       .map((x, i) => {
         const badge = enBadge(x.enrich);
-        return `<div class="forn-card" role="button" tabindex="0" data-forn-filter="${esc(x.fornecedor)}" style="animation-delay:${i * 0.02}s">
+        const key = x.cnpj_digits || x.key || '';
+        return `<div class="forn-card" role="button" tabindex="0" data-open-forn="${esc(key)}" data-forn-filter="${esc(
+          x.fornecedor
+        )}" style="animation-delay:${i * 0.02}s">
         <div>
           <div class="nm">${i + 1}. ${esc(x.fornecedor)} ${badge}</div>
-          <div class="cn">${esc(x.cnpj_fornecedor || '')}</div>
-          <div class="parls">${esc(x.parlamentares)}</div>
+          <div class="cn">${esc(formatCnpj(x.cnpj_fornecedor || x.cnpj_digits))}</div>
+          <div class="parls">${x.parls ? esc(Array.from(x.parls).slice(0, 8).join(', ')) : esc(x.parlamentares)}
+            ${x.parls && x.parls.size > 8 ? `… (+${x.parls.size - 8})` : ''}</div>
         </div>
         <div>
           <div class="vl">${esc(fmt(x.total))}</div>
-          <div class="qt">${x.qtd} nota(s)</div>
+          <div class="qt">${x.qtd} nota(s) • ${x.parls ? x.parls.size : 0} parl.</div>
         </div>
       </div>`;
       })
       .join('');
-    document.querySelectorAll('[data-forn-filter]').forEach((card) => {
-      card.addEventListener('click', () => {
-        const name = card.getAttribute('data-forn-filter');
-        showTab('gastos');
-        const inp = document.getElementById('filt-forn');
-        if (inp) {
-          inp.value = name;
-          filterGastos(true);
+    document.querySelectorAll('#forn-list [data-open-forn]').forEach((card) => {
+      const open = () => {
+        const key = card.getAttribute('data-open-forn');
+        if (key) openFichaFornecedor(key);
+      };
+      card.addEventListener('click', (ev) => {
+        if (ev.shiftKey) {
+          const name = card.getAttribute('data-forn-filter');
+          showTab('gastos');
+          const inp = document.getElementById('filt-forn');
+          if (inp) {
+            inp.value = card.getAttribute('data-open-forn') || name || '';
+            filterGastos(true);
+          }
+          return;
         }
+        open();
+      });
+      card.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter') open();
       });
     });
   }
@@ -830,10 +1032,37 @@
   }
 
   /* ---------- Auditoria / Metodologia ---------- */
+  function gravidadeBadge(g) {
+    const v = (g || '').toLowerCase();
+    if (v === 'alta') return '<span class="badge-grav badge-grav-alta">Alta</span>';
+    if (v === 'media') return '<span class="badge-grav badge-grav-media">Média</span>';
+    return `<span class="badge-grav">${esc(g || '—')}</span>`;
+  }
+
+  function filteredAlertas() {
+    const g = document.getElementById('filt-aud-gravidade')?.value || '';
+    const t = document.getElementById('filt-aud-tipo')?.value || '';
+    return (DATA.alertas_auditoria || []).filter((a) => {
+      if (g && (a.gravidade || '').toLowerCase() !== g) return false;
+      if (t && a.tipo !== t) return false;
+      return true;
+    });
+  }
+
   function renderAuditoria() {
     const alertas = DATA.alertas_auditoria || [];
+    const tipoSel = document.getElementById('filt-aud-tipo');
+    if (tipoSel && auditComputed) {
+      const tipos = [...new Set(alertas.map((a) => a.tipo).filter(Boolean))].sort();
+      const cur = tipoSel.value;
+      tipoSel.innerHTML =
+        '<option value="">Todos os tipos</option>' +
+        tipos.map((t) => `<option value="${esc(t)}"${t === cur ? ' selected' : ''}>${esc(t)}</option>`).join('');
+    }
+
+    const filtered = filteredAlertas();
     document.getElementById('auditoria-tag').textContent = auditComputed
-      ? `${alertas.length} alertas`
+      ? `${filtered.length} de ${alertas.length} alertas`
       : 'Calculando…';
     if (!auditComputed) {
       document.getElementById('auditoria-list').innerHTML =
@@ -845,25 +1074,74 @@
         '<p class="empty-ok">Nenhum gasto duvidoso detectado neste recorte.</p>';
       return;
     }
-    const sorted = alertas.slice().sort((a, b) => (b.valor || 0) - (a.valor || 0)).slice(0, 200);
+    if (!filtered.length) {
+      document.getElementById('auditoria-list').innerHTML =
+        '<p class="empty-msg">Nenhum alerta com estes filtros.</p>';
+      return;
+    }
+    const sorted = filtered.slice().sort((a, b) => (b.valor || 0) - (a.valor || 0)).slice(0, 200);
     document.getElementById('auditoria-list').innerHTML = sorted
-      .map(
-        (a) => `<div class="forn-card audit-card">
+      .map((a) => {
+        const dig = digitsOnly(a.cnpj_fornecedor);
+        return `<div class="forn-card audit-card">
       <div>
-        <div class="nm">${esc(a.nome_parlamentar)} <span class="sub">• ${esc(a.tipo_despesa || '')}</span></div>
+        <div class="nm">${esc(a.nome_parlamentar)} ${gravidadeBadge(a.gravidade)}
+          <span class="sub">• ${esc(a.tipo_despesa || '')}</span></div>
         <div class="alert-mini">${esc(a.tipo)}</div>
         <div class="parls">${esc(a.descricao || '')}</div>
-        <div class="parls"><strong>Fornecedor:</strong> ${esc(a.fornecedor || 'N/A')}
-          <br><small class="mono">${esc(a.cnpj_fornecedor || 'N/A')}</small>
-          <br><strong>Data:</strong> ${esc((a.data_documento || '').split('T')[0] || 'N/A')} ${docLink(
-          a.url_documento,
-          'Comprovante'
-        )}</div>
+        <div class="evidencia">
+          <div><strong>Evidência</strong></div>
+          <ul>
+            <li>Regra: ${esc(a.tipo)} (${esc(a.gravidade || '—')})</li>
+            <li>Valor: ${esc(fmt(a.valor))} em ${esc((a.data_documento || '').split('T')[0] || 'N/A')}</li>
+            <li>Parlamentar: ${esc(a.nome_parlamentar)} (${esc(a.partido || '')}/${esc(a.uf || '')})</li>
+            <li>Fornecedor: ${esc(a.fornecedor || 'N/A')} · ${
+          dig
+            ? `<button type="button" class="linkish mono" data-open-forn="${esc(dig)}">${esc(
+                formatCnpj(a.cnpj_fornecedor)
+              )}</button>`
+            : esc(a.cnpj_fornecedor || 'N/A')
+        }</li>
+            <li>Comprovante: ${docLink(a.url_documento, 'Abrir nota')}</li>
+          </ul>
+        </div>
       </div>
       <div class="vl" style="color:var(--red)">${esc(fmt(a.valor))}</div>
-    </div>`
-      )
+    </div>`;
+      })
       .join('');
+    document.querySelectorAll('#auditoria-list [data-open-forn]').forEach((btn) => {
+      btn.addEventListener('click', () => openFichaFornecedor(btn.getAttribute('data-open-forn')));
+    });
+  }
+
+  function exportAlertasCsv() {
+    if (!auditComputed) {
+      computeAuditoriaLazy().then(() => {
+        renderAuditoria();
+        exportAlertasCsv();
+      });
+      return;
+    }
+    const rows = filteredAlertas().map((a) => ({
+      tipo: a.tipo || '',
+      gravidade: a.gravidade || '',
+      descricao: a.descricao || '',
+      nome_parlamentar: a.nome_parlamentar || '',
+      partido: a.partido || '',
+      uf: a.uf || '',
+      casa: a.casa || '',
+      tipo_despesa: a.tipo_despesa || '',
+      fornecedor: a.fornecedor || '',
+      cnpj: a.cnpj_fornecedor || '',
+      data: (a.data_documento || '').split('T')[0] || '',
+      valor: a.valor != null ? a.valor : '',
+      url_documento: a.url_documento || '',
+      parlamentar_id: a.parlamentar_id || '',
+    }));
+    if (!rows.length) return;
+    const stamp = new Date().toISOString().slice(0, 10);
+    downloadCsv(`cvp-ia-alertas-${stamp}.csv`, rows);
   }
 
   function renderMetodologia() {
@@ -875,6 +1153,14 @@
         <p>Média ponderada de presença em votações, economia da cota (CEAP), transparência TSE e coerência partidária. Períodos sem despesas e sem votos são marcados como <strong>dados insuficientes</strong> e não devem ser lidos como “nota média”.</p>
       </article>
       <article class="method-block">
+        <h3>Comparativo vs pares</h3>
+        <p>Na ficha e no ranking, a nota é comparada à <strong>mediana</strong> dos parlamentares da mesma casa no mesmo <strong>partido</strong> e na mesma <strong>UF</strong> (excluindo dados insuficientes). Grupos com menos de 3 pares mostram “amostra insuficiente”.</p>
+      </article>
+      <article class="method-block">
+        <h3>Ficha do fornecedor (CNPJ)</h3>
+        <p>Agrega despesas pelo CNPJ (dígitos), com totais, tipos de despesa, parlamentares atendidos, situação cadastral/TCU quando enriquecida, e links para comprovantes. Shift+clique no card filtra a aba Gastos.</p>
+      </article>
+      <article class="method-block">
         <h3>Alertas de auditoria</h3>
         <ul>
           <li><strong>Valor redondo alto</strong> — valor ≥ R$ 5.000 e múltiplo de 1.000</li>
@@ -883,19 +1169,63 @@
           <li><strong>Fracionamento</strong> — ≥ 3 notas no mesmo dia para o mesmo CNPJ</li>
           <li><strong>CNPJ/TCU</strong> — fornecedor irregular ou sancionado (quando enriquecido pelo ETL)</li>
         </ul>
-        <p>Heurísticas auxiliam triagem; não comprovam irregularidade. Valide sempre o comprovante oficial.</p>
+        <p>Cada alerta exibe evidência (regra, valor, data, CNPJ, comprovante). O botão <strong>Exportar CSV</strong> baixa todos os alertas do filtro atual. Heurísticas auxiliam triagem; não comprovam irregularidade.</p>
       </article>
       <article class="method-block">
         <h3>Fontes</h3>
-        <p>APIs de dados abertos da Câmara, Senado e TSE. Atualização via pipeline diário → Supabase.</p>
+        <p>APIs de dados abertos da Câmara, Senado e TSE. Atualização via pipeline → Supabase.</p>
       </article>`;
   }
 
   /* ---------- Ficha unificada ---------- */
+  function peerSectionHtml(p) {
+    const peers = peerStats(p);
+    const totalG = gastoDoParlamentar(p.id);
+    function block(label, pack) {
+      if (pack.insuficiente) {
+        return `<div class="peer-block"><h4>${esc(label)}</h4><p class="sub">Amostra insuficiente (n=${pack.n})</p></div>`;
+      }
+      return `<div class="peer-block">
+        <h4>${esc(label)} <span class="sub">(n=${pack.n})</span></h4>
+        <div class="score-break peer-deltas">
+          <span>Nota <b class="${deltaClass(p.score_geral, pack.score_geral)}">${esc(
+            deltaLabel(p.score_geral, pack.score_geral)
+          )}</b> <small>med ${pack.score_geral != null ? Number(pack.score_geral).toFixed(1) : '—'}</small></span>
+          <span>Presença <b class="${deltaClass(p.score_atividade, pack.score_atividade)}">${esc(
+            deltaLabel(p.score_atividade, pack.score_atividade)
+          )}</b></span>
+          <span>Economia <b class="${deltaClass(p.score_gasto, pack.score_gasto)}">${esc(
+            deltaLabel(p.score_gasto, pack.score_gasto)
+          )}</b></span>
+          <span>Transp. <b class="${deltaClass(p.score_transparencia, pack.score_transparencia)}">${esc(
+            deltaLabel(p.score_transparencia, pack.score_transparencia)
+          )}</b></span>
+          <span>Coerência <b class="${deltaClass(p.score_coerencia, pack.score_coerencia)}">${esc(
+            deltaLabel(p.score_coerencia, pack.score_coerencia)
+          )}</b></span>
+          <span>Gasto <b class="${deltaClass(totalG, pack.gasto)}">${
+            pack.gasto == null
+              ? '—'
+              : esc((() => {
+                  const d = totalG - pack.gasto;
+                  const sign = d >= 0 ? '+' : '−';
+                  return sign + fmt(Math.abs(d));
+                })())
+          }</b> <small>med ${pack.gasto != null ? esc(fmt(pack.gasto)) : '—'}</small></span>
+        </div>
+      </div>`;
+    }
+    return `<section class="peer-section">
+      <h3>Comparativo vs pares</h3>
+      <p class="sub">Deltas em relação à mediana da mesma casa (excluindo dados insuficientes).</p>
+      ${block(`Partido ${p.partido || '—'}`, peers.partido)}
+      ${block(`UF ${p.uf || '—'}`, peers.uf)}
+    </section>`;
+  }
+
   function openFicha(parlamentarId) {
     const p = (DATA.parlamentares || []).find((x) => String(x.id) === String(parlamentarId));
     if (!p) return;
-    const drawer = document.getElementById('ficha-drawer');
     const body = document.getElementById('ficha-body');
     const desps = (DATA.despesas || []).filter((d) => String(d.parlamentar_id) === String(p.id));
     const votos = (DATA.votos || []).filter((v) => v.nome_parlamentar === p.nome_parlamentar);
@@ -926,6 +1256,7 @@
         </div>
         <p><a href="${safeUrl(official) || '#'}" target="_blank" rel="noopener noreferrer">Perfil oficial</a></p>
       </header>
+      ${peerSectionHtml(p)}
       <section>
         <h3>Histórico de scores</h3>
         ${
@@ -947,14 +1278,18 @@
           .slice()
           .sort((a, b) => b.valor - a.valor)
           .slice(0, 15)
-          .map(
-            (d) =>
-              `<div class="exp-row"><div>${esc((d.tipo_despesa || '').substring(0, 28))}</div><div>${esc(
-                d.fornecedor || ''
-              )}</div><div>${docLink(d.url_documento, 'Nota')}</div><div class="val">${esc(
-                fmt(d.valor)
-              )}</div></div>`
-          )
+          .map((d) => {
+            const dig = digitsOnly(d.cnpj_fornecedor);
+            const forn = dig
+              ? `<button type="button" class="linkish" data-open-forn="${esc(dig)}">${esc(
+                  d.fornecedor || ''
+                )}</button>`
+              : esc(d.fornecedor || '');
+            return `<div class="exp-row"><div>${esc((d.tipo_despesa || '').substring(0, 28))}</div><div>${forn}</div><div>${docLink(
+              d.url_documento,
+              'Nota'
+            )}</div><div class="val">${esc(fmt(d.valor))}</div></div>`;
+          })
           .join('')}</div>
       </section>
       <section>
@@ -997,11 +1332,97 @@
             : '<p class="sub">Sem candidatura TSE vinculada.</p>'
         }
       </section>`;
-    drawer.classList.add('open');
-    drawer.setAttribute('aria-hidden', 'false');
-    const backdrop = document.getElementById('ficha-backdrop');
-    backdrop.classList.add('open');
-    backdrop.hidden = false;
+    body.querySelectorAll('[data-open-forn]').forEach((btn) => {
+      btn.addEventListener('click', () => openFichaFornecedor(btn.getAttribute('data-open-forn')));
+    });
+    showDrawer();
+  }
+
+  function openFichaFornecedor(cnpjOrKey) {
+    const agg = findFornecedorAgg(cnpjOrKey);
+    if (!agg) return;
+    const body = document.getElementById('ficha-body');
+    const enrich = agg.enrich || lookupEnrich(agg.cnpj_fornecedor || agg.cnpj_digits);
+    const tipos = Object.entries(agg.tipos || {})
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 12);
+    const parlEntries = agg.parlIds
+      ? Array.from(agg.parlIds.entries())
+      : Array.from(agg.parls || []).map((n) => [null, n]);
+    const notas = (agg.notas || [])
+      .slice()
+      .sort((a, b) => (b.valor || 0) - (a.valor || 0))
+      .slice(0, 20);
+    const razao = (enrich && enrich.razao_social) || agg.fornecedor;
+
+    body.innerHTML = `
+      <header class="ficha-head">
+        <h2>${esc(razao)}</h2>
+        <p>CNPJ/CPF: <span class="mono">${esc(formatCnpj(agg.cnpj_fornecedor || agg.cnpj_digits))}</span>
+          ${enBadge(enrich)}</p>
+        <div class="score-break">
+          <span>Total <b>${esc(fmt(agg.total))}</b></span>
+          <span>Notas <b>${agg.qtd}</b></span>
+          <span>Parlamentares <b>${agg.parls ? agg.parls.size : parlEntries.length}</b></span>
+        </div>
+        ${
+          enrich && enrich.detalhe
+            ? `<p class="sub">${esc(typeof enrich.detalhe === 'string' ? enrich.detalhe : JSON.stringify(enrich.detalhe))}</p>`
+            : ''
+        }
+        <p><button type="button" class="pag-btn" id="ficha-forn-gastos">Ver todas em Gastos</button></p>
+      </header>
+      <section>
+        <h3>Por tipo de despesa</h3>
+        <ul class="hist-list">${
+          tipos.length
+            ? tipos
+                .map(([t, v]) => `<li>${esc(t)} — <b>${esc(fmt(v))}</b></li>`)
+                .join('')
+            : '<li class="sub">Sem breakdown.</li>'
+        }</ul>
+      </section>
+      <section>
+        <h3>Parlamentares</h3>
+        <ul class="hist-list">${
+          parlEntries.length
+            ? parlEntries
+                .map(([id, nome]) =>
+                  id
+                    ? `<li><button type="button" class="linkish" data-ficha="${esc(id)}">${esc(nome)}</button></li>`
+                    : `<li>${esc(nome)}</li>`
+                )
+                .join('')
+            : '<li class="sub">Nenhum parlamentar vinculado.</li>'
+        }</ul>
+      </section>
+      <section>
+        <h3>Maiores notas</h3>
+        <div class="exp-grid compact">${notas
+          .map(
+            (d) =>
+              `<div class="exp-row"><div>${esc((d.nome_parlamentar || '').substring(0, 22))}</div><div>${esc(
+                (d.tipo_despesa || '').substring(0, 28)
+              )}</div><div>${docLink(d.url_documento, 'Nota')}</div><div class="val">${esc(
+                fmt(d.valor)
+              )}</div></div>`
+          )
+          .join('')}</div>
+      </section>`;
+
+    body.querySelectorAll('[data-ficha]').forEach((btn) => {
+      btn.addEventListener('click', () => openFicha(btn.getAttribute('data-ficha')));
+    });
+    document.getElementById('ficha-forn-gastos')?.addEventListener('click', () => {
+      closeFicha();
+      showTab('gastos');
+      const inp = document.getElementById('filt-forn');
+      if (inp) {
+        inp.value = agg.cnpj_digits || agg.fornecedor || '';
+        filterGastos(true);
+      }
+    });
+    showDrawer();
   }
 
   function closeFicha() {
@@ -1162,7 +1583,9 @@
       }
       DATA.fornecedoresEnrich = {};
       fornRows.forEach((f) => {
-        if (f.cnpj) DATA.fornecedoresEnrich[f.cnpj] = f;
+        if (!f.cnpj) return;
+        DATA.fornecedoresEnrich[f.cnpj] = f;
+        DATA.fornecedoresEnrich[digitsOnly(f.cnpj)] = f;
       });
 
       let propRows = [];
@@ -1267,6 +1690,12 @@
     const sus = document.getElementById('filt-suspeito');
     if (sus) sus.addEventListener('change', () => filterGastos(true));
 
+    ['filt-aud-gravidade', 'filt-aud-tipo'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('change', () => renderAuditoria());
+    });
+    document.getElementById('btn-export-alertas')?.addEventListener('click', () => exportAlertasCsv());
+
     ['filt-vot-parl', 'filt-vot-part', 'filt-vot-voto'].forEach((id) => {
       const el = document.getElementById(id);
       if (el) el.addEventListener('change', () => filterVotacoes(true));
@@ -1315,5 +1744,5 @@
   });
 
   // Expose minimal API for inline fallbacks (none required if data-tab used)
-  window.CVP = { showTab, openFicha, closeFicha, esc, safeUrl };
+  window.CVP = { showTab, openFicha, openFichaFornecedor, closeFicha, esc, safeUrl, downloadCsv };
 })();

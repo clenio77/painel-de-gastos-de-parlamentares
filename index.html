@@ -83,7 +83,7 @@
 
     <div id="panel-fornecedores" class="panel" role="tabpanel" hidden>
       <h2 class="stitle">Fornecedores<span class="tag" id="forn-tag"></span></h2>
-      <p class="hint">Clique em um fornecedor para filtrar a aba Gastos.</p>
+      <p class="hint">Clique para abrir a ficha do CNPJ (totais, parlamentares e notas). Shift+clique filtra a aba Gastos.</p>
       <div id="forn-list"></div>
     </div>
 
@@ -138,7 +138,18 @@
 
     <div id="panel-auditoria" class="panel" role="tabpanel" hidden>
       <h2 class="stitle">Gastos duvidosos<span class="tag" id="auditoria-tag"></span></h2>
-      <p class="hint">Heurísticas de triagem (valor redondo, refeição, fim de semana, fracionamento, CNPJ/TCU). Valide sempre o comprovante.</p>
+      <p class="hint">Heurísticas de triagem com evidência (regra, valor, CNPJ, comprovante). Valide sempre o documento oficial. O CSV exporta todos os alertas do recorte.</p>
+      <div class="filt" id="filters-auditoria">
+        <select id="filt-aud-gravidade" aria-label="Gravidade">
+          <option value="">Todas as gravidades</option>
+          <option value="alta">Alta</option>
+          <option value="media">Média</option>
+        </select>
+        <select id="filt-aud-tipo" aria-label="Tipo de alerta">
+          <option value="">Todos os tipos</option>
+        </select>
+        <button type="button" id="btn-export-alertas" class="pag-btn">Exportar CSV</button>
+      </div>
       <div id="auditoria-list"></div>
     </div>
 
@@ -158,7 +169,7 @@
 </div>
 
 <div id="ficha-backdrop" class="ficha-backdrop" hidden></div>
-<aside id="ficha-drawer" class="ficha-drawer" aria-hidden="true" aria-label="Ficha do parlamentar">
+<aside id="ficha-drawer" class="ficha-drawer" aria-hidden="true" aria-label="Ficha detalhada">
   <button type="button" id="ficha-close" class="ficha-close" aria-label="Fechar ficha">Fechar</button>
   <div id="ficha-body"></div>
 </aside>

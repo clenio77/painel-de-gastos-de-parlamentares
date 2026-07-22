@@ -438,6 +438,58 @@ body::before {
 .forn-card .vl { font-size: 22px; font-weight: 800; color: var(--yellow); text-align: right; }
 .forn-card .qt { font-size: 12px; color: var(--t3); text-align: right; }
 .audit-card { border-left: 3px solid var(--red); cursor: default; }
+.evidencia {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--brd);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--t2);
+}
+.evidencia ul { margin: 6px 0 0 16px; }
+.evidencia li { margin-bottom: 4px; line-height: 1.4; }
+.badge-grav {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.badge-grav-alta { background: rgba(248, 113, 113, 0.18); color: var(--red); }
+.badge-grav-media { background: rgba(251, 191, 36, 0.18); color: var(--yellow); }
+.linkish {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--blue);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+.linkish:hover { text-decoration: underline; }
+.peer-line {
+  font-size: 12px;
+  color: var(--t3);
+  margin-top: 6px;
+}
+.peer-section { margin-top: 8px; }
+.peer-block {
+  margin: 10px 0;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--brd);
+  border-radius: 8px;
+}
+.peer-block h4 { font-size: 13px; margin-bottom: 6px; color: var(--t1); }
+.peer-deltas small { color: var(--t3); font-weight: 500; margin-left: 4px; }
+.delta-pos { color: var(--green); }
+.delta-neg { color: var(--red); }
 
 .pag {
   display: flex; justify-content: center; align-items: center;
