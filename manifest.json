@@ -1,11 +1,11 @@
 {
   "name": "CVP-IA Auditoria",
   "short_name": "CVP-IA",
-  "description": "Monitoramento e Auditoria de Gastos Parlamentares",
+  "description": "Painel de auditoria e monitoramento de gastos parlamentares",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#0a0e1a",
-  "theme_color": "#3b82f6",
+  "background_color": "#0c1219",
+  "theme_color": "#2dd4bf",
   "icons": [
     {
       "src": "icon-512.png",
